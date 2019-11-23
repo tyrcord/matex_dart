@@ -1,0 +1,4 @@
+enum Trend {
+  Up,
+  Down,
+}

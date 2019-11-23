@@ -1,0 +1,1 @@
+export './lot.descriptor.dart';
