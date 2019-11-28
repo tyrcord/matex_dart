@@ -6,10 +6,11 @@ environment:
 
 dependencies:
   async: ^2.4.0
+  equatable: ^1.0.1
+  rxdart: ^0.22.6
+  meta: ^1.1.8
+  decimal: ^0.3.5
 
 dev_dependencies:
   pedantic: ^1.8.0+1
   test: ^1.9.4
-  rxdart: ^0.22.6
-  meta: ^1.1.8
-  decimal: ^0.3.5

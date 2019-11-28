@@ -2,6 +2,7 @@ export './calculators/calculators.dart';
 export './data/data.dart';
 export './descriptors/descriptors.dart';
 export './enums/enums.dart';
+export './helpers/helpers.dart';
 export './mixins/mixins.dart';
 export './models/models.dart';
 export './states/states.dart';

@@ -1,7 +1,7 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:test/test.dart';
 
-import './messages/shared.dart';
+import './shared/messages.dart';
 
 void main() {
   group('PipValueCalculator', () {
@@ -12,7 +12,7 @@ void main() {
     });
 
     group('pip', () {
-      test("should return an instance of PipValueCalculator", () {
+      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
         expect(calculator is PipValueCalculator, equals(true));
       });
     });
@@ -45,21 +45,21 @@ void main() {
     });
 
     group('#setState()', () {
-      test('should update the calculator\'s state', () {
-        calculator.setState({
-          CalculatorKey.PositionSize: 1000,
-        });
+      test(SHOULD_UPDATE_CALCULATOR_STATE, () {
+        calculator.setState(PipValueState(
+          positionSize: 1000,
+        ));
 
         expect(
-          calculator.getValueForKey(CalculatorKey.PositionSize),
+          calculator.getState().positionSize,
           equals(1000),
         );
       });
 
-      test('should return an instance of the calculator', () {
-        final instance = calculator.setState({
-          CalculatorKey.PositionSize: 1000,
-        });
+      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        final instance = calculator.setState(PipValueState(
+          positionSize: 1000,
+        ));
 
         expect(instance == calculator, equals(true));
       });
@@ -67,22 +67,22 @@ void main() {
 
     group('#setValue()', () {
       test(SHOULD_UPDATE_CALCULATOR_PROPERTY_STATE, () {
-        calculator.setValue(CalculatorKey.PositionSize, 1000);
-        expect(calculator.getValueForKey(CalculatorKey.PositionSize),
-            equals(1000));
+        calculator.setState(PipValueState(
+          positionSize: 1000,
+        ));
+        expect(
+          calculator.getState().positionSize,
+          equals(1000),
+        );
       });
 
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator.setValue(CalculatorKey.PipPrecision, 2),
-            equals(calculator));
-      });
-    });
-
-    group('#getValueForKey()', () {
-      test(SHOULD_RETURN_CALCULATOR_PROPERTY_STATE_VALUE, () {
-        calculator.setValue(CalculatorKey.PositionSize, 10000);
-        expect(calculator.getValueForKey(CalculatorKey.PositionSize),
-            equals(10000));
+        expect(
+          calculator.setState(PipValueState(
+            pipPrecision: 2,
+          )),
+          equals(calculator),
+        );
       });
     });
 
@@ -106,13 +106,17 @@ void main() {
             calculator.positionSize(1).tradingPairExchangeRate(1).value();
 
         expect(
-            calculator.getValueForKey(CalculatorKey.PositionSize), equals(1));
+          calculator.getState().positionSize,
+          equals(1),
+        );
         expect(pipValue, equals(0.0001));
 
         pipValue = calculator.positionSize(1000).value();
 
-        expect(calculator.getValueForKey(CalculatorKey.PositionSize),
-            equals(1000));
+        expect(
+          calculator.getState().positionSize,
+          equals(1000),
+        );
         expect(pipValue, equals(0.1));
       });
     });
@@ -130,7 +134,9 @@ void main() {
             .value();
 
         expect(
-            calculator.getValueForKey(CalculatorKey.PipPrecision), equals(4));
+          calculator.getState().pipPrecision,
+          equals(4),
+        );
         expect(pipValue, equals(0.0001));
 
         pipValue = calculator
@@ -140,7 +146,9 @@ void main() {
             .value();
 
         expect(
-            calculator.getValueForKey(CalculatorKey.PipPrecision), equals(2));
+          calculator.getState().pipPrecision,
+          equals(2),
+        );
         expect(pipValue, equals(0.01));
       });
     });
@@ -157,7 +165,7 @@ void main() {
             calculator.positionSize(1).tradingPairExchangeRate(1.25).value();
 
         expect(
-            calculator.getValueForKey(CalculatorKey.TradingPairExchangeRate),
+            calculator.getState().tradingPairExchangeRate,
             equals(
               1.25,
             ));
@@ -166,8 +174,10 @@ void main() {
         pipValue =
             calculator.positionSize(1).tradingPairExchangeRate(2).value();
 
-        expect(calculator.getValueForKey(CalculatorKey.TradingPairExchangeRate),
-            equals(2));
+        expect(
+          calculator.getState().tradingPairExchangeRate,
+          equals(2),
+        );
         expect(pipValue, equals(0.00005));
       });
     });
@@ -186,8 +196,10 @@ void main() {
             .baseExchangeRate(1.25)
             .value();
 
-        expect(calculator.getValueForKey(CalculatorKey.BaseExchangeRate),
-            equals(1.25));
+        expect(
+          calculator.getState().baseExchangeRate,
+          equals(1.25),
+        );
         expect(pipValue, equals(0.00008));
 
         pipValue = calculator
@@ -196,8 +208,10 @@ void main() {
             .baseExchangeRate(2)
             .value();
 
-        expect(calculator.getValueForKey(CalculatorKey.BaseExchangeRate),
-            equals(2));
+        expect(
+          calculator.getState().baseExchangeRate,
+          equals(2),
+        );
         expect(pipValue, equals(0.00005));
       });
     });
@@ -215,8 +229,10 @@ void main() {
             .baseExchangeRate(1)
             .value();
 
-        expect(calculator.getValueForKey(CalculatorKey.BaseListedSecond),
-            equals(true));
+        expect(
+          calculator.getState().baseListedSecond,
+          equals(true),
+        );
         expect(pipValue, equals(0.0001));
       });
     });
@@ -239,8 +255,10 @@ void main() {
         calculator.lotDescriptors(lotDescriptors);
         calculator.lot(1);
 
-        expect(calculator.getValueForKey(CalculatorKey.PositionSize),
-            equals(5000));
+        expect(
+          calculator.getState().positionSize,
+          equals(5000),
+        );
 
         lotDescriptors = kDefaultLotDescriptors.copyWith(
           lot: LotDescriptor(
@@ -253,7 +271,9 @@ void main() {
         calculator.lot(1);
 
         expect(
-            calculator.getValueForKey(CalculatorKey.PositionSize), equals(0));
+          calculator.getState().positionSize,
+          equals(0),
+        );
       });
     });
 
@@ -264,8 +284,10 @@ void main() {
 
       test('should update the position size value', () {
         calculator.lot(1);
-        expect(calculator.getValueForKey(CalculatorKey.PositionSize),
-            equals(100000));
+        expect(
+          calculator.getState().positionSize,
+          equals(100000),
+        );
       });
     });
 
@@ -276,8 +298,10 @@ void main() {
 
       test('should update the position size value', () {
         calculator.miniLot(1);
-        expect(calculator.getValueForKey(CalculatorKey.PositionSize),
-            equals(10000));
+        expect(
+          calculator.getState().positionSize,
+          equals(10000),
+        );
       });
     });
 
@@ -288,8 +312,10 @@ void main() {
 
       test('should update the position size value', () {
         calculator.microLot(1);
-        expect(calculator.getValueForKey(CalculatorKey.PositionSize),
-            equals(1000));
+        expect(
+          calculator.getState().positionSize,
+          equals(1000),
+        );
       });
     });
 
@@ -301,7 +327,9 @@ void main() {
       test('should update the position size value', () {
         calculator.nanoLot(1);
         expect(
-            calculator.getValueForKey(CalculatorKey.PositionSize), equals(100));
+          calculator.getState().positionSize,
+          equals(100),
+        );
       });
     });
 

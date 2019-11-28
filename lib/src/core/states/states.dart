@@ -1,3 +1,4 @@
+export './base.state.dart';
 export './fibonacci_levels.state.dart';
 export './pip_value.state.dart';
 export './position_size.state.dart';

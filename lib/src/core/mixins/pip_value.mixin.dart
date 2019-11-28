@@ -1,27 +1,46 @@
-import 'package:matex_dart/src/core/calculators/abstract/base.dart';
-import 'package:matex_dart/src/core/enums/calculator_key.enum.dart';
+import 'package:decimal/decimal.dart';
+import 'package:matex_dart/matex_dart.dart';
 
-mixin PipValueMixin<C, R> on BaseCalculator<R> {
+mixin PipValueMixin<C, S extends BaseState, R> on BaseCalculator<S, R> {
   C baseExchangeRate(double baseExchangeRate) {
-    return setValue(CalculatorKey.BaseExchangeRate, baseExchangeRate) as C;
+    final sanitizedValue = sanitizeDouble(baseExchangeRate);
+    return patchState(BaseState(baseExchangeRate: sanitizedValue)) as C;
   }
 
   C baseListedSecond(bool baseListedSecond) {
-    return setValue(CalculatorKey.BaseListedSecond, baseListedSecond) as C;
+    return patchState(BaseState(baseListedSecond: baseListedSecond)) as C;
   }
 
   C pipPrecision(int pipPrecision) {
-    return setValue(CalculatorKey.PipPrecision, pipPrecision) as C;
+    return patchState(BaseState(pipPrecision: pipPrecision)) as C;
   }
 
   C positionSize(double positionSize) {
-    return setValue(CalculatorKey.PositionSize, positionSize) as C;
+    final sanitizedValue = sanitizeDouble(positionSize);
+    return patchState(BaseState(positionSize: sanitizedValue)) as C;
   }
 
   C tradingPairExchangeRate(double tradingPairExchangeRate) {
-    return setValue(
-      CalculatorKey.TradingPairExchangeRate,
-      tradingPairExchangeRate,
-    ) as C;
+    final sanitizedValue = sanitizeDouble(tradingPairExchangeRate);
+    return patchState(BaseState(tradingPairExchangeRate: sanitizedValue)) as C;
+  }
+
+  double pipValue(S state) {
+    final baseExchangeRate = state.baseExchangeRate;
+    final baseListedSecond = state.baseListedSecond;
+    final pipPrecision = state.pipPrecision;
+    final positionSize = state.positionSize;
+    final tradingPairExchangeRate = state.tradingPairExchangeRate;
+
+    final decimalPip =
+        Decimal.parse('1.0') / Decimal.parse('10').pow(pipPrecision);
+
+    return (decimalPip /
+            Decimal.parse(
+                (baseListedSecond ? 1 : tradingPairExchangeRate).toString()) /
+            Decimal.parse(
+                (baseExchangeRate > 0 ? baseExchangeRate : 1).toString()) *
+            Decimal.parse(positionSize.toString()))
+        .toDouble();
   }
 }

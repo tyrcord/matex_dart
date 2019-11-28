@@ -1,3 +1,3 @@
-import 'package:matex_dart/src/core/enums/enums.dart';
+import 'package:matex_dart/matex_dart.dart';
 
-typedef StateValidator = bool Function(Map<CalculatorKey, dynamic> state);
+typedef StateValidator<S extends BaseState> = bool Function(S state);

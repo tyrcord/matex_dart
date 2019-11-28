@@ -1,44 +1,42 @@
-import 'package:matex_dart/src/core/calculators/abstract/base.dart';
-import 'package:matex_dart/src/core/enums/enums.dart';
+import 'package:matex_dart/matex_dart.dart';
 import 'package:matex_dart/src/core/models/models.dart';
 import 'package:decimal/decimal.dart';
 
-mixin LotMixin<C, R> on BaseCalculator<R> {
+mixin LotMixin<C, S extends BaseState, R> on BaseCalculator<S, R> {
   C lotDescriptors(LotDescriptors lotDescriptors) {
-    return setValue(CalculatorKey.LotDescriptors, lotDescriptors) as C;
+    return patchState(BaseState(lotDescriptors: lotDescriptors)) as C;
   }
 
   C lot(int lot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      getValueForKey<LotDescriptors>(CalculatorKey.LotDescriptors).lot,
+      state.lotDescriptors.lot,
       lot,
     );
-    return setValue(CalculatorKey.PositionSize, positionSize) as C;
+    return patchState(BaseState(positionSize: positionSize)) as C;
   }
 
   C microLot(int microLot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      getValueForKey<LotDescriptors>(CalculatorKey.LotDescriptors).microLot,
+      state.lotDescriptors.microLot,
       microLot,
     );
-    return setValue(CalculatorKey.PositionSize, positionSize) as C;
+    return patchState(BaseState(positionSize: positionSize)) as C;
   }
 
   C miniLot(int miniLot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      getValueForKey<LotDescriptors>(CalculatorKey.LotDescriptors).miniLot,
+      state.lotDescriptors.miniLot,
       miniLot,
     );
-    return setValue(CalculatorKey.PositionSize, positionSize) as C;
+    return patchState(BaseState(positionSize: positionSize)) as C;
   }
 
   C nanoLot(int nanoLot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      getValueForKey<LotDescriptors>(CalculatorKey.LotDescriptors).nanoLot,
+      state.lotDescriptors.nanoLot,
       nanoLot,
     );
-    return setValue(CalculatorKey.PositionSize, positionSize) as C;
-    ;
+    return patchState(BaseState(positionSize: positionSize)) as C;
   }
 
   double getPositionSizeWithLotDescriptorAndValue(

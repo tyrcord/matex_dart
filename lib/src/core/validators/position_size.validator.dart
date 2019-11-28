@@ -1,28 +1,24 @@
-import 'package:matex_dart/src/core/enums/enums.dart';
-import 'package:matex_dart/src/core/types/types.dart';
-import 'package:matex_dart/src/core/validators/pip_value.validator.dart';
+// import 'package:matex_dart/matex_dart.dart';
 
-final List<StateValidator> positionSizeValidators = [
-  ...pipValueValidators,
-  (Map<CalculatorKey, dynamic> state) =>
-      state[CalculatorKey.AccountSize] as num > 0,
-  (Map<CalculatorKey, dynamic> state) =>
-      state[CalculatorKey.AmountAtRisk] as num != null ||
-      state[CalculatorKey.RiskRatio] as num != null,
-  (Map<CalculatorKey, dynamic> state) {
-    final amountAtRisk = state[CalculatorKey.LowPrice] as num;
-    final accountSize = state[CalculatorKey.LowPrice] as num;
-    final riskRatio = state[CalculatorKey.HighPrice] as num;
-    bool isValid = true;
+// final List<StateValidator<PositionSizeState>> positionSizeValidators = [
+//   ...pipValueValidators,
+//   (PositionSizeState state) => state.accountSize > 0,
+//   (PositionSizeState state) =>
+//       state.amountAtRisk != null || state.riskRatio != null,
+//   (PositionSizeState state) {
+//     final amountAtRisk = state.amountAtRisk;
+//     final accountSize = state.accountSize;
+//     final riskRatio = state.riskRatio;
+//     bool isValid = true;
 
-    if (riskRatio != null) {
-      isValid = riskRatio > 0 && riskRatio <= 100;
-    }
+//     if (riskRatio != null) {
+//       isValid = riskRatio > 0 && riskRatio <= 100;
+//     }
 
-    if (amountAtRisk != null) {
-      isValid = amountAtRisk > 0 && amountAtRisk <= accountSize;
-    }
+//     if (amountAtRisk != null) {
+//       isValid = amountAtRisk > 0 && amountAtRisk <= accountSize;
+//     }
 
-    return isValid;
-  },
-];
+//     return isValid;
+//   },
+// ];
