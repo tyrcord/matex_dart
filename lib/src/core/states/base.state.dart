@@ -14,6 +14,7 @@ class BaseState {
   final int pipPrecision;
   final LotDescriptors lotDescriptors;
   final bool baseListedSecond;
+  final double leverage;
 
   BaseState({
     this.customPrice,
@@ -29,6 +30,7 @@ class BaseState {
     this.pipPrecision,
     this.lotDescriptors,
     this.baseListedSecond,
+    this.leverage,
   });
 
   BaseState clone() {
@@ -39,6 +41,7 @@ class BaseState {
       pipPrecision: pipPrecision,
       lotDescriptors: lotDescriptors,
       baseListedSecond: baseListedSecond,
+      leverage: leverage,
     );
   }
 
@@ -58,6 +61,7 @@ class BaseState {
       pipPrecision: state.pipPrecision ?? pipPrecision,
       lotDescriptors: state.lotDescriptors ?? lotDescriptors,
       baseListedSecond: state.baseListedSecond ?? baseListedSecond,
+      leverage: state.leverage ?? leverage,
     );
   }
 }

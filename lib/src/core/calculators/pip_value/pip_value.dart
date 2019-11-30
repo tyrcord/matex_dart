@@ -31,6 +31,4 @@ class PipValueCalculator extends BaseCalculator<PipValueState, double>
   }
 }
 
-PipValueCalculator pip() {
-  return PipValueCalculator();
-}
+PipValueCalculator pip() => PipValueCalculator();

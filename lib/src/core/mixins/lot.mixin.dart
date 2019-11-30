@@ -43,10 +43,9 @@ mixin LotMixin<C, S extends BaseState, R> on BaseCalculator<S, R> {
     LotDescriptor lotDescriptor,
     num value,
   ) {
-    final exists = lotDescriptor.exists;
-    final multiplier = lotDescriptor.multiplier;
+    if (lotDescriptor.exists) {
+      final multiplier = lotDescriptor.multiplier;
 
-    if (exists) {
       return (Decimal.parse(value.toString()) *
               Decimal.parse(multiplier.toString()))
           .toDouble();

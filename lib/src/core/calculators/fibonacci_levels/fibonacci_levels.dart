@@ -152,6 +152,4 @@ class FibonacciLevelsCalculator
   }
 }
 
-FibonacciLevelsCalculator fibonacciLevels() {
-  return FibonacciLevelsCalculator();
-}
+FibonacciLevelsCalculator fibonacciLevels() => FibonacciLevelsCalculator();
