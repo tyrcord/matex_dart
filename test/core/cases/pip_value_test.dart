@@ -1,7 +1,7 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:test/test.dart';
 
-import './shared/messages.dart';
+import '../shared/messages.dart';
 
 void main() {
   group('PipValueCalculator', () {

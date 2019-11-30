@@ -1,8 +1,8 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:test/test.dart';
 
-import './shared/messages.dart';
-import 'samples/fibonacci-levels.sample.dart';
+import '../samples/fibonacci-levels.sample.dart';
+import '../shared/messages.dart';
 
 void main() {
   group('FibonacciLevelsCalculator', () {
