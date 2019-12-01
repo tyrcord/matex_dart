@@ -18,27 +18,6 @@ void main() {
       });
     });
 
-    group('#setState()', () {
-      test(SHOULD_UPDATE_CALCULATOR_STATE, () {
-        calculator.setState(FibonacciLevelsState(
-          precision: 2,
-        ));
-
-        expect(
-          calculator.getState().precision,
-          equals(2),
-        );
-      });
-
-      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        final instance = calculator.setState(FibonacciLevelsState(
-          trend: Trend.Up,
-        ));
-
-        expect(instance, equals(calculator));
-      });
-    });
-
     group('#value()', () {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
         final result = calculator.value();

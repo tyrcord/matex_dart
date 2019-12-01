@@ -44,48 +44,6 @@ void main() {
       );
     });
 
-    group('#setState()', () {
-      test(SHOULD_UPDATE_CALCULATOR_STATE, () {
-        calculator.setState(PipValueState(
-          positionSize: 1000,
-        ));
-
-        expect(
-          calculator.getState().positionSize,
-          equals(1000),
-        );
-      });
-
-      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        final instance = calculator.setState(PipValueState(
-          positionSize: 1000,
-        ));
-
-        expect(instance == calculator, equals(true));
-      });
-    });
-
-    group('#setValue()', () {
-      test(SHOULD_UPDATE_CALCULATOR_PROPERTY_STATE, () {
-        calculator.setState(PipValueState(
-          positionSize: 1000,
-        ));
-        expect(
-          calculator.getState().positionSize,
-          equals(1000),
-        );
-      });
-
-      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(
-          calculator.setState(PipValueState(
-            pipPrecision: 2,
-          )),
-          equals(calculator),
-        );
-      });
-    });
-
     group('#value()', () {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
         expect(calculator.value(), equals(0));

@@ -34,7 +34,7 @@ mixin PipValueMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
     final tradingPairExchangeRate = state.tradingPairExchangeRate;
 
     final decimalPip =
-        Decimal.parse('1.0') / Decimal.parse('10').pow(pipPrecision);
+        Decimal.fromInt(1) / Decimal.fromInt(10).pow(pipPrecision);
 
     return (decimalPip /
             Decimal.parse(

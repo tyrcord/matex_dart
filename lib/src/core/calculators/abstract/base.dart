@@ -30,24 +30,23 @@ abstract class BaseCalculator<S extends BaseState, R> {
 
   R value();
 
-  BaseCalculator<S, R> reset() => setState(initialState);
+  C reset<C extends BaseCalculator<S, R>>() => _setState(initialState) as C;
 
   S getState() => state.clone() as S;
-
-  BaseCalculator<S, R> setState(BaseState state) {
-    result = null;
-    this.state = state.clone() as S;
-    return checkStateValidity();
-  }
 
   C patchState<C extends BaseCalculator<S, R>>(BaseState partialState) {
     result = null;
     state = state.copyWithState(partialState) as S;
-    return checkStateValidity() as C;
+    return _checkStateValidity() as C;
   }
 
-  @protected
-  BaseCalculator<S, R> checkStateValidity() {
+  C _setState<C extends BaseCalculator<S, R>>(BaseState state) {
+    result = null;
+    this.state = state.clone() as S;
+    return _checkStateValidity();
+  }
+
+  C _checkStateValidity<C extends BaseCalculator<S, R>>() {
     bool validity = true;
 
     if (validators != null) {
@@ -55,7 +54,7 @@ abstract class BaseCalculator<S extends BaseState, R> {
     }
 
     this.isStateValid = validity;
-    return this;
+    return this as C;
   }
 
   @protected

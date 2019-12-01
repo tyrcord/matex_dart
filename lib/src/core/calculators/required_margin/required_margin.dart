@@ -16,8 +16,7 @@ class RequiredMarginCalculator
 
   RequiredMarginCalculator leverage(double leverage) {
     final sanitizedValue = sanitizeDouble(leverage);
-    patchState(RequiredMarginState(leverage: sanitizedValue));
-    return checkStateValidity() as RequiredMarginCalculator;
+    return patchState(RequiredMarginState(leverage: sanitizedValue));
   }
 
   double value() {

@@ -22,8 +22,13 @@ class BaseState {
   final double entryPrice;
   final double amountAtRisk;
   final double riskRatio;
+  final Position position;
   final double stopLossPips;
   final double stopLossPrice;
+  final double stopLossAmount;
+  final double takeProfitPips;
+  final double takeProfitPrice;
+  final double takeProfitAmount;
 
   BaseState({
     this.customPrice,
@@ -49,6 +54,11 @@ class BaseState {
     this.riskRatio,
     this.stopLossPips,
     this.stopLossPrice,
+    this.position,
+    this.stopLossAmount,
+    this.takeProfitPips,
+    this.takeProfitPrice,
+    this.takeProfitAmount,
   });
 
   BaseState clone() {
@@ -64,11 +74,16 @@ class BaseState {
       openPrice: openPrice,
       method: method,
       accountSize: accountSize,
-      entryPrice: entryPrice,
       amountAtRisk: amountAtRisk,
       riskRatio: riskRatio,
+      entryPrice: entryPrice,
+      position: position,
       stopLossPips: stopLossPips,
       stopLossPrice: stopLossPrice,
+      stopLossAmount: stopLossAmount,
+      takeProfitPips: takeProfitPips,
+      takeProfitPrice: takeProfitPrice,
+      takeProfitAmount: takeProfitAmount,
     );
   }
 
@@ -93,11 +108,16 @@ class BaseState {
       openPrice: state.openPrice ?? openPrice,
       method: state.method ?? method,
       accountSize: state.accountSize ?? accountSize,
-      entryPrice: state.entryPrice ?? entryPrice,
       amountAtRisk: state.amountAtRisk ?? amountAtRisk,
       riskRatio: state.riskRatio ?? riskRatio,
+      entryPrice: state.entryPrice ?? entryPrice,
+      position: state.position ?? position,
       stopLossPips: state.stopLossPips ?? stopLossPips,
       stopLossPrice: state.stopLossPrice ?? stopLossPrice,
+      stopLossAmount: state.stopLossAmount ?? stopLossAmount,
+      takeProfitPips: state.takeProfitPips ?? takeProfitPips,
+      takeProfitPrice: state.stopLossAmount ?? takeProfitPrice,
+      takeProfitAmount: state.takeProfitAmount ?? takeProfitAmount,
     );
   }
 }
