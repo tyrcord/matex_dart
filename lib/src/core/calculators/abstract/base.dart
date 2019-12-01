@@ -40,10 +40,10 @@ abstract class BaseCalculator<S extends BaseState, R> {
     return checkStateValidity();
   }
 
-  BaseCalculator<S, R> patchState(BaseState partialState) {
+  C patchState<C extends BaseCalculator<S, R>>(BaseState partialState) {
     result = null;
     state = state.copyWithState(partialState) as S;
-    return checkStateValidity();
+    return checkStateValidity() as C;
   }
 
   @protected

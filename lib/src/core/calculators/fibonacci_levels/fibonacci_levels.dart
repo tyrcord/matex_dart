@@ -15,8 +15,7 @@ class FibonacciLevelsCalculator
 
   FibonacciLevelsCalculator customPrice(double customPrice) {
     final sanitizedValue = sanitizeDouble(customPrice);
-    patchState(FibonacciLevelsState(customPrice: sanitizedValue));
-    return checkStateValidity() as FibonacciLevelsCalculator;
+    return patchState(FibonacciLevelsState(customPrice: sanitizedValue));
   }
 
   FibonacciLevelsCalculator extensionLevels(List<double> extensionLevels) {
@@ -25,26 +24,21 @@ class FibonacciLevelsCalculator
     }).toList();
 
     sanitizedValue.sort(sortNumberAsc);
-
-    patchState(FibonacciLevelsState(extensionLevels: sanitizedValue));
-    return checkStateValidity() as FibonacciLevelsCalculator;
+    return patchState(FibonacciLevelsState(extensionLevels: sanitizedValue));
   }
 
   FibonacciLevelsCalculator highPrice(double highPrice) {
     final sanitizedValue = sanitizeDouble(highPrice);
-    patchState(FibonacciLevelsState(highPrice: sanitizedValue));
-    return checkStateValidity() as FibonacciLevelsCalculator;
+    return patchState(FibonacciLevelsState(highPrice: sanitizedValue));
   }
 
   FibonacciLevelsCalculator lowPrice(double lowPrice) {
     final sanitizedValue = sanitizeDouble(lowPrice);
-    patchState(FibonacciLevelsState(lowPrice: sanitizedValue));
-    return checkStateValidity() as FibonacciLevelsCalculator;
+    return patchState(FibonacciLevelsState(lowPrice: sanitizedValue));
   }
 
   FibonacciLevelsCalculator precision(int precision) {
-    patchState(FibonacciLevelsState(precision: precision));
-    return checkStateValidity() as FibonacciLevelsCalculator;
+    return patchState(FibonacciLevelsState(precision: precision));
   }
 
   FibonacciLevelsCalculator retracementLevels(List<double> retracementLevels) {
@@ -54,13 +48,11 @@ class FibonacciLevelsCalculator
 
     sanitizedValue.sort(sortNumberAsc);
 
-    patchState(FibonacciLevelsState(retracementLevels: sanitizedValue));
-    return checkStateValidity() as FibonacciLevelsCalculator;
+    return patchState(FibonacciLevelsState(retracementLevels: sanitizedValue));
   }
 
   FibonacciLevelsCalculator trend(Trend trend) {
-    patchState(FibonacciLevelsState(trend: trend));
-    return checkStateValidity() as FibonacciLevelsCalculator;
+    return patchState(FibonacciLevelsState(trend: trend));
   }
 
   FibonacciLevelsResult value() {

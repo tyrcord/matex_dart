@@ -2,9 +2,10 @@ import 'package:matex_dart/matex_dart.dart';
 import 'package:matex_dart/src/core/models/models.dart';
 import 'package:decimal/decimal.dart';
 
-mixin LotMixin<C, S extends BaseState, R> on BaseCalculator<S, R> {
+mixin LotMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
+    on BaseCalculator<S, R> {
   C lotDescriptors(LotDescriptors lotDescriptors) {
-    return patchState(BaseState(lotDescriptors: lotDescriptors)) as C;
+    return patchState<C>(BaseState(lotDescriptors: lotDescriptors));
   }
 
   C lot(int lot) {
@@ -12,7 +13,7 @@ mixin LotMixin<C, S extends BaseState, R> on BaseCalculator<S, R> {
       state.lotDescriptors.lot,
       lot,
     );
-    return patchState(BaseState(positionSize: positionSize)) as C;
+    return patchState<C>(BaseState(positionSize: positionSize));
   }
 
   C microLot(int microLot) {
@@ -20,7 +21,7 @@ mixin LotMixin<C, S extends BaseState, R> on BaseCalculator<S, R> {
       state.lotDescriptors.microLot,
       microLot,
     );
-    return patchState(BaseState(positionSize: positionSize)) as C;
+    return patchState<C>(BaseState(positionSize: positionSize));
   }
 
   C miniLot(int miniLot) {
@@ -28,7 +29,7 @@ mixin LotMixin<C, S extends BaseState, R> on BaseCalculator<S, R> {
       state.lotDescriptors.miniLot,
       miniLot,
     );
-    return patchState(BaseState(positionSize: positionSize)) as C;
+    return patchState<C>(BaseState(positionSize: positionSize));
   }
 
   C nanoLot(int nanoLot) {
@@ -36,7 +37,7 @@ mixin LotMixin<C, S extends BaseState, R> on BaseCalculator<S, R> {
       state.lotDescriptors.nanoLot,
       nanoLot,
     );
-    return patchState(BaseState(positionSize: positionSize)) as C;
+    return patchState<C>(BaseState(positionSize: positionSize));
   }
 
   double getPositionSizeWithLotDescriptorAndValue(
