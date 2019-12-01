@@ -7,4 +7,5 @@ export './pivot_points/pivot_points_demark.dart';
 export './pivot_points/pivot_points_fibonacci.dart';
 export './pivot_points/pivot_points_standard.dart';
 export './pivot_points/pivot_points_woodie.dart';
+export './position_size/position_size.dart';
 export './required_margin/required_margin.dart';

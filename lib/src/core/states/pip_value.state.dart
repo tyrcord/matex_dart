@@ -33,7 +33,7 @@ class PipValueState extends BaseState with EquatableMixin {
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
-      positionSize: state.positionSize ?? positionSize,
+      positionSize: state.positionSize ?? this.positionSize,
       pipPrecision: state.pipPrecision ?? pipPrecision,
       lotDescriptors: state.lotDescriptors ?? lotDescriptors,
       baseListedSecond: state.baseListedSecond ?? baseListedSecond,
@@ -44,7 +44,7 @@ class PipValueState extends BaseState with EquatableMixin {
     return PipValueState(
       baseExchangeRate: baseExchangeRate,
       tradingPairExchangeRate: tradingPairExchangeRate,
-      positionSize: positionSize,
+      positionSize: this.positionSize,
       pipPrecision: pipPrecision,
       lotDescriptors: lotDescriptors,
       baseListedSecond: baseListedSecond,

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:test/test.dart';
 import 'package:matex_dart/matex_dart.dart';
 
@@ -29,7 +27,6 @@ void main() {
 
       test(COMPUTE_RIGHT_VALUES, () {
         expect(calculator.isValid, equals(true));
-        log(calculator.value().supports.toString());
         expect(calculator.value() == PIVOT_POINTS_WOODIE_RESULTS, equals(true));
       });
     });

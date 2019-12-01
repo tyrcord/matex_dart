@@ -44,4 +44,12 @@ mixin PipValueMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
             Decimal.parse(positionSize.toString()))
         .toDouble();
   }
+
+  double computePipValue() {
+    if (isValid) {
+      return pipValue(validState);
+    }
+
+    return 0.0;
+  }
 }

@@ -1,24 +1,24 @@
-// import 'package:matex_dart/matex_dart.dart';
+import 'package:matex_dart/matex_dart.dart';
 
-// final List<StateValidator<PositionSizeState>> positionSizeValidators = [
-//   ...pipValueValidators,
-//   (PositionSizeState state) => state.accountSize > 0,
-//   (PositionSizeState state) =>
-//       state.amountAtRisk != null || state.riskRatio != null,
-//   (PositionSizeState state) {
-//     final amountAtRisk = state.amountAtRisk;
-//     final accountSize = state.accountSize;
-//     final riskRatio = state.riskRatio;
-//     bool isValid = true;
+final List<StateValidator<PositionSizeState>> positionSizeValidators = [
+  (PositionSizeState state) => state.positionSize > 0,
+  (PositionSizeState state) => state.tradingPairExchangeRate > 0,
+  (PositionSizeState state) => state.accountSize > 0,
+  (PositionSizeState state) => state.amountAtRisk > 0 || state.riskRatio > 0,
+  (PositionSizeState state) {
+    final amountAtRisk = state.amountAtRisk;
+    final accountSize = state.accountSize;
+    final riskRatio = state.riskRatio;
+    bool isValid = true;
 
-//     if (riskRatio != null) {
-//       isValid = riskRatio > 0 && riskRatio <= 100;
-//     }
+    if (riskRatio > 0) {
+      isValid = riskRatio > 0 && riskRatio <= 100;
+    }
 
-//     if (amountAtRisk != null) {
-//       isValid = amountAtRisk > 0 && amountAtRisk <= accountSize;
-//     }
+    if (amountAtRisk > 0) {
+      isValid = amountAtRisk > 0 && amountAtRisk <= accountSize;
+    }
 
-//     return isValid;
-//   },
-// ];
+    return isValid;
+  },
+];

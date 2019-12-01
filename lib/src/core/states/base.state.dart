@@ -18,6 +18,12 @@ class BaseState {
   final double closePrice;
   final double openPrice;
   final PivotPointsMethods method;
+  final double accountSize;
+  final double entryPrice;
+  final double amountAtRisk;
+  final double riskRatio;
+  final double stopLossPips;
+  final double stopLossPrice;
 
   BaseState({
     this.customPrice,
@@ -37,6 +43,12 @@ class BaseState {
     this.closePrice,
     this.openPrice,
     this.method,
+    this.accountSize,
+    this.entryPrice,
+    this.amountAtRisk,
+    this.riskRatio,
+    this.stopLossPips,
+    this.stopLossPrice,
   });
 
   BaseState clone() {
@@ -51,6 +63,12 @@ class BaseState {
       closePrice: closePrice,
       openPrice: openPrice,
       method: method,
+      accountSize: accountSize,
+      entryPrice: entryPrice,
+      amountAtRisk: amountAtRisk,
+      riskRatio: riskRatio,
+      stopLossPips: stopLossPips,
+      stopLossPrice: stopLossPrice,
     );
   }
 
@@ -74,6 +92,12 @@ class BaseState {
       closePrice: state.closePrice ?? closePrice,
       openPrice: state.openPrice ?? openPrice,
       method: state.method ?? method,
+      accountSize: state.accountSize ?? accountSize,
+      entryPrice: state.entryPrice ?? entryPrice,
+      amountAtRisk: state.amountAtRisk ?? amountAtRisk,
+      riskRatio: state.riskRatio ?? riskRatio,
+      stopLossPips: state.stopLossPips ?? stopLossPips,
+      stopLossPrice: state.stopLossPrice ?? stopLossPrice,
     );
   }
 }

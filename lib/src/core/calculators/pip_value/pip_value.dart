@@ -1,5 +1,4 @@
 import 'package:matex_dart/matex_dart.dart';
-import 'package:meta/meta.dart';
 
 class PipValueCalculator extends BaseCalculator<PipValueState, double>
     with
@@ -19,15 +18,6 @@ class PipValueCalculator extends BaseCalculator<PipValueState, double>
     }
 
     return (result = computePipValue());
-  }
-
-  @protected
-  double computePipValue() {
-    if (isValid) {
-      return pipValue(validState);
-    }
-
-    return 0;
   }
 }
 
