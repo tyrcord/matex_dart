@@ -1,5 +1,8 @@
 import 'package:equatable/equatable.dart';
-import 'package:matex_dart/matex_dart.dart';
+import 'package:matex_dart/src/core/models/models.dart';
+import 'package:matex_dart/src/core/states/states.dart';
+import 'package:matex_dart/src/core/enums/enums.dart';
+import 'package:matex_dart/src/core/descriptors/descriptors.dart';
 
 class StopLossState extends BaseState with EquatableMixin {
   StopLossState({
@@ -48,7 +51,7 @@ class StopLossState extends BaseState with EquatableMixin {
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
-      positionSize: state.positionSize ?? this.positionSize,
+      positionSize: state.positionSize ?? positionSize,
       pipPrecision: state.pipPrecision ?? pipPrecision,
       lotDescriptors: state.lotDescriptors ?? lotDescriptors,
       baseListedSecond: state.baseListedSecond ?? baseListedSecond,
@@ -64,7 +67,7 @@ class StopLossState extends BaseState with EquatableMixin {
     return StopLossState(
       baseExchangeRate: baseExchangeRate,
       tradingPairExchangeRate: tradingPairExchangeRate,
-      positionSize: this.positionSize,
+      positionSize: positionSize,
       pipPrecision: pipPrecision,
       lotDescriptors: lotDescriptors,
       baseListedSecond: baseListedSecond,

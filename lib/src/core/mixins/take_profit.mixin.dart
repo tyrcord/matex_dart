@@ -13,17 +13,16 @@ mixin TakeProfitMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
 
   C takeProfitAmount(double takeProfitAmount) {
     final sanitizedValue = sanitizeDouble(takeProfitAmount);
-
     patchState<C>(BaseState(takeProfitPrice: 0.0));
     patchState<C>(BaseState(takeProfitPips: 0.0));
-    return patchState<C>(BaseState(takeProfitPrice: sanitizedValue));
+    return patchState<C>(BaseState(takeProfitAmount: sanitizedValue));
   }
 
   C takeProfitPips(double takeProfitPips) {
     final sanitizedValue = sanitizeDouble(takeProfitPips);
     patchState<C>(BaseState(takeProfitAmount: 0.0));
     patchState<C>(BaseState(takeProfitPrice: 0.0));
-    return patchState<C>(BaseState(takeProfitPrice: sanitizedValue));
+    return patchState<C>(BaseState(takeProfitPips: sanitizedValue));
   }
 
   C takeProfitPrice(double takeProfitPrice) {

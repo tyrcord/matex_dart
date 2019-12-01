@@ -30,7 +30,7 @@ abstract class BaseCalculator<S extends BaseState, R> {
 
   R value();
 
-  C reset<C extends BaseCalculator<S, R>>() => _setState(initialState) as C;
+  C reset<C extends BaseCalculator<S, R>>() => setState(initialState) as C;
 
   S getState() => state.clone() as S;
 
@@ -40,7 +40,7 @@ abstract class BaseCalculator<S extends BaseState, R> {
     return _checkStateValidity() as C;
   }
 
-  C _setState<C extends BaseCalculator<S, R>>(BaseState state) {
+  C setState<C extends BaseCalculator<S, R>>(BaseState state) {
     result = null;
     this.state = state.clone() as S;
     return _checkStateValidity();
