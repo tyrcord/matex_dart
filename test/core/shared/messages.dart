@@ -23,3 +23,13 @@ const SHOULD_RETURN_CALCULATOR_INSTANCE =
     'should return an instance of the calculator';
 
 const COMPUTE_RIGHT_VALUES = 'the calculator should compute the right values';
+
+lowPriceMessage(double price) => 'the low price is $price';
+
+highPriceMessage(double price) => 'the high price is $price';
+
+openPriceMessage(double price) => 'the open price is $price';
+
+closePriceMessage(double price) => 'the close price is $price';
+
+pivotPointsMethodMessage(String method) => 'the method is $method';

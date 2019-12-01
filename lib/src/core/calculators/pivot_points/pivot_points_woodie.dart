@@ -1,0 +1,24 @@
+import 'package:decimal/decimal.dart';
+import 'package:matex_dart/matex_dart.dart';
+
+PivotPointsResult pivotPointsWoodie(double high, double low, double close) {
+  final highParsed = Decimal.parse(high.toString());
+  final lowParsed = Decimal.parse(low.toString());
+  final closeParsed = Decimal.parse(close.toString());
+  final decimal2 = Decimal.fromInt(2);
+
+  final pivotPoint =
+      (closeParsed * decimal2 + lowParsed + highParsed) / Decimal.fromInt(4);
+
+  final resistance1 = pivotPoint * decimal2 - lowParsed;
+  final resistance2 = pivotPoint + highParsed - lowParsed;
+
+  final support1 = pivotPoint * decimal2 - highParsed;
+  final support2 = pivotPoint - highParsed + lowParsed;
+
+  return PivotPointsResult(
+    pivotPoint: pivotPoint.toDouble(),
+    resistances: [resistance1.toDouble(), resistance2.toDouble()],
+    supports: [support1.toDouble(), support2.toDouble()],
+  );
+}

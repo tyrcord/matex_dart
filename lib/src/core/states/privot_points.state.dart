@@ -1,9 +1,55 @@
-import 'package:matex_dart/src/core/enums/enums.dart';
+import 'package:equatable/equatable.dart';
+import 'package:matex_dart/matex_dart.dart';
 
-final Map<CalculatorKey, dynamic> initialPivotPointsState = {
-  CalculatorKey.ClosePrice: 0,
-  CalculatorKey.HighPrice: 0,
-  CalculatorKey.LowPrice: 0,
-  CalculatorKey.PivotPointsMethod: PivotPointsMethods.Standard,
-  CalculatorKey.OpenPrice: 0,
-};
+class PivotPointsState extends BaseState with EquatableMixin {
+  PivotPointsState({
+    double closePrice,
+    double highPrice,
+    double lowPrice,
+    double openPrice,
+    PivotPointsMethods method,
+  }) : super(
+          closePrice: closePrice,
+          highPrice: highPrice,
+          lowPrice: lowPrice,
+          openPrice: openPrice,
+          method: method,
+        );
+
+  @override
+  List<Object> get props => [
+        baseExchangeRate,
+        tradingPairExchangeRate,
+        lowPrice,
+        openPrice,
+        method,
+      ];
+
+  PivotPointsState copyWithState(BaseState state) {
+    return PivotPointsState(
+      closePrice: state.closePrice ?? closePrice,
+      highPrice: state.highPrice ?? highPrice,
+      lowPrice: state.lowPrice ?? lowPrice,
+      openPrice: state.openPrice ?? openPrice,
+      method: state.method ?? method,
+    );
+  }
+
+  PivotPointsState clone() {
+    return PivotPointsState(
+      closePrice: closePrice,
+      highPrice: highPrice,
+      lowPrice: lowPrice,
+      openPrice: openPrice,
+      method: method,
+    );
+  }
+}
+
+final initialPivotPointsState = PivotPointsState(
+  closePrice: 0,
+  highPrice: 0,
+  lowPrice: 0,
+  method: PivotPointsMethods.Standard,
+  openPrice: 0,
+);

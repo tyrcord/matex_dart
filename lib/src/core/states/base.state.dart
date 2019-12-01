@@ -15,6 +15,9 @@ class BaseState {
   final LotDescriptors lotDescriptors;
   final bool baseListedSecond;
   final double leverage;
+  final double closePrice;
+  final double openPrice;
+  final PivotPointsMethods method;
 
   BaseState({
     this.customPrice,
@@ -31,6 +34,9 @@ class BaseState {
     this.lotDescriptors,
     this.baseListedSecond,
     this.leverage,
+    this.closePrice,
+    this.openPrice,
+    this.method,
   });
 
   BaseState clone() {
@@ -42,6 +48,9 @@ class BaseState {
       lotDescriptors: lotDescriptors,
       baseListedSecond: baseListedSecond,
       leverage: leverage,
+      closePrice: closePrice,
+      openPrice: openPrice,
+      method: method,
     );
   }
 
@@ -62,6 +71,9 @@ class BaseState {
       lotDescriptors: state.lotDescriptors ?? lotDescriptors,
       baseListedSecond: state.baseListedSecond ?? baseListedSecond,
       leverage: state.leverage ?? leverage,
+      closePrice: state.closePrice ?? closePrice,
+      openPrice: state.openPrice ?? openPrice,
+      method: state.method ?? method,
     );
   }
 }
