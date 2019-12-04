@@ -18,7 +18,7 @@ class PositionSizeCalculator
     PositionSizeState initialState,
     List<StateValidator<PositionSizeState>> validators,
   }) : super(
-            initialState: initialState ?? initialPositionSizeState,
+            initialState: initialState ?? kInitialPositionSizeState,
             validators: validators ?? positionSizeValidators);
 
   PositionSizeCalculator accountSize(double accountSize) {

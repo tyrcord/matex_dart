@@ -14,7 +14,7 @@ class StopLossTakeProfitCalculator
     StopLossTakeProfitState initialState,
     List<StateValidator<StopLossTakeProfitState>> validators,
   }) : super(
-          initialState: initialState ?? initialStopLossTakeProfitState,
+          initialState: initialState ?? kInitialStopLossTakeProfitState,
           validators: validators ?? stopLossTakeProfitValidators,
         );
 

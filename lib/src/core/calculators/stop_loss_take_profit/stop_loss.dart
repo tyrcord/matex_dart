@@ -8,7 +8,7 @@ class StopLossCalculator extends BaseCalculator<StopLossState, StopLossResult>
   StopLossCalculator({
     StopLossState initialState,
   }) : super(
-          initialState: initialState ?? initialStopLossState,
+          initialState: initialState ?? kInitialStopLossState,
         );
 
   @override

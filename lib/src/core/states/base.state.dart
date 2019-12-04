@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class BaseState {
+class BaseState extends Equatable {
   final double customPrice;
   final double highPrice;
   final double lowPrice;
@@ -30,7 +31,7 @@ class BaseState {
   final double takeProfitPrice;
   final double takeProfitAmount;
 
-  BaseState({
+  const BaseState({
     this.customPrice,
     this.highPrice,
     this.lowPrice,
@@ -120,4 +121,36 @@ class BaseState {
       takeProfitAmount: state.takeProfitAmount ?? takeProfitAmount,
     );
   }
+
+  @override
+  List<Object> get props => [
+        customPrice,
+        highPrice,
+        lowPrice,
+        precision,
+        trend,
+        extensionLevels,
+        retracementLevels,
+        baseExchangeRate,
+        tradingPairExchangeRate,
+        positionSize,
+        pipPrecision,
+        lotDescriptors,
+        baseListedSecond,
+        leverage,
+        closePrice,
+        openPrice,
+        method,
+        accountSize,
+        entryPrice,
+        amountAtRisk,
+        riskRatio,
+        stopLossPips,
+        stopLossPrice,
+        position,
+        stopLossAmount,
+        takeProfitPips,
+        takeProfitPrice,
+        takeProfitAmount,
+      ];
 }

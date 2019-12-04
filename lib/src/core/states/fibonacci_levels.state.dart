@@ -1,8 +1,7 @@
-import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class FibonacciLevelsState extends BaseState with EquatableMixin {
-  FibonacciLevelsState({
+class FibonacciLevelsState extends BaseState {
+  const FibonacciLevelsState({
     double customPrice,
     double highPrice,
     double lowPrice,
@@ -19,17 +18,6 @@ class FibonacciLevelsState extends BaseState with EquatableMixin {
           extensionLevels: extensionLevels,
           retracementLevels: retracementLevels,
         );
-
-  @override
-  List<Object> get props => [
-        customPrice,
-        highPrice,
-        lowPrice,
-        precision,
-        trend,
-        extensionLevels,
-        retracementLevels,
-      ];
 
   FibonacciLevelsState copyWithState(BaseState state) {
     return FibonacciLevelsState(
@@ -56,7 +44,7 @@ class FibonacciLevelsState extends BaseState with EquatableMixin {
   }
 }
 
-final initialFibonacciLevelsState = FibonacciLevelsState(
+const kInitialFibonacciLevelsState = FibonacciLevelsState(
   customPrice: 0.0,
   highPrice: 0.0,
   lowPrice: 0.0,

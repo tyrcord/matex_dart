@@ -1,8 +1,7 @@
-import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class PivotPointsState extends BaseState with EquatableMixin {
-  PivotPointsState({
+class PivotPointsState extends BaseState {
+  const PivotPointsState({
     double closePrice,
     double highPrice,
     double lowPrice,
@@ -15,15 +14,6 @@ class PivotPointsState extends BaseState with EquatableMixin {
           openPrice: openPrice,
           method: method,
         );
-
-  @override
-  List<Object> get props => [
-        baseExchangeRate,
-        tradingPairExchangeRate,
-        lowPrice,
-        openPrice,
-        method,
-      ];
 
   PivotPointsState copyWithState(BaseState state) {
     return PivotPointsState(
@@ -46,7 +36,7 @@ class PivotPointsState extends BaseState with EquatableMixin {
   }
 }
 
-final initialPivotPointsState = PivotPointsState(
+const kInitialPivotPointsState = PivotPointsState(
   closePrice: 0,
   highPrice: 0,
   lowPrice: 0,

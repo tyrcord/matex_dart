@@ -6,7 +6,7 @@ class PivotPointsCalculator
     PivotPointsState initialState,
     List<StateValidator<PivotPointsState>> validators,
   }) : super(
-          initialState: initialState ?? initialPivotPointsState,
+          initialState: initialState ?? kInitialPivotPointsState,
           validators: validators ?? pivotPointsValidators,
         );
 

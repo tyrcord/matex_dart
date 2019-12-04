@@ -1,8 +1,7 @@
-import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class RequiredMarginState extends BaseState with EquatableMixin {
-  RequiredMarginState({
+class RequiredMarginState extends BaseState {
+  const RequiredMarginState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
@@ -19,17 +18,6 @@ class RequiredMarginState extends BaseState with EquatableMixin {
           baseListedSecond: baseListedSecond,
           leverage: leverage,
         );
-
-  @override
-  List<Object> get props => [
-        baseExchangeRate,
-        tradingPairExchangeRate,
-        positionSize,
-        pipPrecision,
-        lotDescriptors,
-        baseListedSecond,
-        leverage,
-      ];
 
   RequiredMarginState copyWithState(BaseState state) {
     return RequiredMarginState(
@@ -57,7 +45,7 @@ class RequiredMarginState extends BaseState with EquatableMixin {
   }
 }
 
-final initialRequiredMarginState = RequiredMarginState(
+const kInitialRequiredMarginState = RequiredMarginState(
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,

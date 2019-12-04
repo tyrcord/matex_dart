@@ -9,7 +9,7 @@ class FibonacciLevelsCalculator
     FibonacciLevelsState initialState,
     List<StateValidator<FibonacciLevelsState>> validators,
   }) : super(
-          initialState: initialState ?? initialFibonacciLevelsState,
+          initialState: initialState ?? kInitialFibonacciLevelsState,
           validators: validators ?? fibonacciLevelsValidators,
         );
 

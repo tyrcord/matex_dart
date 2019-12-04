@@ -1,8 +1,7 @@
-import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class PipValueState extends BaseState with EquatableMixin {
-  PipValueState({
+class PipValueState extends BaseState {
+  const PipValueState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
@@ -17,16 +16,6 @@ class PipValueState extends BaseState with EquatableMixin {
           lotDescriptors: lotDescriptors,
           baseListedSecond: baseListedSecond,
         );
-
-  @override
-  List<Object> get props => [
-        baseExchangeRate,
-        tradingPairExchangeRate,
-        positionSize,
-        pipPrecision,
-        lotDescriptors,
-        baseListedSecond,
-      ];
 
   PipValueState copyWithState(BaseState state) {
     return PipValueState(
@@ -52,7 +41,7 @@ class PipValueState extends BaseState with EquatableMixin {
   }
 }
 
-final PipValueState initialPipValueState = PipValueState(
+const PipValueState kInitialPipValueState = PipValueState(
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,

@@ -1,8 +1,7 @@
-import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class PositionSizeState extends BaseState with EquatableMixin {
-  PositionSizeState({
+class PositionSizeState extends BaseState {
+  const PositionSizeState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
@@ -29,22 +28,6 @@ class PositionSizeState extends BaseState with EquatableMixin {
           stopLossPips: stopLossPips,
           stopLossPrice: stopLossPrice,
         );
-
-  @override
-  List<Object> get props => [
-        baseExchangeRate,
-        tradingPairExchangeRate,
-        positionSize,
-        pipPrecision,
-        lotDescriptors,
-        baseListedSecond,
-        accountSize,
-        entryPrice,
-        amountAtRisk,
-        riskRatio,
-        stopLossPips,
-        stopLossPrice,
-      ];
 
   PositionSizeState copyWithState(BaseState state) {
     return PositionSizeState(
@@ -82,7 +65,7 @@ class PositionSizeState extends BaseState with EquatableMixin {
   }
 }
 
-final initialPositionSizeState = PositionSizeState(
+const kInitialPositionSizeState = PositionSizeState(
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,

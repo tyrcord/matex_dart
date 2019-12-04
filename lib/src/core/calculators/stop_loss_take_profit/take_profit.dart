@@ -10,7 +10,7 @@ class TakeProfitCalculator
   TakeProfitCalculator({
     TakeProfitState initialState,
   }) : super(
-          initialState: initialState ?? initialTakeProfitState,
+          initialState: initialState ?? kInitialTakeProfitState,
         );
 
   @override

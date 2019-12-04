@@ -1,11 +1,10 @@
-import 'package:equatable/equatable.dart';
 import 'package:matex_dart/src/core/models/models.dart';
 import 'package:matex_dart/src/core/states/states.dart';
 import 'package:matex_dart/src/core/enums/enums.dart';
 import 'package:matex_dart/src/core/descriptors/descriptors.dart';
 
-class TakeProfitState extends BaseState with EquatableMixin {
-  TakeProfitState({
+class TakeProfitState extends BaseState {
+  const TakeProfitState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
@@ -30,21 +29,6 @@ class TakeProfitState extends BaseState with EquatableMixin {
           entryPrice: entryPrice,
           position: position,
         );
-
-  @override
-  List<Object> get props => [
-        baseExchangeRate,
-        tradingPairExchangeRate,
-        positionSize,
-        pipPrecision,
-        lotDescriptors,
-        baseListedSecond,
-        takeProfitPips,
-        takeProfitPrice,
-        takeProfitAmount,
-        entryPrice,
-        position,
-      ];
 
   TakeProfitState copyWithState(BaseState state) {
     return TakeProfitState(
@@ -80,7 +64,7 @@ class TakeProfitState extends BaseState with EquatableMixin {
   }
 }
 
-final initialTakeProfitState = TakeProfitState(
+const kInitialTakeProfitState = TakeProfitState(
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,

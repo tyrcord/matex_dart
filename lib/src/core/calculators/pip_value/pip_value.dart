@@ -8,7 +8,7 @@ class PipValueCalculator extends BaseCalculator<PipValueState, double>
     PipValueState initialState,
     List<StateValidator<PipValueState>> validators,
   }) : super(
-          initialState: initialState ?? initialPipValueState,
+          initialState: initialState ?? kInitialPipValueState,
           validators: validators ?? pipValueValidators,
         );
 

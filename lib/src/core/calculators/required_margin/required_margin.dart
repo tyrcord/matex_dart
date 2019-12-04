@@ -10,7 +10,7 @@ class RequiredMarginCalculator
     RequiredMarginState initialState,
     List<StateValidator<RequiredMarginState>> validators,
   }) : super(
-          initialState: initialState ?? initialRequiredMarginState,
+          initialState: initialState ?? kInitialRequiredMarginState,
           validators: validators ?? requiredMarginValidators,
         );
 

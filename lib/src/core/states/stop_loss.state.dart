@@ -1,11 +1,10 @@
-import 'package:equatable/equatable.dart';
 import 'package:matex_dart/src/core/models/models.dart';
 import 'package:matex_dart/src/core/states/states.dart';
 import 'package:matex_dart/src/core/enums/enums.dart';
 import 'package:matex_dart/src/core/descriptors/descriptors.dart';
 
-class StopLossState extends BaseState with EquatableMixin {
-  StopLossState({
+class StopLossState extends BaseState {
+  const StopLossState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
@@ -30,21 +29,6 @@ class StopLossState extends BaseState with EquatableMixin {
           entryPrice: entryPrice,
           position: position,
         );
-
-  @override
-  List<Object> get props => [
-        baseExchangeRate,
-        tradingPairExchangeRate,
-        positionSize,
-        pipPrecision,
-        lotDescriptors,
-        baseListedSecond,
-        stopLossPips,
-        stopLossPrice,
-        stopLossAmount,
-        entryPrice,
-        position,
-      ];
 
   StopLossState copyWithState(BaseState state) {
     return StopLossState(
@@ -80,7 +64,7 @@ class StopLossState extends BaseState with EquatableMixin {
   }
 }
 
-final initialStopLossState = StopLossState(
+const kInitialStopLossState = StopLossState(
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,
