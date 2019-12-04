@@ -1,6 +1,6 @@
 import 'quote.interface.dart';
 
-abstract class ExchangeProvider {
+abstract class AbstractExchangeProvider {
   Stream<Quote> rates(
     String base,
     String counter,
