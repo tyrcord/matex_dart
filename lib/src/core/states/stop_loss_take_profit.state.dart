@@ -1,7 +1,4 @@
-import 'package:matex_dart/src/core/models/models.dart';
-import 'package:matex_dart/src/core/states/states.dart';
-import 'package:matex_dart/src/core/enums/enums.dart';
-import 'package:matex_dart/src/core/descriptors/descriptors.dart';
+import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
 class StopLossTakeProfitState extends BaseState {
   const StopLossTakeProfitState({

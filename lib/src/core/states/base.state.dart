@@ -30,8 +30,14 @@ class BaseState extends Equatable {
   final double takeProfitPips;
   final double takeProfitPrice;
   final double takeProfitAmount;
+  final String accountCode;
+  final String baseCode;
+  final String counterCode;
 
   const BaseState({
+    this.accountCode,
+    this.baseCode,
+    this.counterCode,
     this.customPrice,
     this.highPrice,
     this.lowPrice,
@@ -64,6 +70,9 @@ class BaseState extends Equatable {
 
   BaseState clone() {
     return BaseState(
+      accountCode: accountCode,
+      baseCode: baseCode,
+      counterCode: counterCode,
       customPrice: customPrice,
       highPrice: highPrice,
       lowPrice: lowPrice,
@@ -97,6 +106,9 @@ class BaseState extends Equatable {
 
   BaseState copyWithState(BaseState state) {
     return BaseState(
+      accountCode: state.accountCode ?? accountCode,
+      baseCode: state.baseCode ?? baseCode,
+      counterCode: state.counterCode ?? counterCode,
       customPrice: state.customPrice ?? customPrice,
       highPrice: state.highPrice ?? highPrice,
       lowPrice: state.lowPrice ?? lowPrice,
@@ -131,6 +143,9 @@ class BaseState extends Equatable {
 
   @override
   List<Object> get props => [
+        accountCode,
+        baseCode,
+        counterCode,
         customPrice,
         highPrice,
         lowPrice,

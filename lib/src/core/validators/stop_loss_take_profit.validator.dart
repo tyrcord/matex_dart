@@ -1,12 +1,9 @@
 import 'package:matex_dart/matex_dart.dart';
 
-final List<StateValidator<StopLossTakeProfitState>>
-    stopLossTakeProfitValidators = [
-  (StopLossTakeProfitState state) => state.positionSize > 0,
-  (StopLossTakeProfitState state) => state.tradingPairExchangeRate > 0,
-  (StopLossTakeProfitState state) => state.entryPrice > 0,
-  (StopLossTakeProfitState state) => state.tradingPairExchangeRate > 0,
-  (StopLossTakeProfitState state) {
+final List<StateValidator<BaseState>> stopLossTakeProfitValidators = [
+  ...pipValueValidators,
+  (BaseState state) => state.entryPrice != null && state.entryPrice > 0,
+  (BaseState state) {
     final stopLossAmount = state.stopLossAmount;
     final stopLossPrice = state.stopLossPrice;
     final stopLossPips = state.stopLossPips;

@@ -1,7 +1,7 @@
 import 'package:matex_dart/matex_dart.dart';
 
-final List<StateValidator<FibonacciLevelsState>> fibonacciLevelsValidators = [
-  (FibonacciLevelsState state) {
+final List<StateValidator<BaseState>> fibonacciLevelsValidators = [
+  (BaseState state) {
     final lowPrice = state.lowPrice;
     final highPrice = state.highPrice;
     bool isValid =

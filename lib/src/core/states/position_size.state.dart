@@ -1,6 +1,13 @@
-import 'package:matex_dart/matex_dart.dart';
+import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
-class PositionSizeState extends BaseState {
+class PositionSizeState extends PipValueState {
+  final double accountSize;
+  final double entryPrice;
+  final double amountAtRisk;
+  final double riskRatio;
+  final double stopLossPips;
+  final double stopLossPrice;
+
   const PositionSizeState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
@@ -8,12 +15,12 @@ class PositionSizeState extends BaseState {
     int pipPrecision,
     LotDescriptors lotDescriptors,
     bool baseListedSecond,
-    double accountSize,
-    double entryPrice,
-    double amountAtRisk,
-    double riskRatio,
-    double stopLossPips,
-    double stopLossPrice,
+    this.accountSize,
+    this.entryPrice,
+    this.amountAtRisk,
+    this.riskRatio,
+    this.stopLossPips,
+    this.stopLossPrice,
   }) : super(
           baseExchangeRate: baseExchangeRate,
           tradingPairExchangeRate: tradingPairExchangeRate,
@@ -21,12 +28,6 @@ class PositionSizeState extends BaseState {
           pipPrecision: pipPrecision,
           lotDescriptors: lotDescriptors,
           baseListedSecond: baseListedSecond,
-          accountSize: accountSize,
-          entryPrice: entryPrice,
-          amountAtRisk: amountAtRisk,
-          riskRatio: riskRatio,
-          stopLossPips: stopLossPips,
-          stopLossPrice: stopLossPrice,
         );
 
   PositionSizeState copyWithState(BaseState state) {
@@ -34,7 +35,7 @@ class PositionSizeState extends BaseState {
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
-      positionSize: state.positionSize ?? this.positionSize,
+      positionSize: state.positionSize ?? positionSize,
       pipPrecision: state.pipPrecision ?? pipPrecision,
       lotDescriptors: state.lotDescriptors ?? lotDescriptors,
       baseListedSecond: state.baseListedSecond ?? baseListedSecond,
@@ -51,7 +52,7 @@ class PositionSizeState extends BaseState {
     return PositionSizeState(
       baseExchangeRate: baseExchangeRate,
       tradingPairExchangeRate: tradingPairExchangeRate,
-      positionSize: this.positionSize,
+      positionSize: positionSize,
       pipPrecision: pipPrecision,
       lotDescriptors: lotDescriptors,
       baseListedSecond: baseListedSecond,

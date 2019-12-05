@@ -1,4 +1,4 @@
-import 'package:matex_dart/matex_dart.dart';
+import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
 class PipValueState extends BaseState {
   const PipValueState({
@@ -22,7 +22,7 @@ class PipValueState extends BaseState {
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
-      positionSize: state.positionSize ?? this.positionSize,
+      positionSize: state.positionSize ?? positionSize,
       pipPrecision: state.pipPrecision ?? pipPrecision,
       lotDescriptors: state.lotDescriptors ?? lotDescriptors,
       baseListedSecond: state.baseListedSecond ?? baseListedSecond,
@@ -33,7 +33,7 @@ class PipValueState extends BaseState {
     return PipValueState(
       baseExchangeRate: baseExchangeRate,
       tradingPairExchangeRate: tradingPairExchangeRate,
-      positionSize: this.positionSize,
+      positionSize: positionSize,
       pipPrecision: pipPrecision,
       lotDescriptors: lotDescriptors,
       baseListedSecond: baseListedSecond,
