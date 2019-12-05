@@ -64,7 +64,14 @@ class BaseState extends Equatable {
 
   BaseState clone() {
     return BaseState(
+      customPrice: customPrice,
+      highPrice: highPrice,
+      lowPrice: lowPrice,
+      precision: precision,
+      extensionLevels: extensionLevels,
       baseExchangeRate: baseExchangeRate,
+      retracementLevels: retracementLevels,
+      trend: trend,
       tradingPairExchangeRate: tradingPairExchangeRate,
       positionSize: positionSize,
       pipPrecision: pipPrecision,
