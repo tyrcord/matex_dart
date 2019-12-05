@@ -5,7 +5,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('PipValueCalculator', () {
-    PipValueCalculator calculator;
+    PipValueCalculator<PipValueState, double> calculator;
 
     setUp(() {
       calculator = pip();
