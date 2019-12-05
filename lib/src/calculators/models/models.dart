@@ -1,0 +1,1 @@
+export './config.model.dart';

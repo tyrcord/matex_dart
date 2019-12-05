@@ -1,16 +1,20 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
-class RequiredMarginState extends PipValueState {
-  final double leverage;
+class MatexPipValueState extends PipValueState {
+  final String accountCode;
+  final String baseCode;
+  final String counterCode;
 
-  const RequiredMarginState({
+  const MatexPipValueState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
     LotDescriptors lotDescriptors,
     bool baseListedSecond,
-    this.leverage,
+    this.accountCode,
+    this.baseCode,
+    this.counterCode,
   }) : super(
           baseExchangeRate: baseExchangeRate,
           tradingPairExchangeRate: tradingPairExchangeRate,
@@ -20,8 +24,11 @@ class RequiredMarginState extends PipValueState {
           baseListedSecond: baseListedSecond,
         );
 
-  RequiredMarginState copyWithState(BaseState state) {
-    return RequiredMarginState(
+  MatexPipValueState copyWithState(BaseState state) {
+    return MatexPipValueState(
+      accountCode: state.accountCode ?? accountCode,
+      baseCode: state.baseCode ?? baseCode,
+      counterCode: state.counterCode ?? counterCode,
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
@@ -29,29 +36,32 @@ class RequiredMarginState extends PipValueState {
       pipPrecision: state.pipPrecision ?? pipPrecision,
       lotDescriptors: state.lotDescriptors ?? lotDescriptors,
       baseListedSecond: state.baseListedSecond ?? baseListedSecond,
-      leverage: state.leverage ?? leverage,
     );
   }
 
-  RequiredMarginState clone() {
-    return RequiredMarginState(
+  MatexPipValueState clone() {
+    return MatexPipValueState(
+      accountCode: accountCode,
+      baseCode: baseCode,
+      counterCode: counterCode,
       baseExchangeRate: baseExchangeRate,
       tradingPairExchangeRate: tradingPairExchangeRate,
       positionSize: positionSize,
       pipPrecision: pipPrecision,
       lotDescriptors: lotDescriptors,
       baseListedSecond: baseListedSecond,
-      leverage: leverage,
     );
   }
 }
 
-const kInitialRequiredMarginState = RequiredMarginState(
+const MatexPipValueState kInitialMatexPipValueState = MatexPipValueState(
+  accountCode: null,
+  baseCode: null,
+  counterCode: null,
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,
   pipPrecision: 4,
   positionSize: 0.0,
   tradingPairExchangeRate: 0.0,
-  leverage: 1.0,
 );

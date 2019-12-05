@@ -1,12 +1,14 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class StopLossTakeProfitCalculator
-    extends BaseCalculator<StopLossTakeProfitState, StopLossTakeProfitResult>
+class StopLossTakeProfitCalculator extends AbstractPipValueCalculator<
+        StopLossTakeProfitState, StopLossTakeProfitResult>
     with
         TakeProfitMixin<StopLossTakeProfitCalculator, StopLossTakeProfitState,
             StopLossTakeProfitResult>,
         StopLossMixin<StopLossTakeProfitCalculator, StopLossTakeProfitState,
+            StopLossTakeProfitResult>,
+        LotMixin<StopLossTakeProfitCalculator, StopLossTakeProfitState,
             StopLossTakeProfitResult>,
         PipValueMixin<StopLossTakeProfitCalculator, StopLossTakeProfitState,
             StopLossTakeProfitResult> {

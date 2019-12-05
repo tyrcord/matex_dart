@@ -1,30 +1,28 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
-class StopLossTakeProfitState extends PipValueState {
-  final double entryPrice;
-  final Position position;
-  final double stopLossPips;
-  final double stopLossPrice;
-  final double stopLossAmount;
-  final double takeProfitPips;
-  final double takeProfitPrice;
-  final double takeProfitAmount;
+class MatexStopLossTakeProfitState extends StopLossTakeProfitState {
+  final String accountCode;
+  final String baseCode;
+  final String counterCode;
 
-  const StopLossTakeProfitState({
+  const MatexStopLossTakeProfitState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
     LotDescriptors lotDescriptors,
     bool baseListedSecond,
-    this.stopLossPips,
-    this.stopLossPrice,
-    this.entryPrice,
-    this.position,
-    this.stopLossAmount,
-    this.takeProfitPips,
-    this.takeProfitPrice,
-    this.takeProfitAmount,
+    this.accountCode,
+    this.baseCode,
+    this.counterCode,
+    double entryPrice,
+    Position position,
+    double stopLossPips,
+    double stopLossPrice,
+    double stopLossAmount,
+    double takeProfitPips,
+    double takeProfitPrice,
+    double takeProfitAmount,
   }) : super(
           baseExchangeRate: baseExchangeRate,
           tradingPairExchangeRate: tradingPairExchangeRate,
@@ -32,10 +30,21 @@ class StopLossTakeProfitState extends PipValueState {
           pipPrecision: pipPrecision,
           lotDescriptors: lotDescriptors,
           baseListedSecond: baseListedSecond,
+          takeProfitPips: takeProfitPips,
+          takeProfitPrice: takeProfitPrice,
+          takeProfitAmount: takeProfitAmount,
+          entryPrice: entryPrice,
+          position: position,
+          stopLossPips: stopLossPips,
+          stopLossPrice: stopLossPrice,
+          stopLossAmount: stopLossAmount,
         );
 
-  StopLossTakeProfitState copyWithState(BaseState state) {
-    return StopLossTakeProfitState(
+  MatexStopLossTakeProfitState copyWithState(BaseState state) {
+    return MatexStopLossTakeProfitState(
+      accountCode: state.accountCode ?? accountCode,
+      baseCode: state.baseCode ?? baseCode,
+      counterCode: state.counterCode ?? counterCode,
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
@@ -54,8 +63,11 @@ class StopLossTakeProfitState extends PipValueState {
     );
   }
 
-  StopLossTakeProfitState clone() {
-    return StopLossTakeProfitState(
+  MatexStopLossTakeProfitState clone() {
+    return MatexStopLossTakeProfitState(
+      accountCode: accountCode,
+      baseCode: baseCode,
+      counterCode: counterCode,
       baseExchangeRate: baseExchangeRate,
       tradingPairExchangeRate: tradingPairExchangeRate,
       positionSize: positionSize,
@@ -65,38 +77,6 @@ class StopLossTakeProfitState extends PipValueState {
       takeProfitPips: takeProfitPips,
       takeProfitPrice: takeProfitPrice,
       takeProfitAmount: takeProfitAmount,
-      entryPrice: entryPrice,
-      position: position,
-      stopLossPips: stopLossPips,
-      stopLossPrice: stopLossPrice,
-      stopLossAmount: stopLossAmount,
-    );
-  }
-
-  TakeProfitState toTakeProfitState() {
-    return TakeProfitState(
-      baseExchangeRate: baseExchangeRate,
-      tradingPairExchangeRate: tradingPairExchangeRate,
-      positionSize: positionSize,
-      pipPrecision: pipPrecision,
-      lotDescriptors: lotDescriptors,
-      baseListedSecond: baseListedSecond,
-      takeProfitPips: takeProfitPips,
-      takeProfitPrice: takeProfitPrice,
-      takeProfitAmount: takeProfitAmount,
-      entryPrice: entryPrice,
-      position: position,
-    );
-  }
-
-  StopLossState toStopLossState() {
-    return StopLossState(
-      baseExchangeRate: baseExchangeRate,
-      tradingPairExchangeRate: tradingPairExchangeRate,
-      positionSize: positionSize,
-      pipPrecision: pipPrecision,
-      lotDescriptors: lotDescriptors,
-      baseListedSecond: baseListedSecond,
       entryPrice: entryPrice,
       position: position,
       stopLossPips: stopLossPips,
@@ -106,7 +86,11 @@ class StopLossTakeProfitState extends PipValueState {
   }
 }
 
-const kInitialStopLossTakeProfitState = StopLossTakeProfitState(
+const MatexStopLossTakeProfitState kInitialMatexStopLossTakeProfitState =
+    MatexStopLossTakeProfitState(
+  accountCode: null,
+  baseCode: null,
+  counterCode: null,
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,

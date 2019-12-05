@@ -1,26 +1,25 @@
 import 'package:matex_dart/matex_dart.dart';
 
-class PipValueCalculator<S extends PipValueState, R>
-    extends BaseCalculator<S, R>
+class PipValueCalculator
+    extends AbstractPipValueCalculator<PipValueState, double>
     with
-        LotMixin<PipValueCalculator<S, R>, S, R>,
-        PipValueMixin<PipValueCalculator<S, R>, S, R> {
+        LotMixin<PipValueCalculator, PipValueState, double>,
+        PipValueMixin<PipValueCalculator, PipValueState, double> {
   PipValueCalculator({
-    S initialState,
-    List<StateValidator<S>> validators,
+    PipValueState initialState,
+    List<StateValidator> validators,
   }) : super(
-          initialState: initialState ?? kInitialPipValueState as S,
+          initialState: initialState ?? kInitialPipValueState,
           validators: validators ?? pipValueValidators,
         );
 
-  R value() {
+  double value() {
     if (result != null) {
       return result;
     }
 
-    return (result = computePipValue() as R);
+    return (result = computePipValue());
   }
 }
 
-PipValueCalculator<PipValueState, double> pip() =>
-    PipValueCalculator<PipValueState, double>();
+PipValueCalculator pip() => PipValueCalculator();

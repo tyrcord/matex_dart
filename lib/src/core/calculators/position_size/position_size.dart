@@ -10,7 +10,11 @@ const DEFAULT_RESULTS = PositionSizeResult(
 );
 
 class PositionSizeCalculator
-    extends PipValueCalculator<PositionSizeState, PositionSizeResult> {
+    extends AbstractPipValueCalculator<PositionSizeState, PositionSizeResult>
+    with
+        LotMixin<PositionSizeCalculator, PositionSizeState, PositionSizeResult>,
+        PipValueMixin<PositionSizeCalculator, PositionSizeState,
+            PositionSizeResult> {
   PositionSizeCalculator({
     PositionSizeState initialState,
     List<StateValidator<PositionSizeState>> validators,

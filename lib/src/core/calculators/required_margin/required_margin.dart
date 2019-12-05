@@ -2,7 +2,7 @@ import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 class RequiredMarginCalculator
-    extends BaseCalculator<RequiredMarginState, double>
+    extends AbstractPipValueCalculator<RequiredMarginState, double>
     with
         LotMixin<RequiredMarginCalculator, RequiredMarginState, double>,
         PipValueMixin<RequiredMarginCalculator, RequiredMarginState, double> {
