@@ -23,40 +23,39 @@ mixin MatexPipValueMixin<S extends PipValueState, R>
 
   Future<InstrumentMetadata> fetchAccountInstrumentMetadata() {
     final accountCode = state.accountCode;
-    return instrumentProvider.metadata(accountCode).first;
+    return instrumentProvider.metadata(accountCode);
   }
 
   Future<InstrumentMetadata> fetchCounterInstrumentMetadata() {
     final counterCode = state.counterCode;
-    return instrumentProvider.metadata(counterCode).first;
+    return instrumentProvider.metadata(counterCode);
   }
 
   Future<InstrumentMetadata> fetchBaseInstrumentMetadata() {
     final baseCode = state.baseCode;
-    return instrumentProvider.metadata(baseCode).first;
+    return instrumentProvider.metadata(baseCode);
   }
 
   Future<void> setExchangeRates() async {
     final baseCode = state.baseCode;
     final accountCode = state.accountCode;
     final counterCode = state.counterCode;
-    final tradingPairQuoteStream = exchangeProvider?.rates(
+    final tradingPairQuoteFuture = exchangeProvider?.rates(
       baseCode,
       counterCode,
     );
 
-    if (tradingPairQuoteStream != null) {
-      final tradingPairQuote = await tradingPairQuoteStream.first;
+    if (tradingPairQuoteFuture != null) {
+      final tradingPairQuote = await tradingPairQuoteFuture;
       tradingPairExchangeRate(tradingPairQuote.price);
 
       if (accountCode == counterCode) {
         baseListedSecond(true);
       } else if (accountCode != baseCode) {
-        final accountBaseQuoteStream = exchangeProvider.rates(
+        final accountBaseQuote = await exchangeProvider.rates(
           accountCode,
           baseCode,
         );
-        final accountBaseQuote = await accountBaseQuoteStream.first;
         baseExchangeRate(accountBaseQuote.price);
       }
     }

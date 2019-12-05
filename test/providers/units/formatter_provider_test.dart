@@ -1,33 +1,54 @@
-// import { expect } from 'chai';
-// import 'mocha';
+import 'package:test/test.dart';
 
-// import { FormatterProvider } from '../src';
+import 'package:matex_dart/matex_dart.dart';
 
-// describe('FormatterProvider', () => {
-//   let formatter: FormatterProvider;
+void main() {
+  group('FormatterProvider', () {
+    FormatterProvider formatter;
 
-//   beforeEach(() => {
-//     formatter = new FormatterProvider();
-//   });
+    setUp(() {
+      formatter = FormatterProvider();
+    });
 
-//   describe('formatInstrument()', () => {
-//     it('should format a currency according to a locale and an instrument', () => {
-//       expect(formatter.formatInstrument(10_000, 'EUR', 'en-USD')).to.equal(
-//         '€10,000.000',
-//       );
-//       expect(formatter.formatInstrument(10_000, 'EUR', 'fr-FR')).to.equal(
-//         '10 000,000 €',
-//       );
-//     });
-//   });
+    group('formatInstrument()', () {
+      test('should format a currency according to a locale and an instrument',
+          () {
+        expect(
+          formatter.formatInstrument(
+            value: 10000,
+            code: 'EUR',
+            locale: 'en-US',
+          ),
+          completion(equals(
+            '€10,000.000',
+          )),
+        );
+        expect(
+          formatter.formatInstrument(
+            value: 10000,
+            code: 'EUR',
+            locale: 'fr-FR',
+          ),
+          completion(equals(
+            '10 000,000 €',
+          )),
+        );
+      });
+    });
 
-//   describe('formatQuote()', () => {
-//     it('should format a quote according to a locale and an instrument', () => {
-//       expect(formatter.formatQuote(1.4255, 'EUR', 'en-USD')).to.equal(
-//         '€1.42550',
-//       );
-//     });
-//   });
-// });
-
-void main() {}
+    group('formatQuote()', () {
+      test('should format a quote according to a locale and an instrument', () {
+        expect(
+          formatter.formatQuote(
+            value: 1.4255,
+            code: 'EUR',
+            locale: 'en-US',
+          ),
+          completion(equals(
+            '€1.42550',
+          )),
+        );
+      });
+    });
+  });
+}

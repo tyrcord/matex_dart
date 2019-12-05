@@ -35,24 +35,23 @@ class MatexRequiredMarginCalculator extends RequiredMarginCalculator
     if (accountCode == baseCode) {
       tradingPairExchangeRate(1.0);
     } else {
-      final tradingPairQuoteStream = exchangeProvider?.rates(
+      final tradingPairQuoteFuture = exchangeProvider?.rates(
         baseCode,
         counterCode,
       );
 
-      if (tradingPairQuoteStream != null) {
-        final tradingPairQuote = await tradingPairQuoteStream.first;
+      if (tradingPairQuoteFuture != null) {
+        final tradingPairQuote = await tradingPairQuoteFuture;
 
         tradingPairExchangeRate(tradingPairQuote.price);
 
         if (accountCode == counterCode) {
           baseListedSecond(true);
         } else {
-          final accountBaseQuoteStream = exchangeProvider.rates(
+          final accountBaseQuote = await exchangeProvider.rates(
             baseCode,
             accountCode,
           );
-          final accountBaseQuote = await accountBaseQuoteStream.first;
           baseExchangeRate(accountBaseQuote.price);
         }
       }

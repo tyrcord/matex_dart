@@ -1,5 +1,5 @@
 abstract class AbstractFormatterProvider {
-  Stream<String> formatInstrument({
+  Future<String> formatInstrument({
     double value,
     String code,
     String locale,
@@ -7,7 +7,7 @@ abstract class AbstractFormatterProvider {
     int maximumFractionDigits,
   });
 
-  Stream<String> formatQuote({
+  Future<String> formatQuote({
     double value,
     String code,
     String locale,

@@ -7,53 +7,61 @@ import 'instrument.provider.dart';
 const _kEmptyString = '';
 
 class FormatterProvider implements AbstractFormatterProvider {
-  InstrumentProvider instrumentProvider;
+  final InstrumentProvider instrumentProvider;
 
-  Stream<String> formatInstrument({
+  FormatterProvider({
+    InstrumentProvider instrumentProvider,
+  })  : instrumentProvider = instrumentProvider ?? InstrumentProvider(),
+        super();
+
+  Future<String> formatInstrument({
     double value,
     String code,
     String locale,
     int maximumFractionDigits,
     int minimumFractionDigits,
-  }) {
-    return instrumentProvider.metadata(code).take(1).map((instrumentMetadata) {
-      if (instrumentMetadata != null) {
-        final format = instrumentMetadata.format;
-        final round = format.round;
-        final formatter =
-            NumberFormat.simpleCurrency(locale: locale, name: code);
+  }) async {
+    final instrumentMetadata = await instrumentProvider.metadata(code);
 
-        formatter.minimumFractionDigits = maximumFractionDigits ?? round;
-        formatter.maximumFractionDigits = minimumFractionDigits ?? round;
+    if (instrumentMetadata != null) {
+      final format = instrumentMetadata.format;
+      final round = format.round;
+      final formatter = NumberFormat.simpleCurrency(
+        locale: locale,
+        name: code,
+      );
 
-        return formatter.format(value);
-      }
+      formatter.minimumFractionDigits = maximumFractionDigits ?? round;
+      formatter.maximumFractionDigits = minimumFractionDigits ?? round;
 
-      return _kEmptyString;
-    });
+      return formatter.format(value);
+    }
+
+    return _kEmptyString;
   }
 
-  Stream<String> formatQuote({
+  Future<String> formatQuote({
     double value,
     String code,
     String locale,
     int maximumFractionDigits,
     int minimumFractionDigits,
-  }) {
-    return instrumentProvider.metadata(code).take(1).map((instrumentMetadata) {
-      if (instrumentMetadata != null) {
-        final pip = instrumentMetadata.pip;
-        final round = pip.round;
-        final formatter =
-            NumberFormat.simpleCurrency(locale: locale, name: code);
+  }) async {
+    final instrumentMetadata = await instrumentProvider.metadata(code);
+    if (instrumentMetadata != null) {
+      final pip = instrumentMetadata.pip;
+      final round = pip.round;
+      final formatter = NumberFormat.simpleCurrency(
+        locale: locale,
+        name: code,
+      );
 
-        formatter.minimumFractionDigits = maximumFractionDigits ?? round;
-        formatter.maximumFractionDigits = minimumFractionDigits ?? round;
+      formatter.minimumFractionDigits = maximumFractionDigits ?? round;
+      formatter.maximumFractionDigits = minimumFractionDigits ?? round;
 
-        return formatter.format(value);
-      }
+      return formatter.format(value);
+    }
 
-      return _kEmptyString;
-    });
+    return _kEmptyString;
   }
 }
