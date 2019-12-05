@@ -225,7 +225,6 @@
   },
   "CAD": {
     "code": "CAD",
-    "iso": "CAD",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -249,7 +248,8 @@
     "format": {
       "round": 3
     },
-    "sign": {
+    "symbol": {
+      "ticker": "CAD",
       "long": "CA$",
       "short": "$"
     },

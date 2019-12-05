@@ -1,4 +1,4 @@
-import 'quote.interface.dart';
+import '../models/quote.model.dart';
 
 abstract class AbstractExchangeProvider {
   Stream<Quote> rates(

@@ -1,3 +1,5 @@
+import 'package:matex_dart/src/providers/models/instument_metadata.model.dart';
+
 abstract class AbstractInstrumentProvider {
-  Stream<dynamic> metadata(String code);
+  Stream<InstrumentMetadata> metadata(String code);
 }

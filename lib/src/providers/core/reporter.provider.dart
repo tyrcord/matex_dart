@@ -1,7 +1,8 @@
 import 'dart:async';
 import 'package:intl/intl.dart';
 
-import 'interfaces/interfaces.dart';
+import '../interfaces/interfaces.dart';
+import '../models/models.dart';
 
 class ReporterProvider implements AbstractReporterProvider {
   Stream<String> report({

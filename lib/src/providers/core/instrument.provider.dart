@@ -2,7 +2,8 @@ import 'dart:async';
 import 'dart:convert' show jsonDecode;
 import 'dart:io' show File;
 
-import 'interfaces/interfaces.dart';
+import '../interfaces/interfaces.dart';
+import '../models/models.dart';
 
 const _kInstrumentsPath = './meta/instruments.json';
 
@@ -18,12 +19,12 @@ class InstrumentProvider implements AbstractInstrumentProvider {
 
   InstrumentProvider._();
 
-  Stream<dynamic> metadata(String code) async* {
+  Stream<InstrumentMetadata> metadata(String code) async* {
     if (!_isInitialized) {
       await _init();
     }
 
-    yield _instrumentsMetadata[code];
+    yield _instrumentsMetadata[code] as InstrumentMetadata;
   }
 
   Future<bool> _init() async {
