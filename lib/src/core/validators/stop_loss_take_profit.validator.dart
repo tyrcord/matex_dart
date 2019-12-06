@@ -11,9 +11,11 @@ final List<StateValidator<BaseState>> stopLossTakeProfitValidators = [
     final takeProfitPrice = state.takeProfitPrice;
     final takeProfitPips = state.takeProfitPips;
 
-    return (stopLossAmount > 0 ||
-        stopLossPrice > 0 ||
-        stopLossPips > 0 ||
-        (takeProfitAmount > 0 || takeProfitPrice > 0 || takeProfitPips > 0));
+    return (((stopLossAmount != null && stopLossAmount > 0) ||
+            (stopLossPrice != null && stopLossPrice > 0) ||
+            (stopLossPips != null && stopLossPips > 0)) ||
+        ((takeProfitAmount != null && takeProfitAmount > 0) ||
+            (takeProfitPrice != null && takeProfitPrice > 0) ||
+            (takeProfitPips != null && takeProfitPips > 0)));
   },
 ];

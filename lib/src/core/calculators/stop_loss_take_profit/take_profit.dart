@@ -14,19 +14,19 @@ class TakeProfitCalculator
         );
 
   @override
-  TakeProfitResult value({double pipValue}) {
+  TakeProfitResult value({Decimal pipValue}) {
     if (result != null) {
       return result;
     }
 
-    if (pipValue != null) {
+    if (pipValue == null) {
       pipValue = computePipValue();
     }
 
     return (result = _computeTakeProfitLevels(pipValue));
   }
 
-  TakeProfitResult _computeTakeProfitLevels(double pipValue) {
+  TakeProfitResult _computeTakeProfitLevels(Decimal pipValue) {
     final pipPrecision = validState.pipPrecision;
     final takeProfitAmount = validState.takeProfitAmount;
     final takeProfitPips = validState.takeProfitPips;
@@ -54,12 +54,11 @@ class TakeProfitCalculator
 
   TakeProfitResult _computeTakeProfitWithAmount(
     double takeProfitAmount,
-    double pipValue,
+    Decimal pipValue,
     double divider,
   ) {
-    final takeProfitPips = (Decimal.parse(takeProfitAmount.toString()) /
-            Decimal.parse(pipValue.toString()))
-        .toDouble();
+    final takeProfitPips =
+        (Decimal.parse(takeProfitAmount.toString()) / pipValue).toDouble();
 
     return _buildTakeProfitResult(
       amount: takeProfitAmount,
@@ -70,7 +69,7 @@ class TakeProfitCalculator
 
   TakeProfitResult _computeTakeProfitWithPrice(
     double takeProfitPrice,
-    double pipValue,
+    Decimal pipValue,
     double divider,
   ) {
     final position = validState.position;
@@ -99,7 +98,7 @@ class TakeProfitCalculator
 
   TakeProfitResult _computeTakeProfitWithPips(
     double takeProfitPips,
-    double pipValue,
+    Decimal pipValue,
     double divider,
   ) {
     final takeProfitPrice = _computeTakeProfitPrice(
@@ -114,10 +113,8 @@ class TakeProfitCalculator
     );
   }
 
-  double _computeTakeProfitAmount(takeProfitPips, pipValue) {
-    return (Decimal.parse(takeProfitPips.toString()) *
-            Decimal.parse(pipValue.toString()))
-        .toDouble();
+  double _computeTakeProfitAmount(double takeProfitPips, Decimal pipValue) {
+    return (Decimal.parse(takeProfitPips.toString()) * pipValue).toDouble();
   }
 
   double _computeTakeProfitPrice(double takeProfitPips, double divider) {

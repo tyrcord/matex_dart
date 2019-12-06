@@ -5,6 +5,12 @@ final List<StateValidator<BaseState>> pivotPointsValidators = [
     final lowPrice = state.lowPrice;
     final highPrice = state.highPrice;
     final closePrice = state.closePrice;
+    return lowPrice != null && highPrice != null && closePrice != null;
+  },
+  (BaseState state) {
+    final lowPrice = state.lowPrice;
+    final highPrice = state.highPrice;
+    final closePrice = state.closePrice;
     bool isValid = lowPrice > 0 && highPrice > 0 && closePrice > 0;
 
     if (isValid) {
@@ -22,7 +28,7 @@ final List<StateValidator<BaseState>> pivotPointsValidators = [
     final method = state.method;
     bool isValid = true;
 
-    if (method == PivotPointsMethods.DeMark) {
+    if (method == PivotPointsMethods.DeMark && openPrice != null) {
       isValid = openPrice > 0;
 
       if (isValid) {

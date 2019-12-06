@@ -42,7 +42,7 @@ class StopLossTakeProfitCalculator extends AbstractPipValueCalculator<
           .value(pipValue: pipValue);
 
       return (result = StopLossTakeProfitResult(
-        pipValue: pipValue,
+        pipValue: pipValue.toDouble(),
         riskRewardRatio: _computeRiskRewardRatio(
           stopLossResult.amount,
           takeProfitResult.amount,
@@ -61,7 +61,10 @@ class StopLossTakeProfitCalculator extends AbstractPipValueCalculator<
   ) {
     double ratio = 0.0;
 
-    if (stopLossAmount > 0 && takeProfitAmount > 0) {
+    if (stopLossAmount != null &&
+        stopLossAmount > 0 &&
+        takeProfitAmount != null &&
+        takeProfitAmount > 0) {
       if (takeProfitAmount != stopLossAmount) {
         ratio = (Decimal.parse(takeProfitAmount.toString()) /
                 Decimal.parse(stopLossAmount.toString()))

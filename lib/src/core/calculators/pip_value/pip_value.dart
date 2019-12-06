@@ -18,7 +18,7 @@ class PipValueCalculator
       return result;
     }
 
-    return (result = computePipValue());
+    return (result = computePipValue().toDouble());
   }
 }
 

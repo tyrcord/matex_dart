@@ -76,13 +76,13 @@ class PositionSizeCalculator
       double amountAtRisk = computeAmountAtRisk();
       final riskRatio = computeRiskRatio(amountAtRisk, accountSize);
       final pipValue = computePipValue();
-      final tradingSize = pipValue > 0 && stopLossPips > 0
+      final tradingSize = pipValue > Decimal.fromInt(0) && stopLossPips > 0
           ? computePositionSize(amountAtRisk, pipValue, stopLossPips)
           : 0.0;
 
       return (result = PositionSizeResult(
         amountAtRisk: amountAtRisk,
-        pipValue: pipValue * tradingSize,
+        pipValue: (pipValue * Decimal.parse(tradingSize.toString())).toDouble(),
         positionSize: tradingSize,
         riskRatio: riskRatio,
       ));
@@ -94,11 +94,10 @@ class PositionSizeCalculator
   @protected
   double computePositionSize(
     double amountAtRisk,
-    double pipValue,
+    Decimal pipValue,
     double stopLossPip,
   ) {
-    final divider = Decimal.parse(pipValue.toString()) *
-        Decimal.parse(stopLossPip.toString());
+    final divider = pipValue * Decimal.parse(stopLossPip.toString());
     return (Decimal.parse(amountAtRisk.toString()) / divider).toDouble();
   }
 

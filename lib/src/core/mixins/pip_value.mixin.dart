@@ -26,7 +26,7 @@ mixin PipValueMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
     return patchState<C>(BaseState(tradingPairExchangeRate: sanitizedValue));
   }
 
-  double pipValue(S state) {
+  Decimal pipValue(S state) {
     final baseExchangeRate = state.baseExchangeRate;
     final baseListedSecond = state.baseListedSecond;
     final pipPrecision = state.pipPrecision;
@@ -37,19 +37,18 @@ mixin PipValueMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
         Decimal.fromInt(1) / Decimal.fromInt(10).pow(pipPrecision);
 
     return (decimalPip /
-            Decimal.parse(
-                (baseListedSecond ? 1 : tradingPairExchangeRate).toString()) /
-            Decimal.parse(
-                (baseExchangeRate > 0 ? baseExchangeRate : 1).toString()) *
-            Decimal.parse(positionSize.toString()))
-        .toDouble();
+        Decimal.parse(
+            (baseListedSecond ? 1 : tradingPairExchangeRate).toString()) /
+        Decimal.parse(
+            (baseExchangeRate > 0 ? baseExchangeRate : 1).toString()) *
+        Decimal.parse(positionSize.toString()));
   }
 
-  double computePipValue() {
+  Decimal computePipValue() {
     if (isValid) {
       return pipValue(validState);
     }
 
-    return 0.0;
+    return Decimal.fromInt(0);
   }
 }

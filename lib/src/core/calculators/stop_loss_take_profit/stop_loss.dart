@@ -12,19 +12,19 @@ class StopLossCalculator extends BaseCalculator<StopLossState, StopLossResult>
         );
 
   @override
-  StopLossResult value({double pipValue}) {
+  StopLossResult value({Decimal pipValue}) {
     if (result != null) {
       return result;
     }
 
-    if (pipValue != null) {
+    if (pipValue == null) {
       pipValue = computePipValue();
     }
 
     return (result = _computeStopLossLevels(pipValue));
   }
 
-  StopLossResult _computeStopLossLevels(double pipValue) {
+  StopLossResult _computeStopLossLevels(Decimal pipValue) {
     final pipPrecision = validState.pipPrecision;
     final stopLossAmount = validState.stopLossAmount;
     final stopLossPips = validState.stopLossPips;
@@ -44,12 +44,11 @@ class StopLossCalculator extends BaseCalculator<StopLossState, StopLossResult>
 
   StopLossResult _computeStopLossWithAmount(
     double stopLossAmount,
-    double pipValue,
+    Decimal pipValue,
     double divider,
   ) {
-    final stopLossPips = (Decimal.parse(stopLossAmount.toString()) /
-            Decimal.parse(pipValue.toString()))
-        .toDouble();
+    final stopLossPips =
+        (Decimal.parse(stopLossAmount.toString()) / pipValue).toDouble();
 
     return _buildStopLossResult(
       amount: stopLossAmount,
@@ -60,7 +59,7 @@ class StopLossCalculator extends BaseCalculator<StopLossState, StopLossResult>
 
   StopLossResult _computeStopLossWithPrice(
     double stopLossPrice,
-    double pipValue,
+    Decimal pipValue,
     double divider,
   ) {
     final position = validState.position;
@@ -89,7 +88,7 @@ class StopLossCalculator extends BaseCalculator<StopLossState, StopLossResult>
 
   StopLossResult _computeStopLossWithPips(
     double stopLossPips,
-    double pipValue,
+    Decimal pipValue,
     double divider,
   ) {
     final stopLossPrice = _computeStopLossPrice(stopLossPips, divider);
@@ -101,10 +100,8 @@ class StopLossCalculator extends BaseCalculator<StopLossState, StopLossResult>
     );
   }
 
-  double _computeStopLossAmount(double stopLossPips, double pipValue) {
-    return (Decimal.parse(stopLossPips.toString()) *
-            Decimal.parse(pipValue.toString()))
-        .toDouble();
+  double _computeStopLossAmount(double stopLossPips, Decimal pipValue) {
+    return (Decimal.parse(stopLossPips.toString()) * pipValue).toDouble();
   }
 
   double _computeStopLossPrice(double stopLossPips, double divider) {
