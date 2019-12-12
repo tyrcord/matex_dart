@@ -2,7 +2,7 @@ import 'package:meta/meta.dart';
 
 class ReportEntry {
   final String label;
-  final double value;
+  final dynamic value;
   final int minimumFractionDigits;
   final int maximumFractionDigits;
 

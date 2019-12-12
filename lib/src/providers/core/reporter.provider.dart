@@ -16,7 +16,7 @@ class ReporterProvider implements AbstractReporterProvider {
   String _stringify(String locale, Map<String, ReportEntry> reportState) {
     final entries = reportState.entries;
     final length = entries.length;
-    int index = 0;
+    var index = 0;
 
     return entries.fold('', (
       String accumulator,

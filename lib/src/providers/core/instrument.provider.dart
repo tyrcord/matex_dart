@@ -30,22 +30,24 @@ class InstrumentProvider implements AbstractInstrumentProvider {
   }
 
   Future<bool> _init() {
-    if (_initializingFuture == null) {
-      _initializingFuture =
-          File(_kInstrumentsPath).readAsString().then((String json) {
-        final instrumentsMetadata = jsonDecode(json) as Map<String, dynamic>;
+    _initializingFuture ??=
+        File(_kInstrumentsPath).readAsString().then((String json) {
+      final instrumentsMetadata = jsonDecode(json) as Map<String, dynamic>;
 
-        _instrumentsMetadata =
-            instrumentsMetadata.map<String, InstrumentMetadata>((key, value) {
-          return MapEntry(
-            key,
-            InstrumentMetadata.fromJson(value as Map<String, dynamic>),
-          );
-        });
-
-        return (_isInitialized = true);
+      instrumentsMetadata.removeWhere((key, value) {
+        return key == 'lot_units';
       });
-    }
+
+      _instrumentsMetadata =
+          instrumentsMetadata.map<String, InstrumentMetadata>((key, value) {
+        return MapEntry(
+          key,
+          InstrumentMetadata.fromJson(value as Map<String, dynamic>),
+        );
+      });
+
+      return (_isInitialized = true);
+    });
 
     return _initializingFuture;
   }

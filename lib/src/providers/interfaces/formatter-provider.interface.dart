@@ -1,16 +1,18 @@
+import 'package:meta/meta.dart';
+
 abstract class AbstractFormatterProvider {
   Future<String> formatInstrument({
-    double value,
-    String code,
-    String locale,
+    @required double value,
+    @required String code,
+    @required String locale,
     int minimumFractionDigits,
     int maximumFractionDigits,
   });
 
   Future<String> formatQuote({
-    double value,
-    String code,
-    String locale,
+    @required double value,
+    @required String code,
+    @required String locale,
     int minimumFractionDigits,
     int maximumFractionDigits,
   });

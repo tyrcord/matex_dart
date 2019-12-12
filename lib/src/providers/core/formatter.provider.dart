@@ -14,6 +14,7 @@ class FormatterProvider implements AbstractFormatterProvider {
   })  : instrumentProvider = instrumentProvider ?? InstrumentProvider(),
         super();
 
+  @override
   Future<String> formatInstrument({
     double value,
     String code,
@@ -26,20 +27,20 @@ class FormatterProvider implements AbstractFormatterProvider {
     if (instrumentMetadata != null) {
       final format = instrumentMetadata.format;
       final round = format.round;
-      final formatter = NumberFormat.simpleCurrency(
-        locale: locale,
-        name: code,
+
+      return _formatCurrency(
+        value,
+        code,
+        locale,
+        maximumFractionDigits ?? round,
+        minimumFractionDigits ?? round,
       );
-
-      formatter.minimumFractionDigits = maximumFractionDigits ?? round;
-      formatter.maximumFractionDigits = minimumFractionDigits ?? round;
-
-      return formatter.format(value);
     }
 
     return _kEmptyString;
   }
 
+  @override
   Future<String> formatQuote({
     double value,
     String code,
@@ -51,17 +52,34 @@ class FormatterProvider implements AbstractFormatterProvider {
     if (instrumentMetadata != null) {
       final pip = instrumentMetadata.pip;
       final round = pip.round;
-      final formatter = NumberFormat.simpleCurrency(
-        locale: locale,
-        name: code,
+
+      return _formatCurrency(
+        value,
+        code,
+        locale,
+        maximumFractionDigits ?? round,
+        minimumFractionDigits ?? round,
       );
-
-      formatter.minimumFractionDigits = maximumFractionDigits ?? round;
-      formatter.maximumFractionDigits = minimumFractionDigits ?? round;
-
-      return formatter.format(value);
     }
 
     return _kEmptyString;
+  }
+
+  String _formatCurrency(
+    double value,
+    String code,
+    String locale,
+    int maximumFractionDigits,
+    int minimumFractionDigits,
+  ) {
+    final formatter = NumberFormat.simpleCurrency(
+      locale: locale,
+      name: code,
+    );
+
+    formatter.minimumFractionDigits = maximumFractionDigits;
+    formatter.maximumFractionDigits = minimumFractionDigits;
+
+    return formatter.format(value);
   }
 }

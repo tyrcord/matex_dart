@@ -1,42 +1,43 @@
 enum InstrumentLotsUnit {
   Forex,
   Barrel,
+  Ounce,
   Mmbtu,
-  Unknown,
-}
-
-enum InstrumentType {
-  CommodityEnergy,
-  Currency,
   Unknown,
 }
 
 class InstrumentMetadata {
   final String code;
+  final InstrumentFormatMetadata format;
   final InstrumentLotsMetadata lots;
   final InstrumentNameMetadata name;
   final InstrumentPairMetadata pair;
   final InstrumentPipMetadata pip;
-  final InstrumentFormatMetadata format;
   final InstrumentSymbolMetadata symbol;
-  final InstrumentType type;
+  final InstrumentTypeMetadata type;
 
   const InstrumentMetadata({
     this.code,
+    this.format,
     this.lots,
+    this.name,
     this.pair,
     this.pip,
-    this.format,
     this.symbol,
     this.type,
-    this.name,
   });
 
   static InstrumentMetadata fromJson(Map<String, dynamic> json) {
+    final lots = json['lots'] as Map<String, dynamic>;
+
     return InstrumentMetadata(
       code: json['code'] as String,
-      lots: InstrumentLotsMetadata.fromJson(
-        json['lots'] as Map<String, dynamic>,
+      format: InstrumentFormatMetadata.fromJson(
+        json['format'] as Map<String, dynamic>,
+      ),
+      lots: lots != null ? InstrumentLotsMetadata.fromJson(lots) : null,
+      name: InstrumentNameMetadata.fromJson(
+        json['name'] as Map<String, dynamic>,
       ),
       pair: InstrumentPairMetadata.fromJson(
         json['pair'] as Map<String, dynamic>,
@@ -44,26 +45,13 @@ class InstrumentMetadata {
       pip: InstrumentPipMetadata.fromJson(
         json['pip'] as Map<String, dynamic>,
       ),
-      format: InstrumentFormatMetadata.fromJson(
-        json['format'] as Map<String, dynamic>,
-      ),
       symbol: InstrumentSymbolMetadata.fromJson(
         json['symbol'] as Map<String, dynamic>,
       ),
-      type: getTypeFromRawData(json['type'] as String),
-      name: InstrumentNameMetadata.fromJson(
-        json['name'] as Map<String, dynamic>,
+      type: InstrumentTypeMetadata.fromJson(
+        json['type'] as Map<String, dynamic>,
       ),
     );
-  }
-
-  static InstrumentType getTypeFromRawData(String data) {
-    switch (data) {
-      case 'currency':
-        return InstrumentType.Currency;
-      default:
-        return InstrumentType.Unknown;
-    }
   }
 }
 
@@ -71,6 +59,7 @@ class InstrumentLotsMetadata {
   final int micro;
   final int mini;
   final int nano;
+  final bool normalized;
   final int standard;
   final InstrumentLotsUnit unit;
 
@@ -78,6 +67,7 @@ class InstrumentLotsMetadata {
     this.micro,
     this.mini,
     this.nano,
+    this.normalized,
     this.standard,
     this.unit,
   });
@@ -87,6 +77,7 @@ class InstrumentLotsMetadata {
       micro: json['micro'] as int,
       mini: json['mini'] as int,
       nano: json['nano'] as int,
+      normalized: json['normalized'] as bool,
       standard: json['standard'] as int,
       unit: getUnitFromRawData(json['unit'] as String),
     );
@@ -96,6 +87,12 @@ class InstrumentLotsMetadata {
     switch (data) {
       case 'forex':
         return InstrumentLotsUnit.Forex;
+      case 'barrel':
+        return InstrumentLotsUnit.Barrel;
+      case 'ounce':
+        return InstrumentLotsUnit.Ounce;
+      case 'mmbtu':
+        return InstrumentLotsUnit.Mmbtu;
       default:
         return InstrumentLotsUnit.Unknown;
     }
@@ -186,6 +183,23 @@ class InstrumentSymbolMetadata {
       ticker: json['ticker'] as String,
       long: json['long'] as String,
       short: json['short'] as String,
+    );
+  }
+}
+
+class InstrumentTypeMetadata {
+  final String main;
+  final String sub;
+
+  const InstrumentTypeMetadata({
+    this.main,
+    this.sub,
+  });
+
+  static InstrumentTypeMetadata fromJson(Map<String, dynamic> json) {
+    return InstrumentTypeMetadata(
+      main: json['main'] as String,
+      sub: json['sub'] as String,
     );
   }
 }
