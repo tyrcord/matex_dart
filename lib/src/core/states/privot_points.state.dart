@@ -15,6 +15,7 @@ class PivotPointsState extends BaseState {
           method: method,
         );
 
+  @override
   PivotPointsState copyWithState(BaseState state) {
     return PivotPointsState(
       closePrice: state.closePrice ?? closePrice,
@@ -25,6 +26,7 @@ class PivotPointsState extends BaseState {
     );
   }
 
+  @override
   PivotPointsState clone() {
     return PivotPointsState(
       closePrice: closePrice,

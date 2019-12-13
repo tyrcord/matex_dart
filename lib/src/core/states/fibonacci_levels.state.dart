@@ -19,6 +19,7 @@ class FibonacciLevelsState extends BaseState {
           retracementLevels: retracementLevels,
         );
 
+  @override
   FibonacciLevelsState copyWithState(BaseState state) {
     return FibonacciLevelsState(
       customPrice: state.customPrice ?? customPrice,
@@ -31,6 +32,7 @@ class FibonacciLevelsState extends BaseState {
     );
   }
 
+  @override
   FibonacciLevelsState clone() {
     return FibonacciLevelsState(
       customPrice: customPrice,

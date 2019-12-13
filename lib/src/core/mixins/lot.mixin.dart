@@ -10,7 +10,7 @@ mixin LotMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
 
   C lot(int lot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      state.lotDescriptors.lot,
+      state.lotDescriptors.standard,
       lot,
     );
     return patchState<C>(BaseState(positionSize: positionSize));
@@ -18,7 +18,7 @@ mixin LotMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
 
   C microLot(int microLot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      state.lotDescriptors.microLot,
+      state.lotDescriptors.micro,
       microLot,
     );
     return patchState<C>(BaseState(positionSize: positionSize));
@@ -26,7 +26,7 @@ mixin LotMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
 
   C miniLot(int miniLot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      state.lotDescriptors.miniLot,
+      state.lotDescriptors.mini,
       miniLot,
     );
     return patchState<C>(BaseState(positionSize: positionSize));
@@ -34,7 +34,7 @@ mixin LotMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
 
   C nanoLot(int nanoLot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      state.lotDescriptors.nanoLot,
+      state.lotDescriptors.nano,
       nanoLot,
     );
     return patchState<C>(BaseState(positionSize: positionSize));

@@ -27,6 +27,7 @@ class TakeProfitState extends BaseState {
           position: position,
         );
 
+  @override
   TakeProfitState copyWithState(BaseState state) {
     return TakeProfitState(
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
@@ -44,6 +45,7 @@ class TakeProfitState extends BaseState {
     );
   }
 
+  @override
   TakeProfitState clone() {
     return TakeProfitState(
       baseExchangeRate: baseExchangeRate,

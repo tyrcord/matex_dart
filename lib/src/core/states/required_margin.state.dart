@@ -1,6 +1,7 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
 class RequiredMarginState extends PipValueState {
+  @override
   final double leverage;
 
   const RequiredMarginState({
@@ -20,6 +21,7 @@ class RequiredMarginState extends PipValueState {
           baseListedSecond: baseListedSecond,
         );
 
+  @override
   RequiredMarginState copyWithState(BaseState state) {
     return RequiredMarginState(
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
@@ -33,6 +35,7 @@ class RequiredMarginState extends PipValueState {
     );
   }
 
+  @override
   RequiredMarginState clone() {
     return RequiredMarginState(
       baseExchangeRate: baseExchangeRate,

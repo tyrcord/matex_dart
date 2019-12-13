@@ -4,8 +4,13 @@ final List<StateValidator<BaseState>> fibonacciLevelsValidators = [
   (BaseState state) {
     final lowPrice = state.lowPrice;
     final highPrice = state.highPrice;
-    bool isValid =
-        lowPrice != null && lowPrice > 0 && highPrice != null && highPrice > 0;
+
+    return lowPrice != null && highPrice != null;
+  },
+  (BaseState state) {
+    final lowPrice = state.lowPrice;
+    final highPrice = state.highPrice;
+    var isValid = lowPrice > 0 && highPrice > 0;
 
     if (isValid) {
       isValid = highPrice >= lowPrice;

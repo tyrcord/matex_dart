@@ -9,29 +9,36 @@ class LotDescriptor {
 }
 
 class LotDescriptors {
-  final LotDescriptor lot;
-  final LotDescriptor microLot;
-  final LotDescriptor miniLot;
-  final LotDescriptor nanoLot;
+  final LotDescriptor standard;
+  final LotDescriptor micro;
+  final LotDescriptor mini;
+  final LotDescriptor nano;
 
   const LotDescriptors({
-    this.lot,
-    this.microLot,
-    this.miniLot,
-    this.nanoLot,
+    this.standard,
+    this.micro,
+    this.mini,
+    this.nano,
   });
 
   LotDescriptors copyWith({
-    LotDescriptor lot,
-    LotDescriptor microLot,
-    LotDescriptor miniLot,
-    LotDescriptor nanoLot,
+    LotDescriptor standard,
+    LotDescriptor micro,
+    LotDescriptor mini,
+    LotDescriptor nano,
   }) {
     return LotDescriptors(
-      lot: lot ?? this.lot,
-      microLot: microLot ?? this.microLot,
-      miniLot: miniLot ?? this.miniLot,
-      nanoLot: nanoLot ?? this.nanoLot,
+      standard: standard ?? this.standard,
+      micro: micro ?? this.micro,
+      mini: mini ?? this.mini,
+      nano: nano ?? this.nano,
     );
   }
 }
+
+const kDefaultLotDescriptors = LotDescriptors(
+  standard: LotDescriptor(multiplier: 100000),
+  mini: LotDescriptor(multiplier: 10000),
+  micro: LotDescriptor(multiplier: 1000),
+  nano: LotDescriptor(multiplier: 100),
+);

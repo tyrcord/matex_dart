@@ -11,7 +11,7 @@ final List<StateValidator<BaseState>> pivotPointsValidators = [
     final lowPrice = state.lowPrice;
     final highPrice = state.highPrice;
     final closePrice = state.closePrice;
-    bool isValid = lowPrice > 0 && highPrice > 0 && closePrice > 0;
+    var isValid = lowPrice > 0 && highPrice > 0 && closePrice > 0;
 
     if (isValid) {
       isValid = highPrice >= lowPrice &&
@@ -26,7 +26,7 @@ final List<StateValidator<BaseState>> pivotPointsValidators = [
     final highPrice = state.highPrice;
     final openPrice = state.openPrice;
     final method = state.method;
-    bool isValid = true;
+    var isValid = true;
 
     if (method == PivotPointsMethods.DeMark && openPrice != null) {
       isValid = openPrice > 0;

@@ -27,6 +27,7 @@ class StopLossState extends BaseState {
           position: position,
         );
 
+  @override
   StopLossState copyWithState(BaseState state) {
     return StopLossState(
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
@@ -44,6 +45,7 @@ class StopLossState extends BaseState {
     );
   }
 
+  @override
   StopLossState clone() {
     return StopLossState(
       baseExchangeRate: baseExchangeRate,

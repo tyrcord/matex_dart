@@ -1,11 +1,17 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
 class PositionSizeState extends PipValueState {
+  @override
   final double accountSize;
+  @override
   final double entryPrice;
+  @override
   final double amountAtRisk;
+  @override
   final double riskRatio;
+  @override
   final double stopLossPips;
+  @override
   final double stopLossPrice;
 
   const PositionSizeState({
@@ -30,6 +36,7 @@ class PositionSizeState extends PipValueState {
           baseListedSecond: baseListedSecond,
         );
 
+  @override
   PositionSizeState copyWithState(BaseState state) {
     return PositionSizeState(
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
@@ -48,6 +55,7 @@ class PositionSizeState extends PipValueState {
     );
   }
 
+  @override
   PositionSizeState clone() {
     return PositionSizeState(
       baseExchangeRate: baseExchangeRate,

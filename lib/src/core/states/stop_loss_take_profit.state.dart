@@ -1,13 +1,21 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
 class StopLossTakeProfitState extends PipValueState {
+  @override
   final double entryPrice;
+  @override
   final Position position;
+  @override
   final double stopLossPips;
+  @override
   final double stopLossPrice;
+  @override
   final double stopLossAmount;
+  @override
   final double takeProfitPips;
+  @override
   final double takeProfitPrice;
+  @override
   final double takeProfitAmount;
 
   const StopLossTakeProfitState({
@@ -34,6 +42,7 @@ class StopLossTakeProfitState extends PipValueState {
           baseListedSecond: baseListedSecond,
         );
 
+  @override
   StopLossTakeProfitState copyWithState(BaseState state) {
     return StopLossTakeProfitState(
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
@@ -54,6 +63,7 @@ class StopLossTakeProfitState extends PipValueState {
     );
   }
 
+  @override
   StopLossTakeProfitState clone() {
     return StopLossTakeProfitState(
       baseExchangeRate: baseExchangeRate,

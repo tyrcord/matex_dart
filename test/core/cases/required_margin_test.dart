@@ -70,7 +70,7 @@ void main() {
 
       test('should update the lot descriptors value', () {
         LotDescriptors lotDescriptors = kDefaultLotDescriptors.copyWith(
-          lot: LotDescriptor(multiplier: 5000),
+          standard: LotDescriptor(multiplier: 5000),
         );
 
         calculator.lotDescriptors(lotDescriptors);
@@ -79,7 +79,7 @@ void main() {
         expect(calculator.getState().positionSize, equals(5000));
 
         lotDescriptors = kDefaultLotDescriptors.copyWith(
-          lot: LotDescriptor(multiplier: 5000, exists: false),
+          standard: LotDescriptor(multiplier: 5000, exists: false),
         );
 
         calculator.lotDescriptors(lotDescriptors);

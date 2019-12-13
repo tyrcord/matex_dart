@@ -17,6 +17,7 @@ class PipValueState extends BaseState {
           baseListedSecond: baseListedSecond,
         );
 
+  @override
   PipValueState copyWithState(BaseState state) {
     return PipValueState(
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
@@ -29,6 +30,7 @@ class PipValueState extends BaseState {
     );
   }
 
+  @override
   PipValueState clone() {
     return PipValueState(
       baseExchangeRate: baseExchangeRate,

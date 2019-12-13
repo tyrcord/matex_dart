@@ -43,17 +43,17 @@ abstract class BaseCalculator<S extends BaseState, R> {
   C setState<C extends BaseCalculator<S, R>>(BaseState state) {
     result = null;
     this.state = state.clone() as S;
-    return _checkStateValidity();
+    return _checkStateValidity() as C;
   }
 
   C _checkStateValidity<C extends BaseCalculator<S, R>>() {
-    bool validity = true;
+    var validity = true;
 
     if (validators != null) {
       validity = validators.every((validator) => validator(state));
     }
 
-    this.isStateValid = validity;
+    isStateValid = validity;
     return this as C;
   }
 

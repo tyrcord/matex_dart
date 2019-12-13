@@ -20,6 +20,7 @@ class StopLossTakeProfitCalculator extends AbstractPipValueCalculator<
           validators: validators ?? stopLossTakeProfitValidators,
         );
 
+  @override
   StopLossTakeProfitResult value() {
     if (result != null) {
       return result;

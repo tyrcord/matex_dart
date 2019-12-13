@@ -354,7 +354,7 @@ void main() {
 
       test('should update the lot descriptors value', () {
         LotDescriptors lotDescriptors = kDefaultLotDescriptors.copyWith(
-          lot: LotDescriptor(
+          standard: LotDescriptor(
             exists: true,
             multiplier: 5000,
           ),
@@ -366,7 +366,7 @@ void main() {
         expect(calculator.getState().positionSize, equals(5000));
 
         lotDescriptors = kDefaultLotDescriptors.copyWith(
-          lot: LotDescriptor(
+          standard: LotDescriptor(
             exists: false,
             multiplier: 5000,
           ),
