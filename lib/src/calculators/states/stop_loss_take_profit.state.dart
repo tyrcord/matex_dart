@@ -1,8 +1,11 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
 class MatexStopLossTakeProfitState extends StopLossTakeProfitState {
+  @override
   final String accountCode;
+  @override
   final String baseCode;
+  @override
   final String counterCode;
 
   const MatexStopLossTakeProfitState({
@@ -40,6 +43,7 @@ class MatexStopLossTakeProfitState extends StopLossTakeProfitState {
           stopLossAmount: stopLossAmount,
         );
 
+  @override
   MatexStopLossTakeProfitState copyWithState(BaseState state) {
     return MatexStopLossTakeProfitState(
       accountCode: state.accountCode ?? accountCode,
@@ -63,6 +67,7 @@ class MatexStopLossTakeProfitState extends StopLossTakeProfitState {
     );
   }
 
+  @override
   MatexStopLossTakeProfitState clone() {
     return MatexStopLossTakeProfitState(
       accountCode: accountCode,

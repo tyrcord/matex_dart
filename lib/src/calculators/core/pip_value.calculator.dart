@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 
 class MatexPipValueCalculator extends PipValueCalculator
     with MatexPipValueMixin {
+  @override
   final MatexConfig config;
 
   MatexPipValueCalculator({

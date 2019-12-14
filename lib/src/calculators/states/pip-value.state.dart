@@ -1,8 +1,11 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
 class MatexPipValueState extends PipValueState {
+  @override
   final String accountCode;
+  @override
   final String baseCode;
+  @override
   final String counterCode;
 
   const MatexPipValueState({
@@ -24,6 +27,7 @@ class MatexPipValueState extends PipValueState {
           baseListedSecond: baseListedSecond,
         );
 
+  @override
   MatexPipValueState copyWithState(BaseState state) {
     return MatexPipValueState(
       accountCode: state.accountCode ?? accountCode,
@@ -39,6 +43,7 @@ class MatexPipValueState extends PipValueState {
     );
   }
 
+  @override
   MatexPipValueState clone() {
     return MatexPipValueState(
       accountCode: accountCode,

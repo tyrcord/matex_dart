@@ -1,8 +1,11 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
 class MatexPositionSizeState extends PositionSizeState {
+  @override
   final String accountCode;
+  @override
   final String baseCode;
+  @override
   final String counterCode;
 
   const MatexPositionSizeState({
@@ -36,6 +39,7 @@ class MatexPositionSizeState extends PositionSizeState {
           stopLossPrice: stopLossPrice,
         );
 
+  @override
   MatexPositionSizeState copyWithState(BaseState state) {
     return MatexPositionSizeState(
       accountCode: state.accountCode ?? accountCode,
@@ -57,6 +61,7 @@ class MatexPositionSizeState extends PositionSizeState {
     );
   }
 
+  @override
   MatexPositionSizeState clone() {
     return MatexPositionSizeState(
       accountCode: accountCode,

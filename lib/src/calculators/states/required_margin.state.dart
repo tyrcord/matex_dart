@@ -1,8 +1,11 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
 class MatexRequiredMarginState extends RequiredMarginState {
+  @override
   final String accountCode;
+  @override
   final String baseCode;
+  @override
   final String counterCode;
 
   const MatexRequiredMarginState({
@@ -26,6 +29,7 @@ class MatexRequiredMarginState extends RequiredMarginState {
           leverage: leverage,
         );
 
+  @override
   MatexRequiredMarginState copyWithState(BaseState state) {
     return MatexRequiredMarginState(
       accountCode: state.accountCode ?? accountCode,
@@ -42,6 +46,7 @@ class MatexRequiredMarginState extends RequiredMarginState {
     );
   }
 
+  @override
   MatexRequiredMarginState clone() {
     return MatexRequiredMarginState(
       accountCode: accountCode,

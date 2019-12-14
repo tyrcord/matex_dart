@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 
 class MatexRequiredMarginCalculator extends RequiredMarginCalculator
     with MatexPipValueMixin<RequiredMarginState, double> {
+  @override
   final MatexConfig config;
 
   MatexRequiredMarginCalculator({
@@ -14,7 +15,7 @@ class MatexRequiredMarginCalculator extends RequiredMarginCalculator
           validators: validators ?? matexPipValueValidators,
         );
 
-  asyncValue() async {
+  Future<double> asyncValue() async {
     final exchangeProvider = config?.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
@@ -28,9 +29,9 @@ class MatexRequiredMarginCalculator extends RequiredMarginCalculator
   @override
   Future<void> setExchangeRates() async {
     final exchangeProvider = config?.exchangeProvider;
-    final accountCode = this.validState.accountCode;
-    final baseCode = this.validState.baseCode;
-    final counterCode = this.validState.counterCode;
+    final accountCode = validState.accountCode;
+    final baseCode = validState.baseCode;
+    final counterCode = validState.counterCode;
 
     if (accountCode == baseCode) {
       tradingPairExchangeRate(1.0);

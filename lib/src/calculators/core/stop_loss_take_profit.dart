@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 
 class MatexStopLossTakeProfitCalculator extends StopLossTakeProfitCalculator
     with MatexPipValueMixin {
+  @override
   final MatexConfig config;
 
   MatexStopLossTakeProfitCalculator({

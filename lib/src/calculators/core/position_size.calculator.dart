@@ -3,6 +3,7 @@ import 'package:meta/meta.dart';
 
 class MatexPositionSizeCalculator extends PositionSizeCalculator
     with MatexPipValueMixin<PositionSizeState, PositionSizeResult> {
+  @override
   final MatexConfig config;
 
   MatexPositionSizeCalculator({
