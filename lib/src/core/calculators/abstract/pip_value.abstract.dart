@@ -10,9 +10,9 @@ abstract class AbstractPipValueCalculator<S extends PipValueState, R>
           validators: validators ?? pipValueValidators,
         );
 
-  tradingPairExchangeRate(double tradingPairExchangeRate);
+  dynamic tradingPairExchangeRate(double tradingPairExchangeRate);
 
-  baseListedSecond(bool baseListedSecond);
+  dynamic baseListedSecond(bool baseListedSecond);
 
-  baseExchangeRate(double baseExchangeRate);
+  dynamic baseExchangeRate(double baseExchangeRate);
 }

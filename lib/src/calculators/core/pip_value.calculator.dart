@@ -2,7 +2,7 @@ import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
 class MatexPipValueCalculator extends PipValueCalculator
-    with MatexPipValueMixin {
+    with MatexPipValueMixin<MatexPipValueCalculator, PipValueState, double> {
   @override
   final MatexConfig config;
 
@@ -17,8 +17,6 @@ class MatexPipValueCalculator extends PipValueCalculator
 
   Future<double> asyncValue() async {
     final exchangeProvider = config?.exchangeProvider;
-
-    // TODO: instrument metadata precision.
 
     if (isValid && exchangeProvider != null) {
       await setExchangeRates();

@@ -13,6 +13,7 @@ class PipValueCalculator
           validators: validators ?? pipValueValidators,
         );
 
+  @override
   double value() {
     if (result != null) {
       return result;

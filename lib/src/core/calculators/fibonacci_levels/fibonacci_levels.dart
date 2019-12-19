@@ -55,6 +55,7 @@ class FibonacciLevelsCalculator
     return patchState(FibonacciLevelsState(trend: trend));
   }
 
+  @override
   FibonacciLevelsResult value() {
     if (result != null) {
       return result;

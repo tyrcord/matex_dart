@@ -19,22 +19,23 @@ class RequiredMarginCalculator
     return patchState(RequiredMarginState(leverage: sanitizedValue));
   }
 
+  @override
   double value() {
-    if (this.result != null) {
-      return this.result;
+    if (result != null) {
+      return result;
     }
 
-    final positionSize = this.validState.positionSize;
-    final tradingPairExchangeRate = this.validState.tradingPairExchangeRate;
-    final leverage = this.validState.leverage;
-    final baseListedSecond = this.validState.baseListedSecond;
-    final baseExchangeRate = this.validState.baseExchangeRate;
+    final positionSize = validState.positionSize;
+    final tradingPairExchangeRate = validState.tradingPairExchangeRate;
+    final leverage = validState.leverage;
+    final baseListedSecond = validState.baseListedSecond;
+    final baseExchangeRate = validState.baseExchangeRate;
 
     final rate = baseExchangeRate > 0
         ? baseExchangeRate
         : baseListedSecond ? tradingPairExchangeRate : 1;
 
-    return (this.result = (Decimal.parse(positionSize.toString()) /
+    return (result = (Decimal.parse(positionSize.toString()) /
             Decimal.parse(leverage.toString()) *
             Decimal.parse(rate.toString()))
         .toDouble());

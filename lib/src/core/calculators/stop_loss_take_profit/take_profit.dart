@@ -19,10 +19,7 @@ class TakeProfitCalculator
       return result;
     }
 
-    if (pipValue == null) {
-      pipValue = computePipValue();
-    }
-
+    pipValue ??= computePipValue();
     return (result = _computeTakeProfitLevels(pipValue));
   }
 
@@ -77,7 +74,7 @@ class TakeProfitCalculator
     final _divider = Decimal.parse(divider.toString());
     final takeProfitPriceParsed = Decimal.parse(takeProfitPrice.toString());
     final entryPriceParsed = Decimal.parse(entryPrice.toString());
-    double takeProfitPips = 0.0;
+    var takeProfitPips = 0.0;
 
     if (position == Position.Long && takeProfitPrice > entryPrice) {
       takeProfitPips =

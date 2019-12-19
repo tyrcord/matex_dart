@@ -64,6 +64,7 @@ class PositionSizeCalculator
     ));
   }
 
+  @override
   PositionSizeResult value() {
     if (result != null) {
       return result;
@@ -73,7 +74,7 @@ class PositionSizeCalculator
       final accountSize = validState.accountSize;
       final pipPrecision = validState.pipPrecision;
       final stopLossPips = computeStopLossPip(pipPrecision);
-      double amountAtRisk = computeAmountAtRisk();
+      final amountAtRisk = computeAmountAtRisk();
       final riskRatio = computeRiskRatio(amountAtRisk, accountSize);
       final pipValue = computePipValue();
       final tradingSize = pipValue > Decimal.fromInt(0) && stopLossPips > 0
@@ -117,7 +118,7 @@ class PositionSizeCalculator
 
   @protected
   double computeAmountAtRisk() {
-    double amountAtRisk = validState.amountAtRisk ?? 0.0;
+    var amountAtRisk = validState.amountAtRisk ?? 0.0;
     final riskRatio = validState.riskRatio;
     final accountSize = validState.accountSize;
 
@@ -135,7 +136,7 @@ class PositionSizeCalculator
 
   @protected
   double computeStopLossPip(int pipPrecision) {
-    double stopLossPips = validState.stopLossPips ?? 0.0;
+    var stopLossPips = validState.stopLossPips ?? 0.0;
     final stopLossPrice = validState.stopLossPrice;
     final entryPrice = validState.entryPrice;
 

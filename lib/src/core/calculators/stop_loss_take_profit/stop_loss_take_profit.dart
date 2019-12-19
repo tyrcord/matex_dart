@@ -60,7 +60,7 @@ class StopLossTakeProfitCalculator extends AbstractPipValueCalculator<
     double stopLossAmount,
     double takeProfitAmount,
   ) {
-    double ratio = 0.0;
+    var ratio = 0.0;
 
     if (stopLossAmount != null &&
         stopLossAmount > 0 &&

@@ -2,7 +2,9 @@ import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
 class MatexRequiredMarginCalculator extends RequiredMarginCalculator
-    with MatexPipValueMixin<RequiredMarginState, double> {
+    with
+        MatexPipValueMixin<MatexRequiredMarginCalculator, RequiredMarginState,
+            double> {
   @override
   final MatexConfig config;
 

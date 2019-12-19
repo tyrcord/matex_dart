@@ -34,6 +34,7 @@ class PivotPointsCalculator
     return patchState(PivotPointsState(openPrice: sanitizedValue));
   }
 
+  @override
   PivotPointsResult value() {
     if (this.result != null) {
       return this.result;

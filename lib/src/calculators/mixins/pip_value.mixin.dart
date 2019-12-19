@@ -1,6 +1,6 @@
 import 'package:matex_dart/matex_dart.dart';
 
-mixin MatexPipValueMixin<S extends PipValueState, R>
+mixin MatexPipValueMixin<C, S extends PipValueState, R>
     on AbstractPipValueCalculator<S, R> {
   MatexConfig config;
 
@@ -9,15 +9,15 @@ mixin MatexPipValueMixin<S extends PipValueState, R>
 
   AbstractExchangeProvider get exchangeProvider => config?.exchangeProvider;
 
-  accountCode(String accountCode) {
+  C accountCode(String accountCode) {
     return patchState(MatexPipValueState(accountCode: accountCode));
   }
 
-  baseCode(String baseCode) {
+  C baseCode(String baseCode) {
     return patchState(MatexPipValueState(baseCode: baseCode));
   }
 
-  counterCode(String counterCode) {
+  C counterCode(String counterCode) {
     return patchState(MatexPipValueState(counterCode: counterCode));
   }
 

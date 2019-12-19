@@ -17,10 +17,7 @@ class StopLossCalculator extends BaseCalculator<StopLossState, StopLossResult>
       return result;
     }
 
-    if (pipValue == null) {
-      pipValue = computePipValue();
-    }
-
+    pipValue ??= computePipValue();
     return (result = _computeStopLossLevels(pipValue));
   }
 
@@ -67,7 +64,7 @@ class StopLossCalculator extends BaseCalculator<StopLossState, StopLossResult>
     final _divider = Decimal.parse(divider.toString());
     final stopLossPriceParsed = Decimal.parse(stopLossPrice.toString());
     final entryPriceParsed = Decimal.parse(entryPrice.toString());
-    double stopLossPips = 0.0;
+    var stopLossPips = 0.0;
 
     if (position == Position.Long && stopLossPrice < entryPrice) {
       stopLossPips =

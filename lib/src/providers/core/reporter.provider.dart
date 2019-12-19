@@ -32,8 +32,9 @@ class ReporterProvider implements AbstractReporterProvider {
       formatter.maximumFractionDigits =
           maximumFractionDigits ?? minimumFractionDigits;
 
-      return (accumulator +=
-          '$label ${formatter.format(value)}${index++ < length - 1 ? '\n' : ''}');
+      return (accumulator += '$label '
+          '${formatter.format(value)}'
+          '${index++ < length - 1 ? '\n' : ''}');
     });
   }
 }
