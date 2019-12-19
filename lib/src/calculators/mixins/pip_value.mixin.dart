@@ -23,12 +23,12 @@ mixin MatexPipValueMixin<S extends PipValueState, R>
 
   Future<InstrumentMetadata> fetchAccountInstrumentMetadata() {
     final accountCode = state.accountCode;
-    return instrumentProvider.metadata(accountCode);
+    return instrumentProvider?.metadata(accountCode);
   }
 
   Future<InstrumentMetadata> fetchCounterInstrumentMetadata() {
     final counterCode = state.counterCode;
-    return instrumentProvider.metadata(counterCode);
+    return instrumentProvider?.metadata(counterCode);
   }
 
   Future<InstrumentMetadata> fetchBaseInstrumentMetadata() {
@@ -44,6 +44,14 @@ mixin MatexPipValueMixin<S extends PipValueState, R>
       baseCode,
       counterCode,
     );
+
+    final counterMetadata = await fetchCounterInstrumentMetadata();
+
+    if (counterMetadata != null) {
+      patchState(MatexPipValueState(
+        pipPrecision: counterMetadata.pip.precision,
+      ));
+    }
 
     if (tradingPairQuoteFuture != null) {
       final tradingPairQuote = await tradingPairQuoteFuture;
