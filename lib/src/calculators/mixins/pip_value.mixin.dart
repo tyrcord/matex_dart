@@ -1,7 +1,7 @@
 import 'package:matex_dart/matex_dart.dart';
 
-mixin MatexPipValueMixin<C, S extends PipValueState, R>
-    on AbstractPipValueCalculator<S, R> {
+mixin MatexPipValueMixin<C extends AbstractPipValueCalculator<C, S, R>,
+    S extends PipValueState, R> on AbstractPipValueCalculator<C, S, R> {
   MatexConfig config;
 
   AbstractInstrumentProvider get instrumentProvider =>

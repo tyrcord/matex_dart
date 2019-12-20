@@ -1,18 +1,18 @@
 import 'package:matex_dart/matex_dart.dart';
 
-abstract class AbstractPipValueCalculator<S extends PipValueState, R>
-    extends BaseCalculator<S, R> {
+abstract class AbstractPipValueCalculator<C extends BaseCalculator<C, S, R>,
+    S extends BaseState, R> extends BaseCalculator<C, S, R> {
   AbstractPipValueCalculator({
     S initialState,
-    List<StateValidator<S>> validators,
+    List<StateValidator> validators,
   }) : super(
-          initialState: initialState ?? kInitialPipValueState as S,
-          validators: validators ?? pipValueValidators,
+          initialState: initialState,
+          validators: validators,
         );
 
-  dynamic tradingPairExchangeRate(double tradingPairExchangeRate);
+  C tradingPairExchangeRate(double tradingPairExchangeRate);
 
-  dynamic baseListedSecond(bool baseListedSecond);
+  C baseListedSecond(bool baseListedSecond);
 
-  dynamic baseExchangeRate(double baseExchangeRate);
+  C baseExchangeRate(double baseExchangeRate);
 }

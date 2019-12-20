@@ -1,8 +1,10 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class StopLossTakeProfitCalculator extends AbstractPipValueCalculator<
-        StopLossTakeProfitState, StopLossTakeProfitResult>
+class StopLossTakeProfitCalculator extends BaseCalculator<
+        StopLossTakeProfitCalculator,
+        StopLossTakeProfitState,
+        StopLossTakeProfitResult>
     with
         TakeProfitMixin<StopLossTakeProfitCalculator, StopLossTakeProfitState,
             StopLossTakeProfitResult>,
@@ -14,7 +16,7 @@ class StopLossTakeProfitCalculator extends AbstractPipValueCalculator<
             StopLossTakeProfitResult> {
   StopLossTakeProfitCalculator({
     StopLossTakeProfitState initialState,
-    List<StateValidator<StopLossTakeProfitState>> validators,
+    List<StateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialStopLossTakeProfitState,
           validators: validators ?? stopLossTakeProfitValidators,
@@ -35,11 +37,11 @@ class StopLossTakeProfitCalculator extends AbstractPipValueCalculator<
       ));
 
       final stopLossResult = stopLossCalculator
-          .setState<StopLossCalculator>(tmpState.toStopLossState())
+          .setState(tmpState.toStopLossState())
           .value(pipValue: pipValue);
 
       final takeProfitResult = takeProfitCalculator
-          .setState<TakeProfitCalculator>(tmpState.toTakeProfitState())
+          .setState(tmpState.toTakeProfitState())
           .value(pipValue: pipValue);
 
       return (result = StopLossTakeProfitResult(
@@ -79,5 +81,11 @@ class StopLossTakeProfitCalculator extends AbstractPipValueCalculator<
   }
 }
 
-StopLossTakeProfitCalculator stopLossTakeProfit() =>
-    StopLossTakeProfitCalculator();
+StopLossTakeProfitCalculator stopLossTakeProfit({
+  StopLossTakeProfitState initialState,
+  List<StateValidator> validators,
+}) =>
+    StopLossTakeProfitCalculator(
+      initialState: initialState,
+      validators: validators,
+    );

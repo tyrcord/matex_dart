@@ -1,8 +1,8 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class TakeProfitCalculator
-    extends BaseCalculator<TakeProfitState, TakeProfitResult>
+class TakeProfitCalculator extends BaseCalculator<TakeProfitCalculator,
+        TakeProfitState, TakeProfitResult>
     with
         TakeProfitMixin<TakeProfitCalculator, TakeProfitState,
             TakeProfitResult>,
@@ -141,4 +141,9 @@ class TakeProfitCalculator
   }
 }
 
-TakeProfitCalculator takeProfit() => TakeProfitCalculator();
+TakeProfitCalculator takeProfit({
+  TakeProfitState initialState,
+}) =>
+    TakeProfitCalculator(
+      initialState: initialState,
+    );

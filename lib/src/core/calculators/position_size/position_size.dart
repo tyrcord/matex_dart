@@ -9,60 +9,21 @@ const DEFAULT_RESULTS = PositionSizeResult(
   riskRatio: 0.0,
 );
 
-class PositionSizeCalculator
-    extends AbstractPipValueCalculator<PositionSizeState, PositionSizeResult>
+class PositionSizeCalculator extends BaseCalculator<PositionSizeCalculator,
+        PositionSizeState, PositionSizeResult>
     with
         LotMixin<PositionSizeCalculator, PositionSizeState, PositionSizeResult>,
         PipValueMixin<PositionSizeCalculator, PositionSizeState,
+            PositionSizeResult>,
+        PositionSizeMarginMixin<PositionSizeCalculator, PositionSizeState,
             PositionSizeResult> {
   PositionSizeCalculator({
     PositionSizeState initialState,
-    List<StateValidator<PositionSizeState>> validators,
+    List<StateValidator> validators,
   }) : super(
-            initialState: initialState ?? kInitialPositionSizeState,
-            validators: validators ?? positionSizeValidators);
-
-  PositionSizeCalculator accountSize(double accountSize) {
-    final sanitizedValue = sanitizeDouble(accountSize);
-    return patchState(PositionSizeState(accountSize: sanitizedValue));
-  }
-
-  PositionSizeCalculator amountAtRisk(double amountAtRisk) {
-    final sanitizedValue = sanitizeDouble(amountAtRisk);
-    return patchState(PositionSizeState(
-      amountAtRisk: sanitizedValue,
-      riskRatio: 0,
-    ));
-  }
-
-  PositionSizeCalculator entryPrice(double entryPrice) {
-    final sanitizedValue = sanitizeDouble(entryPrice);
-    return patchState(
-        PositionSizeState(entryPrice: sanitizedValue, stopLossPips: 0));
-  }
-
-  PositionSizeCalculator riskRatio(double riskRatio) {
-    final sanitizedValue = sanitizeDouble(riskRatio);
-    return patchState(
-        PositionSizeState(riskRatio: sanitizedValue, amountAtRisk: 0));
-  }
-
-  PositionSizeCalculator stopLossPips(double stopLossPips) {
-    final sanitizedValue = sanitizeDouble(stopLossPips);
-    return patchState(PositionSizeState(
-      stopLossPips: sanitizedValue,
-      stopLossPrice: 0,
-      entryPrice: 0,
-    ));
-  }
-
-  PositionSizeCalculator stopLossPrice(double stopLossPrice) {
-    final sanitizedValue = sanitizeDouble(stopLossPrice);
-    return patchState(PositionSizeState(
-      stopLossPrice: sanitizedValue,
-      stopLossPips: 0,
-    ));
-  }
+          initialState: initialState ?? kInitialPositionSizeState,
+          validators: validators ?? positionSizeValidators,
+        );
 
   @override
   PositionSizeResult value() {
@@ -153,4 +114,11 @@ class PositionSizeCalculator
   }
 }
 
-PositionSizeCalculator positionSize() => PositionSizeCalculator();
+PositionSizeCalculator positionSize({
+  PositionSizeState initialState,
+  List<StateValidator> validators,
+}) =>
+    PositionSizeCalculator(
+      initialState: initialState,
+      validators: validators,
+    );

@@ -1,10 +1,19 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-class MatexPositionSizeCalculator extends PositionSizeCalculator
+class MatexPositionSizeCalculator extends AbstractPipValueCalculator<
+        MatexPositionSizeCalculator,
+        MatexPositionSizeState,
+        Future<PositionSizeResult>>
     with
-        MatexPipValueMixin<MatexPositionSizeCalculator, PositionSizeState,
-            PositionSizeResult> {
+        LotMixin<MatexPositionSizeCalculator, MatexPositionSizeState,
+            Future<PositionSizeResult>>,
+        PipValueMixin<MatexPositionSizeCalculator, MatexPositionSizeState,
+            Future<PositionSizeResult>>,
+        MatexPipValueMixin<MatexPositionSizeCalculator, MatexPositionSizeState,
+            Future<PositionSizeResult>>,
+        PositionSizeMarginMixin<MatexPositionSizeCalculator,
+            MatexPositionSizeState, Future<PositionSizeResult>> {
   @override
   final MatexConfig config;
 
@@ -17,15 +26,15 @@ class MatexPositionSizeCalculator extends PositionSizeCalculator
           validators: validators ?? matexPositionSizeValidators,
         );
 
-  Future<PositionSizeResult> asyncValue() async {
+  @override
+  Future<PositionSizeResult> value() async {
     final exchangeProvider = config?.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
       await setExchangeRates();
-      return super.value();
     }
 
-    return super.value();
+    return positionSize(initialState: state).value();
   }
 }
 

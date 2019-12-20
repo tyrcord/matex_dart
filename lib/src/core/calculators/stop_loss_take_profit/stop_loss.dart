@@ -1,7 +1,8 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class StopLossCalculator extends BaseCalculator<StopLossState, StopLossResult>
+class StopLossCalculator
+    extends BaseCalculator<StopLossCalculator, StopLossState, StopLossResult>
     with
         StopLossMixin<StopLossCalculator, StopLossState, StopLossResult>,
         PipValueMixin<StopLossCalculator, StopLossState, StopLossResult> {
@@ -128,4 +129,9 @@ class StopLossCalculator extends BaseCalculator<StopLossState, StopLossResult>
   }
 }
 
-StopLossCalculator stopLoss() => StopLossCalculator();
+StopLossCalculator stopLoss({
+  StopLossState initialState,
+}) =>
+    StopLossCalculator(
+      initialState: initialState,
+    );

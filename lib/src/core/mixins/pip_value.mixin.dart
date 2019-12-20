@@ -1,31 +1,33 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
+import 'package:meta/meta.dart';
 
-mixin PipValueMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
-    on BaseCalculator<S, R> {
+mixin PipValueMixin<C extends BaseCalculator<C, S, R>, S extends BaseState, R>
+    on BaseCalculator<C, S, R> {
   C baseExchangeRate(double baseExchangeRate) {
     final sanitizedValue = sanitizeDouble(baseExchangeRate);
-    return patchState<C>(BaseState(baseExchangeRate: sanitizedValue));
+    return patchState(BaseState(baseExchangeRate: sanitizedValue));
   }
 
   C baseListedSecond(bool baseListedSecond) {
-    return patchState<C>(BaseState(baseListedSecond: baseListedSecond));
+    return patchState(BaseState(baseListedSecond: baseListedSecond));
   }
 
   C pipPrecision(int pipPrecision) {
-    return patchState<C>(BaseState(pipPrecision: pipPrecision));
+    return patchState(BaseState(pipPrecision: pipPrecision));
   }
 
   C positionSize(double positionSize) {
     final sanitizedValue = sanitizeDouble(positionSize);
-    return patchState<C>(BaseState(positionSize: sanitizedValue));
+    return patchState(BaseState(positionSize: sanitizedValue));
   }
 
   C tradingPairExchangeRate(double tradingPairExchangeRate) {
     final sanitizedValue = sanitizeDouble(tradingPairExchangeRate);
-    return patchState<C>(BaseState(tradingPairExchangeRate: sanitizedValue));
+    return patchState(BaseState(tradingPairExchangeRate: sanitizedValue));
   }
 
+  @protected
   Decimal pipValue(S state) {
     final baseExchangeRate = state.baseExchangeRate;
     final baseListedSecond = state.baseListedSecond;
@@ -44,6 +46,7 @@ mixin PipValueMixin<C extends BaseCalculator<S, R>, S extends BaseState, R>
         Decimal.parse(positionSize.toString()));
   }
 
+  @protected
   Decimal computePipValue() {
     if (isValid) {
       return pipValue(validState);

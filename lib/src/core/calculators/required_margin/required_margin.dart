@@ -1,23 +1,20 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class RequiredMarginCalculator
-    extends AbstractPipValueCalculator<RequiredMarginState, double>
+class RequiredMarginCalculator extends BaseCalculator<RequiredMarginCalculator,
+        RequiredMarginState, double>
     with
         LotMixin<RequiredMarginCalculator, RequiredMarginState, double>,
-        PipValueMixin<RequiredMarginCalculator, RequiredMarginState, double> {
+        PipValueMixin<RequiredMarginCalculator, RequiredMarginState, double>,
+        RequiredMarginMixin<RequiredMarginCalculator, RequiredMarginState,
+            double> {
   RequiredMarginCalculator({
     RequiredMarginState initialState,
-    List<StateValidator<RequiredMarginState>> validators,
+    List<StateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialRequiredMarginState,
           validators: validators ?? requiredMarginValidators,
         );
-
-  RequiredMarginCalculator leverage(double leverage) {
-    final sanitizedValue = sanitizeDouble(leverage);
-    return patchState(RequiredMarginState(leverage: sanitizedValue));
-  }
 
   @override
   double value() {
@@ -42,4 +39,11 @@ class RequiredMarginCalculator
   }
 }
 
-RequiredMarginCalculator requiredMargin() => RequiredMarginCalculator();
+RequiredMarginCalculator requiredMargin({
+  RequiredMarginState initialState,
+  List<StateValidator> validators,
+}) =>
+    RequiredMarginCalculator(
+      initialState: initialState,
+      validators: validators,
+    );

@@ -1,10 +1,21 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-class MatexStopLossTakeProfitCalculator extends StopLossTakeProfitCalculator
+class MatexStopLossTakeProfitCalculator extends AbstractPipValueCalculator<
+        MatexStopLossTakeProfitCalculator,
+        MatexStopLossTakeProfitState,
+        Future<StopLossTakeProfitResult>>
     with
+        LotMixin<MatexStopLossTakeProfitCalculator,
+            MatexStopLossTakeProfitState, Future<StopLossTakeProfitResult>>,
+        PipValueMixin<MatexStopLossTakeProfitCalculator,
+            MatexStopLossTakeProfitState, Future<StopLossTakeProfitResult>>,
         MatexPipValueMixin<MatexStopLossTakeProfitCalculator,
-            StopLossTakeProfitState, StopLossTakeProfitResult> {
+            MatexStopLossTakeProfitState, Future<StopLossTakeProfitResult>>,
+        TakeProfitMixin<MatexStopLossTakeProfitCalculator,
+            MatexStopLossTakeProfitState, Future<StopLossTakeProfitResult>>,
+        StopLossMixin<MatexStopLossTakeProfitCalculator,
+            MatexStopLossTakeProfitState, Future<StopLossTakeProfitResult>> {
   @override
   final MatexConfig config;
 
@@ -17,15 +28,15 @@ class MatexStopLossTakeProfitCalculator extends StopLossTakeProfitCalculator
           validators: validators ?? matexStopLossTakeProfitValidators,
         );
 
-  Future<StopLossTakeProfitResult> asyncValue() async {
+  @override
+  Future<StopLossTakeProfitResult> value() async {
     final exchangeProvider = config?.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
       await setExchangeRates();
-      return super.value();
     }
 
-    return super.value();
+    return stopLossTakeProfit(initialState: state).value();
   }
 }
 

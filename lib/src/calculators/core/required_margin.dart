@@ -1,10 +1,17 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-class MatexRequiredMarginCalculator extends RequiredMarginCalculator
+class MatexRequiredMarginCalculator extends AbstractPipValueCalculator<
+        MatexRequiredMarginCalculator, MatexRequiredMarginState, Future<double>>
     with
-        MatexPipValueMixin<MatexRequiredMarginCalculator, RequiredMarginState,
-            double> {
+        LotMixin<MatexRequiredMarginCalculator, MatexRequiredMarginState,
+            Future<double>>,
+        PipValueMixin<MatexRequiredMarginCalculator, MatexRequiredMarginState,
+            Future<double>>,
+        MatexPipValueMixin<MatexRequiredMarginCalculator,
+            MatexRequiredMarginState, Future<double>>,
+        RequiredMarginMixin<MatexRequiredMarginCalculator,
+            MatexRequiredMarginState, Future<double>> {
   @override
   final MatexConfig config;
 
@@ -17,15 +24,16 @@ class MatexRequiredMarginCalculator extends RequiredMarginCalculator
           validators: validators ?? matexPipValueValidators,
         );
 
-  Future<double> asyncValue() async {
+  @override
+  Future<double> value() async {
     final exchangeProvider = config?.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
       await setExchangeRates();
-      return super.value();
+      return requiredMargin(initialState: state).value();
     }
 
-    return 0;
+    return 0.0;
   }
 
   @override

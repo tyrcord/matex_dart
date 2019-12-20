@@ -3,57 +3,18 @@ import 'package:decimal/decimal.dart';
 
 final _hundred = Decimal.parse('100');
 
-class FibonacciLevelsCalculator
-    extends BaseCalculator<FibonacciLevelsState, FibonacciLevelsResult> {
+class FibonacciLevelsCalculator extends BaseCalculator<
+        FibonacciLevelsCalculator, FibonacciLevelsState, FibonacciLevelsResult>
+    with
+        FibonacciLevelsMixin<FibonacciLevelsCalculator, FibonacciLevelsState,
+            FibonacciLevelsResult> {
   FibonacciLevelsCalculator({
     FibonacciLevelsState initialState,
-    List<StateValidator<FibonacciLevelsState>> validators,
+    List<StateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialFibonacciLevelsState,
           validators: validators ?? fibonacciLevelsValidators,
         );
-
-  FibonacciLevelsCalculator customPrice(double customPrice) {
-    final sanitizedValue = sanitizeDouble(customPrice);
-    return patchState(FibonacciLevelsState(customPrice: sanitizedValue));
-  }
-
-  FibonacciLevelsCalculator extensionLevels(List<double> extensionLevels) {
-    final sanitizedValue = extensionLevels.map((level) {
-      return sanitizeDouble(level);
-    }).toList();
-
-    sanitizedValue.sort(sortNumberAsc);
-    return patchState(FibonacciLevelsState(extensionLevels: sanitizedValue));
-  }
-
-  FibonacciLevelsCalculator highPrice(double highPrice) {
-    final sanitizedValue = sanitizeDouble(highPrice);
-    return patchState(FibonacciLevelsState(highPrice: sanitizedValue));
-  }
-
-  FibonacciLevelsCalculator lowPrice(double lowPrice) {
-    final sanitizedValue = sanitizeDouble(lowPrice);
-    return patchState(FibonacciLevelsState(lowPrice: sanitizedValue));
-  }
-
-  FibonacciLevelsCalculator precision(int precision) {
-    return patchState(FibonacciLevelsState(precision: precision));
-  }
-
-  FibonacciLevelsCalculator retracementLevels(List<double> retracementLevels) {
-    final sanitizedValue = retracementLevels.map((level) {
-      return sanitizeDouble(level);
-    }).toList();
-
-    sanitizedValue.sort(sortNumberAsc);
-
-    return patchState(FibonacciLevelsState(retracementLevels: sanitizedValue));
-  }
-
-  FibonacciLevelsCalculator trend(Trend trend) {
-    return patchState(FibonacciLevelsState(trend: trend));
-  }
 
   @override
   FibonacciLevelsResult value() {
@@ -145,4 +106,11 @@ class FibonacciLevelsCalculator
   }
 }
 
-FibonacciLevelsCalculator fibonacciLevels() => FibonacciLevelsCalculator();
+FibonacciLevelsCalculator fibonacciLevels({
+  FibonacciLevelsState initialState,
+  List<StateValidator> validators,
+}) =>
+    FibonacciLevelsCalculator(
+      initialState: initialState,
+      validators: validators,
+    );

@@ -1,8 +1,14 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-class MatexPipValueCalculator extends PipValueCalculator
-    with MatexPipValueMixin<MatexPipValueCalculator, PipValueState, double> {
+class MatexPipValueCalculator extends AbstractPipValueCalculator<
+        MatexPipValueCalculator, MatexPipValueState, Future<double>>
+    with
+        LotMixin<MatexPipValueCalculator, MatexPipValueState, Future<double>>,
+        PipValueMixin<MatexPipValueCalculator, MatexPipValueState,
+            Future<double>>,
+        MatexPipValueMixin<MatexPipValueCalculator, MatexPipValueState,
+            Future<double>> {
   @override
   final MatexConfig config;
 
@@ -15,15 +21,15 @@ class MatexPipValueCalculator extends PipValueCalculator
           validators: validators ?? matexPipValueValidators,
         );
 
-  Future<double> asyncValue() async {
+  @override
+  Future<double> value() async {
     final exchangeProvider = config?.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
       await setExchangeRates();
-      return super.value();
     }
 
-    return 0.0;
+    return pip(initialState: state).value().toDouble();
   }
 }
 

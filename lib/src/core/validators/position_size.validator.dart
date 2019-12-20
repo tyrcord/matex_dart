@@ -1,6 +1,6 @@
 import 'package:matex_dart/matex_dart.dart';
 
-final List<StateValidator<BaseState>> positionSizeValidators = [
+final List<StateValidator> positionSizeValidators = [
   ...pipValueValidators,
   (BaseState state) => state.accountSize != null,
   (BaseState state) => state.accountSize > 0,

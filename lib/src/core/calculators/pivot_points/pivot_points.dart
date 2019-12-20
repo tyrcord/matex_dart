@@ -1,38 +1,17 @@
 import 'package:matex_dart/matex_dart.dart';
 
-class PivotPointsCalculator
-    extends BaseCalculator<PivotPointsState, PivotPointsResult> {
+class PivotPointsCalculator extends BaseCalculator<PivotPointsCalculator,
+        PivotPointsState, PivotPointsResult>
+    with
+        PivotPointsMixin<PivotPointsCalculator, PivotPointsState,
+            PivotPointsResult> {
   PivotPointsCalculator({
     PivotPointsState initialState,
-    List<StateValidator<PivotPointsState>> validators,
+    List<StateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialPivotPointsState,
           validators: validators ?? pivotPointsValidators,
         );
-
-  PivotPointsCalculator closePrice(double closePrice) {
-    final sanitizedValue = sanitizeDouble(closePrice);
-    return patchState(PivotPointsState(closePrice: sanitizedValue));
-  }
-
-  PivotPointsCalculator highPrice(double highPrice) {
-    final sanitizedValue = sanitizeDouble(highPrice);
-    return patchState(PivotPointsState(highPrice: sanitizedValue));
-  }
-
-  PivotPointsCalculator lowPrice(double lowPrice) {
-    final sanitizedValue = sanitizeDouble(lowPrice);
-    return patchState(PivotPointsState(lowPrice: sanitizedValue));
-  }
-
-  PivotPointsCalculator method(PivotPointsMethods method) {
-    return patchState(PivotPointsState(method: method));
-  }
-
-  PivotPointsCalculator openPrice(double openPrice) {
-    final sanitizedValue = sanitizeDouble(openPrice);
-    return patchState(PivotPointsState(openPrice: sanitizedValue));
-  }
 
   @override
   PivotPointsResult value() {
@@ -69,4 +48,11 @@ class PivotPointsCalculator
   }
 }
 
-PivotPointsCalculator pivotPoints() => PivotPointsCalculator();
+PivotPointsCalculator pivotPoints({
+  PivotPointsState initialState,
+  List<StateValidator> validators,
+}) =>
+    PivotPointsCalculator(
+      initialState: initialState,
+      validators: validators,
+    );

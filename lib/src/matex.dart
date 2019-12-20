@@ -22,10 +22,10 @@ class Matex {
               config.formatterProvider ?? _defaultMatexConfig.formatterProvider,
         );
 
-  MatexPipValueCalculator pipValue(
+  MatexPipValueCalculator pipValue({
     MatexPipValueState state,
     List<StateValidator> validators,
-  ) {
+  }) {
     return matexPipValue(
       config: config,
       initialState: state,
@@ -33,10 +33,10 @@ class Matex {
     );
   }
 
-  MatexPivotPointsCalculator pivotPoints(
+  MatexPivotPointsCalculator pivotPoints({
     MatexPivotPointsState state,
     List<StateValidator> validators,
-  ) {
+  }) {
     return matexPivotPoints(
       config: config,
       initialState: state,
@@ -44,10 +44,10 @@ class Matex {
     );
   }
 
-  MatexFibonacciLevelsCalculator fibonacciLevels(
+  MatexFibonacciLevelsCalculator fibonacciLevels({
     MatexFibonacciLevelsState state,
     List<StateValidator> validators,
-  ) {
+  }) {
     return matexFibonacciLevels(
       config: config,
       initialState: state,
@@ -55,10 +55,10 @@ class Matex {
     );
   }
 
-  MatexRequiredMarginCalculator requiredMargin(
+  MatexRequiredMarginCalculator requiredMargin({
     MatexRequiredMarginState state,
     List<StateValidator> validators,
-  ) {
+  }) {
     return matexRequiredMargin(
       config: config,
       initialState: state,
@@ -66,10 +66,10 @@ class Matex {
     );
   }
 
-  MatexPositionSizeCalculator positionSize(
+  MatexPositionSizeCalculator positionSize({
     MatexPositionSizeState state,
     List<StateValidator> validators,
-  ) {
+  }) {
     return matexPositionSize(
       config: config,
       initialState: state,
@@ -77,10 +77,10 @@ class Matex {
     );
   }
 
-  MatexStopLossTakeProfitCalculator stopLossTakeProfit(
+  MatexStopLossTakeProfitCalculator stopLossTakeProfit({
     MatexStopLossTakeProfitState state,
     List<StateValidator> validators,
-  ) {
+  }) {
     return matexStopLossTakeProfit(
       config: config,
       initialState: state,

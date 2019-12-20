@@ -1,7 +1,7 @@
 import 'package:matex_dart/matex_dart.dart';
 
 class PipValueCalculator
-    extends AbstractPipValueCalculator<PipValueState, double>
+    extends BaseCalculator<PipValueCalculator, PipValueState, double>
     with
         LotMixin<PipValueCalculator, PipValueState, double>,
         PipValueMixin<PipValueCalculator, PipValueState, double> {
@@ -23,4 +23,11 @@ class PipValueCalculator
   }
 }
 
-PipValueCalculator pip() => PipValueCalculator();
+PipValueCalculator pip({
+  PipValueState initialState,
+  List<StateValidator> validators,
+}) =>
+    PipValueCalculator(
+      initialState: initialState,
+      validators: validators,
+    );

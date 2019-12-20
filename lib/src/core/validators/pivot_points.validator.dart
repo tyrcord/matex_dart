@@ -1,6 +1,6 @@
 import 'package:matex_dart/matex_dart.dart';
 
-final List<StateValidator<BaseState>> pivotPointsValidators = [
+final List<StateValidator> pivotPointsValidators = [
   (BaseState state) {
     final lowPrice = state.lowPrice;
     final highPrice = state.highPrice;

@@ -180,7 +180,7 @@ void main() {
       });
 
       test('should not use the exchange rate when calculating a pip value', () {
-        double pipValue = calculator
+        final pipValue = calculator
             .positionSize(1)
             .tradingPairExchangeRate(1.25)
             .baseListedSecond(true)
