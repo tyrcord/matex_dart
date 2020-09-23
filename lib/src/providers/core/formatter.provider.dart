@@ -72,11 +72,9 @@ class FormatterProvider implements AbstractFormatterProvider {
     int maximumFractionDigits,
     int minimumFractionDigits,
   ) {
-    final formatter = NumberFormat.simpleCurrency(
-      locale: locale,
-      name: code,
-    );
+    final formatter = NumberFormat.simpleCurrency(locale: locale, name: code);
 
+    maximumFractionDigits = value != 0 ? maximumFractionDigits : 0;
     formatter.minimumFractionDigits = maximumFractionDigits;
     formatter.maximumFractionDigits = minimumFractionDigits;
 
