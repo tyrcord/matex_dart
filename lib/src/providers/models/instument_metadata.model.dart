@@ -11,7 +11,6 @@ class InstrumentMetadata {
   final InstrumentFormatMetadata format;
   final InstrumentLotsMetadata lots;
   final InstrumentNameMetadata name;
-  final InstrumentPairMetadata pair;
   final InstrumentPipMetadata pip;
   final InstrumentSymbolMetadata symbol;
   final InstrumentTypeMetadata type;
@@ -21,7 +20,6 @@ class InstrumentMetadata {
     this.format,
     this.lots,
     this.name,
-    this.pair,
     this.pip,
     this.symbol,
     this.type,
@@ -38,9 +36,6 @@ class InstrumentMetadata {
       lots: lots != null ? InstrumentLotsMetadata.fromJson(lots) : null,
       name: InstrumentNameMetadata.fromJson(
         json['name'] as Map<String, dynamic>,
-      ),
-      pair: InstrumentPairMetadata.fromJson(
-        json['pair'] as Map<String, dynamic>,
       ),
       pip: InstrumentPipMetadata.fromJson(
         json['pip'] as Map<String, dynamic>,
@@ -112,23 +107,6 @@ class InstrumentNameMetadata {
     return InstrumentNameMetadata(
       key: json['key'] as String,
       localized: json['localized'] as String,
-    );
-  }
-}
-
-class InstrumentPairMetadata {
-  final bool base;
-  final bool counter;
-
-  const InstrumentPairMetadata({
-    this.base,
-    this.counter,
-  });
-
-  static InstrumentPairMetadata fromJson(Map<String, dynamic> json) {
-    return InstrumentPairMetadata(
-      base: json['base'] as bool,
-      counter: json['counter'] as bool,
     );
   }
 }
