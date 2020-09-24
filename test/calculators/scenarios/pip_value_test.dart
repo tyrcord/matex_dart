@@ -1,9 +1,11 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:matex_dart/matex_dart.dart';
-import 'package:test/test.dart';
 
 import '../samples/config.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   group('Feature: Calculating Pip Value', () {
     final matex = Matex(config: testMatexConfig);
 

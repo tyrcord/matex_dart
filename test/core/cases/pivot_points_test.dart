@@ -1,5 +1,5 @@
 import 'package:matex_dart/matex_dart.dart';
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 import '../samples/pivot_points.sample.dart';
 import '../shared/messages.dart';

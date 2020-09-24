@@ -1,4 +1,4 @@
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 import '../samples/stop_loss_take_profit.sample.dart';
