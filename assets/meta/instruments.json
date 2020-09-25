@@ -1110,7 +1110,7 @@
       "unit": "forex"
     },
     "name": {
-      "key": "polish_złoty",
+      "key": "polish_zloty",
       "localized": "Polish złoty"
     },
     "pip": {
@@ -1328,7 +1328,7 @@
     },
     "name": {
       "key": "Turkish lira",
-      "localized": "Turkish lira"
+      "localized": "turkish_lira"
     },
     "pip": {
       "pipette": 5,
@@ -1359,7 +1359,7 @@
     },
     "name": {
       "key": "american_dollar",
-      "localized": "United States dollar"
+      "localized": "American Dollar"
     },
     "pip": {
       "pipette": 5,
