@@ -1,4 +1,28 @@
 {
+  "BZUSD": {
+    "base": "BZ",
+    "counter": "USD",
+    "type": {
+      "main": "commodity",
+      "sub": "energy"
+    }
+  },
+  "CLUSD": {
+    "base": "CL",
+    "counter": "USD",
+    "type": {
+      "main": "commodity",
+      "sub": "energy"
+    }
+  },
+  "NGUSD": {
+    "base": "NG",
+    "counter": "USD",
+    "type": {
+      "main": "commodity",
+      "sub": "energy"
+    }
+  },
   "XAGAUD": {
     "base": "XAG",
     "counter": "AUD",
@@ -162,22 +186,6 @@
   "XAUXAG": {
     "base": "XAU",
     "counter": "XAG",
-    "type": {
-      "main": "commodity",
-      "sub": "metal"
-    }
-  },
-  "XPDUSD": {
-    "base": "XPD",
-    "counter": "USD",
-    "type": {
-      "main": "commodity",
-      "sub": "metal"
-    }
-  },
-  "XPTUSD": {
-    "base": "XPT",
-    "counter": "USD",
     "type": {
       "main": "commodity",
       "sub": "metal"

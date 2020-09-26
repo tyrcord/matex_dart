@@ -1,9 +1,10 @@
 {
-  "BCO": {
-    "code": "BCO",
+  "BZ": {
+    "code": "BZ",
     "format": {
       "round": 3
     },
+    "icon": "oil",
     "lots": {
       "micro": 10,
       "mini": 100,
@@ -21,20 +22,53 @@
       "round": 3
     },
     "symbol": {
-      "long": "BCO",
-      "short": "BCO",
-      "ticker": "BCO"
+      "long": "BZ",
+      "short": "BZ",
+      "ticker": "BZ"
     },
     "type": {
       "main": "commodity",
       "sub": "energy"
     }
   },
-  "NATGAS": {
-    "code": "NATGAS",
+  "CL": {
+    "code": "CL",
     "format": {
       "round": 3
     },
+    "icon": "oil",
+    "lots": {
+      "micro": 10,
+      "mini": 100,
+      "normalized": false,
+      "standard": 1000,
+      "unit": "barrel"
+    },
+    "name": {
+      "key": "crude_oil",
+      "localized": "Crude Oil"
+    },
+    "pip": {
+      "pipette": 3,
+      "precision": 2,
+      "round": 3
+    },
+    "symbol": {
+      "long": "CL",
+      "short": "CL",
+      "ticker": "CL"
+    },
+    "type": {
+      "main": "commodity",
+      "sub": "energy"
+    }
+  },
+  "NG": {
+    "code": "NG",
+    "format": {
+      "round": 3
+    },
+    "icon": "gas",
     "lots": {
       "micro": 1250,
       "mini": 2500,
@@ -52,40 +86,9 @@
       "round": 3
     },
     "symbol": {
-      "long": "NATGAS",
-      "short": "NATGAS",
-      "ticker": "NATGAS"
-    },
-    "type": {
-      "main": "commodity",
-      "sub": "energy"
-    }
-  },
-  "WTI": {
-    "code": "WTI",
-    "format": {
-      "round": 3
-    },
-    "lots": {
-      "micro": 10,
-      "mini": 100,
-      "normalized": false,
-      "standard": 1000,
-      "unit": "barrel"
-    },
-    "name": {
-      "key": "west_texas_oil",
-      "localized": "West Texas Oil"
-    },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
-    "symbol": {
-      "long": "WTI",
-      "short": "WTI",
-      "ticker": "WTI"
+      "long": "NG",
+      "short": "NG",
+      "ticker": "NG"
     },
     "type": {
       "main": "commodity",
@@ -97,6 +100,7 @@
     "format": {
       "round": 3
     },
+    "icon": "silver",
     "lots": {
       "micro": 50,
       "mini": 500,
@@ -128,6 +132,7 @@
     "format": {
       "round": 3
     },
+    "icon": "gold",
     "lots": {
       "micro": 1,
       "mini": 10,
@@ -154,34 +159,12 @@
       "sub": "metal"
     }
   },
-  "ADA": {
-    "code": "ADA",
-    "format": {
-      "round": 7
-    },
-    "name": {
-      "key": "cardano",
-      "localized": "Cardano"
-    },
-    "pip": {
-      "pipette": 7,
-      "precision": 6,
-      "round": 7
-    },
-    "symbol": {
-      "long": "ADA",
-      "short": "ADA",
-      "ticker": "ADA"
-    },
-    "type": {
-      "main": "crypto"
-    }
-  },
   "BCH": {
     "code": "BCH",
     "format": {
       "round": 3
     },
+    "icon": "bitcoin_cash",
     "name": {
       "key": "bitcoin_cash",
       "localized": "Bitcoin Cash"
@@ -200,34 +183,12 @@
       "main": "crypto"
     }
   },
-  "BNB": {
-    "code": "BNB",
-    "format": {
-      "round": 6
-    },
-    "name": {
-      "key": "binance_coin",
-      "localized": "Binance Coin"
-    },
-    "pip": {
-      "pipette": 6,
-      "precision": 5,
-      "round": 6
-    },
-    "symbol": {
-      "long": "BNB",
-      "short": "BNB",
-      "ticker": "BNB"
-    },
-    "type": {
-      "main": "crypto"
-    }
-  },
   "BTC": {
     "code": "BTC",
     "format": {
       "round": 3
     },
+    "icon": "bitcoin",
     "name": {
       "key": "bitcoin",
       "localized": "Bitcoin"
@@ -251,6 +212,7 @@
     "format": {
       "round": 3
     },
+    "icon": "dash",
     "name": {
       "key": "dash",
       "localized": "Dash"
@@ -269,57 +231,12 @@
       "main": "crypto"
     }
   },
-  "EOS": {
-    "code": "EOS",
-    "format": {
-      "round": 5
-    },
-    "name": {
-      "key": "eos",
-      "localized": "EOS"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
-    "symbol": {
-      "long": "EOS",
-      "short": "EOS",
-      "ticker": "EOS"
-    },
-    "type": {
-      "main": "crypto"
-    }
-  },
-  "ETC": {
-    "code": "ETC",
-    "format": {
-      "round": 3
-    },
-    "name": {
-      "key": "ethereum_classic",
-      "localized": "Ethereum Classic"
-    },
-    "pip": {
-      "pipette": 4,
-      "precision": 3,
-      "round": 4
-    },
-    "symbol": {
-      "long": "ETC",
-      "short": "ETC",
-      "ticker": "ETC"
-    },
-    "type": {
-      "main": "crypto"
-    }
-  },
   "ETH": {
     "code": "ETH",
     "format": {
       "round": 3
     },
+    "icon": "ethereum",
     "name": {
       "key": "ethereum",
       "localized": "Ethereum"
@@ -343,6 +260,7 @@
     "format": {
       "round": 3
     },
+    "icon": "litecoin",
     "name": {
       "key": "litecoin",
       "localized": "Litecoin"
@@ -361,103 +279,12 @@
       "main": "crypto"
     }
   },
-  "NEO": {
-    "code": "NEO",
-    "format": {
-      "round": 3
-    },
-    "name": {
-      "key": "neo",
-      "localized": "NEO"
-    },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
-    "symbol": {
-      "long": "NEO",
-      "short": "NEO",
-      "ticker": "NEO"
-    },
-    "type": {
-      "main": "crypto"
-    }
-  },
-  "TRX": {
-    "code": "TRX",
-    "format": {
-      "round": 7
-    },
-    "name": {
-      "key": "tron",
-      "localized": "TRON"
-    },
-    "pip": {
-      "pipette": 6,
-      "precision": 7,
-      "round": 6
-    },
-    "symbol": {
-      "long": "TRX",
-      "short": "TRX",
-      "ticker": "TRX"
-    },
-    "type": {
-      "main": "crypto"
-    }
-  },
-  "XLM": {
-    "code": "XLM",
-    "format": {
-      "round": 7
-    },
-    "name": {
-      "key": "stellar",
-      "localized": "Stellar"
-    },
-    "pip": {
-      "pipette": 6,
-      "precision": 7,
-      "round": 6
-    },
-    "symbol": {
-      "long": "XLM",
-      "short": "XLM",
-      "ticker": "XLM"
-    },
-    "type": {
-      "main": "crypto"
-    }
-  },
-  "XMR": {
-    "code": "XMR",
-    "format": {
-      "round": 3
-    },
-    "name": {
-      "key": "monero",
-      "localized": "Monero"
-    },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
-    "symbol": {
-      "long": "XMR",
-      "short": "ɱ",
-      "ticker": "XMR"
-    },
-    "type": {
-      "main": "crypto"
-    }
-  },
   "XRP": {
     "code": "XRP",
     "format": {
       "round": 6
     },
+    "icon": "ripple",
     "name": {
       "key": "ripple",
       "localized": "Ripple"
@@ -481,6 +308,7 @@
     "format": {
       "round": 3
     },
+    "icon": "australia",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -512,6 +340,7 @@
     "format": {
       "round": 3
     },
+    "icon": "brazil",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -543,6 +372,7 @@
     "format": {
       "round": 3
     },
+    "icon": "canada",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -574,6 +404,7 @@
     "format": {
       "round": 3
     },
+    "icon": "switzerland",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -605,6 +436,7 @@
     "format": {
       "round": 3
     },
+    "icon": "china",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -636,6 +468,7 @@
     "format": {
       "round": 3
     },
+    "icon": "czech",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -667,6 +500,7 @@
     "format": {
       "round": 3
     },
+    "icon": "denmark",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -698,6 +532,7 @@
     "format": {
       "round": 3
     },
+    "icon": "euro",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -729,6 +564,7 @@
     "format": {
       "round": 3
     },
+    "icon": "uk",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -760,6 +596,7 @@
     "format": {
       "round": 3
     },
+    "icon": "hong_kong",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -791,6 +628,7 @@
     "format": {
       "round": 3
     },
+    "icon": "hungary",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -822,6 +660,7 @@
     "format": {
       "round": 3
     },
+    "icon": "israel",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -853,6 +692,7 @@
     "format": {
       "round": 3
     },
+    "icon": "india",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -884,6 +724,7 @@
     "format": {
       "round": 3
     },
+    "icon": "japan",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -915,6 +756,7 @@
     "format": {
       "round": 3
     },
+    "icon": "south_korea",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -946,6 +788,7 @@
     "format": {
       "round": 3
     },
+    "icon": "kuwait",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -977,6 +820,7 @@
     "format": {
       "round": 3
     },
+    "icon": "mexico",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1008,6 +852,7 @@
     "format": {
       "round": 3
     },
+    "icon": "nigeria",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1039,6 +884,7 @@
     "format": {
       "round": 3
     },
+    "icon": "norway",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1070,6 +916,7 @@
     "format": {
       "round": 3
     },
+    "icon": "new_zealand",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1101,6 +948,7 @@
     "format": {
       "round": 3
     },
+    "icon": "poland",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1132,6 +980,7 @@
     "format": {
       "round": 3
     },
+    "icon": "romania",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1163,6 +1012,7 @@
     "format": {
       "round": 3
     },
+    "icon": "russia",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1194,6 +1044,7 @@
     "format": {
       "round": 3
     },
+    "icon": "saudi_arabia",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1225,6 +1076,7 @@
     "format": {
       "round": 3
     },
+    "icon": "sweden",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1256,6 +1108,7 @@
     "format": {
       "round": 3
     },
+    "icon": "singapore",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1287,6 +1140,7 @@
     "format": {
       "round": 3
     },
+    "icon": "thailand",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1318,6 +1172,7 @@
     "format": {
       "round": 3
     },
+    "icon": "turkey",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1349,6 +1204,7 @@
     "format": {
       "round": 3
     },
+    "icon": "usa",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1380,6 +1236,7 @@
     "format": {
       "round": 3
     },
+    "icon": "south_africa",
     "lots": {
       "micro": 1000,
       "mini": 10000,
@@ -1415,13 +1272,13 @@
       "long": "unit",
       "short": "unit"
     },
-    "ounce": {
-      "long": "ounce",
-      "short": "oz"
-    },
     "mmbtu": {
       "long": "metric million british Thermal unit",
       "short": "MMBtu"
+    },
+    "ounce": {
+      "long": "ounce",
+      "short": "oz"
     }
   }
 }
