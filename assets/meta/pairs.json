@@ -986,22 +986,22 @@
   },
   "pair_types": {
     "currency_major": {
-      "key": "major",
+      "key": "majors",
       "main": "major",
       "weight": 100
     },
     "currency_minor": {
-      "key": "minor",
+      "key": "minors",
       "main": "minor",
       "weight": 80
     },
     "currency_exotic": {
-      "key": "exotic",
+      "key": "exotics",
       "main": "exotic",
       "weight": 60
     },
     "index": {
-      "key": "index",
+      "key": "indexes",
       "main": "index",
       "weight": 40
     },
@@ -1020,7 +1020,7 @@
       "weight": 20
     },
     "crypto": {
-      "key": "crypto",
+      "key": "cryptos",
       "main": "crypto",
       "weight": 0
     }

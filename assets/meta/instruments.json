@@ -1200,12 +1200,12 @@
   },
   "instrument_types": {
     "currency": {
-      "key": "currency",
+      "key": "currencies",
       "main": "currency",
       "weight": 100
     },
     "index": {
-      "key": "index",
+      "key": "indexes",
       "main": "index",
       "weight": 75
     },
@@ -1224,7 +1224,7 @@
       "weight": 50
     },
     "crypto": {
-      "key": "crypto",
+      "key": "cryptos",
       "main": "crypto",
       "weight": 25
     }
