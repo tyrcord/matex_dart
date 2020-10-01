@@ -1,0 +1,12 @@
+export './instrument_format_metadata.model.dart';
+export './instrument_lot_unit_metadata.model.dart';
+export './instrument_lots_metadata.model.dart';
+export './instrument_metadata.model.dart';
+export './instrument_name_metadata.dart';
+export './instrument_pip_metadata.model.dart';
+export './instrument_symbol_metadata.model.dart';
+export './instrument_type_metadata.model.dart';
+export './pair_metadata.model.dart';
+export './pair_type_metadata.model.dart';
+export './quote.model.dart';
+export './report.model.dart';

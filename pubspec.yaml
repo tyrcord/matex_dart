@@ -13,6 +13,7 @@ dependencies:
   meta: ^1.1.8
   decimal: ^0.3.5
   intl: ^0.16.1
+  tstore_dart: ^0.1.0
 
 dev_dependencies:
   flutter_test:
@@ -22,4 +23,4 @@ dev_dependencies:
 
 flutter:
   assets:
-    - assets/meta/instruments.json
+    - assets/meta/

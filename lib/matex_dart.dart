@@ -1,4 +1,5 @@
-export './src/calculators/calculators.dart';
-export './src/core/core.dart';
-export './src/matex.dart';
-export './src/providers/providers.dart';
+export './calculators/calculators.dart';
+export './core/core.dart';
+export './providers/providers.dart';
+
+export 'matex.dart';
