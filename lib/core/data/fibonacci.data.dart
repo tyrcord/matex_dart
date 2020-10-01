@@ -1,6 +1,6 @@
 // FIXME: transform to type when union type will be available.
 
-const List<double> kFibonacciExtensionData = [
+const List<double> kMatexFibonacciExtensionData = [
   23.6,
   38.2,
   50,
@@ -13,7 +13,7 @@ const List<double> kFibonacciExtensionData = [
   261.8,
 ];
 
-const List<double> kFibonacciRetracementData = [
+const List<double> kMatexFibonacciRetracementData = [
   23.6,
   38.2,
   50.0,
@@ -23,7 +23,7 @@ const List<double> kFibonacciRetracementData = [
   138.2,
 ];
 
-const List<double> kFibonacciExtensionLevels = [
+const List<double> kMatexFibonacciExtensionLevels = [
   23.6,
   38.2,
   50.0,
@@ -35,7 +35,7 @@ const List<double> kFibonacciExtensionLevels = [
   261.8,
 ];
 
-const List<double> kFibonacciRetracementLevels = [
+const List<double> kMatexFibonacciRetracementLevels = [
   23.6,
   38.2,
   50,

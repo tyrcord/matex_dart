@@ -22,7 +22,7 @@ void main() {
       });
 
       test(pivotPointsMethodMessage('Woodie'), () {
-        calculator.method(PivotPointsMethods.Woodie);
+        calculator.method(MatexPivotPointsMethods.Woodie);
       });
 
       test(COMPUTE_RIGHT_VALUES, () {
@@ -51,7 +51,7 @@ void main() {
       });
 
       test(pivotPointsMethodMessage('DeMark'), () {
-        calculator.method(PivotPointsMethods.DeMark);
+        calculator.method(MatexPivotPointsMethods.DeMark);
       });
 
       test(COMPUTE_RIGHT_VALUES, () {
@@ -83,7 +83,7 @@ void main() {
       });
 
       test(pivotPointsMethodMessage('DeMark'), () {
-        calculator.method(PivotPointsMethods.DeMark);
+        calculator.method(MatexPivotPointsMethods.DeMark);
       });
 
       test(COMPUTE_RIGHT_VALUES, () {
@@ -115,7 +115,7 @@ void main() {
       });
 
       test(pivotPointsMethodMessage('DeMark'), () {
-        calculator.method(PivotPointsMethods.DeMark);
+        calculator.method(MatexPivotPointsMethods.DeMark);
       });
 
       test(COMPUTE_RIGHT_VALUES, () {
@@ -140,7 +140,7 @@ void main() {
       });
 
       test(pivotPointsMethodMessage('Standard'), () {
-        calculator.method(PivotPointsMethods.Standard);
+        calculator.method(MatexPivotPointsMethods.Standard);
       });
 
       test(COMPUTE_RIGHT_VALUES, () {
@@ -165,7 +165,7 @@ void main() {
       });
 
       test(pivotPointsMethodMessage('Fibonacci'), () {
-        calculator.method(PivotPointsMethods.Fibonacci);
+        calculator.method(MatexPivotPointsMethods.Fibonacci);
       });
 
       test(COMPUTE_RIGHT_VALUES, () {
@@ -190,7 +190,7 @@ void main() {
       });
 
       test(pivotPointsMethodMessage('Camarilla'), () {
-        calculator.method(PivotPointsMethods.Camarilla);
+        calculator.method(MatexPivotPointsMethods.Camarilla);
       });
 
       test(COMPUTE_RIGHT_VALUES, () {

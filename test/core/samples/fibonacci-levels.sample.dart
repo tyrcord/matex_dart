@@ -1,62 +1,62 @@
 import 'package:matex_dart/matex_dart.dart';
 
 const defaultRetracements = [
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '23.6%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '38.2%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '50%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '61.8%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '78.6%',
     value: 0,
   ),
 ];
 
 const defaultExtensions = [
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '261.8%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '200%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '161.8%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '138.2%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '100%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '61.8%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '50%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '38.2%',
     value: 0,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '23.6%',
     value: 0,
   ),
@@ -68,62 +68,62 @@ const defaultFibonacciLevelsResult = FibonacciLevelsResult(
 );
 
 const defaultRetracementsUp = [
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '23.6%',
     value: 1.4764,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '38.2%',
     value: 1.4618,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '50%',
     value: 1.45,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '61.8%',
     value: 1.4382,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '78.6%',
     value: 1.4214,
   ),
 ];
 
 const defaultExtensionsUp = [
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '261.8%',
     value: 1.7618,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '200%',
     value: 1.7,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '161.8%',
     value: 1.6618,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '138.2%',
     value: 1.6382,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '100%',
     value: 1.6,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '61.8%',
     value: 1.5618,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '50%',
     value: 1.55,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '38.2%',
     value: 1.5382,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '23.6%',
     value: 1.5236,
   ),
@@ -135,62 +135,62 @@ const defaultFibonacciLevelsResultUp = FibonacciLevelsResult(
 );
 
 const defaultRetracementsDown = [
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '78.6%',
     value: 1.4786,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '61.8%',
     value: 1.4618,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '50%',
     value: 1.45,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '38.2%',
     value: 1.4382,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '23.6%',
     value: 1.4236,
   ),
 ];
 
 const defaultExtensionsDown = [
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '23.6%',
     value: 1.3764,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '38.2%',
     value: 1.3618,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '50%',
     value: 1.35,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '61.8%',
     value: 1.3382,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '100%',
     value: 1.3,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '138.2%',
     value: 1.2618,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '161.8%',
     value: 1.2382,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '200%',
     value: 1.2,
   ),
-  FibonacciLevel(
+  MatexFibonacciLevel(
     level: '261.8%',
     value: 1.1382,
   ),

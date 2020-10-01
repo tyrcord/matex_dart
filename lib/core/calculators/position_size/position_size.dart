@@ -2,31 +2,32 @@ import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-const DEFAULT_RESULTS = PositionSizeResult(
+const DEFAULT_RESULTS = MatexPositionSizeResult(
   amountAtRisk: 0.0,
   pipValue: 0.0,
   positionSize: 0.0,
   riskRatio: 0.0,
 );
 
-class PositionSizeCalculator extends BaseCalculator<PositionSizeCalculator,
-        PositionSizeState, PositionSizeResult>
+class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
+        MatexPositionSizeCalculatorCore, MatexPositionSizeCoreState, MatexPositionSizeResult>
     with
-        LotMixin<PositionSizeCalculator, PositionSizeState, PositionSizeResult>,
-        PipValueMixin<PositionSizeCalculator, PositionSizeState,
-            PositionSizeResult>,
-        PositionSizeMarginMixin<PositionSizeCalculator, PositionSizeState,
-            PositionSizeResult> {
-  PositionSizeCalculator({
-    PositionSizeState initialState,
-    List<StateValidator> validators,
+        MatexLotCoreMixin<MatexPositionSizeCalculatorCore, MatexPositionSizeCoreState,
+            MatexPositionSizeResult>,
+        MatexPipValueCoreMixin<MatexPositionSizeCalculatorCore, MatexPositionSizeCoreState,
+            MatexPositionSizeResult>,
+        MatexPositionSizeMarginCoreMixin<MatexPositionSizeCalculatorCore,
+            MatexPositionSizeCoreState, MatexPositionSizeResult> {
+  MatexPositionSizeCalculatorCore({
+    MatexPositionSizeCoreState initialState,
+    List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialPositionSizeState,
           validators: validators ?? positionSizeValidators,
         );
 
   @override
-  PositionSizeResult value() {
+  MatexPositionSizeResult value() {
     if (result != null) {
       return result;
     }
@@ -42,7 +43,7 @@ class PositionSizeCalculator extends BaseCalculator<PositionSizeCalculator,
           ? computePositionSize(amountAtRisk, pipValue, stopLossPips)
           : 0.0;
 
-      return (result = PositionSizeResult(
+      return (result = MatexPositionSizeResult(
         amountAtRisk: amountAtRisk,
         pipValue: (pipValue * Decimal.parse(tradingSize.toString())).toDouble(),
         positionSize: tradingSize,
@@ -114,11 +115,11 @@ class PositionSizeCalculator extends BaseCalculator<PositionSizeCalculator,
   }
 }
 
-PositionSizeCalculator positionSize({
-  PositionSizeState initialState,
-  List<StateValidator> validators,
+MatexPositionSizeCalculatorCore positionSize({
+  MatexPositionSizeCoreState initialState,
+  List<MatexStateValidator> validators,
 }) =>
-    PositionSizeCalculator(
+    MatexPositionSizeCalculatorCore(
       initialState: initialState,
       validators: validators,
     );

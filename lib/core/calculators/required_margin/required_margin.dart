@@ -1,16 +1,18 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class RequiredMarginCalculator extends BaseCalculator<RequiredMarginCalculator,
-        RequiredMarginState, double>
+class MatexRequiredMarginCalculatorCore extends MatexBaseCalculator<
+        MatexRequiredMarginCalculatorCore, MatexRequiredMarginCoreState, double>
     with
-        LotMixin<RequiredMarginCalculator, RequiredMarginState, double>,
-        PipValueMixin<RequiredMarginCalculator, RequiredMarginState, double>,
-        RequiredMarginMixin<RequiredMarginCalculator, RequiredMarginState,
-            double> {
-  RequiredMarginCalculator({
-    RequiredMarginState initialState,
-    List<StateValidator> validators,
+        MatexLotCoreMixin<MatexRequiredMarginCalculatorCore, MatexRequiredMarginCoreState,
+            double>,
+        MatexPipValueCoreMixin<MatexRequiredMarginCalculatorCore, MatexRequiredMarginCoreState,
+            double>,
+        MatexRequiredMarginCoreMixin<MatexRequiredMarginCalculatorCore,
+            MatexRequiredMarginCoreState, double> {
+  MatexRequiredMarginCalculatorCore({
+    MatexRequiredMarginCoreState initialState,
+    List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialRequiredMarginState,
           validators: validators ?? requiredMarginValidators,
@@ -39,11 +41,11 @@ class RequiredMarginCalculator extends BaseCalculator<RequiredMarginCalculator,
   }
 }
 
-RequiredMarginCalculator requiredMargin({
-  RequiredMarginState initialState,
-  List<StateValidator> validators,
+MatexRequiredMarginCalculatorCore requiredMargin({
+  MatexRequiredMarginCoreState initialState,
+  List<MatexStateValidator> validators,
 }) =>
-    RequiredMarginCalculator(
+    MatexRequiredMarginCalculatorCore(
       initialState: initialState,
       validators: validators,
     );

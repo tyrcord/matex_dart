@@ -1,6 +1,6 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
-class MatexRequiredMarginState extends RequiredMarginState {
+class MatexRequiredMarginState extends MatexRequiredMarginCoreState {
   @override
   final String accountCode;
   @override
@@ -13,7 +13,7 @@ class MatexRequiredMarginState extends RequiredMarginState {
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
-    LotDescriptors lotDescriptors,
+    MatexLotDescriptors lotDescriptors,
     bool baseListedSecond,
     double leverage,
     this.accountCode,
@@ -30,7 +30,7 @@ class MatexRequiredMarginState extends RequiredMarginState {
         );
 
   @override
-  MatexRequiredMarginState copyWithState(BaseState state) {
+  MatexRequiredMarginState copyWithState(MatexBaseCoreState state) {
     return MatexRequiredMarginState(
       accountCode: state.accountCode ?? accountCode,
       baseCode: state.baseCode ?? baseCode,

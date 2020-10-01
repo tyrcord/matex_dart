@@ -2,15 +2,15 @@ import 'package:equatable/equatable.dart';
 
 import 'package:matex_dart/matex_dart.dart';
 
-class InstrumentLotsMetadata extends Equatable {
+class MatexInstrumentLotsMetadata extends Equatable {
   final int micro;
   final int mini;
   final int nano;
   final bool normalized;
   final int standard;
-  final InstrumentLotUnitMetadata unit;
+  final MatexInstrumentLotUnitMetadata unit;
 
-  const InstrumentLotsMetadata({
+  const MatexInstrumentLotsMetadata({
     this.micro,
     this.mini,
     this.nano,
@@ -19,14 +19,14 @@ class InstrumentLotsMetadata extends Equatable {
     this.unit,
   });
 
-  static InstrumentLotsMetadata fromJson(Map<String, dynamic> json) {
-    return InstrumentLotsMetadata(
+  static MatexInstrumentLotsMetadata fromJson(Map<String, dynamic> json) {
+    return MatexInstrumentLotsMetadata(
       micro: json['micro'] as int,
       mini: json['mini'] as int,
       nano: json['nano'] as int,
       normalized: json['normalized'] as bool,
       standard: json['standard'] as int,
-      unit: InstrumentLotUnitMetadata.fromCache(json['unit'] as String),
+      unit: MatexInstrumentLotUnitMetadata.fromCache(json['unit'] as String),
     );
   }
 

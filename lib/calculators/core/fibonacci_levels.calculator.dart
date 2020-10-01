@@ -1,19 +1,19 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-class MatexFibonacciLevelsCalculator extends BaseCalculator<
+class MatexFibonacciLevelsCalculator extends MatexBaseCalculator<
         MatexFibonacciLevelsCalculator,
-        MatexFibonacciLevelsState,
+        MatexFibonacciLevelsCoreState,
         Future<FibonacciLevelsResult>>
     with
-        FibonacciLevelsMixin<MatexFibonacciLevelsCalculator,
-            MatexFibonacciLevelsState, Future<FibonacciLevelsResult>> {
+        MatexFibonacciLevelsCoreMixin<MatexFibonacciLevelsCalculator,
+            MatexFibonacciLevelsCoreState, Future<FibonacciLevelsResult>> {
   final MatexConfig config;
 
   MatexFibonacciLevelsCalculator({
     @required this.config,
-    MatexFibonacciLevelsState initialState,
-    List<StateValidator> validators,
+    MatexFibonacciLevelsCoreState initialState,
+    List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState,
           validators: validators,
@@ -27,8 +27,8 @@ class MatexFibonacciLevelsCalculator extends BaseCalculator<
 
 MatexFibonacciLevelsCalculator matexFibonacciLevels({
   MatexConfig config,
-  MatexFibonacciLevelsState initialState,
-  List<StateValidator> validators,
+  MatexFibonacciLevelsCoreState initialState,
+  List<MatexStateValidator> validators,
 }) {
   return MatexFibonacciLevelsCalculator(
     config: config,

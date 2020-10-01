@@ -1,10 +1,10 @@
 import 'package:matex_dart/matex_dart.dart';
 
-mixin FibonacciLevelsMixin<C extends BaseCalculator<C, S, R>,
-    S extends BaseState, R> on BaseCalculator<C, S, R> {
+mixin MatexFibonacciLevelsCoreMixin<C extends MatexBaseCalculator<C, S, R>,
+    S extends MatexBaseCoreState, R> on MatexBaseCalculator<C, S, R> {
   C customPrice(double customPrice) {
     final sanitizedValue = sanitizeDouble(customPrice);
-    return patchState(BaseState(customPrice: sanitizedValue));
+    return patchState(MatexBaseCoreState(customPrice: sanitizedValue));
   }
 
   C extensionLevels(List<double> extensionLevels) {
@@ -13,21 +13,21 @@ mixin FibonacciLevelsMixin<C extends BaseCalculator<C, S, R>,
     }).toList();
 
     sanitizedValue.sort(sortNumberAsc);
-    return patchState(BaseState(extensionLevels: sanitizedValue));
+    return patchState(MatexBaseCoreState(extensionLevels: sanitizedValue));
   }
 
   C highPrice(double highPrice) {
     final sanitizedValue = sanitizeDouble(highPrice);
-    return patchState(BaseState(highPrice: sanitizedValue));
+    return patchState(MatexBaseCoreState(highPrice: sanitizedValue));
   }
 
   C lowPrice(double lowPrice) {
     final sanitizedValue = sanitizeDouble(lowPrice);
-    return patchState(BaseState(lowPrice: sanitizedValue));
+    return patchState(MatexBaseCoreState(lowPrice: sanitizedValue));
   }
 
   C precision(int precision) {
-    return patchState(BaseState(precision: precision));
+    return patchState(MatexBaseCoreState(precision: precision));
   }
 
   C retracementLevels(List<double> retracementLevels) {
@@ -37,10 +37,10 @@ mixin FibonacciLevelsMixin<C extends BaseCalculator<C, S, R>,
 
     sanitizedValue.sort(sortNumberAsc);
 
-    return patchState(BaseState(retracementLevels: sanitizedValue));
+    return patchState(MatexBaseCoreState(retracementLevels: sanitizedValue));
   }
 
-  C trend(Trend trend) {
-    return patchState(BaseState(trend: trend));
+  C trend(MatexTrend trend) {
+    return patchState(MatexBaseCoreState(trend: trend));
   }
 }

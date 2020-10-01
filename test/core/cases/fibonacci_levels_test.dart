@@ -6,7 +6,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('FibonacciLevelsCalculator', () {
-    FibonacciLevelsCalculator calculator;
+    MatexFibonacciLevelsCalculatorCore calculator;
 
     setUp(() {
       calculator = fibonacciLevels();
@@ -14,7 +14,7 @@ void main() {
 
     group('fibonnaciLevels()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator is FibonacciLevelsCalculator, equals(true));
+        expect(calculator is MatexFibonacciLevelsCalculatorCore, equals(true));
       });
     });
 
@@ -92,7 +92,11 @@ void main() {
       });
 
       test('Should define the level precision values', () {
-        calculator.precision(2).lowPrice(1.4).highPrice(1.5).trend(Trend.Up);
+        calculator
+            .precision(2)
+            .lowPrice(1.4)
+            .highPrice(1.5)
+            .trend(MatexTrend.Up);
 
         expect(calculator.value().extensionLevels[0].value, equals(1.76));
         expect(calculator.value().retracementLevels[0].value, equals(1.48));
@@ -145,26 +149,26 @@ void main() {
 
     group('#trend()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator.trend(Trend.Up), equals(calculator));
+        expect(calculator.trend(MatexTrend.Up), equals(calculator));
       });
 
       test('Should have a default value', () {
         expect(
           calculator.getState().trend,
-          equals(Trend.Up),
+          equals(MatexTrend.Up),
         );
       });
 
       test('Should define the trend value', () {
-        calculator.trend(Trend.Down);
+        calculator.trend(MatexTrend.Down);
         expect(
           calculator.getState().trend,
-          equals(Trend.Down),
+          equals(MatexTrend.Down),
         );
       });
 
       test('Should reorder retracement and extension levels', () {
-        FibonacciLevelsResult results = calculator
+        var results = calculator
             .retracementLevels([50, 23.6]).extensionLevels([23.6, 50]).value();
 
         expect(
@@ -187,7 +191,7 @@ void main() {
         expect(results.extensionLevels[0].level, equals('50%'));
         expect(results.extensionLevels[1].level, equals('23.6%'));
 
-        results = calculator.trend(Trend.Down).value();
+        results = calculator.trend(MatexTrend.Down).value();
 
         expect(results.retracementLevels[0].level, equals('50%'));
         expect(results.retracementLevels[1].level, equals('23.6%'));

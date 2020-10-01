@@ -1,6 +1,6 @@
 import 'package:matex_dart/matex_dart.dart';
 
-final List<StateValidator> matexStopLossTakeProfitValidators = [
+final List<MatexStateValidator> matexStopLossTakeProfitValidators = [
   ...stopLossTakeProfitValidators,
   ...matexPipValueValidators,
 ];

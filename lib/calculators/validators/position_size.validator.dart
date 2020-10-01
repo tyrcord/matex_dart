@@ -1,6 +1,6 @@
 import 'package:matex_dart/matex_dart.dart';
 
-final List<StateValidator> matexPositionSizeValidators = [
+final List<MatexStateValidator> matexPositionSizeValidators = [
   ...positionSizeValidators,
   ...matexPipValueValidators,
 ];

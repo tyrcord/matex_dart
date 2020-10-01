@@ -5,7 +5,7 @@ import '../samples/config.dart';
 
 void main() {
   group('Feature: Calculating the required margin', () {
-    final matex = Matex(config: testMatexConfig);
+    final matex = MatexApp(config: testMatexConfig);
 
     group('Scenario: When the currency account is listed second in a pair', () {
       final calculator = matex.requiredMargin();

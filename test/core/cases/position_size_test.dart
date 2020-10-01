@@ -6,7 +6,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('PositionSizeCalculator', () {
-    PositionSizeCalculator calculator;
+    MatexPositionSizeCalculatorCore calculator;
 
     setUp(() {
       calculator = positionSize();
@@ -14,7 +14,7 @@ void main() {
 
     group('positionSize()', () {
       test(SHOULD_RETURN_CALCULATOR_INSTANCE, () {
-        expect(calculator is PositionSizeCalculator, equals(true));
+        expect(calculator is MatexPositionSizeCalculatorCore, equals(true));
       });
     });
 
@@ -79,7 +79,7 @@ void main() {
 
     group('#setState()', () {
       test(SHOULD_UPDATE_CALCULATOR_STATE, () {
-        calculator.setState(PositionSizeState(
+        calculator.setState(MatexPositionSizeCoreState(
           positionSize: 1000,
         ));
 
@@ -87,7 +87,7 @@ void main() {
       });
 
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        final instance = calculator.setState(PositionSizeState(
+        final instance = calculator.setState(MatexPositionSizeCoreState(
           pipPrecision: 2,
         ));
 
@@ -353,8 +353,8 @@ void main() {
       });
 
       test('should update the lot descriptors value', () {
-        LotDescriptors lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: LotDescriptor(
+        MatexLotDescriptors lotDescriptors = kDefaultLotDescriptors.copyWith(
+          standard: MatexLotDescriptor(
             exists: true,
             multiplier: 5000,
           ),
@@ -366,7 +366,7 @@ void main() {
         expect(calculator.getState().positionSize, equals(5000));
 
         lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: LotDescriptor(
+          standard: MatexLotDescriptor(
             exists: false,
             multiplier: 5000,
           ),

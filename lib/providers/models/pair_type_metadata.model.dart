@@ -1,15 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
-class PairTypeMetadata extends Equatable {
-  static final Map<String, PairTypeMetadata> _cacheMap = {};
+class MatexPairTypeMetadata extends Equatable {
+  static final Map<String, MatexPairTypeMetadata> _cacheMap = {};
   final String key;
   final String main;
   final String subKey;
   final String sub;
   final double weight;
 
-  const PairTypeMetadata({
+  const MatexPairTypeMetadata({
     @required this.key,
     @required this.main,
     this.subKey,
@@ -17,8 +17,8 @@ class PairTypeMetadata extends Equatable {
     this.weight = 0,
   });
 
-  factory PairTypeMetadata.fromJson(Map<String, dynamic> json) {
-    return PairTypeMetadata(
+  factory MatexPairTypeMetadata.fromJson(Map<String, dynamic> json) {
+    return MatexPairTypeMetadata(
       key: json['key'] as String,
       main: json['main'] as String,
       subKey: json['subKey'] as String,
@@ -27,18 +27,18 @@ class PairTypeMetadata extends Equatable {
     );
   }
 
-  factory PairTypeMetadata.addToCache(
+  factory MatexPairTypeMetadata.addToCache(
     String key,
     Map<String, dynamic> json,
   ) {
     if (!_cacheMap.containsKey(key)) {
-      _cacheMap[key] = PairTypeMetadata.fromJson(json);
+      _cacheMap[key] = MatexPairTypeMetadata.fromJson(json);
     }
 
     return _cacheMap[key];
   }
 
-  factory PairTypeMetadata.fromCache(String key) => _cacheMap[key];
+  factory MatexPairTypeMetadata.fromCache(String key) => _cacheMap[key];
 
   @override
   List<Object> get props => [key, main, subKey, sub, weight];

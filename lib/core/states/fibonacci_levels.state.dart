@@ -1,12 +1,12 @@
 import 'package:matex_dart/matex_dart.dart';
 
-class FibonacciLevelsState extends BaseState {
-  const FibonacciLevelsState({
+class MatexFibonacciLevelsCoreState extends MatexBaseCoreState {
+  const MatexFibonacciLevelsCoreState({
     double customPrice,
     double highPrice,
     double lowPrice,
     int precision,
-    Trend trend,
+    MatexTrend trend,
     List<double> extensionLevels,
     List<double> retracementLevels,
   }) : super(
@@ -20,8 +20,8 @@ class FibonacciLevelsState extends BaseState {
         );
 
   @override
-  FibonacciLevelsState copyWithState(BaseState state) {
-    return FibonacciLevelsState(
+  MatexFibonacciLevelsCoreState copyWithState(MatexBaseCoreState state) {
+    return MatexFibonacciLevelsCoreState(
       customPrice: state.customPrice ?? customPrice,
       highPrice: state.highPrice ?? highPrice,
       lowPrice: state.lowPrice ?? lowPrice,
@@ -33,8 +33,8 @@ class FibonacciLevelsState extends BaseState {
   }
 
   @override
-  FibonacciLevelsState clone() {
-    return FibonacciLevelsState(
+  MatexFibonacciLevelsCoreState clone() {
+    return MatexFibonacciLevelsCoreState(
       customPrice: customPrice,
       highPrice: highPrice,
       lowPrice: lowPrice,
@@ -46,12 +46,12 @@ class FibonacciLevelsState extends BaseState {
   }
 }
 
-const kInitialFibonacciLevelsState = FibonacciLevelsState(
+const kInitialFibonacciLevelsState = MatexFibonacciLevelsCoreState(
   customPrice: 0.0,
   highPrice: 0.0,
   lowPrice: 0.0,
   precision: 5,
-  trend: Trend.Up,
-  extensionLevels: kFibonacciExtensionLevels,
-  retracementLevels: kFibonacciRetracementLevels,
+  trend: MatexTrend.Up,
+  extensionLevels: kMatexFibonacciExtensionLevels,
+  retracementLevels: kMatexFibonacciRetracementLevels,
 );

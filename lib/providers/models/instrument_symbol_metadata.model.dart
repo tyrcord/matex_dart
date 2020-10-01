@@ -1,18 +1,18 @@
 import 'package:equatable/equatable.dart';
 
-class InstrumentSymbolMetadata extends Equatable {
+class MatexInstrumentSymbolMetadata extends Equatable {
   final String ticker;
   final String long;
   final String short;
 
-  const InstrumentSymbolMetadata({
+  const MatexInstrumentSymbolMetadata({
     this.ticker,
     this.long,
     this.short,
   });
 
-  static InstrumentSymbolMetadata fromJson(Map<String, dynamic> json) {
-    return InstrumentSymbolMetadata(
+  static MatexInstrumentSymbolMetadata fromJson(Map<String, dynamic> json) {
+    return MatexInstrumentSymbolMetadata(
       ticker: json['ticker'] as String,
       long: json['long'] as String,
       short: json['short'] as String,

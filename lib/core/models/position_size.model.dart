@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class PositionSizeResult extends Equatable {
+class MatexPositionSizeResult extends Equatable {
   final double amountAtRisk;
   final double pipValue;
   final double positionSize;
   final double riskRatio;
 
-  const PositionSizeResult({
+  const MatexPositionSizeResult({
     this.amountAtRisk,
     this.pipValue,
     this.positionSize,
@@ -21,8 +21,8 @@ class PositionSizeResult extends Equatable {
         riskRatio,
       ];
 
-  PositionSizeResult clone() {
-    return PositionSizeResult(
+  MatexPositionSizeResult clone() {
+    return MatexPositionSizeResult(
       amountAtRisk: amountAtRisk,
       pipValue: pipValue,
       positionSize: positionSize,

@@ -2,29 +2,30 @@ import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-mixin PipValueMixin<C extends BaseCalculator<C, S, R>, S extends BaseState, R>
-    on BaseCalculator<C, S, R> {
+mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, S, R>,
+    S extends MatexBaseCoreState, R> on MatexBaseCalculator<C, S, R> {
   C baseExchangeRate(double baseExchangeRate) {
     final sanitizedValue = sanitizeDouble(baseExchangeRate);
-    return patchState(BaseState(baseExchangeRate: sanitizedValue));
+    return patchState(MatexBaseCoreState(baseExchangeRate: sanitizedValue));
   }
 
   C baseListedSecond(bool baseListedSecond) {
-    return patchState(BaseState(baseListedSecond: baseListedSecond));
+    return patchState(MatexBaseCoreState(baseListedSecond: baseListedSecond));
   }
 
   C pipPrecision(int pipPrecision) {
-    return patchState(BaseState(pipPrecision: pipPrecision));
+    return patchState(MatexBaseCoreState(pipPrecision: pipPrecision));
   }
 
   C positionSize(double positionSize) {
     final sanitizedValue = sanitizeDouble(positionSize);
-    return patchState(BaseState(positionSize: sanitizedValue));
+    return patchState(MatexBaseCoreState(positionSize: sanitizedValue));
   }
 
   C tradingPairExchangeRate(double tradingPairExchangeRate) {
     final sanitizedValue = sanitizeDouble(tradingPairExchangeRate);
-    return patchState(BaseState(tradingPairExchangeRate: sanitizedValue));
+    return patchState(
+        MatexBaseCoreState(tradingPairExchangeRate: sanitizedValue));
   }
 
   @protected

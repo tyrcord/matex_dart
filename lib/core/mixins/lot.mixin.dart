@@ -2,10 +2,10 @@ import 'package:matex_dart/matex_dart.dart';
 import 'package:decimal/decimal.dart';
 import 'package:meta/meta.dart';
 
-mixin LotMixin<C extends BaseCalculator<C, S, R>, S extends BaseState, R>
-    on BaseCalculator<C, S, R> {
-  C lotDescriptors(LotDescriptors lotDescriptors) {
-    return patchState(BaseState(lotDescriptors: lotDescriptors));
+mixin MatexLotCoreMixin<C extends MatexBaseCalculator<C, S, R>,
+    S extends MatexBaseCoreState, R> on MatexBaseCalculator<C, S, R> {
+  C lotDescriptors(MatexLotDescriptors lotDescriptors) {
+    return patchState(MatexBaseCoreState(lotDescriptors: lotDescriptors));
   }
 
   C lot(int lot) {
@@ -13,7 +13,7 @@ mixin LotMixin<C extends BaseCalculator<C, S, R>, S extends BaseState, R>
       state.lotDescriptors.standard,
       lot,
     );
-    return patchState(BaseState(positionSize: positionSize));
+    return patchState(MatexBaseCoreState(positionSize: positionSize));
   }
 
   C microLot(int microLot) {
@@ -21,7 +21,7 @@ mixin LotMixin<C extends BaseCalculator<C, S, R>, S extends BaseState, R>
       state.lotDescriptors.micro,
       microLot,
     );
-    return patchState(BaseState(positionSize: positionSize));
+    return patchState(MatexBaseCoreState(positionSize: positionSize));
   }
 
   C miniLot(int miniLot) {
@@ -29,7 +29,7 @@ mixin LotMixin<C extends BaseCalculator<C, S, R>, S extends BaseState, R>
       state.lotDescriptors.mini,
       miniLot,
     );
-    return patchState(BaseState(positionSize: positionSize));
+    return patchState(MatexBaseCoreState(positionSize: positionSize));
   }
 
   C nanoLot(int nanoLot) {
@@ -37,12 +37,12 @@ mixin LotMixin<C extends BaseCalculator<C, S, R>, S extends BaseState, R>
       state.lotDescriptors.nano,
       nanoLot,
     );
-    return patchState(BaseState(positionSize: positionSize));
+    return patchState(MatexBaseCoreState(positionSize: positionSize));
   }
 
   @protected
   double getPositionSizeWithLotDescriptorAndValue(
-    LotDescriptor lotDescriptor,
+    MatexLotDescriptor lotDescriptor,
     num value,
   ) {
     if (lotDescriptor.exists) {

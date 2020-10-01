@@ -6,10 +6,10 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('FormatterProvider', () {
-    FormatterProvider formatter;
+    MatexFormatterProvider formatter;
 
     setUp(() {
-      formatter = FormatterProvider();
+      formatter = MatexFormatterProvider();
     });
 
     group('formatInstrument()', () {
@@ -47,7 +47,7 @@ void main() {
             locale: 'en-US',
           ),
           completion(equals(
-            '€1.42550',
+            '1.42550',
           )),
         );
       });

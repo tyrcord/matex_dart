@@ -1,13 +1,15 @@
 import 'package:matex_dart/matex_dart.dart';
 
-class PipValueCalculator
-    extends BaseCalculator<PipValueCalculator, PipValueState, double>
+class MatexPipValueCalculatorCore extends MatexBaseCalculator<
+        MatexPipValueCalculatorCore, MatexPipValueCoreState, double>
     with
-        LotMixin<PipValueCalculator, PipValueState, double>,
-        PipValueMixin<PipValueCalculator, PipValueState, double> {
-  PipValueCalculator({
-    PipValueState initialState,
-    List<StateValidator> validators,
+        MatexLotCoreMixin<MatexPipValueCalculatorCore, MatexPipValueCoreState,
+            double>,
+        MatexPipValueCoreMixin<MatexPipValueCalculatorCore, MatexPipValueCoreState,
+            double> {
+  MatexPipValueCalculatorCore({
+    MatexPipValueCoreState initialState,
+    List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialPipValueState,
           validators: validators ?? pipValueValidators,
@@ -23,11 +25,11 @@ class PipValueCalculator
   }
 }
 
-PipValueCalculator pip({
-  PipValueState initialState,
-  List<StateValidator> validators,
+MatexPipValueCalculatorCore pip({
+  MatexPipValueCoreState initialState,
+  List<MatexStateValidator> validators,
 }) =>
-    PipValueCalculator(
+    MatexPipValueCalculatorCore(
       initialState: initialState,
       validators: validators,
     );

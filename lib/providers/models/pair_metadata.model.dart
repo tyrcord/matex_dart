@@ -1,14 +1,14 @@
 import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class PairMetadata extends Equatable {
+class MatexPairMetadata extends Equatable {
   final String baseCode;
   final String counterCode;
-  final PairTypeMetadata type;
-  final InstrumentMetadata baseInstrumentMetadata;
-  final InstrumentMetadata counterInstrumentMetadata;
+  final MatexPairTypeMetadata type;
+  final MatexInstrumentMetadata baseInstrumentMetadata;
+  final MatexInstrumentMetadata counterInstrumentMetadata;
 
-  const PairMetadata({
+  const MatexPairMetadata({
     this.baseCode,
     this.counterCode,
     this.type,
@@ -16,22 +16,22 @@ class PairMetadata extends Equatable {
     this.counterInstrumentMetadata,
   });
 
-  factory PairMetadata.fromJson(Map<String, dynamic> json) {
-    return PairMetadata(
+  factory MatexPairMetadata.fromJson(Map<String, dynamic> json) {
+    return MatexPairMetadata(
       baseCode: json['base'] as String,
       counterCode: json['counter'] as String,
-      type: PairTypeMetadata.fromCache(json['type'] as String),
+      type: MatexPairTypeMetadata.fromCache(json['type'] as String),
     );
   }
 
-  PairMetadata copyWith({
+  MatexPairMetadata copyWith({
     String baseCode,
     String counterCode,
-    PairTypeMetadata type,
-    InstrumentMetadata baseInstrumentMetadata,
-    InstrumentMetadata counterInstrumentMetadata,
+    MatexPairTypeMetadata type,
+    MatexInstrumentMetadata baseInstrumentMetadata,
+    MatexInstrumentMetadata counterInstrumentMetadata,
   }) {
-    return PairMetadata(
+    return MatexPairMetadata(
       baseCode: baseCode ?? this.baseCode,
       counterCode: counterCode ?? this.counterCode,
       type: type ?? this.type,

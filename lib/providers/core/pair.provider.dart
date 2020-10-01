@@ -8,24 +8,25 @@ import '../models/models.dart';
 
 const _kAssetPath = 'packages/matex_dart/assets/meta/pairs.json';
 
-class PairMetadataProvider extends AbstractPairMetadataProvider {
-  static final PairMetadataProvider _singleton = PairMetadataProvider._();
+class MatexPairMetadataProvider extends MatexAbstractPairMetadataProvider {
+  static final MatexPairMetadataProvider _singleton =
+      MatexPairMetadataProvider._();
 
-  factory PairMetadataProvider() => _singleton;
+  factory MatexPairMetadataProvider() => _singleton;
 
-  PairMetadataProvider._();
+  MatexPairMetadataProvider._();
 
   @override
-  Future<Map<String, PairMetadata>> init() async {
+  Future<Map<String, MatexPairMetadata>> init() async {
     final json = await rootBundle.loadString(_kAssetPath);
     final pairs = jsonDecode(json) as Map<String, dynamic>;
 
     _removeExtraMetadata(pairs);
 
-    return pairs.map<String, PairMetadata>((key, value) {
+    return pairs.map<String, MatexPairMetadata>((key, value) {
       return MapEntry(
         key,
-        PairMetadata.fromJson(value as Map<String, dynamic>),
+        MatexPairMetadata.fromJson(value as Map<String, dynamic>),
       );
     });
   }
@@ -45,7 +46,7 @@ class PairMetadataProvider extends AbstractPairMetadataProvider {
   void _extractExtraMetadata(String key, Map<String, dynamic> json) {
     if (key == 'pair_types') {
       json.forEach((String key, dynamic value) {
-        PairTypeMetadata.addToCache(
+        MatexPairTypeMetadata.addToCache(
           key,
           value as Map<String, dynamic>,
         );

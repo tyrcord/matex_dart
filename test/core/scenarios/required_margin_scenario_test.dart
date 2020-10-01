@@ -7,7 +7,7 @@ void main() {
       final calculator = requiredMargin();
 
       test('Given: my trading account is in USD', () {
-        expect(calculator is RequiredMarginCalculator, equals(true));
+        expect(calculator is MatexRequiredMarginCalculatorCore, equals(true));
       });
 
       test('And: the exchange rate for the pair EUR/USD is 1.25', () {
@@ -33,7 +33,7 @@ void main() {
       final calculator = requiredMargin();
 
       test('Given: my trading account is in EUR', () {
-        expect(calculator is RequiredMarginCalculator, equals(true));
+        expect(calculator is MatexRequiredMarginCalculatorCore, equals(true));
       });
 
       test('And: the exchange rate for the pair EUR/CAD is 1.25', () {
@@ -58,7 +58,7 @@ void main() {
       final calculator = requiredMargin();
 
       test('Given: my trading account is in USD', () {
-        expect(calculator is RequiredMarginCalculator, equals(true));
+        expect(calculator is MatexRequiredMarginCalculatorCore, equals(true));
       });
 
       test('And: the exchange rate for the pair AUD/JPY is 100', () {

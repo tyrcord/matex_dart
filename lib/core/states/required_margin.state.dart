@@ -1,15 +1,15 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
-class RequiredMarginState extends PipValueState {
+class MatexRequiredMarginCoreState extends MatexPipValueCoreState {
   @override
   final double leverage;
 
-  const RequiredMarginState({
+  const MatexRequiredMarginCoreState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
-    LotDescriptors lotDescriptors,
+    MatexLotDescriptors lotDescriptors,
     bool baseListedSecond,
     this.leverage,
   }) : super(
@@ -22,8 +22,8 @@ class RequiredMarginState extends PipValueState {
         );
 
   @override
-  RequiredMarginState copyWithState(BaseState state) {
-    return RequiredMarginState(
+  MatexRequiredMarginCoreState copyWithState(MatexBaseCoreState state) {
+    return MatexRequiredMarginCoreState(
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
@@ -36,8 +36,8 @@ class RequiredMarginState extends PipValueState {
   }
 
   @override
-  RequiredMarginState clone() {
-    return RequiredMarginState(
+  MatexRequiredMarginCoreState clone() {
+    return MatexRequiredMarginCoreState(
       baseExchangeRate: baseExchangeRate,
       tradingPairExchangeRate: tradingPairExchangeRate,
       positionSize: positionSize,
@@ -49,7 +49,7 @@ class RequiredMarginState extends PipValueState {
   }
 }
 
-const kInitialRequiredMarginState = RequiredMarginState(
+const kInitialRequiredMarginState = MatexRequiredMarginCoreState(
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,

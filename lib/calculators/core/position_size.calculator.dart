@@ -1,33 +1,33 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-class MatexPositionSizeCalculator extends AbstractPipValueCalculator<
+class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
         MatexPositionSizeCalculator,
-        MatexPositionSizeState,
-        Future<PositionSizeResult>>
+        MatexPositionSizeCoreState,
+        Future<MatexPositionSizeResult>>
     with
-        LotMixin<MatexPositionSizeCalculator, MatexPositionSizeState,
-            Future<PositionSizeResult>>,
-        PipValueMixin<MatexPositionSizeCalculator, MatexPositionSizeState,
-            Future<PositionSizeResult>>,
-        MatexPipValueMixin<MatexPositionSizeCalculator, MatexPositionSizeState,
-            Future<PositionSizeResult>>,
-        PositionSizeMarginMixin<MatexPositionSizeCalculator,
-            MatexPositionSizeState, Future<PositionSizeResult>> {
+        MatexLotCoreMixin<MatexPositionSizeCalculator,
+            MatexPositionSizeCoreState, Future<MatexPositionSizeResult>>,
+        MatexPipValueCoreMixin<MatexPositionSizeCalculator,
+            MatexPositionSizeCoreState, Future<MatexPositionSizeResult>>,
+        MatexPipValueMixin<MatexPositionSizeCalculator,
+            MatexPositionSizeCoreState, Future<MatexPositionSizeResult>>,
+        MatexPositionSizeMarginCoreMixin<MatexPositionSizeCalculator,
+            MatexPositionSizeCoreState, Future<MatexPositionSizeResult>> {
   @override
   final MatexConfig config;
 
   MatexPositionSizeCalculator({
     @required this.config,
-    MatexPositionSizeState initialState,
-    List<StateValidator> validators,
+    MatexPositionSizeCoreState initialState,
+    List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialMatexPositionSizeState,
           validators: validators ?? matexPositionSizeValidators,
         );
 
   @override
-  Future<PositionSizeResult> value() async {
+  Future<MatexPositionSizeResult> value() async {
     final exchangeProvider = config?.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
@@ -40,8 +40,8 @@ class MatexPositionSizeCalculator extends AbstractPipValueCalculator<
 
 MatexPositionSizeCalculator matexPositionSize({
   MatexConfig config,
-  MatexPositionSizeState initialState,
-  List<StateValidator> validators,
+  MatexPositionSizeCoreState initialState,
+  List<MatexStateValidator> validators,
 }) {
   return MatexPositionSizeCalculator(
     config: config,

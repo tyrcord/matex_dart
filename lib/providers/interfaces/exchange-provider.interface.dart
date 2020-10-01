@@ -1,10 +1,7 @@
 import '../models/quote.model.dart';
 
-abstract class AbstractExchangeProvider {
-  const AbstractExchangeProvider();
+abstract class MatexAbstractExchangeProvider {
+  const MatexAbstractExchangeProvider();
 
-  Future<Quote> rates(
-    String base,
-    String counter,
-  );
+  Future<MatexQuote> rates(String base, String counter);
 }

@@ -1,15 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
-class InstrumentTypeMetadata extends Equatable {
-  static final Map<String, InstrumentTypeMetadata> _cacheMap = {};
+class MatexInstrumentTypeMetadata extends Equatable {
+  static final Map<String, MatexInstrumentTypeMetadata> _cacheMap = {};
   final String key;
   final String main;
   final String subKey;
   final String sub;
   final double weight;
 
-  const InstrumentTypeMetadata({
+  const MatexInstrumentTypeMetadata({
     @required this.key,
     @required this.main,
     this.subKey,
@@ -20,8 +20,8 @@ class InstrumentTypeMetadata extends Equatable {
         weight = weight ?? 0,
         super();
 
-  factory InstrumentTypeMetadata.fromJson(Map<String, dynamic> json) {
-    return InstrumentTypeMetadata(
+  factory MatexInstrumentTypeMetadata.fromJson(Map<String, dynamic> json) {
+    return MatexInstrumentTypeMetadata(
       key: json['key'] as String,
       main: json['main'] as String,
       subKey: json['subKey'] as String,
@@ -30,18 +30,18 @@ class InstrumentTypeMetadata extends Equatable {
     );
   }
 
-  factory InstrumentTypeMetadata.addToCache(
+  factory MatexInstrumentTypeMetadata.addToCache(
     String key,
     Map<String, dynamic> json,
   ) {
     if (!_cacheMap.containsKey(key)) {
-      _cacheMap[key] = InstrumentTypeMetadata.fromJson(json);
+      _cacheMap[key] = MatexInstrumentTypeMetadata.fromJson(json);
     }
 
     return _cacheMap[key];
   }
 
-  factory InstrumentTypeMetadata.fromCache(String key) => _cacheMap[key];
+  factory MatexInstrumentTypeMetadata.fromCache(String key) => _cacheMap[key];
 
   @override
   List<Object> get props => [key, main, subKey, sub, weight];

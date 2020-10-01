@@ -9,7 +9,7 @@ void main() {
       final calculator = positionSize();
 
       test('Given: my trading account is in USD', () {
-        expect(calculator is PositionSizeCalculator, equals(true));
+        expect(calculator is MatexPositionSizeCalculatorCore, equals(true));
       });
 
       test('And: USD is listed second in the pair EUR/USD', () {
@@ -41,7 +41,7 @@ void main() {
       final calculator = positionSize();
 
       test('Given: my trading account is in USD', () {
-        expect(calculator is PositionSizeCalculator, equals(true));
+        expect(calculator is MatexPositionSizeCalculatorCore, equals(true));
       });
 
       test('And: USD is listed second in the pair EUR/USD', () {
@@ -73,7 +73,7 @@ void main() {
       final calculator = positionSize();
 
       test('Given: my trading account is in USD', () {
-        expect(calculator is PositionSizeCalculator, equals(true));
+        expect(calculator is MatexPositionSizeCalculatorCore, equals(true));
       });
 
       test('And: USD is listed second in the pair EUR/USD', () {
@@ -109,7 +109,7 @@ void main() {
       final calculator = positionSize();
 
       test('Given: my trading account is in USD', () {
-        expect(calculator is PositionSizeCalculator, equals(true));
+        expect(calculator is MatexPositionSizeCalculatorCore, equals(true));
       });
 
       test('And: USD is listed second in the pair EUR/USD', () {
@@ -145,7 +145,7 @@ void main() {
       final calculator = positionSize();
 
       test('Given: my trading account is in EUR', () {
-        expect(calculator is PositionSizeCalculator, equals(true));
+        expect(calculator is MatexPositionSizeCalculatorCore, equals(true));
       });
 
       test('And: EUR is listed first in the pair EUR/CAD', () {
@@ -171,7 +171,7 @@ void main() {
       test('Then: my position size should be 2,800', () {
         expect(
           calculator.value(),
-          equals(PositionSizeResult(
+          equals(MatexPositionSizeResult(
             amountAtRisk: 50,
             pipValue: 0.25,
             positionSize: 2800,
@@ -185,7 +185,7 @@ void main() {
       final calculator = positionSize();
 
       test('Given: my trading account is in USD', () {
-        expect(calculator is PositionSizeCalculator, equals(true));
+        expect(calculator is MatexPositionSizeCalculatorCore, equals(true));
       });
 
       test('And: the exchange rate for the pair AUD/JPY is 100', () {
@@ -212,7 +212,7 @@ void main() {
       test('Then: my position size should be \$4,000', () {
         expect(
           calculator.value(),
-          equals(PositionSizeResult(
+          equals(MatexPositionSizeResult(
             amountAtRisk: 50,
             pipValue: 0.25,
             positionSize: 4000,

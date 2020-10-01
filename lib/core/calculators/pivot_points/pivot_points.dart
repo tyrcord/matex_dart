@@ -1,20 +1,22 @@
 import 'package:matex_dart/matex_dart.dart';
 
-class PivotPointsCalculator extends BaseCalculator<PivotPointsCalculator,
-        PivotPointsState, PivotPointsResult>
+class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
+        MatexPivotPointsCalculatorCore,
+        MatexPivotPointsCoreState,
+        MatexPivotPointsResult>
     with
-        PivotPointsMixin<PivotPointsCalculator, PivotPointsState,
-            PivotPointsResult> {
-  PivotPointsCalculator({
-    PivotPointsState initialState,
-    List<StateValidator> validators,
+        MatexPivotPointsCoreMixin<MatexPivotPointsCalculatorCore, MatexPivotPointsCoreState,
+            MatexPivotPointsResult> {
+  MatexPivotPointsCalculatorCore({
+    MatexPivotPointsCoreState initialState,
+    List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialPivotPointsState,
           validators: validators ?? pivotPointsValidators,
         );
 
   @override
-  PivotPointsResult value() {
+  MatexPivotPointsResult value() {
     if (this.result != null) {
       return this.result;
     }
@@ -23,20 +25,20 @@ class PivotPointsCalculator extends BaseCalculator<PivotPointsCalculator,
     final closePrice = validState.closePrice;
     final highPrice = validState.highPrice;
     final lowPrice = validState.lowPrice;
-    PivotPointsResult result;
+    MatexPivotPointsResult result;
 
     switch (method) {
-      case PivotPointsMethods.Camarilla:
+      case MatexPivotPointsMethods.Camarilla:
         result = pivotPointsCamarilla(highPrice, lowPrice, closePrice);
         break;
-      case PivotPointsMethods.DeMark:
+      case MatexPivotPointsMethods.DeMark:
         final openPrice = validState.openPrice;
         result = pivotPointsDeMark(highPrice, lowPrice, closePrice, openPrice);
         break;
-      case PivotPointsMethods.Fibonacci:
+      case MatexPivotPointsMethods.Fibonacci:
         result = pivotPointsFibonacci(highPrice, lowPrice, closePrice);
         break;
-      case PivotPointsMethods.Woodie:
+      case MatexPivotPointsMethods.Woodie:
         result = pivotPointsWoodie(highPrice, lowPrice, closePrice);
         break;
       default:
@@ -48,11 +50,11 @@ class PivotPointsCalculator extends BaseCalculator<PivotPointsCalculator,
   }
 }
 
-PivotPointsCalculator pivotPoints({
-  PivotPointsState initialState,
-  List<StateValidator> validators,
+MatexPivotPointsCalculatorCore pivotPoints({
+  MatexPivotPointsCoreState initialState,
+  List<MatexStateValidator> validators,
 }) =>
-    PivotPointsCalculator(
+    MatexPivotPointsCalculatorCore(
       initialState: initialState,
       validators: validators,
     );

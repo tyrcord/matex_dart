@@ -6,12 +6,12 @@ import 'instrument.provider.dart';
 
 const _kEmptyString = '';
 
-class FormatterProvider implements AbstractFormatterProvider {
-  final InstrumentProvider instrumentProvider;
+class MatexFormatterProvider implements MatexAbstractFormatterProvider {
+  final MatexInstrumentProvider instrumentProvider;
 
-  FormatterProvider({
-    InstrumentProvider instrumentProvider,
-  })  : instrumentProvider = instrumentProvider ?? InstrumentProvider(),
+  MatexFormatterProvider({
+    MatexInstrumentProvider instrumentProvider,
+  })  : instrumentProvider = instrumentProvider ?? MatexInstrumentProvider(),
         super();
 
   @override

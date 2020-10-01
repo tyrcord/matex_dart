@@ -1,6 +1,6 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
-class MatexStopLossTakeProfitState extends StopLossTakeProfitState {
+class MatexStopLossTakeProfitState extends MatexStopLossTakeProfitCoreState {
   @override
   final String accountCode;
   @override
@@ -13,13 +13,13 @@ class MatexStopLossTakeProfitState extends StopLossTakeProfitState {
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
-    LotDescriptors lotDescriptors,
+    MatexLotDescriptors lotDescriptors,
     bool baseListedSecond,
     this.accountCode,
     this.baseCode,
     this.counterCode,
     double entryPrice,
-    Position position,
+    MatexPosition position,
     double stopLossPips,
     double stopLossPrice,
     double stopLossAmount,
@@ -44,7 +44,7 @@ class MatexStopLossTakeProfitState extends StopLossTakeProfitState {
         );
 
   @override
-  MatexStopLossTakeProfitState copyWithState(BaseState state) {
+  MatexStopLossTakeProfitState copyWithState(MatexBaseCoreState state) {
     return MatexStopLossTakeProfitState(
       accountCode: state.accountCode ?? accountCode,
       baseCode: state.baseCode ?? baseCode,
@@ -103,7 +103,7 @@ const MatexStopLossTakeProfitState kInitialMatexStopLossTakeProfitState =
   positionSize: 0.0,
   tradingPairExchangeRate: 0.0,
   entryPrice: 0.0,
-  position: Position.Long,
+  position: MatexPosition.Long,
   takeProfitAmount: 0.0,
   takeProfitPips: 0.0,
   takeProfitPrice: 0.0,

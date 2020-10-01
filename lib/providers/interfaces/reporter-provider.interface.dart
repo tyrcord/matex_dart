@@ -2,9 +2,9 @@ import 'package:meta/meta.dart';
 
 import '../models/models.dart';
 
-abstract class AbstractReporterProvider {
+abstract class MatexAbstractReporterProvider {
   Future<String> report({
     @required String locale,
-    @required Map<String, ReportEntry> reportState,
+    @required Map<String, MatexReportEntry> reportState,
   });
 }

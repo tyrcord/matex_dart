@@ -1,18 +1,18 @@
 import 'package:equatable/equatable.dart';
 
-class Quote extends Equatable {
+class MatexQuote extends Equatable {
   final double price;
   final String symbol;
   final int timestamp;
 
-  const Quote({
+  const MatexQuote({
     this.price,
     this.symbol,
     this.timestamp,
   });
 
-  factory Quote.fromJson(Map<String, dynamic> json) {
-    return Quote(
+  factory MatexQuote.fromJson(Map<String, dynamic> json) {
+    return MatexQuote(
       price: json['price'] as double,
       symbol: json['symbol'] as String,
       timestamp: json['timestamp'] as int,

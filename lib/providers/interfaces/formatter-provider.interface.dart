@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
 
-abstract class AbstractFormatterProvider {
+abstract class MatexAbstractFormatterProvider {
   Future<String> formatInstrument({
     @required double value,
     @required String code,

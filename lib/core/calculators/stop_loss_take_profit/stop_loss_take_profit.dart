@@ -1,29 +1,29 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class StopLossTakeProfitCalculator extends BaseCalculator<
-        StopLossTakeProfitCalculator,
-        StopLossTakeProfitState,
-        StopLossTakeProfitResult>
+class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
+        MatexStopLossTakeProfitCalculatorCore,
+        MatexStopLossTakeProfitCoreState,
+        MatexStopLossTakeProfitResult>
     with
-        TakeProfitMixin<StopLossTakeProfitCalculator, StopLossTakeProfitState,
-            StopLossTakeProfitResult>,
-        StopLossMixin<StopLossTakeProfitCalculator, StopLossTakeProfitState,
-            StopLossTakeProfitResult>,
-        LotMixin<StopLossTakeProfitCalculator, StopLossTakeProfitState,
-            StopLossTakeProfitResult>,
-        PipValueMixin<StopLossTakeProfitCalculator, StopLossTakeProfitState,
-            StopLossTakeProfitResult> {
-  StopLossTakeProfitCalculator({
-    StopLossTakeProfitState initialState,
-    List<StateValidator> validators,
+        MatexTakeProfitCoreMixin<MatexStopLossTakeProfitCalculatorCore,
+            MatexStopLossTakeProfitCoreState, MatexStopLossTakeProfitResult>,
+        MatexStopLossCoreMixin<MatexStopLossTakeProfitCalculatorCore,
+            MatexStopLossTakeProfitCoreState, MatexStopLossTakeProfitResult>,
+        MatexLotCoreMixin<MatexStopLossTakeProfitCalculatorCore, MatexStopLossTakeProfitCoreState,
+            MatexStopLossTakeProfitResult>,
+        MatexPipValueCoreMixin<MatexStopLossTakeProfitCalculatorCore,
+            MatexStopLossTakeProfitCoreState, MatexStopLossTakeProfitResult> {
+  MatexStopLossTakeProfitCalculatorCore({
+    MatexStopLossTakeProfitCoreState initialState,
+    List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialStopLossTakeProfitState,
           validators: validators ?? stopLossTakeProfitValidators,
         );
 
   @override
-  StopLossTakeProfitResult value() {
+  MatexStopLossTakeProfitResult value() {
     if (result != null) {
       return result;
     }
@@ -32,7 +32,7 @@ class StopLossTakeProfitCalculator extends BaseCalculator<
       final pipValue = computePipValue();
       final stopLossCalculator = stopLoss();
       final takeProfitCalculator = takeProfit();
-      final tmpState = validState.copyWithState(StopLossTakeProfitState(
+      final tmpState = validState.copyWithState(MatexStopLossTakeProfitCoreState(
         position: state.position,
       ));
 
@@ -44,7 +44,7 @@ class StopLossTakeProfitCalculator extends BaseCalculator<
           .setState(tmpState.toTakeProfitState())
           .value(pipValue: pipValue);
 
-      return (result = StopLossTakeProfitResult(
+      return (result = MatexStopLossTakeProfitResult(
         pipValue: pipValue.toDouble(),
         riskRewardRatio: _computeRiskRewardRatio(
           stopLossResult.amount,
@@ -81,11 +81,11 @@ class StopLossTakeProfitCalculator extends BaseCalculator<
   }
 }
 
-StopLossTakeProfitCalculator stopLossTakeProfit({
-  StopLossTakeProfitState initialState,
-  List<StateValidator> validators,
+MatexStopLossTakeProfitCalculatorCore stopLossTakeProfit({
+  MatexStopLossTakeProfitCoreState initialState,
+  List<MatexStateValidator> validators,
 }) =>
-    StopLossTakeProfitCalculator(
+    MatexStopLossTakeProfitCalculatorCore(
       initialState: initialState,
       validators: validators,
     );

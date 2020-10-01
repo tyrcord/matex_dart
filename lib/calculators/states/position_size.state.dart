@@ -1,6 +1,6 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
-class MatexPositionSizeState extends PositionSizeState {
+class MatexPositionSizeState extends MatexPositionSizeCoreState {
   @override
   final String accountCode;
   @override
@@ -13,7 +13,7 @@ class MatexPositionSizeState extends PositionSizeState {
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
-    LotDescriptors lotDescriptors,
+    MatexLotDescriptors lotDescriptors,
     bool baseListedSecond,
     double accountSize,
     double entryPrice,
@@ -40,7 +40,7 @@ class MatexPositionSizeState extends PositionSizeState {
         );
 
   @override
-  MatexPositionSizeState copyWithState(BaseState state) {
+  MatexPositionSizeState copyWithState(MatexBaseCoreState state) {
     return MatexPositionSizeState(
       accountCode: state.accountCode ?? accountCode,
       baseCode: state.baseCode ?? baseCode,

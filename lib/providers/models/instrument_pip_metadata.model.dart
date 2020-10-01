@@ -1,18 +1,18 @@
 import 'package:equatable/equatable.dart';
 
-class InstrumentPipMetadata extends Equatable {
+class MatexInstrumentPipMetadata extends Equatable {
   final int precision;
   final int pipette;
   final int round;
 
-  const InstrumentPipMetadata({
+  const MatexInstrumentPipMetadata({
     this.precision,
     this.pipette,
     this.round,
   });
 
-  static InstrumentPipMetadata fromJson(Map<String, dynamic> json) {
-    return InstrumentPipMetadata(
+  static MatexInstrumentPipMetadata fromJson(Map<String, dynamic> json) {
+    return MatexInstrumentPipMetadata(
       precision: json['precision'] as int,
       pipette: json['pipette'] as int,
       round: json['round'] as int,

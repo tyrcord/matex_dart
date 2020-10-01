@@ -1,4 +1,4 @@
-enum Position {
+enum MatexPosition {
   Long,
   Short,
 }

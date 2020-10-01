@@ -1,6 +1,6 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
-class PositionSizeState extends PipValueState {
+class MatexPositionSizeCoreState extends MatexPipValueCoreState {
   @override
   final double accountSize;
   @override
@@ -14,12 +14,12 @@ class PositionSizeState extends PipValueState {
   @override
   final double stopLossPrice;
 
-  const PositionSizeState({
+  const MatexPositionSizeCoreState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
-    LotDescriptors lotDescriptors,
+    MatexLotDescriptors lotDescriptors,
     bool baseListedSecond,
     this.accountSize,
     this.entryPrice,
@@ -37,8 +37,8 @@ class PositionSizeState extends PipValueState {
         );
 
   @override
-  PositionSizeState copyWithState(BaseState state) {
-    return PositionSizeState(
+  MatexPositionSizeCoreState copyWithState(MatexBaseCoreState state) {
+    return MatexPositionSizeCoreState(
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
@@ -56,8 +56,8 @@ class PositionSizeState extends PipValueState {
   }
 
   @override
-  PositionSizeState clone() {
-    return PositionSizeState(
+  MatexPositionSizeCoreState clone() {
+    return MatexPositionSizeCoreState(
       baseExchangeRate: baseExchangeRate,
       tradingPairExchangeRate: tradingPairExchangeRate,
       positionSize: positionSize,
@@ -74,7 +74,7 @@ class PositionSizeState extends PipValueState {
   }
 }
 
-const kInitialPositionSizeState = PositionSizeState(
+const kInitialPositionSizeState = MatexPositionSizeCoreState(
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,

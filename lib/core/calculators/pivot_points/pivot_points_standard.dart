@@ -1,7 +1,7 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-PivotPointsResult pivotPointsStandard(
+MatexPivotPointsResult pivotPointsStandard(
   double high,
   double low,
   double close,
@@ -22,7 +22,7 @@ PivotPointsResult pivotPointsStandard(
   final support2 = pivotPoint - (highParsed - lowParsed);
   final support3 = (highParsed - pivotPoint) * (-decimal2) + lowParsed;
 
-  return PivotPointsResult(
+  return MatexPivotPointsResult(
     pivotPoint: pivotPoint.toDouble(),
     resistances: [
       resistance1.toDouble(),

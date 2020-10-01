@@ -1,4 +1,4 @@
-enum CalculatorKey {
+enum MatexCalculatorKey {
   AccountSize,
   AmountAtRisk,
   RiskRatio,

@@ -1,4 +1,4 @@
-enum PivotPointsMethods {
+enum MatexPivotPointsMethods {
   Camarilla,
   DeMark,
   Fibonacci,

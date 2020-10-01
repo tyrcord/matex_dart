@@ -1,18 +1,18 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
-class StopLossState extends BaseState {
-  const StopLossState({
+class MatexStopLossCoreState extends MatexBaseCoreState {
+  const MatexStopLossCoreState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
-    LotDescriptors lotDescriptors,
+    MatexLotDescriptors lotDescriptors,
     bool baseListedSecond,
     double stopLossPips,
     double stopLossPrice,
     double stopLossAmount,
     double entryPrice,
-    Position position,
+    MatexPosition position,
   }) : super(
           baseExchangeRate: baseExchangeRate,
           tradingPairExchangeRate: tradingPairExchangeRate,
@@ -28,8 +28,8 @@ class StopLossState extends BaseState {
         );
 
   @override
-  StopLossState copyWithState(BaseState state) {
-    return StopLossState(
+  MatexStopLossCoreState copyWithState(MatexBaseCoreState state) {
+    return MatexStopLossCoreState(
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
@@ -46,8 +46,8 @@ class StopLossState extends BaseState {
   }
 
   @override
-  StopLossState clone() {
-    return StopLossState(
+  MatexStopLossCoreState clone() {
+    return MatexStopLossCoreState(
       baseExchangeRate: baseExchangeRate,
       tradingPairExchangeRate: tradingPairExchangeRate,
       positionSize: positionSize,
@@ -63,7 +63,7 @@ class StopLossState extends BaseState {
   }
 }
 
-const kInitialStopLossState = StopLossState(
+const kInitialStopLossState = MatexStopLossCoreState(
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,
@@ -71,7 +71,7 @@ const kInitialStopLossState = StopLossState(
   positionSize: 0.0,
   tradingPairExchangeRate: 0.0,
   entryPrice: 0.0,
-  position: Position.Long,
+  position: MatexPosition.Long,
   stopLossAmount: 0.0,
   stopLossPips: 0.0,
   stopLossPrice: 0.0,

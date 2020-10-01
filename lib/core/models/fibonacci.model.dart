@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
-class FibonacciLevel extends Equatable {
+class MatexFibonacciLevel extends Equatable {
   final String level;
   final double value;
 
-  const FibonacciLevel({
+  const MatexFibonacciLevel({
     this.level,
     this.value,
   });
@@ -14,8 +14,8 @@ class FibonacciLevel extends Equatable {
 }
 
 class FibonacciLevelsResult extends Equatable {
-  final List<FibonacciLevel> retracementLevels;
-  final List<FibonacciLevel> extensionLevels;
+  final List<MatexFibonacciLevel> retracementLevels;
+  final List<MatexFibonacciLevel> extensionLevels;
 
   const FibonacciLevelsResult({
     this.retracementLevels,

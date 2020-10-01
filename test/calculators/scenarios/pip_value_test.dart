@@ -7,7 +7,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('Feature: Calculating Pip Value', () {
-    final matex = Matex(config: testMatexConfig);
+    final matex = MatexApp(config: testMatexConfig);
 
     group('Scenario: When the currency account is listed second in a pair', () {
       final calculator = matex.pipValue();

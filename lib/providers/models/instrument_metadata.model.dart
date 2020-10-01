@@ -2,17 +2,17 @@ import 'package:equatable/equatable.dart';
 
 import 'package:matex_dart/matex_dart.dart';
 
-class InstrumentMetadata extends Equatable {
+class MatexInstrumentMetadata extends Equatable {
   final String code;
   final String icon;
-  final InstrumentFormatMetadata format;
-  final InstrumentLotsMetadata lots;
-  final InstrumentNameMetadata name;
-  final InstrumentPipMetadata pip;
-  final InstrumentSymbolMetadata symbol;
-  final InstrumentTypeMetadata type;
+  final MatexInstrumentFormatMetadata format;
+  final MatexInstrumentLotsMetadata lots;
+  final MatexInstrumentNameMetadata name;
+  final MatexInstrumentPipMetadata pip;
+  final MatexInstrumentSymbolMetadata symbol;
+  final MatexInstrumentTypeMetadata type;
 
-  const InstrumentMetadata({
+  const MatexInstrumentMetadata({
     this.code,
     this.icon,
     this.format,
@@ -23,26 +23,26 @@ class InstrumentMetadata extends Equatable {
     this.type,
   });
 
-  factory InstrumentMetadata.fromJson(Map<String, dynamic> json) {
+  factory MatexInstrumentMetadata.fromJson(Map<String, dynamic> json) {
     final lots = json['lots'] as Map<String, dynamic>;
 
-    return InstrumentMetadata(
+    return MatexInstrumentMetadata(
       code: json['code'] as String,
       icon: json['icon'] as String,
-      format: InstrumentFormatMetadata.fromJson(
+      format: MatexInstrumentFormatMetadata.fromJson(
         json['format'] as Map<String, dynamic>,
       ),
-      lots: lots != null ? InstrumentLotsMetadata.fromJson(lots) : null,
-      name: InstrumentNameMetadata.fromJson(
+      lots: lots != null ? MatexInstrumentLotsMetadata.fromJson(lots) : null,
+      name: MatexInstrumentNameMetadata.fromJson(
         json['name'] as Map<String, dynamic>,
       ),
-      pip: InstrumentPipMetadata.fromJson(
+      pip: MatexInstrumentPipMetadata.fromJson(
         json['pip'] as Map<String, dynamic>,
       ),
-      symbol: InstrumentSymbolMetadata.fromJson(
+      symbol: MatexInstrumentSymbolMetadata.fromJson(
         json['symbol'] as Map<String, dynamic>,
       ),
-      type: InstrumentTypeMetadata.fromCache(json['type'] as String),
+      type: MatexInstrumentTypeMetadata.fromCache(json['type'] as String),
     );
   }
 

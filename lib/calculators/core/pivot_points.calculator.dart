@@ -1,26 +1,26 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-class MatexPivotPointsCalculator extends BaseCalculator<
+class MatexPivotPointsCalculator extends MatexBaseCalculator<
         MatexPivotPointsCalculator,
         MatexPivotPointsState,
-        Future<PivotPointsResult>>
+        Future<MatexPivotPointsResult>>
     with
-        PivotPointsMixin<MatexPivotPointsCalculator, MatexPivotPointsState,
-            Future<PivotPointsResult>> {
+        MatexPivotPointsCoreMixin<MatexPivotPointsCalculator, MatexPivotPointsState,
+            Future<MatexPivotPointsResult>> {
   final MatexConfig config;
 
   MatexPivotPointsCalculator({
     @required this.config,
     MatexPivotPointsState initialState,
-    List<StateValidator> validators,
+    List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState,
           validators: validators,
         );
 
   @override
-  Future<PivotPointsResult> value() async {
+  Future<MatexPivotPointsResult> value() async {
     return pivotPoints(initialState: state).value();
   }
 }
@@ -28,7 +28,7 @@ class MatexPivotPointsCalculator extends BaseCalculator<
 MatexPivotPointsCalculator matexPivotPoints({
   MatexConfig config,
   MatexPivotPointsState initialState,
-  List<StateValidator> validators,
+  List<MatexStateValidator> validators,
 }) {
   return MatexPivotPointsCalculator(
     config: config,

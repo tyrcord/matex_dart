@@ -9,7 +9,7 @@ final List<Decimal> _dividers = _kDividers.map((double divider) {
 
 final _multiplier = Decimal.parse('1.1');
 
-PivotPointsResult pivotPointsCamarilla(double high, double low, double close) {
+MatexPivotPointsResult pivotPointsCamarilla(double high, double low, double close) {
   final highParsed = Decimal.parse(high.toString());
   final lowParsed = Decimal.parse(low.toString());
   final closeParsed = Decimal.parse(close.toString());
@@ -26,7 +26,7 @@ PivotPointsResult pivotPointsCamarilla(double high, double low, double close) {
         .toDouble();
   }).toList();
 
-  return PivotPointsResult(
+  return MatexPivotPointsResult(
     pivotPoint: pivotPoint.toDouble(),
     resistances: resistances,
     supports: supports,

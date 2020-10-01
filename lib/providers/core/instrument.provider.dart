@@ -8,24 +8,24 @@ import '../models/models.dart';
 
 const _kAssetPath = 'packages/matex_dart/assets/meta/instruments.json';
 
-class InstrumentProvider extends AbstractInstrumentMetadataProvider {
-  static final InstrumentProvider _singleton = InstrumentProvider._();
+class MatexInstrumentProvider extends MatexAbstractInstrumentMetadataProvider {
+  static final MatexInstrumentProvider _singleton = MatexInstrumentProvider._();
 
-  factory InstrumentProvider() => _singleton;
+  factory MatexInstrumentProvider() => _singleton;
 
-  InstrumentProvider._();
+  MatexInstrumentProvider._();
 
   @override
-  Future<Map<String, InstrumentMetadata>> init() async {
+  Future<Map<String, MatexInstrumentMetadata>> init() async {
     final json = await rootBundle.loadString(_kAssetPath);
     final instruments = jsonDecode(json) as Map<String, dynamic>;
 
     _removeExtraMetadata(instruments);
 
-    return instruments.map<String, InstrumentMetadata>((key, json) {
+    return instruments.map<String, MatexInstrumentMetadata>((key, json) {
       return MapEntry(
         key,
-        InstrumentMetadata.fromJson(json as Map<String, dynamic>),
+        MatexInstrumentMetadata.fromJson(json as Map<String, dynamic>),
       );
     });
   }
@@ -46,14 +46,14 @@ class InstrumentProvider extends AbstractInstrumentMetadataProvider {
   void _extractExtraMetadata(String key, Map<String, dynamic> json) {
     if (key == 'lot_units') {
       json.forEach((String key, dynamic value) {
-        InstrumentLotUnitMetadata.addToCache(
+        MatexInstrumentLotUnitMetadata.addToCache(
           key,
           value as Map<String, dynamic>,
         );
       });
     } else if (key == 'instrument_types') {
       json.forEach((String key, dynamic value) {
-        InstrumentTypeMetadata.addToCache(
+        MatexInstrumentTypeMetadata.addToCache(
           key,
           value as Map<String, dynamic>,
         );

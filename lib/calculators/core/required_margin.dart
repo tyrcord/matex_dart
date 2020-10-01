@@ -1,16 +1,16 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-class MatexRequiredMarginCalculator extends AbstractPipValueCalculator<
+class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
         MatexRequiredMarginCalculator, MatexRequiredMarginState, Future<double>>
     with
-        LotMixin<MatexRequiredMarginCalculator, MatexRequiredMarginState,
-            Future<double>>,
-        PipValueMixin<MatexRequiredMarginCalculator, MatexRequiredMarginState,
-            Future<double>>,
+        MatexLotCoreMixin<MatexRequiredMarginCalculator,
+            MatexRequiredMarginState, Future<double>>,
+        MatexPipValueCoreMixin<MatexRequiredMarginCalculator,
+            MatexRequiredMarginState, Future<double>>,
         MatexPipValueMixin<MatexRequiredMarginCalculator,
             MatexRequiredMarginState, Future<double>>,
-        RequiredMarginMixin<MatexRequiredMarginCalculator,
+        MatexRequiredMarginCoreMixin<MatexRequiredMarginCalculator,
             MatexRequiredMarginState, Future<double>> {
   @override
   final MatexConfig config;
@@ -18,7 +18,7 @@ class MatexRequiredMarginCalculator extends AbstractPipValueCalculator<
   MatexRequiredMarginCalculator({
     @required this.config,
     MatexRequiredMarginState initialState,
-    List<StateValidator> validators,
+    List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialMatexRequiredMarginState,
           validators: validators ?? matexPipValueValidators,
@@ -73,7 +73,7 @@ class MatexRequiredMarginCalculator extends AbstractPipValueCalculator<
 MatexRequiredMarginCalculator matexRequiredMargin({
   MatexConfig config,
   MatexRequiredMarginState initialState,
-  List<StateValidator> validators,
+  List<MatexStateValidator> validators,
 }) {
   return MatexRequiredMarginCalculator(
     config: config,

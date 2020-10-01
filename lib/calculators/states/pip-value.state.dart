@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 import 'package:tstore_dart/tstore_dart.dart';
 
-class MatexPipValueState extends PipValueState implements Model {
+class MatexPipValueState extends MatexPipValueCoreState implements Model {
   @override
   final String accountCode;
   @override
@@ -16,7 +16,7 @@ class MatexPipValueState extends PipValueState implements Model {
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
-    LotDescriptors lotDescriptors,
+    MatexLotDescriptors lotDescriptors,
     bool baseListedSecond,
     this.accountCode,
     this.baseCode,
@@ -31,7 +31,7 @@ class MatexPipValueState extends PipValueState implements Model {
         );
 
   @override
-  MatexPipValueState copyWithState(BaseState state) {
+  MatexPipValueState copyWithState(MatexBaseCoreState state) {
     return MatexPipValueState(
       accountCode: state.accountCode ?? accountCode,
       baseCode: state.baseCode ?? baseCode,
@@ -67,7 +67,7 @@ class MatexPipValueState extends PipValueState implements Model {
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
-    LotDescriptors lotDescriptors,
+    MatexLotDescriptors lotDescriptors,
     bool baseListedSecond,
     String accountCode,
     String baseCode,
@@ -116,7 +116,7 @@ class MatexPipValueState extends PipValueState implements Model {
       tradingPairExchangeRate: json['tradingPairExchangeRate'] as double,
       positionSize: json['positionSize'] as double,
       pipPrecision: json['pipPrecision'] as int,
-      lotDescriptors: json['lotDescriptors'] as LotDescriptors,
+      lotDescriptors: json['lotDescriptors'] as MatexLotDescriptors,
       baseListedSecond: json['baseListedSecond'] as bool,
     );
   }

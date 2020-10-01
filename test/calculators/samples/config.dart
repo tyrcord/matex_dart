@@ -1,10 +1,10 @@
 import 'package:matex_dart/matex_dart.dart';
 
-class ExchangeProvider extends AbstractExchangeProvider {
+class ExchangeProvider extends MatexAbstractExchangeProvider {
   const ExchangeProvider() : super();
 
   @override
-  Future<Quote> rates(String base, String counter) async {
+  Future<MatexQuote> rates(String base, String counter) async {
     var price = 0.0;
 
     if (base == 'EUR') {
@@ -29,7 +29,7 @@ class ExchangeProvider extends AbstractExchangeProvider {
       }
     }
 
-    return Quote(
+    return MatexQuote(
       price: price,
       symbol: '$base/$counter',
       timestamp: DateTime.now().millisecondsSinceEpoch,

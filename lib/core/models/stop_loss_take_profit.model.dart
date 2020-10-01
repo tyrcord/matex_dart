@@ -1,15 +1,15 @@
 import 'package:equatable/equatable.dart';
 
-const kEmptyStopLossResult = StopLossResult();
-const kEmptyTakeProfitResult = TakeProfitResult();
-const kEmptyStopLossTakeProfitResult = StopLossTakeProfitResult();
+const kEmptyStopLossResult = MatexStopLossResult();
+const kEmptyTakeProfitResult = MatexTakeProfitResult();
+const kEmptyStopLossTakeProfitResult = MatexStopLossTakeProfitResult();
 
-class StopLossResult extends Equatable {
+class MatexStopLossResult extends Equatable {
   final double amount;
   final double pips;
   final double price;
 
-  const StopLossResult({
+  const MatexStopLossResult({
     this.amount = 0.0,
     this.pips = 0.0,
     this.price = 0.0,
@@ -23,12 +23,12 @@ class StopLossResult extends Equatable {
       ];
 }
 
-class TakeProfitResult extends Equatable {
+class MatexTakeProfitResult extends Equatable {
   final double amount;
   final double pips;
   final double price;
 
-  const TakeProfitResult({
+  const MatexTakeProfitResult({
     this.amount = 0.0,
     this.pips = 0.0,
     this.price = 0.0,
@@ -42,13 +42,13 @@ class TakeProfitResult extends Equatable {
       ];
 }
 
-class StopLossTakeProfitResult extends Equatable {
+class MatexStopLossTakeProfitResult extends Equatable {
   final double pipValue;
   final double riskRewardRatio;
-  final StopLossResult stopLoss;
-  final TakeProfitResult takeProfit;
+  final MatexStopLossResult stopLoss;
+  final MatexTakeProfitResult takeProfit;
 
-  const StopLossTakeProfitResult({
+  const MatexStopLossTakeProfitResult({
     this.pipValue = 0.0,
     this.riskRewardRatio = 0.0,
     this.stopLoss = kEmptyStopLossResult,
@@ -63,8 +63,8 @@ class StopLossTakeProfitResult extends Equatable {
         takeProfit,
       ];
 
-  StopLossTakeProfitResult clone() {
-    return StopLossTakeProfitResult(
+  MatexStopLossTakeProfitResult clone() {
+    return MatexStopLossTakeProfitResult(
       pipValue: pipValue,
       riskRewardRatio: riskRewardRatio,
       stopLoss: stopLoss,

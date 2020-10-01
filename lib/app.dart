@@ -1,16 +1,16 @@
 import 'package:matex_dart/matex_dart.dart';
 
 final MatexConfig _defaultMatexConfig = MatexConfig(
-  pairProvider: PairMetadataProvider(),
-  instrumentProvider: InstrumentProvider(),
-  formatterProvider: FormatterProvider(),
-  reporterProvider: ReporterProvider(),
+  pairProvider: MatexPairMetadataProvider(),
+  instrumentProvider: MatexInstrumentProvider(),
+  formatterProvider: MatexFormatterProvider(),
+  reporterProvider: MatexReporterProvider(),
 );
 
-class Matex {
+class MatexApp {
   final MatexConfig config;
 
-  Matex({
+  MatexApp({
     MatexConfig config,
   }) : config = MatexConfig(
           exchangeProvider:
@@ -25,7 +25,7 @@ class Matex {
 
   MatexPipValueCalculator pipValue({
     MatexPipValueState state,
-    List<StateValidator> validators,
+    List<MatexStateValidator> validators,
   }) {
     return matexPipValue(
       config: config,
@@ -36,7 +36,7 @@ class Matex {
 
   MatexPivotPointsCalculator pivotPoints({
     MatexPivotPointsState state,
-    List<StateValidator> validators,
+    List<MatexStateValidator> validators,
   }) {
     return matexPivotPoints(
       config: config,
@@ -46,8 +46,8 @@ class Matex {
   }
 
   MatexFibonacciLevelsCalculator fibonacciLevels({
-    MatexFibonacciLevelsState state,
-    List<StateValidator> validators,
+    MatexFibonacciLevelsCoreState state,
+    List<MatexStateValidator> validators,
   }) {
     return matexFibonacciLevels(
       config: config,
@@ -58,7 +58,7 @@ class Matex {
 
   MatexRequiredMarginCalculator requiredMargin({
     MatexRequiredMarginState state,
-    List<StateValidator> validators,
+    List<MatexStateValidator> validators,
   }) {
     return matexRequiredMargin(
       config: config,
@@ -68,8 +68,8 @@ class Matex {
   }
 
   MatexPositionSizeCalculator positionSize({
-    MatexPositionSizeState state,
-    List<StateValidator> validators,
+    MatexPositionSizeCoreState state,
+    List<MatexStateValidator> validators,
   }) {
     return matexPositionSize(
       config: config,
@@ -80,7 +80,7 @@ class Matex {
 
   MatexStopLossTakeProfitCalculator stopLossTakeProfit({
     MatexStopLossTakeProfitState state,
-    List<StateValidator> validators,
+    List<MatexStateValidator> validators,
   }) {
     return matexStopLossTakeProfit(
       config: config,

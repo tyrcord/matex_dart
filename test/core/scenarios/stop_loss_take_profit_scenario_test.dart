@@ -10,7 +10,7 @@ void main() {
 
       test('Given: my trading account is in USD', () {
         expect(
-          calculator is StopLossTakeProfitCalculator,
+          calculator is MatexStopLossTakeProfitCalculatorCore,
           equals(true),
         );
       });
@@ -40,7 +40,7 @@ void main() {
       });
 
       test('When: my position is buying', () {
-        calculator.position(Position.Long);
+        calculator.position(MatexPosition.Long);
       });
 
       test(
@@ -59,7 +59,7 @@ void main() {
 
       test('Given: my trading account is in USD', () {
         expect(
-          calculator is StopLossTakeProfitCalculator,
+          calculator is MatexStopLossTakeProfitCalculatorCore,
           equals(true),
         );
       });
@@ -89,7 +89,7 @@ void main() {
       });
 
       test('When: my position is short', () {
-        calculator.position(Position.Short);
+        calculator.position(MatexPosition.Short);
       });
 
       test('Then:I should take my profit at 1.06 or accept my loss at 1.12',
@@ -108,7 +108,7 @@ void main() {
 
         test('Given: my trading account is in EUR', () {
           expect(
-            calculator is StopLossTakeProfitCalculator,
+            calculator is MatexStopLossTakeProfitCalculatorCore,
             equals(true),
           );
         });
@@ -138,22 +138,22 @@ void main() {
         });
 
         test('When: my position is short', () {
-          calculator.position(Position.Short);
+          calculator.position(MatexPosition.Short);
         });
 
         test('Then: I should take my profit at 1.205 or accept my loss at 1.28',
             () {
           expect(
             calculator.value() ==
-                StopLossTakeProfitResult(
+                MatexStopLossTakeProfitResult(
                   pipValue: 0.8,
                   riskRewardRatio: 2,
-                  stopLoss: StopLossResult(
+                  stopLoss: MatexStopLossResult(
                     amount: 200,
                     pips: 250,
                     price: 1.28,
                   ),
-                  takeProfit: TakeProfitResult(
+                  takeProfit: MatexTakeProfitResult(
                     amount: 400,
                     pips: 500,
                     price: 1.205,
@@ -171,7 +171,8 @@ void main() {
         final calculator = stopLossTakeProfit();
 
         test('Given: my trading account is in EUR', () {
-          expect(calculator is StopLossTakeProfitCalculator, equals(true));
+          expect(calculator is MatexStopLossTakeProfitCalculatorCore,
+              equals(true));
         });
 
         test('And: EUR is listed first in the pair EUR/CAD', () {
@@ -199,22 +200,22 @@ void main() {
         });
 
         test('When: my position is long', () {
-          calculator.position(Position.Long);
+          calculator.position(MatexPosition.Long);
         });
 
         test('Then:I should take my profit at 1.06 or accept my loss at 1.12',
             () {
           expect(
             calculator.value() ==
-                StopLossTakeProfitResult(
+                MatexStopLossTakeProfitResult(
                   pipValue: 0.8,
                   riskRewardRatio: 2,
-                  stopLoss: StopLossResult(
+                  stopLoss: MatexStopLossResult(
                     amount: 200,
                     pips: 250,
                     price: 1.23,
                   ),
-                  takeProfit: TakeProfitResult(
+                  takeProfit: MatexTakeProfitResult(
                     amount: 400,
                     pips: 500,
                     price: 1.305,
@@ -232,7 +233,8 @@ void main() {
         final calculator = stopLossTakeProfit();
 
         test('Given: my trading account is in USD', () {
-          expect(calculator is StopLossTakeProfitCalculator, equals(true));
+          expect(calculator is MatexStopLossTakeProfitCalculatorCore,
+              equals(true));
         });
 
         test('And: the exchange rate for the pair AUD/JPY is 100', () {
@@ -261,22 +263,22 @@ void main() {
         });
 
         test('When: my position is long', () {
-          calculator.position(Position.Long);
+          calculator.position(MatexPosition.Long);
         });
 
         test('Then:I should take my profit at 1.06 or accept my loss at 1.12',
             () {
           expect(
             calculator.value() ==
-                StopLossTakeProfitResult(
+                MatexStopLossTakeProfitResult(
                   pipValue: 0.625,
                   riskRewardRatio: 2,
-                  stopLoss: StopLossResult(
+                  stopLoss: MatexStopLossResult(
                     amount: 200,
                     pips: 320,
                     price: 96.8,
                   ),
-                  takeProfit: TakeProfitResult(
+                  takeProfit: MatexTakeProfitResult(
                     amount: 400,
                     pips: 640,
                     price: 106.4,

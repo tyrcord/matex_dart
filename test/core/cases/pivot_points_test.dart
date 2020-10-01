@@ -6,7 +6,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('PivotPointsCalculator', () {
-    PivotPointsCalculator calculator;
+    MatexPivotPointsCalculatorCore calculator;
 
     setUp(() {
       calculator = pivotPoints();
@@ -14,7 +14,7 @@ void main() {
 
     group('pivotPoints()', () {
       test(SHOULD_RETURN_CALCULATOR_INSTANCE, () {
-        expect(calculator is PivotPointsCalculator, equals(true));
+        expect(calculator is MatexPivotPointsCalculatorCore, equals(true));
       });
     });
 
@@ -88,7 +88,7 @@ void main() {
       test(
           'Should not be valid when no low, high, open and close prices are set when the method is DeMark',
           () {
-        calculator.method(PivotPointsMethods.DeMark);
+        calculator.method(MatexPivotPointsMethods.DeMark);
         expect(calculator.isValid, equals(false));
 
         calculator.lowPrice(1);
@@ -111,7 +111,7 @@ void main() {
           'Should be valid when: close price >= low price && open price <= high price',
           () {
         calculator.highPrice(2).lowPrice(1).closePrice(2);
-        calculator.method(PivotPointsMethods.DeMark);
+        calculator.method(MatexPivotPointsMethods.DeMark);
 
         expect(calculator.isValid, equals(false));
 
@@ -134,7 +134,7 @@ void main() {
 
     group('#setState()', () {
       test(SHOULD_UPDATE_CALCULATOR_STATE, () {
-        calculator.setState(PivotPointsState(
+        calculator.setState(MatexPivotPointsCoreState(
           closePrice: 1,
         ));
 
@@ -142,7 +142,7 @@ void main() {
       });
 
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        final instance = calculator.setState(PivotPointsState(
+        final instance = calculator.setState(MatexPivotPointsCoreState(
           closePrice: 1,
         ));
 
@@ -186,18 +186,18 @@ void main() {
     group('#method()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
         expect(
-            calculator.method(PivotPointsMethods.DeMark),
+            calculator.method(MatexPivotPointsMethods.DeMark),
             equals(
               calculator,
             ));
       });
 
       test('should define the method value', () {
-        calculator.method(PivotPointsMethods.DeMark);
+        calculator.method(MatexPivotPointsMethods.DeMark);
         expect(
             calculator.getState().method,
             equals(
-              PivotPointsMethods.DeMark,
+              MatexPivotPointsMethods.DeMark,
             ));
       });
     });

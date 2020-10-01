@@ -1,7 +1,7 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-PivotPointsResult pivotPointsDeMark(
+MatexPivotPointsResult pivotPointsDeMark(
   double high,
   double low,
   double close,
@@ -26,7 +26,7 @@ PivotPointsResult pivotPointsDeMark(
   final resistance = pivotPointDividedBy2 - lowParsed;
   final support = pivotPointDividedBy2 - highParsed;
 
-  return PivotPointsResult(
+  return MatexPivotPointsResult(
     pivotPoint: pivotPointDividedBy4.toDouble(),
     resistances: [resistance.toDouble()],
     supports: [support.toDouble()],

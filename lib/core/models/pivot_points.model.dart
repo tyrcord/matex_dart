@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 
-class PivotPointsResult extends Equatable {
+class MatexPivotPointsResult extends Equatable {
   final double pivotPoint;
   final List<double> resistances;
   final List<double> supports;
 
-  const PivotPointsResult({
+  const MatexPivotPointsResult({
     this.pivotPoint,
     this.resistances,
     this.supports,

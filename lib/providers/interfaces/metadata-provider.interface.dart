@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-abstract class AbstractMetadataProvider<T> {
+abstract class MatexAbstractMetadataProvider<T> {
   @protected
   bool isInitialized = false;
   @protected

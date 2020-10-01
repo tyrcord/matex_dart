@@ -1,8 +1,8 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-abstract class BaseCalculator<C extends BaseCalculator<C, S, R>,
-    S extends BaseState, R> {
+abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, S, R>,
+    S extends MatexBaseCoreState, R> {
   @protected
   S state;
   @protected
@@ -12,7 +12,7 @@ abstract class BaseCalculator<C extends BaseCalculator<C, S, R>,
   @protected
   S initialState;
   @protected
-  List<StateValidator> validators;
+  List<MatexStateValidator> validators;
 
   S get validState {
     return isStateValid ? state : initialState;
@@ -22,7 +22,7 @@ abstract class BaseCalculator<C extends BaseCalculator<C, S, R>,
     return isStateValid;
   }
 
-  BaseCalculator({
+  MatexBaseCalculator({
     this.initialState,
     this.validators,
   }) {
@@ -35,13 +35,13 @@ abstract class BaseCalculator<C extends BaseCalculator<C, S, R>,
 
   S getState() => state.clone() as S;
 
-  C patchState(BaseState partialState) {
+  C patchState(MatexBaseCoreState partialState) {
     result = null;
     state = state.copyWithState(partialState) as S;
     return _checkStateValidity();
   }
 
-  C setState(BaseState state) {
+  C setState(MatexBaseCoreState state) {
     result = null;
     this.state = state.clone() as S;
     return _checkStateValidity();

@@ -1,12 +1,12 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
-class PipValueState extends BaseState {
-  const PipValueState({
+class MatexPipValueCoreState extends MatexBaseCoreState {
+  const MatexPipValueCoreState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
-    LotDescriptors lotDescriptors,
+    MatexLotDescriptors lotDescriptors,
     bool baseListedSecond,
   }) : super(
           baseExchangeRate: baseExchangeRate,
@@ -18,8 +18,8 @@ class PipValueState extends BaseState {
         );
 
   @override
-  PipValueState copyWithState(BaseState state) {
-    return PipValueState(
+  MatexPipValueCoreState copyWithState(MatexBaseCoreState state) {
+    return MatexPipValueCoreState(
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
@@ -31,8 +31,8 @@ class PipValueState extends BaseState {
   }
 
   @override
-  PipValueState clone() {
-    return PipValueState(
+  MatexPipValueCoreState clone() {
+    return MatexPipValueCoreState(
       baseExchangeRate: baseExchangeRate,
       tradingPairExchangeRate: tradingPairExchangeRate,
       positionSize: positionSize,
@@ -43,7 +43,7 @@ class PipValueState extends BaseState {
   }
 }
 
-const PipValueState kInitialPipValueState = PipValueState(
+const MatexPipValueCoreState kInitialPipValueState = MatexPipValueCoreState(
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,

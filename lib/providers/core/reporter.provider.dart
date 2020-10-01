@@ -4,23 +4,23 @@ import 'package:intl/intl.dart';
 import '../interfaces/interfaces.dart';
 import '../models/models.dart';
 
-class ReporterProvider implements AbstractReporterProvider {
+class MatexReporterProvider implements MatexAbstractReporterProvider {
   @override
   Future<String> report({
     String locale = 'EN_US',
-    Map<String, ReportEntry> reportState,
+    Map<String, MatexReportEntry> reportState,
   }) async {
     return _stringify(locale, reportState);
   }
 
-  String _stringify(String locale, Map<String, ReportEntry> reportState) {
+  String _stringify(String locale, Map<String, MatexReportEntry> reportState) {
     final entries = reportState.entries;
     final length = entries.length;
     var index = 0;
 
     return entries.fold('', (
       String accumulator,
-      MapEntry<String, ReportEntry> mapEntry,
+      MapEntry<String, MatexReportEntry> mapEntry,
     ) {
       final label = mapEntry.value.label;
       final value = mapEntry.value.value;

@@ -1,12 +1,12 @@
 import 'package:matex_dart/matex_dart.dart';
 
-class PivotPointsState extends BaseState {
-  const PivotPointsState({
+class MatexPivotPointsCoreState extends MatexBaseCoreState {
+  const MatexPivotPointsCoreState({
     double closePrice,
     double highPrice,
     double lowPrice,
     double openPrice,
-    PivotPointsMethods method,
+    MatexPivotPointsMethods method,
   }) : super(
           closePrice: closePrice,
           highPrice: highPrice,
@@ -16,8 +16,8 @@ class PivotPointsState extends BaseState {
         );
 
   @override
-  PivotPointsState copyWithState(BaseState state) {
-    return PivotPointsState(
+  MatexPivotPointsCoreState copyWithState(MatexBaseCoreState state) {
+    return MatexPivotPointsCoreState(
       closePrice: state.closePrice ?? closePrice,
       highPrice: state.highPrice ?? highPrice,
       lowPrice: state.lowPrice ?? lowPrice,
@@ -27,8 +27,8 @@ class PivotPointsState extends BaseState {
   }
 
   @override
-  PivotPointsState clone() {
-    return PivotPointsState(
+  MatexPivotPointsCoreState clone() {
+    return MatexPivotPointsCoreState(
       closePrice: closePrice,
       highPrice: highPrice,
       lowPrice: lowPrice,
@@ -38,10 +38,10 @@ class PivotPointsState extends BaseState {
   }
 }
 
-const kInitialPivotPointsState = PivotPointsState(
+const kInitialPivotPointsState = MatexPivotPointsCoreState(
   closePrice: 0,
   highPrice: 0,
   lowPrice: 0,
-  method: PivotPointsMethods.Standard,
+  method: MatexPivotPointsMethods.Standard,
   openPrice: 0,
 );

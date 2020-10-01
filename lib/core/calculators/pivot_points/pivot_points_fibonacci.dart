@@ -4,7 +4,7 @@ import 'package:matex_dart/matex_dart.dart';
 final _fibonacci382 = Decimal.parse('0.382');
 final _fibonacci618 = Decimal.parse('0.618');
 
-PivotPointsResult pivotPointsFibonacci(
+MatexPivotPointsResult pivotPointsFibonacci(
   double high,
   double low,
   double close,
@@ -25,7 +25,7 @@ PivotPointsResult pivotPointsFibonacci(
   final support2 = pivotPoint - (delta * _fibonacci618);
   final support3 = pivotPoint - delta;
 
-  return PivotPointsResult(
+  return MatexPivotPointsResult(
     pivotPoint: pivotPoint.toDouble(),
     resistances: [
       resistance1.toDouble(),

@@ -1,11 +1,11 @@
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexConfig {
-  final AbstractInstrumentMetadataProvider instrumentProvider;
-  final AbstractFormatterProvider formatterProvider;
-  final AbstractExchangeProvider exchangeProvider;
-  final AbstractReporterProvider reporterProvider;
-  final AbstractPairMetadataProvider pairProvider;
+  final MatexAbstractInstrumentMetadataProvider instrumentProvider;
+  final MatexAbstractFormatterProvider formatterProvider;
+  final MatexAbstractExchangeProvider exchangeProvider;
+  final MatexAbstractReporterProvider reporterProvider;
+  final MatexAbstractPairMetadataProvider pairProvider;
 
   const MatexConfig({
     this.instrumentProvider,

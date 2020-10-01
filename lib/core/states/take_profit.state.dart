@@ -1,18 +1,18 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
-class TakeProfitState extends BaseState {
-  const TakeProfitState({
+class MatexTakeProfitCoreState extends MatexBaseCoreState {
+  const MatexTakeProfitCoreState({
     double baseExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
-    LotDescriptors lotDescriptors,
+    MatexLotDescriptors lotDescriptors,
     bool baseListedSecond,
     double takeProfitPips,
     double takeProfitPrice,
     double takeProfitAmount,
     double entryPrice,
-    Position position,
+    MatexPosition position,
   }) : super(
           baseExchangeRate: baseExchangeRate,
           tradingPairExchangeRate: tradingPairExchangeRate,
@@ -28,8 +28,8 @@ class TakeProfitState extends BaseState {
         );
 
   @override
-  TakeProfitState copyWithState(BaseState state) {
-    return TakeProfitState(
+  MatexTakeProfitCoreState copyWithState(MatexBaseCoreState state) {
+    return MatexTakeProfitCoreState(
       baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
@@ -46,8 +46,8 @@ class TakeProfitState extends BaseState {
   }
 
   @override
-  TakeProfitState clone() {
-    return TakeProfitState(
+  MatexTakeProfitCoreState clone() {
+    return MatexTakeProfitCoreState(
       baseExchangeRate: baseExchangeRate,
       tradingPairExchangeRate: tradingPairExchangeRate,
       positionSize: positionSize,
@@ -63,7 +63,7 @@ class TakeProfitState extends BaseState {
   }
 }
 
-const kInitialTakeProfitState = TakeProfitState(
+const kInitialTakeProfitState = MatexTakeProfitCoreState(
   baseExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,
@@ -71,7 +71,7 @@ const kInitialTakeProfitState = TakeProfitState(
   positionSize: 0.0,
   tradingPairExchangeRate: 0.0,
   entryPrice: 0.0,
-  position: Position.Long,
+  position: MatexPosition.Long,
   takeProfitAmount: 0.0,
   takeProfitPips: 0.0,
   takeProfitPrice: 0.0,

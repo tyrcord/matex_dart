@@ -1,19 +1,21 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class StopLossCalculator
-    extends BaseCalculator<StopLossCalculator, StopLossState, StopLossResult>
+class MatexStopLossCalculatorCore extends MatexBaseCalculator<
+        MatexStopLossCalculatorCore, MatexStopLossCoreState, MatexStopLossResult>
     with
-        StopLossMixin<StopLossCalculator, StopLossState, StopLossResult>,
-        PipValueMixin<StopLossCalculator, StopLossState, StopLossResult> {
-  StopLossCalculator({
-    StopLossState initialState,
+        MatexStopLossCoreMixin<MatexStopLossCalculatorCore, MatexStopLossCoreState,
+            MatexStopLossResult>,
+        MatexPipValueCoreMixin<MatexStopLossCalculatorCore, MatexStopLossCoreState,
+            MatexStopLossResult> {
+  MatexStopLossCalculatorCore({
+    MatexStopLossCoreState initialState,
   }) : super(
           initialState: initialState ?? kInitialStopLossState,
         );
 
   @override
-  StopLossResult value({Decimal pipValue}) {
+  MatexStopLossResult value({Decimal pipValue}) {
     if (result != null) {
       return result;
     }
@@ -22,7 +24,7 @@ class StopLossCalculator
     return (result = _computeStopLossLevels(pipValue));
   }
 
-  StopLossResult _computeStopLossLevels(Decimal pipValue) {
+  MatexStopLossResult _computeStopLossLevels(Decimal pipValue) {
     final pipPrecision = validState.pipPrecision;
     final stopLossAmount = validState.stopLossAmount;
     final stopLossPips = validState.stopLossPips;
@@ -40,7 +42,7 @@ class StopLossCalculator
     return _buildStopLossResult();
   }
 
-  StopLossResult _computeStopLossWithAmount(
+  MatexStopLossResult _computeStopLossWithAmount(
     double stopLossAmount,
     Decimal pipValue,
     double divider,
@@ -55,7 +57,7 @@ class StopLossCalculator
     );
   }
 
-  StopLossResult _computeStopLossWithPrice(
+  MatexStopLossResult _computeStopLossWithPrice(
     double stopLossPrice,
     Decimal pipValue,
     double divider,
@@ -67,12 +69,12 @@ class StopLossCalculator
     final entryPriceParsed = Decimal.parse(entryPrice.toString());
     var stopLossPips = 0.0;
 
-    if (position == Position.Long && stopLossPrice < entryPrice) {
+    if (position == MatexPosition.Long && stopLossPrice < entryPrice) {
       stopLossPips =
           ((entryPriceParsed - stopLossPriceParsed) * _divider).toDouble();
     }
 
-    if (position == Position.Short && stopLossPrice > entryPrice) {
+    if (position == MatexPosition.Short && stopLossPrice > entryPrice) {
       stopLossPips =
           ((stopLossPriceParsed - entryPriceParsed) * _divider).toDouble();
     }
@@ -84,7 +86,7 @@ class StopLossCalculator
     );
   }
 
-  StopLossResult _computeStopLossWithPips(
+  MatexStopLossResult _computeStopLossWithPips(
     double stopLossPips,
     Decimal pipValue,
     double divider,
@@ -110,18 +112,18 @@ class StopLossCalculator
     final deltaPrice = Decimal.parse(stopLossPips.toString()) / _divider;
     final entryPriceBigNumber = Decimal.parse(entryPrice.toString());
 
-    return (position == Position.Long
+    return (position == MatexPosition.Long
             ? entryPriceBigNumber - deltaPrice
             : entryPriceBigNumber + deltaPrice)
         .toDouble();
   }
 
-  StopLossResult _buildStopLossResult({
+  MatexStopLossResult _buildStopLossResult({
     double amount,
     double pips,
     double price,
   }) {
-    return StopLossResult(
+    return MatexStopLossResult(
       amount: amount,
       pips: pips,
       price: price,
@@ -129,9 +131,9 @@ class StopLossCalculator
   }
 }
 
-StopLossCalculator stopLoss({
-  StopLossState initialState,
+MatexStopLossCalculatorCore stopLoss({
+  MatexStopLossCoreState initialState,
 }) =>
-    StopLossCalculator(
+    MatexStopLossCalculatorCore(
       initialState: initialState,
     );

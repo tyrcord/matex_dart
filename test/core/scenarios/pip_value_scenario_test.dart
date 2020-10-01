@@ -8,7 +8,7 @@ void main() {
       final calculator = pip();
 
       test('Given: my trading account is in USD', () {
-        expect(calculator is PipValueCalculator, equals(true));
+        expect(calculator is MatexPipValueCalculatorCore, equals(true));
       });
 
       test('And: the currency USD is listed second in the pair EUR/USD', () {
@@ -33,7 +33,7 @@ void main() {
       final calculator = pip();
 
       test('Given: my trading account is in EUR', () {
-        expect(calculator is PipValueCalculator, equals(true));
+        expect(calculator is MatexPipValueCalculatorCore, equals(true));
       });
 
       test('And: the currency EUR is listed first in the pair EUR/CAD', () {
@@ -58,7 +58,7 @@ void main() {
       final calculator = pip();
 
       test('Given: my trading account is in USD', () {
-        expect(calculator is PipValueCalculator, equals(true));
+        expect(calculator is MatexPipValueCalculatorCore, equals(true));
       });
 
       test('And: the exchange rate for the pair AUD/JPY is 100', () {

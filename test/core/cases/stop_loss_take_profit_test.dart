@@ -6,7 +6,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('StopLossTakeProfitCalculator', () {
-    StopLossTakeProfitCalculator calculator;
+    MatexStopLossTakeProfitCalculatorCore calculator;
 
     setUp(() {
       calculator = stopLossTakeProfit();
@@ -16,7 +16,8 @@ void main() {
       test(
         SHOULD_RETURN_CALCULATOR_INSTANCE,
         () {
-          expect(calculator is StopLossTakeProfitCalculator, equals(true));
+          expect(calculator is MatexStopLossTakeProfitCalculatorCore,
+              equals(true));
         },
       );
     });
@@ -172,7 +173,7 @@ void main() {
 
     group('#setState()', () {
       test(SHOULD_UPDATE_CALCULATOR_STATE, () {
-        calculator.setState(StopLossTakeProfitState(
+        calculator.setState(MatexStopLossTakeProfitCoreState(
           positionSize: 1000,
         ));
 
@@ -180,7 +181,7 @@ void main() {
       });
 
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        final instance = calculator.setState(StopLossTakeProfitState(
+        final instance = calculator.setState(MatexStopLossTakeProfitCoreState(
           pipPrecision: 2,
         ));
 
@@ -199,7 +200,7 @@ void main() {
       });
 
       test('should define the risk ratio value', () {
-        StopLossTakeProfitResult results = calculator
+        MatexStopLossTakeProfitResult results = calculator
             .positionSize(5000)
             .tradingPairExchangeRate(1.5)
             .stopLossAmount(200)
@@ -230,7 +231,7 @@ void main() {
 
         expect(
           results.stopLoss ==
-              StopLossResult(
+              MatexStopLossResult(
                 amount: 200,
                 pips: 220,
                 price: 1.078,
@@ -252,7 +253,7 @@ void main() {
         expect(
           results.stopLoss,
           equals(
-            StopLossResult(
+            MatexStopLossResult(
               amount: 200,
               pips: 220,
               price: 1.078,
@@ -273,7 +274,7 @@ void main() {
 
         expect(
           results.stopLoss ==
-              StopLossResult(
+              MatexStopLossResult(
                 amount: 200,
                 pips: 220,
                 price: 1.078,
@@ -294,7 +295,7 @@ void main() {
 
         expect(
           results.takeProfit ==
-              TakeProfitResult(
+              MatexTakeProfitResult(
                 amount: 200,
                 pips: 220,
                 price: 1.122,
@@ -316,7 +317,7 @@ void main() {
         expect(
           results.takeProfit,
           equals(
-            TakeProfitResult(
+            MatexTakeProfitResult(
               amount: 200,
               pips: 220,
               price: 1.122,
@@ -337,7 +338,7 @@ void main() {
 
         expect(
           results.takeProfit ==
-              TakeProfitResult(
+              MatexTakeProfitResult(
                 amount: 200,
                 pips: 220,
                 price: 1.122,
@@ -353,13 +354,13 @@ void main() {
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .stopLossAmount(200)
-            .position(Position.Short)
+            .position(MatexPosition.Short)
             .entryPrice(1.1)
             .value();
 
         expect(
           results.stopLoss ==
-              StopLossResult(
+              MatexStopLossResult(
                 amount: 200,
                 pips: 220,
                 price: 1.122,
@@ -375,14 +376,14 @@ void main() {
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .stopLossPrice(1.122)
-            .position(Position.Short)
+            .position(MatexPosition.Short)
             .entryPrice(1.1)
             .value();
 
         expect(
           results.stopLoss,
           equals(
-            StopLossResult(
+            MatexStopLossResult(
               amount: 200,
               pips: 220,
               price: 1.122,
@@ -394,18 +395,18 @@ void main() {
       test(
           'should define the stopLossAmount and stopLossPrice values when stopLossPips is set and the position is short',
           () {
-        StopLossTakeProfitResult results = calculator
+        MatexStopLossTakeProfitResult results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .stopLossPips(220)
-            .position(Position.Short)
+            .position(MatexPosition.Short)
             .entryPrice(1.1)
             .value();
 
         expect(
           results.stopLoss,
           equals(
-            StopLossResult(
+            MatexStopLossResult(
               amount: 200,
               pips: 220,
               price: 1.122,
@@ -421,13 +422,13 @@ void main() {
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .takeProfitAmount(200)
-            .position(Position.Short)
+            .position(MatexPosition.Short)
             .entryPrice(1.1)
             .value();
 
         expect(
           results.takeProfit ==
-              TakeProfitResult(
+              MatexTakeProfitResult(
                 amount: 200,
                 pips: 220,
                 price: 1.078,
@@ -443,14 +444,14 @@ void main() {
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .takeProfitPrice(1.078)
-            .position(Position.Short)
+            .position(MatexPosition.Short)
             .entryPrice(1.1)
             .value();
 
         expect(
           results.takeProfit,
           equals(
-            TakeProfitResult(
+            MatexTakeProfitResult(
               amount: 200,
               pips: 220,
               price: 1.078,
@@ -462,18 +463,18 @@ void main() {
       test(
           'should define the takeProfitAmount and takeProfitPrice values when takeProfitPips is set and the position is short',
           () {
-        StopLossTakeProfitResult results = calculator
+        MatexStopLossTakeProfitResult results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .takeProfitPips(220)
-            .position(Position.Short)
+            .position(MatexPosition.Short)
             .entryPrice(1.1)
             .value();
 
         expect(
           results.takeProfit,
           equals(
-            TakeProfitResult(
+            MatexTakeProfitResult(
               amount: 200,
               pips: 220,
               price: 1.078,
@@ -540,12 +541,12 @@ void main() {
 
     group('#position()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator.position(Position.Long), equals(calculator));
+        expect(calculator.position(MatexPosition.Long), equals(calculator));
       });
 
       test('should define the position value', () {
-        calculator.position(Position.Long);
-        expect(calculator.getState().position, equals(Position.Long));
+        calculator.position(MatexPosition.Long);
+        expect(calculator.getState().position, equals(MatexPosition.Long));
       });
     });
 

@@ -1,34 +1,34 @@
 import 'package:matex_dart/matex_dart.dart';
 
-mixin StopLossMixin<C extends BaseCalculator<C, S, R>, S extends BaseState, R>
-    on BaseCalculator<C, S, R> {
+mixin MatexStopLossCoreMixin<C extends MatexBaseCalculator<C, S, R>,
+    S extends MatexBaseCoreState, R> on MatexBaseCalculator<C, S, R> {
   C entryPrice(double entryPrice) {
     final sanitizedValue = sanitizeDouble(entryPrice);
-    return patchState(BaseState(entryPrice: sanitizedValue));
+    return patchState(MatexBaseCoreState(entryPrice: sanitizedValue));
   }
 
-  C position(Position position) {
-    return patchState(BaseState(position: position));
+  C position(MatexPosition position) {
+    return patchState(MatexBaseCoreState(position: position));
   }
 
   C stopLossAmount(double stopLossAmount) {
     final sanitizedValue = sanitizeDouble(stopLossAmount);
-    patchState(BaseState(stopLossPips: 0.0));
-    patchState(BaseState(stopLossPrice: 0.0));
-    return patchState(BaseState(stopLossAmount: sanitizedValue));
+    patchState(MatexBaseCoreState(stopLossPips: 0.0));
+    patchState(MatexBaseCoreState(stopLossPrice: 0.0));
+    return patchState(MatexBaseCoreState(stopLossAmount: sanitizedValue));
   }
 
   C stopLossPips(double stopLossPips) {
     final sanitizedValue = sanitizeDouble(stopLossPips);
-    patchState(BaseState(stopLossAmount: 0.0));
-    patchState(BaseState(stopLossPrice: 0.0));
-    return patchState(BaseState(stopLossPips: sanitizedValue));
+    patchState(MatexBaseCoreState(stopLossAmount: 0.0));
+    patchState(MatexBaseCoreState(stopLossPrice: 0.0));
+    return patchState(MatexBaseCoreState(stopLossPips: sanitizedValue));
   }
 
   C stopLossPrice(double stopLossPrice) {
     final sanitizedValue = sanitizeDouble(stopLossPrice);
-    patchState(BaseState(stopLossAmount: 0.0));
-    patchState(BaseState(stopLossPips: 0.0));
-    return patchState(BaseState(stopLossPrice: sanitizedValue));
+    patchState(MatexBaseCoreState(stopLossAmount: 0.0));
+    patchState(MatexBaseCoreState(stopLossPips: 0.0));
+    return patchState(MatexBaseCoreState(stopLossPrice: sanitizedValue));
   }
 }

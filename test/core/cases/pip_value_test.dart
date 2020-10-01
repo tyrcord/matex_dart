@@ -5,7 +5,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('PipValueCalculator', () {
-    PipValueCalculator calculator;
+    MatexPipValueCalculatorCore calculator;
 
     setUp(() {
       calculator = pip();
@@ -13,7 +13,7 @@ void main() {
 
     group('pip', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator is PipValueCalculator, equals(true));
+        expect(calculator is MatexPipValueCalculatorCore, equals(true));
       });
     });
 
@@ -205,8 +205,8 @@ void main() {
       });
 
       test('should update the lot descriptors value', () {
-        LotDescriptors lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: LotDescriptor(
+        MatexLotDescriptors lotDescriptors = kDefaultLotDescriptors.copyWith(
+          standard: MatexLotDescriptor(
             multiplier: 5000,
           ),
         );
@@ -219,7 +219,7 @@ void main() {
         );
 
         lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: LotDescriptor(
+          standard: MatexLotDescriptor(
             exists: false,
             multiplier: 5000,
           ),

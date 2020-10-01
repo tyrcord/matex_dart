@@ -1,8 +1,8 @@
-class LotDescriptor {
+class MatexLotDescriptor {
   final bool exists;
   final num multiplier;
 
-  const LotDescriptor({
+  const MatexLotDescriptor({
     this.exists = true,
     this.multiplier = 1,
   });
@@ -12,34 +12,34 @@ class LotDescriptor {
         'multiplier': multiplier,
       };
 
-  factory LotDescriptor.fromJson(dynamic json) {
-    return LotDescriptor(
+  factory MatexLotDescriptor.fromJson(dynamic json) {
+    return MatexLotDescriptor(
       exists: json['standard'] as bool,
       multiplier: json['multiplier'] as num,
     );
   }
 }
 
-class LotDescriptors {
-  final LotDescriptor standard;
-  final LotDescriptor micro;
-  final LotDescriptor mini;
-  final LotDescriptor nano;
+class MatexLotDescriptors {
+  final MatexLotDescriptor standard;
+  final MatexLotDescriptor micro;
+  final MatexLotDescriptor mini;
+  final MatexLotDescriptor nano;
 
-  const LotDescriptors({
+  const MatexLotDescriptors({
     this.standard,
     this.micro,
     this.mini,
     this.nano,
   });
 
-  LotDescriptors copyWith({
-    LotDescriptor standard,
-    LotDescriptor micro,
-    LotDescriptor mini,
-    LotDescriptor nano,
+  MatexLotDescriptors copyWith({
+    MatexLotDescriptor standard,
+    MatexLotDescriptor micro,
+    MatexLotDescriptor mini,
+    MatexLotDescriptor nano,
   }) {
-    return LotDescriptors(
+    return MatexLotDescriptors(
       standard: standard ?? this.standard,
       micro: micro ?? this.micro,
       mini: mini ?? this.mini,
@@ -56,19 +56,19 @@ class LotDescriptors {
     };
   }
 
-  factory LotDescriptors.fromJson(dynamic json) {
-    return LotDescriptors(
-      standard: LotDescriptor.fromJson(json['standard']),
-      micro: LotDescriptor.fromJson(json['micro']),
-      mini: LotDescriptor.fromJson(json['mini']),
-      nano: LotDescriptor.fromJson(json['nano']),
+  factory MatexLotDescriptors.fromJson(dynamic json) {
+    return MatexLotDescriptors(
+      standard: MatexLotDescriptor.fromJson(json['standard']),
+      micro: MatexLotDescriptor.fromJson(json['micro']),
+      mini: MatexLotDescriptor.fromJson(json['mini']),
+      nano: MatexLotDescriptor.fromJson(json['nano']),
     );
   }
 }
 
-const kDefaultLotDescriptors = LotDescriptors(
-  standard: LotDescriptor(multiplier: 100000),
-  mini: LotDescriptor(multiplier: 10000),
-  micro: LotDescriptor(multiplier: 1000),
-  nano: LotDescriptor(multiplier: 100),
+const kDefaultLotDescriptors = MatexLotDescriptors(
+  standard: MatexLotDescriptor(multiplier: 100000),
+  mini: MatexLotDescriptor(multiplier: 10000),
+  micro: MatexLotDescriptor(multiplier: 1000),
+  nano: MatexLotDescriptor(multiplier: 100),
 );

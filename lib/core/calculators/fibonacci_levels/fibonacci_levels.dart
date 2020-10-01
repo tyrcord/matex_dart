@@ -3,14 +3,16 @@ import 'package:decimal/decimal.dart';
 
 final _hundred = Decimal.parse('100');
 
-class FibonacciLevelsCalculator extends BaseCalculator<
-        FibonacciLevelsCalculator, FibonacciLevelsState, FibonacciLevelsResult>
+class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
+        MatexFibonacciLevelsCalculatorCore,
+        MatexFibonacciLevelsCoreState,
+        FibonacciLevelsResult>
     with
-        FibonacciLevelsMixin<FibonacciLevelsCalculator, FibonacciLevelsState,
-            FibonacciLevelsResult> {
-  FibonacciLevelsCalculator({
-    FibonacciLevelsState initialState,
-    List<StateValidator> validators,
+        MatexFibonacciLevelsCoreMixin<MatexFibonacciLevelsCalculatorCore,
+            MatexFibonacciLevelsCoreState, FibonacciLevelsResult> {
+  MatexFibonacciLevelsCalculatorCore({
+    MatexFibonacciLevelsCoreState initialState,
+    List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialFibonacciLevelsState,
           validators: validators ?? fibonacciLevelsValidators,
@@ -28,14 +30,14 @@ class FibonacciLevelsCalculator extends BaseCalculator<
     ));
   }
 
-  List<FibonacciLevel> _computeExtensions() {
+  List<MatexFibonacciLevel> _computeExtensions() {
     final extensionLevels = state.extensionLevels;
     final trend = state.trend;
     final highPrice = validState.highPrice;
     final lowPrice = validState.lowPrice;
     final delta = Decimal.parse((highPrice - lowPrice).toString());
 
-    if (trend == Trend.Up) {
+    if (trend == MatexTrend.Up) {
       final parsedHighPrice = Decimal.parse(highPrice.toString());
 
       return [...extensionLevels].reversed.map((double level) {
@@ -57,14 +59,14 @@ class FibonacciLevelsCalculator extends BaseCalculator<
     }).toList();
   }
 
-  List<FibonacciLevel> _computeRetracements() {
+  List<MatexFibonacciLevel> _computeRetracements() {
     final retracementLevels = state.retracementLevels;
     final trend = state.trend;
     final highPrice = validState.highPrice;
     final lowPrice = validState.lowPrice;
     final delta = Decimal.parse((highPrice - lowPrice).toString());
 
-    if (trend == Trend.Down) {
+    if (trend == MatexTrend.Down) {
       final parsedLowPrice = Decimal.parse(lowPrice.toString());
 
       return [...retracementLevels].reversed.map((double level) {
@@ -98,19 +100,19 @@ class FibonacciLevelsCalculator extends BaseCalculator<
     return Decimal.parse(number.toStringAsFixed(precision)).toDouble();
   }
 
-  FibonacciLevel _makeFibonacciLevel(double level, double value) {
-    return FibonacciLevel(
+  MatexFibonacciLevel _makeFibonacciLevel(double level, double value) {
+    return MatexFibonacciLevel(
       level: _formatLevelLabel(level),
       value: _formatLevelValue(value),
     );
   }
 }
 
-FibonacciLevelsCalculator fibonacciLevels({
-  FibonacciLevelsState initialState,
-  List<StateValidator> validators,
+MatexFibonacciLevelsCalculatorCore fibonacciLevels({
+  MatexFibonacciLevelsCoreState initialState,
+  List<MatexStateValidator> validators,
 }) =>
-    FibonacciLevelsCalculator(
+    MatexFibonacciLevelsCalculatorCore(
       initialState: initialState,
       validators: validators,
     );

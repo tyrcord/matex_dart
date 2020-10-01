@@ -5,7 +5,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('RequiredMarginCalculator', () {
-    RequiredMarginCalculator calculator;
+    MatexRequiredMarginCalculatorCore calculator;
 
     setUp(() {
       calculator = requiredMargin();
@@ -13,7 +13,7 @@ void main() {
 
     group('requiredMargin()', () {
       test(SHOULD_RETURN_CALCULATOR_INSTANCE, () {
-        expect(calculator is RequiredMarginCalculator, equals(true));
+        expect(calculator is MatexRequiredMarginCalculatorCore, equals(true));
       });
     });
 
@@ -69,8 +69,8 @@ void main() {
       });
 
       test('should update the lot descriptors value', () {
-        LotDescriptors lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: LotDescriptor(multiplier: 5000),
+        MatexLotDescriptors lotDescriptors = kDefaultLotDescriptors.copyWith(
+          standard: MatexLotDescriptor(multiplier: 5000),
         );
 
         calculator.lotDescriptors(lotDescriptors);
@@ -79,7 +79,7 @@ void main() {
         expect(calculator.getState().positionSize, equals(5000));
 
         lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: LotDescriptor(multiplier: 5000, exists: false),
+          standard: MatexLotDescriptor(multiplier: 5000, exists: false),
         );
 
         calculator.lotDescriptors(lotDescriptors);

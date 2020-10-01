@@ -1,20 +1,21 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class TakeProfitCalculator extends BaseCalculator<TakeProfitCalculator,
-        TakeProfitState, TakeProfitResult>
+class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
+        MatexTakeProfitCalculatorCore, MatexTakeProfitCoreState, MatexTakeProfitResult>
     with
-        TakeProfitMixin<TakeProfitCalculator, TakeProfitState,
-            TakeProfitResult>,
-        PipValueMixin<TakeProfitCalculator, TakeProfitState, TakeProfitResult> {
-  TakeProfitCalculator({
-    TakeProfitState initialState,
+        MatexTakeProfitCoreMixin<MatexTakeProfitCalculatorCore, MatexTakeProfitCoreState,
+            MatexTakeProfitResult>,
+        MatexPipValueCoreMixin<MatexTakeProfitCalculatorCore, MatexTakeProfitCoreState,
+            MatexTakeProfitResult> {
+  MatexTakeProfitCalculatorCore({
+    MatexTakeProfitCoreState initialState,
   }) : super(
           initialState: initialState ?? kInitialTakeProfitState,
         );
 
   @override
-  TakeProfitResult value({Decimal pipValue}) {
+  MatexTakeProfitResult value({Decimal pipValue}) {
     if (result != null) {
       return result;
     }
@@ -23,7 +24,7 @@ class TakeProfitCalculator extends BaseCalculator<TakeProfitCalculator,
     return (result = _computeTakeProfitLevels(pipValue));
   }
 
-  TakeProfitResult _computeTakeProfitLevels(Decimal pipValue) {
+  MatexTakeProfitResult _computeTakeProfitLevels(Decimal pipValue) {
     final pipPrecision = validState.pipPrecision;
     final takeProfitAmount = validState.takeProfitAmount;
     final takeProfitPips = validState.takeProfitPips;
@@ -49,7 +50,7 @@ class TakeProfitCalculator extends BaseCalculator<TakeProfitCalculator,
     return _buildTakeProfitResult();
   }
 
-  TakeProfitResult _computeTakeProfitWithAmount(
+  MatexTakeProfitResult _computeTakeProfitWithAmount(
     double takeProfitAmount,
     Decimal pipValue,
     double divider,
@@ -64,7 +65,7 @@ class TakeProfitCalculator extends BaseCalculator<TakeProfitCalculator,
     );
   }
 
-  TakeProfitResult _computeTakeProfitWithPrice(
+  MatexTakeProfitResult _computeTakeProfitWithPrice(
     double takeProfitPrice,
     Decimal pipValue,
     double divider,
@@ -76,12 +77,12 @@ class TakeProfitCalculator extends BaseCalculator<TakeProfitCalculator,
     final entryPriceParsed = Decimal.parse(entryPrice.toString());
     var takeProfitPips = 0.0;
 
-    if (position == Position.Long && takeProfitPrice > entryPrice) {
+    if (position == MatexPosition.Long && takeProfitPrice > entryPrice) {
       takeProfitPips =
           ((takeProfitPriceParsed - entryPriceParsed) * _divider).toDouble();
     }
 
-    if (position == Position.Short && takeProfitPrice < entryPrice) {
+    if (position == MatexPosition.Short && takeProfitPrice < entryPrice) {
       takeProfitPips =
           ((entryPriceParsed - takeProfitPriceParsed) * _divider).toDouble();
     }
@@ -93,7 +94,7 @@ class TakeProfitCalculator extends BaseCalculator<TakeProfitCalculator,
     );
   }
 
-  TakeProfitResult _computeTakeProfitWithPips(
+  MatexTakeProfitResult _computeTakeProfitWithPips(
     double takeProfitPips,
     Decimal pipValue,
     double divider,
@@ -122,18 +123,18 @@ class TakeProfitCalculator extends BaseCalculator<TakeProfitCalculator,
     final deltaPrice = Decimal.parse(takeProfitPips.toString()) / _divider;
     final entryPriceBigNumber = Decimal.parse(entryPrice.toString());
 
-    return (position == Position.Long
+    return (position == MatexPosition.Long
             ? entryPriceBigNumber + deltaPrice
             : entryPriceBigNumber - deltaPrice)
         .toDouble();
   }
 
-  TakeProfitResult _buildTakeProfitResult({
+  MatexTakeProfitResult _buildTakeProfitResult({
     double amount,
     double pips,
     double price,
   }) {
-    return TakeProfitResult(
+    return MatexTakeProfitResult(
       amount: amount,
       pips: pips,
       price: price,
@@ -141,9 +142,9 @@ class TakeProfitCalculator extends BaseCalculator<TakeProfitCalculator,
   }
 }
 
-TakeProfitCalculator takeProfit({
-  TakeProfitState initialState,
+MatexTakeProfitCalculatorCore takeProfit({
+  MatexTakeProfitCoreState initialState,
 }) =>
-    TakeProfitCalculator(
+    MatexTakeProfitCalculatorCore(
       initialState: initialState,
     );

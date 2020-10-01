@@ -4,22 +4,22 @@ import 'package:matex_dart/matex_dart.dart';
 
 void main() {
   group('ReporterProvider', () {
-    ReporterProvider reporter;
+    MatexReporterProvider reporter;
 
     setUp(() {
-      reporter = ReporterProvider();
+      reporter = MatexReporterProvider();
     });
 
     group('report()', () {
       test('should report a reportState to a string', () {
         expect(
           reporter.report(reportState: {
-            'pipValue': ReportEntry(
+            'pipValue': MatexReportEntry(
               label: 'Pip Value:',
               value: 1.45252,
               minimumFractionDigits: 5,
             ),
-            'positionSize': ReportEntry(
+            'positionSize': MatexReportEntry(
               label: 'Position Size:',
               value: 100000,
               minimumFractionDigits: 0,
@@ -32,7 +32,7 @@ void main() {
         expect(
           reporter.report(
             reportState: {
-              'pipValue': ReportEntry(
+              'pipValue': MatexReportEntry(
                 label: 'Pip Value:',
                 value: 1.45252,
                 minimumFractionDigits: 5,

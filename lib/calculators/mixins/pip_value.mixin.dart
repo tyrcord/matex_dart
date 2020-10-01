@@ -1,13 +1,16 @@
 import 'package:matex_dart/matex_dart.dart';
 
-mixin MatexPipValueMixin<C extends AbstractPipValueCalculator<C, S, R>,
-    S extends PipValueState, R> on AbstractPipValueCalculator<C, S, R> {
+mixin MatexPipValueMixin<
+    C extends MatexAbstractPipValueCalculatorCore<C, S, R>,
+    S extends MatexPipValueCoreState,
+    R> on MatexAbstractPipValueCalculatorCore<C, S, R> {
   MatexConfig config;
 
-  AbstractInstrumentMetadataProvider get instrumentProvider =>
-      config?.instrumentProvider ?? InstrumentProvider();
+  MatexAbstractInstrumentMetadataProvider get instrumentProvider =>
+      config?.instrumentProvider ?? MatexInstrumentProvider();
 
-  AbstractExchangeProvider get exchangeProvider => config?.exchangeProvider;
+  MatexAbstractExchangeProvider get exchangeProvider =>
+      config?.exchangeProvider;
 
   C accountCode(String accountCode) {
     return patchState(MatexPipValueState(accountCode: accountCode));
@@ -21,17 +24,17 @@ mixin MatexPipValueMixin<C extends AbstractPipValueCalculator<C, S, R>,
     return patchState(MatexPipValueState(counterCode: counterCode));
   }
 
-  Future<InstrumentMetadata> fetchAccountInstrumentMetadata() {
+  Future<MatexInstrumentMetadata> fetchAccountInstrumentMetadata() {
     final accountCode = state.accountCode;
     return instrumentProvider?.metadata(accountCode);
   }
 
-  Future<InstrumentMetadata> fetchCounterInstrumentMetadata() {
+  Future<MatexInstrumentMetadata> fetchCounterInstrumentMetadata() {
     final counterCode = state.counterCode;
     return instrumentProvider?.metadata(counterCode);
   }
 
-  Future<InstrumentMetadata> fetchBaseInstrumentMetadata() {
+  Future<MatexInstrumentMetadata> fetchBaseInstrumentMetadata() {
     final baseCode = state.baseCode;
     return instrumentProvider.metadata(baseCode);
   }

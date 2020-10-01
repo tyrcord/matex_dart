@@ -1,29 +1,29 @@
 import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class BaseState extends Equatable {
+class MatexBaseCoreState extends Equatable {
   final double customPrice;
   final double highPrice;
   final double lowPrice;
   final int precision;
-  final Trend trend;
+  final MatexTrend trend;
   final List<double> extensionLevels;
   final List<double> retracementLevels;
   final double baseExchangeRate;
   final double tradingPairExchangeRate;
   final double positionSize;
   final int pipPrecision;
-  final LotDescriptors lotDescriptors;
+  final MatexLotDescriptors lotDescriptors;
   final bool baseListedSecond;
   final double leverage;
   final double closePrice;
   final double openPrice;
-  final PivotPointsMethods method;
+  final MatexPivotPointsMethods method;
   final double accountSize;
   final double entryPrice;
   final double amountAtRisk;
   final double riskRatio;
-  final Position position;
+  final MatexPosition position;
   final double stopLossPips;
   final double stopLossPrice;
   final double stopLossAmount;
@@ -34,7 +34,7 @@ class BaseState extends Equatable {
   final String baseCode;
   final String counterCode;
 
-  const BaseState({
+  const MatexBaseCoreState({
     this.accountCode,
     this.baseCode,
     this.counterCode,
@@ -68,8 +68,8 @@ class BaseState extends Equatable {
     this.takeProfitAmount,
   });
 
-  BaseState clone() {
-    return BaseState(
+  MatexBaseCoreState clone() {
+    return MatexBaseCoreState(
       accountCode: accountCode,
       baseCode: baseCode,
       counterCode: counterCode,
@@ -104,8 +104,8 @@ class BaseState extends Equatable {
     );
   }
 
-  BaseState copyWithState(BaseState state) {
-    return BaseState(
+  MatexBaseCoreState copyWithState(MatexBaseCoreState state) {
+    return MatexBaseCoreState(
       accountCode: state.accountCode ?? accountCode,
       baseCode: state.baseCode ?? baseCode,
       counterCode: state.counterCode ?? counterCode,
