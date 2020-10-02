@@ -23,9 +23,9 @@
     "base": "NG",
     "counter": "USD",
     "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
+      "pipette": 4,
+      "precision": 3,
+      "round": 4
     },
     "type": "commodity_energy"
   },

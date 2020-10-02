@@ -56,7 +56,7 @@
     "lots": {
       "micro": 1250,
       "mini": 2500,
-      "normalized": false,
+      "normalized": true,
       "standard": 10000,
       "unit": "mmbtu"
     },
