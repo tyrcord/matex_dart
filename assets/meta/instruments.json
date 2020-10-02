@@ -16,11 +16,6 @@
       "key": "brent_crude_oil",
       "localized": "Brent Crude Oil"
     },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
     "symbol": {
       "long": "BZ",
       "short": "BZ",
@@ -44,11 +39,6 @@
     "name": {
       "key": "crude_oil",
       "localized": "Crude Oil"
-    },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
     },
     "symbol": {
       "long": "CL",
@@ -74,11 +64,6 @@
       "key": "natural_gas",
       "localized": "Natural Gas"
     },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
     "symbol": {
       "long": "NG",
       "short": "NG",
@@ -102,11 +87,6 @@
     "name": {
       "key": "silver",
       "localized": "Silver"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "XAG",
@@ -132,11 +112,6 @@
       "key": "gold",
       "localized": "gold"
     },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
     "symbol": {
       "long": "XAU",
       "short": "XAU",
@@ -153,11 +128,6 @@
     "name": {
       "key": "bitcoin_cash",
       "localized": "Bitcoin Cash"
-    },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
     },
     "symbol": {
       "long": "BCH",
@@ -176,11 +146,6 @@
       "key": "bitcoin",
       "localized": "Bitcoin"
     },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
     "symbol": {
       "long": "BTC",
       "short": "₿",
@@ -197,11 +162,6 @@
     "name": {
       "key": "dash",
       "localized": "Dash"
-    },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
     },
     "symbol": {
       "long": "DSH",
@@ -220,11 +180,6 @@
       "key": "ethereum",
       "localized": "Ethereum"
     },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
     "symbol": {
       "long": "ETH",
       "short": "ETH",
@@ -242,11 +197,6 @@
       "key": "litecoin",
       "localized": "Litecoin"
     },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
     "symbol": {
       "long": "LTC",
       "short": "LTC",
@@ -263,11 +213,6 @@
     "name": {
       "key": "ripple",
       "localized": "Ripple"
-    },
-    "pip": {
-      "pipette": 6,
-      "precision": 5,
-      "round": 6
     },
     "symbol": {
       "long": "XRP",
@@ -293,11 +238,6 @@
     "name": {
       "key": "australian_dollar",
       "localized": "Australian Dollar"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "A$",
@@ -354,11 +294,6 @@
       "key": "canadian_dollar",
       "localized": "Canadian Dollar"
     },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
     "symbol": {
       "long": "CA$",
       "short": "$",
@@ -383,11 +318,6 @@
     "name": {
       "key": "swiss_franc",
       "localized": "Swiss franc"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "CHF",
@@ -414,11 +344,6 @@
       "key": "chinese_yuan_renminbi",
       "localized": "Chinese Yuan Renminbi"
     },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
     "symbol": {
       "long": "¥",
       "short": "¥",
@@ -443,11 +368,6 @@
     "name": {
       "key": "czech_koruna",
       "localized": "Czech koruna"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "Kč",
@@ -474,11 +394,6 @@
       "key": "danish_krone",
       "localized": "Danish krone"
     },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
     "symbol": {
       "long": "Kr.",
       "short": "Kr.",
@@ -503,11 +418,6 @@
     "name": {
       "key": "euro",
       "localized": "Euro"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "€",
@@ -534,11 +444,6 @@
       "key": "pound_sterling",
       "localized": "Pound sterling"
     },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
     "symbol": {
       "long": "£",
       "short": "£",
@@ -563,11 +468,6 @@
     "name": {
       "key": "hong_kong_dollar",
       "localized": "Hong Kong dollar"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "HK$",
@@ -594,11 +494,6 @@
       "key": "hungarian_forint",
       "localized": "Hungarian forint"
     },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
     "symbol": {
       "long": "Ft",
       "short": "Ft",
@@ -623,11 +518,6 @@
     "name": {
       "key": "israeli_new_shekel",
       "localized": "Israeli new shekel"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "₪",
@@ -654,11 +544,6 @@
       "key": "indian_rupee",
       "localized": "Indian rupee"
     },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
     "symbol": {
       "long": "₹",
       "short": "₹",
@@ -683,11 +568,6 @@
     "name": {
       "key": "japanese_yen",
       "localized": "Japanese yen"
-    },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
     },
     "symbol": {
       "iso": "JPY",
@@ -714,11 +594,6 @@
       "key": "south_korean_won",
       "localized": "South Korean won"
     },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
     "symbol": {
       "iso": "KRW",
       "long": "₩",
@@ -743,11 +618,6 @@
     "name": {
       "key": "kuwaiti_dinar",
       "localized": "Kuwaiti dinar"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "iso": "KWD",
@@ -774,11 +644,6 @@
       "key": "mexican_peso",
       "localized": "Mexican peso"
     },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
     "symbol": {
       "iso": "MXN",
       "long": "Mex$",
@@ -803,11 +668,6 @@
     "name": {
       "key": "nigerian_naira",
       "localized": "Nigerian naira"
-    },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
     },
     "symbol": {
       "iso": "NGN",
@@ -834,11 +694,6 @@
       "key": "norwegian_krone",
       "localized": "Norwegian krone"
     },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
     "symbol": {
       "iso": "NOK",
       "long": "kr",
@@ -863,11 +718,6 @@
     "name": {
       "key": "new_zealand_dollar",
       "localized": "New Zealand dollar"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "$",
@@ -894,11 +744,6 @@
       "key": "polish_zloty",
       "localized": "Polish złoty"
     },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
     "symbol": {
       "long": "zł",
       "short": "zł",
@@ -923,11 +768,6 @@
     "name": {
       "key": "romanian_leu",
       "localized": "Romanian leu"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "lei",
@@ -954,11 +794,6 @@
       "key": "russian_ruble",
       "localized": "Russian Ruble"
     },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
     "symbol": {
       "long": "₽",
       "short": "₽",
@@ -983,11 +818,6 @@
     "name": {
       "key": "saudi_riyal",
       "localized": "Saudi riyal"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "SِAR",
@@ -1014,11 +844,6 @@
       "key": "swedish_krona",
       "localized": "Swedish krona"
     },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
     "symbol": {
       "long": "kr",
       "short": "kr",
@@ -1043,11 +868,6 @@
     "name": {
       "key": "singapore_dollar",
       "localized": "Singapore dollar"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "S$",
@@ -1074,11 +894,6 @@
       "key": "thai_baht",
       "localized": "Thai baht"
     },
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
     "symbol": {
       "long": "฿",
       "short": "฿",
@@ -1103,11 +918,6 @@
     "name": {
       "key": "turkish_lira",
       "localized": "Turkish lira"
-    },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
     },
     "symbol": {
       "long": "₺",
@@ -1134,11 +944,6 @@
       "key": "american_dollar",
       "localized": "American Dollar"
     },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
     "symbol": {
       "long": "US$",
       "short": "$",
@@ -1164,17 +969,43 @@
       "key": "south_african_rand",
       "localized": "South African rand"
     },
-    "pip": {
-      "pipette": 5,
-      "precision": 4,
-      "round": 5
-    },
     "symbol": {
       "long": "R",
       "short": "R",
       "ticker": "ZAR"
     },
     "type": "currency"
+  },
+  "instrument_types": {
+    "commodity_energy": {
+      "key": "commodities",
+      "main": "commodity",
+      "sub": "energy",
+      "subKey": "energy",
+      "weight": 50
+    },
+    "commodity_metal": {
+      "key": "commodities",
+      "main": "commodity",
+      "sub": "metal",
+      "subKey": "metal",
+      "weight": 50
+    },
+    "crypto": {
+      "key": "cryptos",
+      "main": "crypto",
+      "weight": 25
+    },
+    "currency": {
+      "key": "currencies",
+      "main": "currency",
+      "weight": 100
+    },
+    "index": {
+      "key": "indexes",
+      "main": "index",
+      "weight": 75
+    }
   },
   "lot_units": {
     "barrel": {
@@ -1196,37 +1027,6 @@
       "key": "ounce",
       "long": "ounce",
       "short": "oz"
-    }
-  },
-  "instrument_types": {
-    "currency": {
-      "key": "currencies",
-      "main": "currency",
-      "weight": 100
-    },
-    "index": {
-      "key": "indexes",
-      "main": "index",
-      "weight": 75
-    },
-    "commodity_metal": {
-      "key": "commodities",
-      "subKey": "metal",
-      "main": "commodity",
-      "sub": "metal",
-      "weight": 50
-    },
-    "commodity_energy": {
-      "key": "commodities",
-      "subKey": "energy",
-      "main": "commodity",
-      "sub": "energy",
-      "weight": 50
-    },
-    "crypto": {
-      "key": "cryptos",
-      "main": "crypto",
-      "weight": 25
     }
   }
 }
