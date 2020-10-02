@@ -59,6 +59,8 @@ mixin MatexPipValueMixin<
     if (tradingPairQuoteFuture != null) {
       final tradingPairQuote = await tradingPairQuoteFuture;
       tradingPairExchangeRate(tradingPairQuote.price);
+      baseListedSecond(false);
+      baseExchangeRate(0);
 
       if (accountCode == counterCode) {
         baseListedSecond(true);
@@ -67,6 +69,7 @@ mixin MatexPipValueMixin<
           accountCode,
           baseCode,
         );
+
         baseExchangeRate(accountBaseQuote.price);
       }
     }
