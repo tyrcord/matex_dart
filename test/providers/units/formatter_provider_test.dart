@@ -43,7 +43,7 @@ void main() {
         expect(
           formatter.formatQuote(
             value: 1.4255,
-            code: 'EUR',
+            pair: 'EURUSD',
             locale: 'en-US',
           ),
           completion(equals(

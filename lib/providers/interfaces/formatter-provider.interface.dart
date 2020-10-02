@@ -11,7 +11,7 @@ abstract class MatexAbstractFormatterProvider {
 
   Future<String> formatQuote({
     @required double value,
-    @required String code,
+    @required String pair,
     @required String locale,
     int minimumFractionDigits,
     int maximumFractionDigits,

@@ -5,8 +5,8 @@ class MatexPipValueCalculatorCore extends MatexBaseCalculator<
     with
         MatexLotCoreMixin<MatexPipValueCalculatorCore, MatexPipValueCoreState,
             double>,
-        MatexPipValueCoreMixin<MatexPipValueCalculatorCore, MatexPipValueCoreState,
-            double> {
+        MatexPipValueCoreMixin<MatexPipValueCalculatorCore,
+            MatexPipValueCoreState, double> {
   MatexPipValueCalculatorCore({
     MatexPipValueCoreState initialState,
     List<MatexStateValidator> validators,

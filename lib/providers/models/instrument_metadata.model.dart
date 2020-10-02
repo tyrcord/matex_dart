@@ -8,7 +8,6 @@ class MatexInstrumentMetadata extends Equatable {
   final MatexInstrumentFormatMetadata format;
   final MatexInstrumentLotsMetadata lots;
   final MatexInstrumentNameMetadata name;
-  final MatexInstrumentPipMetadata pip;
   final MatexInstrumentSymbolMetadata symbol;
   final MatexInstrumentTypeMetadata type;
 
@@ -18,7 +17,6 @@ class MatexInstrumentMetadata extends Equatable {
     this.format,
     this.lots,
     this.name,
-    this.pip,
     this.symbol,
     this.type,
   });
@@ -36,9 +34,6 @@ class MatexInstrumentMetadata extends Equatable {
       name: MatexInstrumentNameMetadata.fromJson(
         json['name'] as Map<String, dynamic>,
       ),
-      pip: MatexInstrumentPipMetadata.fromJson(
-        json['pip'] as Map<String, dynamic>,
-      ),
       symbol: MatexInstrumentSymbolMetadata.fromJson(
         json['symbol'] as Map<String, dynamic>,
       ),
@@ -53,7 +48,6 @@ class MatexInstrumentMetadata extends Equatable {
         format,
         lots,
         name,
-        pip,
         symbol,
         type,
       ];

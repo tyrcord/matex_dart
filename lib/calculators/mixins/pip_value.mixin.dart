@@ -6,6 +6,9 @@ mixin MatexPipValueMixin<
     R> on MatexAbstractPipValueCalculatorCore<C, S, R> {
   MatexConfig config;
 
+  MatexAbstractPairMetadataProvider get pairProvider =>
+      config?.pairProvider ?? MatexPairMetadataProvider();
+
   MatexAbstractInstrumentMetadataProvider get instrumentProvider =>
       config?.instrumentProvider ?? MatexInstrumentProvider();
 
@@ -39,6 +42,12 @@ mixin MatexPipValueMixin<
     return instrumentProvider.metadata(baseCode);
   }
 
+  Future<MatexPairMetadata> fetchPairMetadata() {
+    final baseCode = state.baseCode;
+    final counterCode = state.counterCode;
+    return pairProvider.metadata(baseCode + counterCode);
+  }
+
   Future<void> setExchangeRates() async {
     final baseCode = state.baseCode;
     final accountCode = state.accountCode;
@@ -48,11 +57,13 @@ mixin MatexPipValueMixin<
       counterCode,
     );
 
-    final counterMetadata = await fetchCounterInstrumentMetadata();
+    final pairMetadata = await fetchPairMetadata();
 
-    if (counterMetadata != null) {
+    if (pairMetadata != null) {
+      patchState(MatexPipValueState(pipPrecision: pairMetadata.pip.precision));
+    } else {
       patchState(MatexPipValueState(
-        pipPrecision: counterMetadata.pip.precision,
+        pipPrecision: MatexPairPipMetadata.defaultMetatda().precision,
       ));
     }
 

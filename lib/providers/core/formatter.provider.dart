@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:intl/intl.dart';
+import 'package:matex_dart/providers/core/core.dart';
+import 'package:matex_dart/providers/models/instrument_pip_metadata.model.dart';
 
 import '../interfaces/interfaces.dart';
 import 'instrument.provider.dart';
@@ -8,10 +10,13 @@ const _kEmptyString = '';
 
 class MatexFormatterProvider implements MatexAbstractFormatterProvider {
   final MatexInstrumentProvider instrumentProvider;
+  final MatexPairMetadataProvider pairProvider;
 
   MatexFormatterProvider({
     MatexInstrumentProvider instrumentProvider,
+    MatexPairMetadataProvider pairProvider,
   })  : instrumentProvider = instrumentProvider ?? MatexInstrumentProvider(),
+        pairProvider = pairProvider ?? MatexPairMetadataProvider(),
         super();
 
   @override
@@ -43,25 +48,22 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
   @override
   Future<String> formatQuote({
     double value,
-    String code,
+    String pair,
     String locale,
     int maximumFractionDigits,
     int minimumFractionDigits,
   }) async {
-    final instrumentMetadata = await instrumentProvider.metadata(code);
-    if (instrumentMetadata != null) {
-      final pip = instrumentMetadata.pip;
-      final round = pip.round;
+    final pairMetadata = await pairProvider.metadata(pair);
+    var round = pairMetadata != null
+        ? pairMetadata.pip.round
+        : MatexPairPipMetadata.defaultMetatda().round;
 
-      return formatNumber(
-        value,
-        locale,
-        maximumFractionDigits ?? round,
-        minimumFractionDigits ?? round,
-      );
-    }
-
-    return _kEmptyString;
+    return formatNumber(
+      value,
+      locale,
+      maximumFractionDigits ?? round,
+      minimumFractionDigits ?? round,
+    );
   }
 
   String _formatCurrency(

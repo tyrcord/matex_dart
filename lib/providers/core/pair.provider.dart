@@ -33,7 +33,8 @@ class MatexPairMetadataProvider extends MatexAbstractPairMetadataProvider {
 
   void _removeExtraMetadata(Map<String, dynamic> metadata) {
     metadata.removeWhere((String key, dynamic json) {
-      final shouldRemoveExtraMetadata = key == 'pair_types';
+      final shouldRemoveExtraMetadata =
+          key == 'pair_types' || key == 'default_pip';
 
       if (shouldRemoveExtraMetadata) {
         _extractExtraMetadata(key, json as Map<String, dynamic>);
