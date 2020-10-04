@@ -116,8 +116,8 @@ void main() {
       });
 
       test(
-          'Should be valid when only the entry price, the position size, the base exchange rate and the takeProfitPrice are set',
-          () {
+          'Should be valid when only the entry price, the position size, '
+          'the base exchange rate and the takeProfitPrice are set', () {
         calculator
             .positionSize(5000)
             .tradingPairExchangeRate(1.5)
@@ -127,8 +127,8 @@ void main() {
       });
 
       test(
-          'Should be valid when only the entry price, the position size, the base exchange rate and the takeProfitPips are set',
-          () {
+          'Should be valid when only the entry price, the position size, '
+          'the base exchange rate and the takeProfitPips are set', () {
         calculator
             .positionSize(5000)
             .tradingPairExchangeRate(1.5)
@@ -138,19 +138,21 @@ void main() {
       });
 
       test(
-          'Should be valid when only the entry price, the position size, the base exchange rate and the stopLossAmount are set',
-          () {
-        calculator
-            .positionSize(5000)
-            .tradingPairExchangeRate(1.5)
-            .stopLossAmount(200)
-            .entryPrice(1.5);
-        expect(calculator.isValid, equals(true));
-      });
+        'Should be valid when only the entry price, the position size, '
+        'the base exchange rate and the stopLossAmount are set',
+        () {
+          calculator
+              .positionSize(5000)
+              .tradingPairExchangeRate(1.5)
+              .stopLossAmount(200)
+              .entryPrice(1.5);
+          expect(calculator.isValid, equals(true));
+        },
+      );
 
       test(
-          'Should be valid when only the entry price, the position size, the base exchange rate and the stopLossPrice are set',
-          () {
+          'Should be valid when only the entry price, the position size, '
+          'the base exchange rate and the stopLossPrice are set', () {
         calculator
             .positionSize(5000)
             .tradingPairExchangeRate(1.5)
@@ -160,8 +162,8 @@ void main() {
       });
 
       test(
-          'Should be valid when only the entry price, the position size, the base exchange rate and the stopLossPips are set',
-          () {
+          'Should be valid when only the entry price, the position size, '
+          'the base exchange rate and the stopLossPips are set', () {
         calculator
             .positionSize(5000)
             .tradingPairExchangeRate(1.5)
@@ -173,7 +175,7 @@ void main() {
 
     group('#setState()', () {
       test(SHOULD_UPDATE_CALCULATOR_STATE, () {
-        calculator.setState(MatexStopLossTakeProfitCoreState(
+        calculator.setState(MatexBaseCoreState(
           positionSize: 1000,
         ));
 
@@ -181,7 +183,7 @@ void main() {
       });
 
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        final instance = calculator.setState(MatexStopLossTakeProfitCoreState(
+        final instance = calculator.setState(MatexBaseCoreState(
           pipPrecision: 2,
         ));
 

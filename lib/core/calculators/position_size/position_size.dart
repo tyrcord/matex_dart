@@ -10,16 +10,16 @@ const DEFAULT_RESULTS = MatexPositionSizeResult(
 );
 
 class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
-        MatexPositionSizeCalculatorCore, MatexPositionSizeCoreState, MatexPositionSizeResult>
+        MatexPositionSizeCalculatorCore, MatexPositionSizeResult>
     with
-        MatexLotCoreMixin<MatexPositionSizeCalculatorCore, MatexPositionSizeCoreState,
+        MatexLotCoreMixin<MatexPositionSizeCalculatorCore,
             MatexPositionSizeResult>,
-        MatexPipValueCoreMixin<MatexPositionSizeCalculatorCore, MatexPositionSizeCoreState,
+        MatexPipValueCoreMixin<MatexPositionSizeCalculatorCore,
             MatexPositionSizeResult>,
         MatexPositionSizeMarginCoreMixin<MatexPositionSizeCalculatorCore,
-            MatexPositionSizeCoreState, MatexPositionSizeResult> {
+            MatexPositionSizeResult> {
   MatexPositionSizeCalculatorCore({
-    MatexPositionSizeCoreState initialState,
+    MatexBaseCoreState initialState,
     List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialPositionSizeState,
@@ -116,7 +116,7 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexPositionSizeCalculatorCore positionSize({
-  MatexPositionSizeCoreState initialState,
+  MatexBaseCoreState initialState,
   List<MatexStateValidator> validators,
 }) =>
     MatexPositionSizeCalculatorCore(

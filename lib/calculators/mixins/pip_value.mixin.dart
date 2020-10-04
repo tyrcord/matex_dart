@@ -1,9 +1,7 @@
 import 'package:matex_dart/matex_dart.dart';
 
-mixin MatexPipValueMixin<
-    C extends MatexAbstractPipValueCalculatorCore<C, S, R>,
-    S extends MatexPipValueCoreState,
-    R> on MatexAbstractPipValueCalculatorCore<C, S, R> {
+mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
+    on MatexAbstractPipValueCalculatorCore<C, R> {
   MatexConfig config;
 
   MatexAbstractPairMetadataProvider get pairProvider =>
@@ -16,15 +14,27 @@ mixin MatexPipValueMixin<
       config?.exchangeProvider;
 
   C accountCode(String accountCode) {
-    return patchState(MatexPipValueState(accountCode: accountCode));
+    if (accountCode != null) {
+      return patchState(MatexBaseCoreState(accountCode: accountCode));
+    }
+
+    return resetStateProperty(MatexCoreStateProperty.accountCode);
   }
 
   C baseCode(String baseCode) {
-    return patchState(MatexPipValueState(baseCode: baseCode));
+    if (baseCode != null) {
+      return patchState(MatexBaseCoreState(baseCode: baseCode));
+    }
+
+    return resetStateProperty(MatexCoreStateProperty.baseCode);
   }
 
   C counterCode(String counterCode) {
-    return patchState(MatexPipValueState(counterCode: counterCode));
+    if (counterCode != null) {
+      return patchState(MatexBaseCoreState(counterCode: counterCode));
+    }
+
+    return resetStateProperty(MatexCoreStateProperty.counterCode);
   }
 
   Future<MatexInstrumentMetadata> fetchAccountInstrumentMetadata() {
@@ -60,9 +70,9 @@ mixin MatexPipValueMixin<
     final pairMetadata = await fetchPairMetadata();
 
     if (pairMetadata != null) {
-      patchState(MatexPipValueState(pipPrecision: pairMetadata.pip.precision));
+      patchState(MatexBaseCoreState(pipPrecision: pairMetadata.pip.precision));
     } else {
-      patchState(MatexPipValueState(
+      patchState(MatexBaseCoreState(
         pipPrecision: MatexPairPipMetadata.defaultMetatda().precision,
       ));
     }

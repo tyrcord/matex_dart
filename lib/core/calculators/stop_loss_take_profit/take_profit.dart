@@ -2,17 +2,14 @@ import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
-        MatexTakeProfitCalculatorCore, MatexTakeProfitCoreState, MatexTakeProfitResult>
+        MatexTakeProfitCalculatorCore, MatexTakeProfitResult>
     with
-        MatexTakeProfitCoreMixin<MatexTakeProfitCalculatorCore, MatexTakeProfitCoreState,
+        MatexTakeProfitCoreMixin<MatexTakeProfitCalculatorCore,
             MatexTakeProfitResult>,
-        MatexPipValueCoreMixin<MatexTakeProfitCalculatorCore, MatexTakeProfitCoreState,
+        MatexPipValueCoreMixin<MatexTakeProfitCalculatorCore,
             MatexTakeProfitResult> {
-  MatexTakeProfitCalculatorCore({
-    MatexTakeProfitCoreState initialState,
-  }) : super(
-          initialState: initialState ?? kInitialTakeProfitState,
-        );
+  MatexTakeProfitCalculatorCore({MatexBaseCoreState initialState})
+      : super(initialState: initialState ?? kInitialTakeProfitState);
 
   @override
   MatexTakeProfitResult value({Decimal pipValue}) {
@@ -143,8 +140,6 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexTakeProfitCalculatorCore takeProfit({
-  MatexTakeProfitCoreState initialState,
+  MatexBaseCoreState initialState,
 }) =>
-    MatexTakeProfitCalculatorCore(
-      initialState: initialState,
-    );
+    MatexTakeProfitCalculatorCore(initialState: initialState);

@@ -1,7 +1,7 @@
 import 'package:matex_dart/matex_dart.dart';
 
-mixin MatexPositionSizeMarginCoreMixin<C extends MatexBaseCalculator<C, S, R>,
-    S extends MatexBaseCoreState, R> on MatexBaseCalculator<C, S, R> {
+mixin MatexPositionSizeMarginCoreMixin<C extends MatexBaseCalculator<C, R>, R>
+    on MatexBaseCalculator<C, R> {
   C accountSize(double accountSize) {
     final sanitizedValue = sanitizeDouble(accountSize);
     return patchState(MatexBaseCoreState(accountSize: sanitizedValue));

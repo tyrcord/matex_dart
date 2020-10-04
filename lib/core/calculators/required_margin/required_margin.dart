@@ -1,17 +1,15 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-class MatexRequiredMarginCalculatorCore extends MatexBaseCalculator<
-        MatexRequiredMarginCalculatorCore, MatexRequiredMarginCoreState, double>
+class MatexRequiredMarginCalculatorCore
+    extends MatexBaseCalculator<MatexRequiredMarginCalculatorCore, double>
     with
-        MatexLotCoreMixin<MatexRequiredMarginCalculatorCore, MatexRequiredMarginCoreState,
-            double>,
-        MatexPipValueCoreMixin<MatexRequiredMarginCalculatorCore, MatexRequiredMarginCoreState,
-            double>,
+        MatexLotCoreMixin<MatexRequiredMarginCalculatorCore, double>,
+        MatexPipValueCoreMixin<MatexRequiredMarginCalculatorCore, double>,
         MatexRequiredMarginCoreMixin<MatexRequiredMarginCalculatorCore,
-            MatexRequiredMarginCoreState, double> {
+            double> {
   MatexRequiredMarginCalculatorCore({
-    MatexRequiredMarginCoreState initialState,
+    MatexBaseCoreState initialState,
     List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialRequiredMarginState,
@@ -32,7 +30,9 @@ class MatexRequiredMarginCalculatorCore extends MatexBaseCalculator<
 
     final rate = baseExchangeRate > 0
         ? baseExchangeRate
-        : baseListedSecond ? tradingPairExchangeRate : 1;
+        : baseListedSecond
+            ? tradingPairExchangeRate
+            : 1;
 
     return (result = (Decimal.parse(positionSize.toString()) /
             Decimal.parse(leverage.toString()) *
@@ -42,7 +42,7 @@ class MatexRequiredMarginCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexRequiredMarginCalculatorCore requiredMargin({
-  MatexRequiredMarginCoreState initialState,
+  MatexBaseCoreState initialState,
   List<MatexStateValidator> validators,
 }) =>
     MatexRequiredMarginCalculatorCore(

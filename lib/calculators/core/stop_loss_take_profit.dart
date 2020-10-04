@@ -4,35 +4,24 @@ import 'package:meta/meta.dart';
 class MatexStopLossTakeProfitCalculator
     extends MatexAbstractPipValueCalculatorCore<
         MatexStopLossTakeProfitCalculator,
-        MatexStopLossTakeProfitState,
         Future<MatexStopLossTakeProfitResult>>
     with
-        MatexLotCoreMixin<
-            MatexStopLossTakeProfitCalculator,
-            MatexStopLossTakeProfitState,
+        MatexLotCoreMixin<MatexStopLossTakeProfitCalculator,
             Future<MatexStopLossTakeProfitResult>>,
-        MatexPipValueCoreMixin<
-            MatexStopLossTakeProfitCalculator,
-            MatexStopLossTakeProfitState,
+        MatexPipValueCoreMixin<MatexStopLossTakeProfitCalculator,
             Future<MatexStopLossTakeProfitResult>>,
-        MatexPipValueMixin<
-            MatexStopLossTakeProfitCalculator,
-            MatexStopLossTakeProfitState,
+        MatexPipValueMixin<MatexStopLossTakeProfitCalculator,
             Future<MatexStopLossTakeProfitResult>>,
-        MatexTakeProfitCoreMixin<
-            MatexStopLossTakeProfitCalculator,
-            MatexStopLossTakeProfitState,
+        MatexTakeProfitCoreMixin<MatexStopLossTakeProfitCalculator,
             Future<MatexStopLossTakeProfitResult>>,
-        MatexStopLossCoreMixin<
-            MatexStopLossTakeProfitCalculator,
-            MatexStopLossTakeProfitState,
+        MatexStopLossCoreMixin<MatexStopLossTakeProfitCalculator,
             Future<MatexStopLossTakeProfitResult>> {
   @override
   final MatexConfig config;
 
   MatexStopLossTakeProfitCalculator({
     @required this.config,
-    MatexStopLossTakeProfitState initialState,
+    MatexBaseCoreState initialState,
     List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialMatexStopLossTakeProfitState,
@@ -53,7 +42,7 @@ class MatexStopLossTakeProfitCalculator
 
 MatexStopLossTakeProfitCalculator matexStopLossTakeProfit({
   MatexConfig config,
-  MatexStopLossTakeProfitState initialState,
+  MatexBaseCoreState initialState,
   List<MatexStateValidator> validators,
 }) {
   return MatexStopLossTakeProfitCalculator(

@@ -2,8 +2,8 @@ import 'package:matex_dart/matex_dart.dart';
 import 'package:decimal/decimal.dart';
 import 'package:meta/meta.dart';
 
-mixin MatexLotCoreMixin<C extends MatexBaseCalculator<C, S, R>,
-    S extends MatexBaseCoreState, R> on MatexBaseCalculator<C, S, R> {
+mixin MatexLotCoreMixin<C extends MatexBaseCalculator<C, R>, R>
+    on MatexBaseCalculator<C, R> {
   C lotDescriptors(MatexLotDescriptors lotDescriptors) {
     return patchState(MatexBaseCoreState(lotDescriptors: lotDescriptors));
   }

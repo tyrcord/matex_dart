@@ -1,14 +1,12 @@
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
-        MatexPivotPointsCalculatorCore,
-        MatexPivotPointsCoreState,
-        MatexPivotPointsResult>
+        MatexPivotPointsCalculatorCore, MatexPivotPointsResult>
     with
-        MatexPivotPointsCoreMixin<MatexPivotPointsCalculatorCore, MatexPivotPointsCoreState,
+        MatexPivotPointsCoreMixin<MatexPivotPointsCalculatorCore,
             MatexPivotPointsResult> {
   MatexPivotPointsCalculatorCore({
-    MatexPivotPointsCoreState initialState,
+    MatexBaseCoreState initialState,
     List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialPivotPointsState,
@@ -51,7 +49,7 @@ class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexPivotPointsCalculatorCore pivotPoints({
-  MatexPivotPointsCoreState initialState,
+  MatexBaseCoreState initialState,
   List<MatexStateValidator> validators,
 }) =>
     MatexPivotPointsCalculatorCore(

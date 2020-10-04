@@ -2,20 +2,18 @@ import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
-        MatexStopLossTakeProfitCalculatorCore,
-        MatexStopLossTakeProfitCoreState,
-        MatexStopLossTakeProfitResult>
+        MatexStopLossTakeProfitCalculatorCore, MatexStopLossTakeProfitResult>
     with
         MatexTakeProfitCoreMixin<MatexStopLossTakeProfitCalculatorCore,
-            MatexStopLossTakeProfitCoreState, MatexStopLossTakeProfitResult>,
+            MatexStopLossTakeProfitResult>,
         MatexStopLossCoreMixin<MatexStopLossTakeProfitCalculatorCore,
-            MatexStopLossTakeProfitCoreState, MatexStopLossTakeProfitResult>,
-        MatexLotCoreMixin<MatexStopLossTakeProfitCalculatorCore, MatexStopLossTakeProfitCoreState,
+            MatexStopLossTakeProfitResult>,
+        MatexLotCoreMixin<MatexStopLossTakeProfitCalculatorCore,
             MatexStopLossTakeProfitResult>,
         MatexPipValueCoreMixin<MatexStopLossTakeProfitCalculatorCore,
-            MatexStopLossTakeProfitCoreState, MatexStopLossTakeProfitResult> {
+            MatexStopLossTakeProfitResult> {
   MatexStopLossTakeProfitCalculatorCore({
-    MatexStopLossTakeProfitCoreState initialState,
+    MatexBaseCoreState initialState,
     List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialStopLossTakeProfitState,
@@ -32,17 +30,15 @@ class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
       final pipValue = computePipValue();
       final stopLossCalculator = stopLoss();
       final takeProfitCalculator = takeProfit();
-      final tmpState = validState.copyWithState(MatexStopLossTakeProfitCoreState(
-        position: state.position,
-      ));
+      final tmpState = validState.copyWithState(
+        MatexBaseCoreState(position: state.position),
+      );
 
-      final stopLossResult = stopLossCalculator
-          .setState(tmpState.toStopLossState())
-          .value(pipValue: pipValue);
+      final stopLossResult =
+          stopLossCalculator.setState(tmpState).value(pipValue: pipValue);
 
-      final takeProfitResult = takeProfitCalculator
-          .setState(tmpState.toTakeProfitState())
-          .value(pipValue: pipValue);
+      final takeProfitResult =
+          takeProfitCalculator.setState(tmpState).value(pipValue: pipValue);
 
       return (result = MatexStopLossTakeProfitResult(
         pipValue: pipValue.toDouble(),
@@ -82,7 +78,7 @@ class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexStopLossTakeProfitCalculatorCore stopLossTakeProfit({
-  MatexStopLossTakeProfitCoreState initialState,
+  MatexBaseCoreState initialState,
   List<MatexStateValidator> validators,
 }) =>
     MatexStopLossTakeProfitCalculatorCore(

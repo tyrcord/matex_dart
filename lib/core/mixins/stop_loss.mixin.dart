@@ -1,8 +1,13 @@
+import 'dart:developer';
+
 import 'package:matex_dart/matex_dart.dart';
 
-mixin MatexStopLossCoreMixin<C extends MatexBaseCalculator<C, S, R>,
-    S extends MatexBaseCoreState, R> on MatexBaseCalculator<C, S, R> {
+mixin MatexStopLossCoreMixin<C extends MatexBaseCalculator<C, R>, R>
+    on MatexBaseCalculator<C, R> {
   C entryPrice(double entryPrice) {
+    log('MatexStopLossCoreMixin entryPrice: $entryPrice');
+    log('MatexStopLossCoreMixin takeProfitPrice: ${state.takeProfitPrice}');
+
     final sanitizedValue = sanitizeDouble(entryPrice);
     return patchState(MatexBaseCoreState(entryPrice: sanitizedValue));
   }
@@ -12,23 +17,26 @@ mixin MatexStopLossCoreMixin<C extends MatexBaseCalculator<C, S, R>,
   }
 
   C stopLossAmount(double stopLossAmount) {
-    final sanitizedValue = sanitizeDouble(stopLossAmount);
-    patchState(MatexBaseCoreState(stopLossPips: 0.0));
-    patchState(MatexBaseCoreState(stopLossPrice: 0.0));
-    return patchState(MatexBaseCoreState(stopLossAmount: sanitizedValue));
+    return patchState(MatexBaseCoreState(
+      stopLossPrice: 0.0,
+      stopLossPips: 0.0,
+      stopLossAmount: sanitizeDouble(stopLossAmount),
+    ));
   }
 
   C stopLossPips(double stopLossPips) {
-    final sanitizedValue = sanitizeDouble(stopLossPips);
-    patchState(MatexBaseCoreState(stopLossAmount: 0.0));
-    patchState(MatexBaseCoreState(stopLossPrice: 0.0));
-    return patchState(MatexBaseCoreState(stopLossPips: sanitizedValue));
+    return patchState(MatexBaseCoreState(
+      stopLossPrice: 0.0,
+      stopLossPips: sanitizeDouble(stopLossPips),
+      stopLossAmount: 0.0,
+    ));
   }
 
   C stopLossPrice(double stopLossPrice) {
-    final sanitizedValue = sanitizeDouble(stopLossPrice);
-    patchState(MatexBaseCoreState(stopLossAmount: 0.0));
-    patchState(MatexBaseCoreState(stopLossPips: 0.0));
-    return patchState(MatexBaseCoreState(stopLossPrice: sanitizedValue));
+    return patchState(MatexBaseCoreState(
+      stopLossPrice: sanitizeDouble(stopLossPrice),
+      stopLossPips: 0.0,
+      stopLossAmount: 0.0,
+    ));
   }
 }

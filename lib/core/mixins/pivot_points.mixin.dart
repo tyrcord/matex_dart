@@ -1,7 +1,7 @@
 import 'package:matex_dart/matex_dart.dart';
 
-mixin MatexPivotPointsCoreMixin<C extends MatexBaseCalculator<C, S, R>,
-    S extends MatexBaseCoreState, R> on MatexBaseCalculator<C, S, R> {
+mixin MatexPivotPointsCoreMixin<C extends MatexBaseCalculator<C, R>, R>
+    on MatexBaseCalculator<C, R> {
   C closePrice(double closePrice) {
     final sanitizedValue = sanitizeDouble(closePrice);
     return patchState(MatexBaseCoreState(closePrice: sanitizedValue));

@@ -1,8 +1,12 @@
+import 'dart:developer';
+
 import 'package:matex_dart/matex_dart.dart';
 
-mixin MatexTakeProfitCoreMixin<C extends MatexBaseCalculator<C, S, R>,
-    S extends MatexBaseCoreState, R> on MatexBaseCalculator<C, S, R> {
+mixin MatexTakeProfitCoreMixin<C extends MatexBaseCalculator<C, R>, R>
+    on MatexBaseCalculator<C, R> {
   C entryPrice(double entryPrice) {
+    log('MatexTakeProfitCoreMixin entryPrice: $entryPrice');
+
     final sanitizedValue = sanitizeDouble(entryPrice);
     return patchState(MatexBaseCoreState(entryPrice: sanitizedValue));
   }
@@ -12,23 +16,31 @@ mixin MatexTakeProfitCoreMixin<C extends MatexBaseCalculator<C, S, R>,
   }
 
   C takeProfitAmount(double takeProfitAmount) {
-    final sanitizedValue = sanitizeDouble(takeProfitAmount);
-    patchState(MatexBaseCoreState(takeProfitPrice: 0.0));
-    patchState(MatexBaseCoreState(takeProfitPips: 0.0));
-    return patchState(MatexBaseCoreState(takeProfitAmount: sanitizedValue));
+    return patchState(MatexBaseCoreState(
+      takeProfitPrice: 0.0,
+      takeProfitPips: 0.0,
+      takeProfitAmount: sanitizeDouble(takeProfitAmount),
+    ));
   }
 
   C takeProfitPips(double takeProfitPips) {
-    final sanitizedValue = sanitizeDouble(takeProfitPips);
-    patchState(MatexBaseCoreState(takeProfitAmount: 0.0));
-    patchState(MatexBaseCoreState(takeProfitPrice: 0.0));
-    return patchState(MatexBaseCoreState(takeProfitPips: sanitizedValue));
+    return patchState(MatexBaseCoreState(
+      takeProfitPrice: 0.0,
+      takeProfitPips: sanitizeDouble(takeProfitPips),
+      takeProfitAmount: 0.0,
+    ));
   }
 
   C takeProfitPrice(double takeProfitPrice) {
-    final sanitizedValue = sanitizeDouble(takeProfitPrice);
-    patchState(MatexBaseCoreState(takeProfitAmount: 0.0));
-    patchState(MatexBaseCoreState(takeProfitPips: 0.0));
-    return patchState(MatexBaseCoreState(takeProfitPrice: sanitizedValue));
+    log('takeProfitPrice: $takeProfitPrice');
+
+    var stt = patchState(MatexBaseCoreState(
+      takeProfitPrice: sanitizeDouble(takeProfitPrice),
+      takeProfitPips: 0.0,
+      takeProfitAmount: 0.0,
+    ));
+    log('MatexStopLossCoreMixin takeProfitPrice: ${state.takeProfitPrice}');
+
+    return stt;
   }
 }

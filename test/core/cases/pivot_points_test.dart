@@ -134,7 +134,7 @@ void main() {
 
     group('#setState()', () {
       test(SHOULD_UPDATE_CALCULATOR_STATE, () {
-        calculator.setState(MatexPivotPointsCoreState(
+        calculator.setState(MatexBaseCoreState(
           closePrice: 1,
         ));
 
@@ -142,7 +142,7 @@ void main() {
       });
 
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        final instance = calculator.setState(MatexPivotPointsCoreState(
+        final instance = calculator.setState(MatexBaseCoreState(
           closePrice: 1,
         ));
 

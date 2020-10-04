@@ -79,7 +79,7 @@ void main() {
 
     group('#setState()', () {
       test(SHOULD_UPDATE_CALCULATOR_STATE, () {
-        calculator.setState(MatexPositionSizeCoreState(
+        calculator.setState(MatexBaseCoreState(
           positionSize: 1000,
         ));
 
@@ -87,7 +87,7 @@ void main() {
       });
 
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        final instance = calculator.setState(MatexPositionSizeCoreState(
+        final instance = calculator.setState(MatexBaseCoreState(
           pipPrecision: 2,
         ));
 

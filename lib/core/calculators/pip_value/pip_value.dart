@@ -1,14 +1,12 @@
 import 'package:matex_dart/matex_dart.dart';
 
-class MatexPipValueCalculatorCore extends MatexBaseCalculator<
-        MatexPipValueCalculatorCore, MatexPipValueCoreState, double>
+class MatexPipValueCalculatorCore
+    extends MatexBaseCalculator<MatexPipValueCalculatorCore, double>
     with
-        MatexLotCoreMixin<MatexPipValueCalculatorCore, MatexPipValueCoreState,
-            double>,
-        MatexPipValueCoreMixin<MatexPipValueCalculatorCore,
-            MatexPipValueCoreState, double> {
+        MatexLotCoreMixin<MatexPipValueCalculatorCore, double>,
+        MatexPipValueCoreMixin<MatexPipValueCalculatorCore, double> {
   MatexPipValueCalculatorCore({
-    MatexPipValueCoreState initialState,
+    MatexBaseCoreState initialState,
     List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialPipValueState,
@@ -26,7 +24,7 @@ class MatexPipValueCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexPipValueCalculatorCore pip({
-  MatexPipValueCoreState initialState,
+  MatexBaseCoreState initialState,
   List<MatexStateValidator> validators,
 }) =>
     MatexPipValueCalculatorCore(

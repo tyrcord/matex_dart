@@ -1,26 +1,23 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, S, R>,
-    S extends MatexBaseCoreState, R> {
+abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
   @protected
-  S state;
+  MatexBaseCoreState state;
   @protected
   R result;
   @protected
   bool isStateValid = true;
   @protected
-  S initialState;
+  MatexBaseCoreState initialState;
   @protected
   List<MatexStateValidator> validators;
 
-  S get validState {
+  MatexBaseCoreState get validState {
     return isStateValid ? state : initialState;
   }
 
-  bool get isValid {
-    return isStateValid;
-  }
+  bool get isValid => isStateValid;
 
   MatexBaseCalculator({
     this.initialState,
@@ -33,17 +30,23 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, S, R>,
 
   C reset() => setState(initialState);
 
-  S getState() => state.clone() as S;
+  MatexBaseCoreState getState() => state.clone();
 
   C patchState(MatexBaseCoreState partialState) {
     result = null;
-    state = state.copyWithState(partialState) as S;
+    state = state.copyWithState(partialState);
+    return _checkStateValidity();
+  }
+
+  C resetStateProperty(String property) {
+    result = null;
+    state = state.copyWithOmittedProperties([property]);
     return _checkStateValidity();
   }
 
   C setState(MatexBaseCoreState state) {
     result = null;
-    this.state = state.clone() as S;
+    this.state = state.clone();
     return _checkStateValidity();
   }
 

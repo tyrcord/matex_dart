@@ -1,11 +1,9 @@
 import 'package:matex_dart/matex_dart.dart';
 
 abstract class MatexAbstractPipValueCalculatorCore<
-    C extends MatexBaseCalculator<C, S, R>,
-    S extends MatexBaseCoreState,
-    R> extends MatexBaseCalculator<C, S, R> {
+    C extends MatexBaseCalculator<C, R>, R> extends MatexBaseCalculator<C, R> {
   MatexAbstractPipValueCalculatorCore({
-    S initialState,
+    MatexBaseCoreState initialState,
     List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState,

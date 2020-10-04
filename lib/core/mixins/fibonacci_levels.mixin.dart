@@ -1,7 +1,7 @@
 import 'package:matex_dart/matex_dart.dart';
 
-mixin MatexFibonacciLevelsCoreMixin<C extends MatexBaseCalculator<C, S, R>,
-    S extends MatexBaseCoreState, R> on MatexBaseCalculator<C, S, R> {
+mixin MatexFibonacciLevelsCoreMixin<C extends MatexBaseCalculator<C, R>, R>
+    on MatexBaseCalculator<C, R> {
   C customPrice(double customPrice) {
     final sanitizedValue = sanitizeDouble(customPrice);
     return patchState(MatexBaseCoreState(customPrice: sanitizedValue));

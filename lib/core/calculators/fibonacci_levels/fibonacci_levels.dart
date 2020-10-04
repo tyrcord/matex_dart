@@ -4,14 +4,12 @@ import 'package:decimal/decimal.dart';
 final _hundred = Decimal.parse('100');
 
 class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
-        MatexFibonacciLevelsCalculatorCore,
-        MatexFibonacciLevelsCoreState,
-        FibonacciLevelsResult>
+        MatexFibonacciLevelsCalculatorCore, FibonacciLevelsResult>
     with
         MatexFibonacciLevelsCoreMixin<MatexFibonacciLevelsCalculatorCore,
-            MatexFibonacciLevelsCoreState, FibonacciLevelsResult> {
+            FibonacciLevelsResult> {
   MatexFibonacciLevelsCalculatorCore({
-    MatexFibonacciLevelsCoreState initialState,
+    MatexBaseCoreState initialState,
     List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialFibonacciLevelsState,
@@ -109,7 +107,7 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexFibonacciLevelsCalculatorCore fibonacciLevels({
-  MatexFibonacciLevelsCoreState initialState,
+  MatexBaseCoreState initialState,
   List<MatexStateValidator> validators,
 }) =>
     MatexFibonacciLevelsCalculatorCore(

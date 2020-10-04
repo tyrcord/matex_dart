@@ -2,24 +2,22 @@ import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
 class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
-        MatexPositionSizeCalculator,
-        MatexPositionSizeCoreState,
-        Future<MatexPositionSizeResult>>
+        MatexPositionSizeCalculator, Future<MatexPositionSizeResult>>
     with
         MatexLotCoreMixin<MatexPositionSizeCalculator,
-            MatexPositionSizeCoreState, Future<MatexPositionSizeResult>>,
+            Future<MatexPositionSizeResult>>,
         MatexPipValueCoreMixin<MatexPositionSizeCalculator,
-            MatexPositionSizeCoreState, Future<MatexPositionSizeResult>>,
+            Future<MatexPositionSizeResult>>,
         MatexPipValueMixin<MatexPositionSizeCalculator,
-            MatexPositionSizeCoreState, Future<MatexPositionSizeResult>>,
+            Future<MatexPositionSizeResult>>,
         MatexPositionSizeMarginCoreMixin<MatexPositionSizeCalculator,
-            MatexPositionSizeCoreState, Future<MatexPositionSizeResult>> {
+            Future<MatexPositionSizeResult>> {
   @override
   final MatexConfig config;
 
   MatexPositionSizeCalculator({
     @required this.config,
-    MatexPositionSizeCoreState initialState,
+    MatexBaseCoreState initialState,
     List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialMatexPositionSizeState,
@@ -40,7 +38,7 @@ class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
 
 MatexPositionSizeCalculator matexPositionSize({
   MatexConfig config,
-  MatexPositionSizeCoreState initialState,
+  MatexBaseCoreState initialState,
   List<MatexStateValidator> validators,
 }) {
   return MatexPositionSizeCalculator(

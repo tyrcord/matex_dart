@@ -1,9 +1,11 @@
+import 'dart:developer';
+
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, S, R>,
-    S extends MatexBaseCoreState, R> on MatexBaseCalculator<C, S, R> {
+mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
+    on MatexBaseCalculator<C, R> {
   C baseExchangeRate(double baseExchangeRate) {
     final sanitizedValue = sanitizeDouble(baseExchangeRate);
     return patchState(MatexBaseCoreState(baseExchangeRate: sanitizedValue));
@@ -18,18 +20,22 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, S, R>,
   }
 
   C positionSize(double positionSize) {
+    log('position: $positionSize');
+
     final sanitizedValue = sanitizeDouble(positionSize);
     return patchState(MatexBaseCoreState(positionSize: sanitizedValue));
   }
 
   C tradingPairExchangeRate(double tradingPairExchangeRate) {
+    log('tradingPairExchangeRate: $tradingPairExchangeRate');
+
     final sanitizedValue = sanitizeDouble(tradingPairExchangeRate);
     return patchState(
         MatexBaseCoreState(tradingPairExchangeRate: sanitizedValue));
   }
 
   @protected
-  Decimal pipValue(S state) {
+  Decimal pipValue(MatexBaseCoreState state) {
     final baseExchangeRate = state.baseExchangeRate;
     final baseListedSecond = state.baseListedSecond;
     final pipPrecision = state.pipPrecision;

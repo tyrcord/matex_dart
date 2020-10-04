@@ -2,20 +2,17 @@ import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
 class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
-        MatexPipValueCalculator, MatexPipValueState, Future<double>>
+        MatexPipValueCalculator, Future<double>>
     with
-        MatexLotCoreMixin<MatexPipValueCalculator, MatexPipValueState,
-            Future<double>>,
-        MatexPipValueCoreMixin<MatexPipValueCalculator, MatexPipValueState,
-            Future<double>>,
-        MatexPipValueMixin<MatexPipValueCalculator, MatexPipValueState,
-            Future<double>> {
+        MatexLotCoreMixin<MatexPipValueCalculator, Future<double>>,
+        MatexPipValueCoreMixin<MatexPipValueCalculator, Future<double>>,
+        MatexPipValueMixin<MatexPipValueCalculator, Future<double>> {
   @override
   final MatexConfig config;
 
   MatexPipValueCalculator({
     @required this.config,
-    MatexPipValueState initialState,
+    MatexBaseCoreState initialState,
     List<MatexStateValidator> validators,
   }) : super(
           initialState: initialState ?? kInitialMatexPipValueState,
@@ -36,7 +33,7 @@ class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
 
 MatexPipValueCalculator matexPipValue({
   MatexConfig config,
-  MatexPipValueState initialState,
+  MatexBaseCoreState initialState,
   List<MatexStateValidator> validators,
 }) {
   return MatexPipValueCalculator(

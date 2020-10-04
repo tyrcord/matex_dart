@@ -24,7 +24,7 @@ class MatexApp {
         );
 
   MatexPipValueCalculator pipValue({
-    MatexPipValueState state,
+    MatexBaseCoreState state,
     List<MatexStateValidator> validators,
   }) {
     return matexPipValue(
@@ -35,7 +35,7 @@ class MatexApp {
   }
 
   MatexPivotPointsCalculator pivotPoints({
-    MatexPivotPointsState state,
+    MatexBaseCoreState state,
     List<MatexStateValidator> validators,
   }) {
     return matexPivotPoints(
@@ -46,7 +46,7 @@ class MatexApp {
   }
 
   MatexFibonacciLevelsCalculator fibonacciLevels({
-    MatexFibonacciLevelsCoreState state,
+    MatexBaseCoreState state,
     List<MatexStateValidator> validators,
   }) {
     return matexFibonacciLevels(
@@ -57,7 +57,7 @@ class MatexApp {
   }
 
   MatexRequiredMarginCalculator requiredMargin({
-    MatexRequiredMarginState state,
+    MatexBaseCoreState state,
     List<MatexStateValidator> validators,
   }) {
     return matexRequiredMargin(
@@ -68,7 +68,7 @@ class MatexApp {
   }
 
   MatexPositionSizeCalculator positionSize({
-    MatexPositionSizeCoreState state,
+    MatexBaseCoreState state,
     List<MatexStateValidator> validators,
   }) {
     return matexPositionSize(
@@ -79,7 +79,7 @@ class MatexApp {
   }
 
   MatexStopLossTakeProfitCalculator stopLossTakeProfit({
-    MatexStopLossTakeProfitState state,
+    MatexBaseCoreState state,
     List<MatexStateValidator> validators,
   }) {
     return matexStopLossTakeProfit(

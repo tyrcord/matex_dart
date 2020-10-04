@@ -2,17 +2,15 @@ import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexStopLossCalculatorCore extends MatexBaseCalculator<
-        MatexStopLossCalculatorCore, MatexStopLossCoreState, MatexStopLossResult>
+        MatexStopLossCalculatorCore, MatexStopLossResult>
     with
-        MatexStopLossCoreMixin<MatexStopLossCalculatorCore, MatexStopLossCoreState,
+        MatexStopLossCoreMixin<MatexStopLossCalculatorCore,
             MatexStopLossResult>,
-        MatexPipValueCoreMixin<MatexStopLossCalculatorCore, MatexStopLossCoreState,
+        MatexPipValueCoreMixin<MatexStopLossCalculatorCore,
             MatexStopLossResult> {
   MatexStopLossCalculatorCore({
-    MatexStopLossCoreState initialState,
-  }) : super(
-          initialState: initialState ?? kInitialStopLossState,
-        );
+    MatexBaseCoreState initialState,
+  }) : super(initialState: initialState ?? kInitialStopLossState);
 
   @override
   MatexStopLossResult value({Decimal pipValue}) {
@@ -132,7 +130,7 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexStopLossCalculatorCore stopLoss({
-  MatexStopLossCoreState initialState,
+  MatexBaseCoreState initialState,
 }) =>
     MatexStopLossCalculatorCore(
       initialState: initialState,
