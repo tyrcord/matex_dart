@@ -38,9 +38,9 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
     return _checkStateValidity();
   }
 
-  C resetStateProperty(String property) {
+  C resetStateProperties(List<String> properties) {
     result = null;
-    state = state.copyWithOmittedProperties([property]);
+    state = state.copyWithOmittedProperties(properties);
     return _checkStateValidity();
   }
 

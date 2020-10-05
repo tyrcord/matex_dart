@@ -15,26 +15,44 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
 
   C accountCode(String accountCode) {
     if (accountCode != null) {
-      return patchState(MatexBaseCoreState(accountCode: accountCode));
+      return patchState(MatexBaseCoreState(
+        accountCode: accountCode,
+        baseExchangeRate: 0,
+      ));
     }
 
-    return resetStateProperty(MatexCoreStateProperty.accountCode);
+    return resetStateProperties([
+      MatexCoreStateProperty.accountCode,
+      MatexCoreStateProperty.baseExchangeRate,
+    ]);
   }
 
   C baseCode(String baseCode) {
     if (baseCode != null) {
-      return patchState(MatexBaseCoreState(baseCode: baseCode));
+      return patchState(MatexBaseCoreState(
+        baseCode: baseCode,
+        tradingPairExchangeRate: 0,
+      ));
     }
 
-    return resetStateProperty(MatexCoreStateProperty.baseCode);
+    return resetStateProperties([
+      MatexCoreStateProperty.baseCode,
+      MatexCoreStateProperty.tradingPairExchangeRate,
+    ]);
   }
 
   C counterCode(String counterCode) {
     if (counterCode != null) {
-      return patchState(MatexBaseCoreState(counterCode: counterCode));
+      return patchState(MatexBaseCoreState(
+        counterCode: counterCode,
+        tradingPairExchangeRate: 0,
+      ));
     }
 
-    return resetStateProperty(MatexCoreStateProperty.counterCode);
+    return resetStateProperties([
+      MatexCoreStateProperty.counterCode,
+      MatexCoreStateProperty.tradingPairExchangeRate,
+    ]);
   }
 
   Future<MatexInstrumentMetadata> fetchAccountInstrumentMetadata() {
