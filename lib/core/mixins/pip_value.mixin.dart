@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
@@ -20,15 +18,11 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
   }
 
   C positionSize(double positionSize) {
-    log('position: $positionSize');
-
     final sanitizedValue = sanitizeDouble(positionSize);
     return patchState(MatexBaseCoreState(positionSize: sanitizedValue));
   }
 
   C tradingPairExchangeRate(double tradingPairExchangeRate) {
-    log('tradingPairExchangeRate: $tradingPairExchangeRate');
-
     final sanitizedValue = sanitizeDouble(tradingPairExchangeRate);
     return patchState(
         MatexBaseCoreState(tradingPairExchangeRate: sanitizedValue));

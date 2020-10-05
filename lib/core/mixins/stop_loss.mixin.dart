@@ -1,13 +1,8 @@
-import 'dart:developer';
-
 import 'package:matex_dart/matex_dart.dart';
 
 mixin MatexStopLossCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     on MatexBaseCalculator<C, R> {
   C entryPrice(double entryPrice) {
-    log('MatexStopLossCoreMixin entryPrice: $entryPrice');
-    log('MatexStopLossCoreMixin takeProfitPrice: ${state.takeProfitPrice}');
-
     final sanitizedValue = sanitizeDouble(entryPrice);
     return patchState(MatexBaseCoreState(entryPrice: sanitizedValue));
   }

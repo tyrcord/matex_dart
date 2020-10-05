@@ -1,12 +1,8 @@
-import 'dart:developer';
-
 import 'package:matex_dart/matex_dart.dart';
 
 mixin MatexTakeProfitCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     on MatexBaseCalculator<C, R> {
   C entryPrice(double entryPrice) {
-    log('MatexTakeProfitCoreMixin entryPrice: $entryPrice');
-
     final sanitizedValue = sanitizeDouble(entryPrice);
     return patchState(MatexBaseCoreState(entryPrice: sanitizedValue));
   }
@@ -32,15 +28,10 @@ mixin MatexTakeProfitCoreMixin<C extends MatexBaseCalculator<C, R>, R>
   }
 
   C takeProfitPrice(double takeProfitPrice) {
-    log('takeProfitPrice: $takeProfitPrice');
-
-    var stt = patchState(MatexBaseCoreState(
+    return patchState(MatexBaseCoreState(
       takeProfitPrice: sanitizeDouble(takeProfitPrice),
       takeProfitPips: 0.0,
       takeProfitAmount: 0.0,
     ));
-    log('MatexStopLossCoreMixin takeProfitPrice: ${state.takeProfitPrice}');
-
-    return stt;
   }
 }
