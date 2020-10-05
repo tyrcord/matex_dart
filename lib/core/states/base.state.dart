@@ -244,6 +244,82 @@ class MatexBaseCoreState extends Equatable {
     );
   }
 
+  Map<String, dynamic> toJson() {
+    return {
+      'accountCode': accountCode,
+      'baseCode': baseCode,
+      'counterCode': counterCode,
+      'customPrice': customPrice,
+      'highPrice': highPrice,
+      'lowPrice': lowPrice,
+      'precision': precision,
+      'trend': trend,
+      'extensionLevels': extensionLevels,
+      'retracementLevels': retracementLevels,
+      'baseExchangeRate': baseExchangeRate,
+      'tradingPairExchangeRate': tradingPairExchangeRate,
+      'positionSize': positionSize,
+      'pipPrecision': pipPrecision,
+      'lotDescriptors': lotDescriptors.toJson(),
+      'baseListedSecond': baseListedSecond,
+      'leverage': leverage,
+      'closePrice': closePrice,
+      'openPrice': openPrice,
+      'method': method,
+      'accountSize': accountSize,
+      'amountAtRisk': amountAtRisk,
+      'riskRatio': riskRatio,
+      'entryPrice': entryPrice,
+      'position': position,
+      'stopLossPips': stopLossPips,
+      'stopLossPrice': stopLossPrice,
+      'stopLossAmount': stopLossAmount,
+      'takeProfitPips': takeProfitPips,
+      'takeProfitPrice': takeProfitPrice,
+      'takeProfitAmount': takeProfitAmount,
+    };
+  }
+
+  factory MatexBaseCoreState.fromJson(dynamic json) {
+    var lotDescriptors = json['lotDescriptors'];
+
+    return MatexBaseCoreState(
+      accountCode: json['accountCode'] as String,
+      baseCode: json['baseCode'] as String,
+      counterCode: json['counterCode'] as String,
+      customPrice: json['customPrice'] as double,
+      highPrice: json['highPrice'] as double,
+      lowPrice: json['lowPrice'] as double,
+      precision: json['precision'] as int,
+      trend: json['trend'] as MatexTrend,
+      extensionLevels: json['extensionLevels'] as List<double>,
+      retracementLevels: json['retracementLevels'] as List<double>,
+      baseExchangeRate: json['baseExchangeRate'] as double,
+      tradingPairExchangeRate: json['tradingPairExchangeRate'] as double,
+      positionSize: json['positionSize'] as double,
+      pipPrecision: json['pipPrecision'] as int,
+      lotDescriptors: lotDescriptors != null
+          ? MatexLotDescriptors.fromJson(json['lotDescriptors'])
+          : null,
+      baseListedSecond: json['baseListedSecond'] as bool,
+      leverage: json['leverage'] as double,
+      closePrice: json['closePrice'] as double,
+      openPrice: json['openPrice'] as double,
+      method: json['method'] as MatexPivotPointsMethods,
+      accountSize: json['accountSize'] as double,
+      amountAtRisk: json['amountAtRisk'] as double,
+      riskRatio: json['riskRatio'] as double,
+      entryPrice: json['entryPrice'] as double,
+      position: json['position'] as MatexPosition,
+      stopLossPips: json['stopLossPips'] as double,
+      stopLossPrice: json['stopLossPrice'] as double,
+      stopLossAmount: json['stopLossAmount'] as double,
+      takeProfitPips: json['takeProfitPips'] as double,
+      takeProfitPrice: json['takeProfitPrice'] as double,
+      takeProfitAmount: json['takeProfitAmount'] as double,
+    );
+  }
+
   @override
   List<Object> get props => [
         accountCode,
