@@ -1,4 +1,5 @@
 import 'dart:async';
+
 import 'package:intl/intl.dart';
 
 import '../interfaces/interfaces.dart';
@@ -8,32 +9,36 @@ class MatexReporterProvider implements MatexAbstractReporterProvider {
   @override
   Future<String> report({
     String locale = 'EN_US',
-    Map<String, MatexReportEntry> reportState,
-  }) async {
-    return _stringify(locale, reportState);
-  }
+    List<MatexReportEntry> entries,
+  }) async =>
+      _stringify(locale, entries);
 
-  String _stringify(String locale, Map<String, MatexReportEntry> reportState) {
-    final entries = reportState.entries;
+  String _stringify(String locale, List<MatexReportEntry> entries) {
     final length = entries.length;
     var index = 0;
 
-    return entries.fold('', (
-      String accumulator,
-      MapEntry<String, MatexReportEntry> mapEntry,
-    ) {
-      final label = mapEntry.value.label;
-      final value = mapEntry.value.value;
-      final minimumFractionDigits = mapEntry.value.minimumFractionDigits;
-      final maximumFractionDigits = mapEntry.value.maximumFractionDigits;
-      final formatter = NumberFormat.decimalPattern(locale);
+    return entries.fold('', (String accumulator, MatexReportEntry entry) {
+      final label = entry.label;
+      var value = entry.value;
 
-      formatter.minimumFractionDigits = minimumFractionDigits;
-      formatter.maximumFractionDigits =
-          maximumFractionDigits ?? minimumFractionDigits;
+      if (value is num) {
+        final formatter = NumberFormat.decimalPattern(locale);
+        final minimumFractionDigits = entry.minimumFractionDigits;
+        final maximumFractionDigits = entry.maximumFractionDigits;
 
-      return (accumulator += '$label '
-          '${formatter.format(value)}'
+        if (minimumFractionDigits != null) {
+          formatter.minimumFractionDigits = minimumFractionDigits;
+          formatter.maximumFractionDigits = minimumFractionDigits;
+        }
+
+        if (maximumFractionDigits != null) {
+          formatter.maximumFractionDigits = maximumFractionDigits;
+        }
+
+        value = formatter.format(value);
+      }
+
+      return (accumulator += '$label $value'
           '${index++ < length - 1 ? '\n' : ''}');
     });
   }
