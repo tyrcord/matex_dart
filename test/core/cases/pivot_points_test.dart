@@ -29,6 +29,44 @@ void main() {
       });
     });
 
+    group('#isDirty', () {
+      test(SHOULD_RETURN_DEFAULT_RESULT, () {
+        expect(calculator.isDirty, equals(false));
+      });
+
+      test('should return true when a calculator state is dirty', () {
+        calculator.highPrice(1.5);
+        expect(calculator.isDirty, equals(true));
+      });
+
+      test(
+        'should return false when a calculator state property '
+        'has been reset to its default\'s value',
+        () {
+          calculator.lowPrice(1.15);
+          calculator.highPrice(1.5);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.highPrice(kInitialPivotPointsState.highPrice);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.lowPrice(kInitialPivotPointsState.highPrice);
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+
+      test(
+        'should return false when a calculator state has been reset',
+        () {
+          calculator.lowPrice(1.15);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.reset();
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+    });
+
     group('#isValid', () {
       test('Should not be valid when no low, high and close prices are set',
           () {

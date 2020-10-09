@@ -1,4 +1,6 @@
-class MatexLotDescriptor {
+import 'package:equatable/equatable.dart';
+
+class MatexLotDescriptor extends Equatable {
   final bool exists;
   final num multiplier;
 
@@ -18,9 +20,12 @@ class MatexLotDescriptor {
       multiplier: json['multiplier'] as num,
     );
   }
+
+  @override
+  List<Object> get props => [exists, multiplier];
 }
 
-class MatexLotDescriptors {
+class MatexLotDescriptors extends Equatable {
   final MatexLotDescriptor standard;
   final MatexLotDescriptor micro;
   final MatexLotDescriptor mini;
@@ -64,6 +69,9 @@ class MatexLotDescriptors {
       nano: MatexLotDescriptor.fromJson(json['nano']),
     );
   }
+
+  @override
+  List<Object> get props => [standard, micro, mini, nano];
 }
 
 const kDefaultLotDescriptors = MatexLotDescriptors(

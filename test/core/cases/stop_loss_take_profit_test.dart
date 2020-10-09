@@ -22,6 +22,51 @@ void main() {
       );
     });
 
+    group('#isDirty', () {
+      test(SHOULD_RETURN_DEFAULT_RESULT, () {
+        expect(calculator.isDirty, equals(false));
+      });
+
+      test('should return true when a calculator state is dirty', () {
+        calculator.positionSize(5);
+        expect(calculator.isDirty, equals(true));
+      });
+
+      test(
+        'should return false when a calculator state property '
+        'has been reset to its default\'s value',
+        () {
+          calculator.positionSize(5);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.positionSize(kInitialStopLossTakeProfitState.positionSize);
+          expect(calculator.isDirty, equals(false));
+
+          calculator.positionSize(5);
+          calculator.stopLossPips(10);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.resetStateProperties([
+            MatexCoreStateProperty.positionSize,
+            MatexCoreStateProperty.stopLossPips,
+          ]);
+
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+
+      test(
+        'should return false when a calculator state has been reset',
+        () {
+          calculator.positionSize(5);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.reset();
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+    });
+
     group('#isValid', () {
       test(SHOULD_RETURN_CALCULATOR_VALIDITY, () {
         expect(calculator.isValid, equals(false));
@@ -74,29 +119,29 @@ void main() {
       });
 
       test(
-          'Should not be valid when only the position size and the base exchange rate are set',
-          () {
+          'Should not be valid when only the position size and '
+          'the base exchange rate are set', () {
         calculator.positionSize(5000).tradingPairExchangeRate(1.5);
         expect(calculator.isValid, equals(false));
       });
 
       test(
-          'Should not be valid when only the position size and the entry price rate are set',
-          () {
+          'Should not be valid when only the position size and '
+          'the entry price rate are set', () {
         calculator.positionSize(5000).entryPrice(1.5);
         expect(calculator.isValid, equals(false));
       });
 
       test(
-          'Should not be valid when only the base exchange rate and the entry price rate are set',
-          () {
+          'Should not be valid when only the base exchange rate and '
+          'the entry price rate are set', () {
         calculator.tradingPairExchangeRate(1.5).entryPrice(1.5);
         expect(calculator.isValid, equals(false));
       });
 
       test(
-          'Should not be valid when only the entry price, the position size and the base exchange rate are set',
-          () {
+          'Should not be valid when only the entry price, '
+          'the position size and the base exchange rate are set', () {
         calculator
             .positionSize(5000)
             .tradingPairExchangeRate(1.5)
@@ -105,8 +150,8 @@ void main() {
       });
 
       test(
-          'Should be valid when only the entry price, the position size, the base exchange rate and the takeProfitAmount are set',
-          () {
+          'Should be valid when only the entry price, the position size, '
+          'the base exchange rate and the takeProfitAmount are set', () {
         calculator
             .positionSize(5000)
             .tradingPairExchangeRate(1.5)
@@ -202,7 +247,7 @@ void main() {
       });
 
       test('should define the risk ratio value', () {
-        MatexStopLossTakeProfitResult results = calculator
+        var results = calculator
             .positionSize(5000)
             .tradingPairExchangeRate(1.5)
             .stopLossAmount(200)
@@ -222,8 +267,8 @@ void main() {
       });
 
       test(
-          'should define the stopLossPips and stopLossPrice values when stopLossAmuont is set and the position is long',
-          () {
+          'should define the stopLossPips and stopLossPrice values '
+          'when stopLossAmuont is set and the position is long', () {
         final results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
@@ -243,8 +288,8 @@ void main() {
       });
 
       test(
-          'should define the stopLossAmount and stopLossPips values when stopLossPrice is set and the position is long',
-          () {
+          'should define the stopLossAmount and stopLossPips values '
+          'when stopLossPrice is set and the position is long', () {
         final results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
@@ -265,8 +310,8 @@ void main() {
       });
 
       test(
-          'should define the stopLossAmount and stopLossPrice values when stopLossPips is set and the position is long',
-          () {
+          'should define the stopLossAmount and stopLossPrice values '
+          'when stopLossPips is set and the position is long', () {
         final results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
@@ -286,8 +331,8 @@ void main() {
       });
 
       test(
-          'should define the takeProfitPips and takeProfitPrice values when takeProfitAmount is set and the position is long',
-          () {
+          'should define the takeProfitPips and takeProfitPrice values '
+          'when takeProfitAmount is set and the position is long', () {
         final results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
@@ -307,8 +352,8 @@ void main() {
       });
 
       test(
-          'should define the takeProfitAmount and takeProfitPips values when takeProfitPrice is set and the position is long',
-          () {
+          'should define the takeProfitAmount and takeProfitPips values '
+          'when takeProfitPrice is set and the position is long', () {
         final results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
@@ -329,8 +374,8 @@ void main() {
       });
 
       test(
-          'should define the takeProfitAmount and takeProfitPrice values when takeProfitPips is set and the position is long',
-          () {
+          'should define the takeProfitAmount and takeProfitPrice values '
+          'when takeProfitPips is set and the position is long', () {
         final results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
@@ -350,8 +395,8 @@ void main() {
       });
 
       test(
-          'should define the stopLossPips and stopLossPrice values when stopLossAmuont is set and the position is short',
-          () {
+          'should define the stopLossPips and stopLossPrice values '
+          'when stopLossAmuont is set and the position is short', () {
         final results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
@@ -372,8 +417,8 @@ void main() {
       });
 
       test(
-          'should define the stopLossAmount and stopLossPips values when stopLossPrice is set and the position is short',
-          () {
+          'should define the stopLossAmount and stopLossPips values '
+          'when stopLossPrice is set and the position is short', () {
         final results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
@@ -395,8 +440,8 @@ void main() {
       });
 
       test(
-          'should define the stopLossAmount and stopLossPrice values when stopLossPips is set and the position is short',
-          () {
+          'should define the stopLossAmount and stopLossPrice values '
+          'when stopLossPips is set and the position is short', () {
         MatexStopLossTakeProfitResult results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
@@ -418,8 +463,8 @@ void main() {
       });
 
       test(
-          'should define the takeProfitPips and takeProfitPrice values when takeProfitAmount is set and the position is short',
-          () {
+          'should define the takeProfitPips and takeProfitPrice values '
+          'when takeProfitAmount is set and the position is short', () {
         final results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
@@ -440,8 +485,8 @@ void main() {
       });
 
       test(
-          'should define the takeProfitAmount and takeProfitPips values when takeProfitPrice is set and the position is short',
-          () {
+          'should define the takeProfitAmount and takeProfitPips values '
+          'when takeProfitPrice is set and the position is short', () {
         final results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
@@ -463,8 +508,8 @@ void main() {
       });
 
       test(
-          'should define the takeProfitAmount and takeProfitPrice values when takeProfitPips is set and the position is short',
-          () {
+          'should define the takeProfitAmount and takeProfitPrice values '
+          'when takeProfitPips is set and the position is short', () {
         MatexStopLossTakeProfitResult results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)

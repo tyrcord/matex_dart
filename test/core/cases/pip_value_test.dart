@@ -17,8 +17,42 @@ void main() {
       });
     });
 
-    group('isValid', () {
-      test("should return the number of tracked subscriptions", () {
+    group('#isDirty', () {
+      test(SHOULD_RETURN_DEFAULT_RESULT, () {
+        expect(calculator.isDirty, equals(false));
+      });
+
+      test('should return true when a calculator state is dirty', () {
+        calculator.positionSize(5);
+        expect(calculator.isDirty, equals(true));
+      });
+
+      test(
+        'should return false when a calculator state property '
+        'has been reset to its default\'s value',
+        () {
+          calculator.positionSize(5);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.positionSize(kInitialPipValueState.positionSize);
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+
+      test(
+        'should return false when a calculator state has been reset',
+        () {
+          calculator.positionSize(5);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.reset();
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+    });
+
+    group('#isValid', () {
+      test('should return the number of tracked subscriptions', () {
         expect(calculator.isValid, equals(false));
       });
 
@@ -36,7 +70,8 @@ void main() {
       );
 
       test(
-        'Should be valid when only the position size and the base exchange rate are set',
+        'Should be valid when only the position size and '
+        'the base exchange rate are set',
         () {
           calculator.positionSize(5000).tradingPairExchangeRate(1.5);
           expect(calculator.isValid, equals(true));
@@ -60,7 +95,7 @@ void main() {
       });
 
       test('should define the position size when calculating a pip value', () {
-        double pipValue =
+        var pipValue =
             calculator.positionSize(1).tradingPairExchangeRate(1).value();
 
         expect(
@@ -85,7 +120,7 @@ void main() {
       });
 
       test('should define the pip precision when calculating a pip value', () {
-        double pipValue = calculator
+        var pipValue = calculator
             .positionSize(1)
             .tradingPairExchangeRate(1)
             .pipPrecision(4)
@@ -117,9 +152,9 @@ void main() {
       });
 
       test(
-          'should define the exchange rate of the currency pair when calculating a pip value',
-          () {
-        double pipValue =
+          'should define the exchange rate of the currency pair '
+          'when calculating a pip value', () {
+        var pipValue =
             calculator.positionSize(1).tradingPairExchangeRate(1.25).value();
 
         expect(
@@ -146,9 +181,9 @@ void main() {
       });
 
       test(
-          'should define the exchange rate between the account currency and the base currency when calculating a pip value',
-          () {
-        double pipValue = calculator
+          'should define the exchange rate between the account currency and '
+          'the base currency when calculating a pip value', () {
+        var pipValue = calculator
             .positionSize(1)
             .tradingPairExchangeRate(1)
             .baseExchangeRate(1.25)
@@ -205,7 +240,7 @@ void main() {
       });
 
       test('should update the lot descriptors value', () {
-        MatexLotDescriptors lotDescriptors = kDefaultLotDescriptors.copyWith(
+        var lotDescriptors = kDefaultLotDescriptors.copyWith(
           standard: MatexLotDescriptor(
             multiplier: 5000,
           ),
@@ -297,7 +332,7 @@ void main() {
       });
 
       test('should reset the calculator', () {
-        double pipValue = calculator
+        var pipValue = calculator
             .positionSize(1000)
             .tradingPairExchangeRate(1)
             .reset()

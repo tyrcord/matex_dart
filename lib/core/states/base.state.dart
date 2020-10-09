@@ -141,105 +141,110 @@ class MatexBaseCoreState extends Equatable {
     );
   }
 
-  MatexBaseCoreState copyWithOmittedProperties(List<String> properties) {
+  MatexBaseCoreState copyWithOmittedProperties(
+    List<String> properties,
+    MatexBaseCoreState initialState,
+  ) {
     return MatexBaseCoreState(
       accountCode: properties.contains(MatexCoreStateProperty.accountCode)
-          ? null
+          ? initialState.accountCode
           : accountCode,
       baseCode: properties.contains(MatexCoreStateProperty.baseCode)
-          ? null
+          ? initialState.baseCode
           : baseCode,
       counterCode: properties.contains(MatexCoreStateProperty.counterCode)
-          ? null
+          ? initialState.counterCode
           : counterCode,
       customPrice: properties.contains(MatexCoreStateProperty.customPrice)
-          ? null
+          ? initialState.customPrice
           : customPrice,
       highPrice: properties.contains(MatexCoreStateProperty.highPrice)
-          ? null
+          ? initialState.highPrice
           : highPrice,
       lowPrice: properties.contains(MatexCoreStateProperty.lowPrice)
-          ? null
+          ? initialState.lowPrice
           : lowPrice,
       precision: properties.contains(MatexCoreStateProperty.precision)
-          ? null
+          ? initialState.precision
           : precision,
-      trend: properties.contains(MatexCoreStateProperty.trend) ? null : trend,
+      trend: properties.contains(MatexCoreStateProperty.trend)
+          ? initialState.trend
+          : trend,
       extensionLevels:
           properties.contains(MatexCoreStateProperty.extensionLevels)
-              ? null
+              ? initialState.extensionLevels
               : extensionLevels,
       retracementLevels:
           properties.contains(MatexCoreStateProperty.retracementLevels)
-              ? null
+              ? initialState.retracementLevels
               : retracementLevels,
       baseExchangeRate:
           properties.contains(MatexCoreStateProperty.baseExchangeRate)
-              ? null
+              ? initialState.baseExchangeRate
               : baseExchangeRate,
       tradingPairExchangeRate:
           properties.contains(MatexCoreStateProperty.tradingPairExchangeRate)
-              ? null
+              ? initialState.tradingPairExchangeRate
               : tradingPairExchangeRate,
       positionSize: properties.contains(MatexCoreStateProperty.positionSize)
-          ? null
+          ? initialState.positionSize
           : positionSize,
       pipPrecision: properties.contains(MatexCoreStateProperty.pipPrecision)
-          ? null
+          ? initialState.pipPrecision
           : pipPrecision,
       lotDescriptors: properties.contains(MatexCoreStateProperty.lotDescriptors)
-          ? null
+          ? initialState.lotDescriptors
           : lotDescriptors,
       baseListedSecond:
           properties.contains(MatexCoreStateProperty.baseListedSecond)
-              ? null
+              ? initialState.baseListedSecond
               : baseListedSecond,
       leverage: properties.contains(MatexCoreStateProperty.leverage)
-          ? null
+          ? initialState.leverage
           : leverage,
       closePrice: properties.contains(MatexCoreStateProperty.closePrice)
-          ? null
+          ? initialState.closePrice
           : closePrice,
       openPrice: properties.contains(MatexCoreStateProperty.openPrice)
-          ? null
+          ? initialState.openPrice
           : openPrice,
-      method: properties.contains(MatexCoreStateProperty.accountCode)
-          ? null
+      method: properties.contains(MatexCoreStateProperty.method)
+          ? initialState.method
           : method,
       accountSize: properties.contains(MatexCoreStateProperty.accountSize)
-          ? null
+          ? initialState.accountSize
           : accountSize,
       amountAtRisk: properties.contains(MatexCoreStateProperty.amountAtRisk)
-          ? null
+          ? initialState.amountAtRisk
           : amountAtRisk,
       riskRatio: properties.contains(MatexCoreStateProperty.riskRatio)
-          ? null
+          ? initialState.riskRatio
           : riskRatio,
       entryPrice: properties.contains(MatexCoreStateProperty.entryPrice)
-          ? null
+          ? initialState.entryPrice
           : entryPrice,
       position: properties.contains(MatexCoreStateProperty.position)
-          ? null
+          ? initialState.position
           : position,
       stopLossPips: properties.contains(MatexCoreStateProperty.stopLossPips)
-          ? null
+          ? initialState.stopLossPips
           : stopLossPips,
       stopLossPrice: properties.contains(MatexCoreStateProperty.stopLossPrice)
-          ? null
+          ? initialState.stopLossPrice
           : stopLossPrice,
       stopLossAmount: properties.contains(MatexCoreStateProperty.stopLossAmount)
-          ? null
+          ? initialState.stopLossAmount
           : stopLossAmount,
       takeProfitPips: properties.contains(MatexCoreStateProperty.takeProfitPips)
-          ? null
+          ? initialState.takeProfitPips
           : takeProfitPips,
       takeProfitPrice:
           properties.contains(MatexCoreStateProperty.takeProfitPrice)
-              ? null
+              ? initialState.takeProfitPrice
               : takeProfitPrice,
       takeProfitAmount:
           properties.contains(MatexCoreStateProperty.takeProfitAmount)
-              ? null
+              ? initialState.takeProfitAmount
               : takeProfitAmount,
     );
   }

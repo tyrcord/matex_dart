@@ -17,6 +17,40 @@ void main() {
       });
     });
 
+    group('#isDirty', () {
+      test(SHOULD_RETURN_DEFAULT_RESULT, () {
+        expect(calculator.isDirty, equals(false));
+      });
+
+      test('should return true when a calculator state is dirty', () {
+        calculator.positionSize(5);
+        expect(calculator.isDirty, equals(true));
+      });
+
+      test(
+        'should return false when a calculator state property '
+        'has been reset to its default\'s value',
+        () {
+          calculator.positionSize(5);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.positionSize(kInitialRequiredMarginState.positionSize);
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+
+      test(
+        'should return false when a calculator state has been reset',
+        () {
+          calculator.positionSize(5);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.reset();
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+    });
+
     group('#value()', () {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
         expect(calculator.value(), equals(0));

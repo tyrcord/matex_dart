@@ -18,6 +18,40 @@ void main() {
       });
     });
 
+    group('#isDirty', () {
+      test(SHOULD_RETURN_DEFAULT_RESULT, () {
+        expect(calculator.isDirty, equals(false));
+      });
+
+      test('should return true when a calculator state is dirty', () {
+        calculator.positionSize(5);
+        expect(calculator.isDirty, equals(true));
+      });
+
+      test(
+        'should return false when a calculator state property '
+        'has been reset to its default\'s value',
+        () {
+          calculator.positionSize(5);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.positionSize(kInitialPositionSizeState.positionSize);
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+
+      test(
+        'should return false when a calculator state has been reset',
+        () {
+          calculator.positionSize(5);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.reset();
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+    });
+
     group('#isValid', () {
       test(SHOULD_RETURN_CALCULATOR_VALIDITY, () {
         expect(calculator.isValid, equals(false));
@@ -39,15 +73,17 @@ void main() {
       });
 
       test(
-          'Should be valid when the account size and the amount at risk are set',
-          () {
-        calculator
-            .accountSize(5000)
-            .tradingPairExchangeRate(1)
-            .amountAtRisk(50);
+        'Should be valid when the account size and '
+        'the amount at risk are set',
+        () {
+          calculator
+              .accountSize(5000)
+              .tradingPairExchangeRate(1)
+              .amountAtRisk(50);
 
-        expect(calculator.isValid, equals(true));
-      });
+          expect(calculator.isValid, equals(true));
+        },
+      );
 
       test('Should be valid when the account size and the risk ratio are set',
           () {
@@ -57,14 +93,16 @@ void main() {
       });
 
       test(
-          'Should be valid when the account size and the risk ratio are incorrect',
-          () {
-        calculator.accountSize(5000).riskRatio(112);
-        expect(calculator.isValid, equals(false));
+        'Should be valid when the account size and '
+        'the risk ratio are incorrect',
+        () {
+          calculator.accountSize(5000).riskRatio(112);
+          expect(calculator.isValid, equals(false));
 
-        calculator.accountSize(5000).riskRatio(0);
-        expect(calculator.isValid, equals(false));
-      });
+          calculator.accountSize(5000).riskRatio(0);
+          expect(calculator.isValid, equals(false));
+        },
+      );
 
       test(
           'Should be valid when the account size and the amount at risk are incorrect',

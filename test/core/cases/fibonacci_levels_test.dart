@@ -18,6 +18,44 @@ void main() {
       });
     });
 
+    group('#isDirty', () {
+      test(SHOULD_RETURN_DEFAULT_RESULT, () {
+        expect(calculator.isDirty, equals(false));
+      });
+
+      test('should return true when a calculator state is dirty', () {
+        calculator.highPrice(1.5);
+        expect(calculator.isDirty, equals(true));
+      });
+
+      test(
+        'should return false when a calculator state property '
+        'has been reset to its default\'s value',
+        () {
+          calculator.lowPrice(1.15);
+          calculator.highPrice(1.5);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.highPrice(kInitialFibonacciLevelsState.highPrice);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.lowPrice(kInitialFibonacciLevelsState.highPrice);
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+
+      test(
+        'should return false when a calculator state has been reset',
+        () {
+          calculator.lowPrice(1.15);
+          expect(calculator.isDirty, equals(true));
+
+          calculator.reset();
+          expect(calculator.isDirty, equals(false));
+        },
+      );
+    });
+
     group('#value()', () {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
         final result = calculator.value();

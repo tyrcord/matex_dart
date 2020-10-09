@@ -19,10 +19,12 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
 
   bool get isValid => isStateValid;
 
+  bool get isDirty => state != initialState;
+
   MatexBaseCalculator({
-    this.initialState,
+    @required this.initialState,
     this.validators,
-  }) {
+  }) : assert(initialState != null) {
     reset();
   }
 
@@ -40,8 +42,13 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
 
   C resetStateProperties(List<String> properties) {
     result = null;
-    state = state.copyWithOmittedProperties(properties);
+    state = state.copyWithOmittedProperties(properties, initialState);
     return _checkStateValidity();
+  }
+
+  C setInitialState(MatexBaseCoreState state) {
+    initialState = state.clone();
+    return this as C;
   }
 
   C setState(MatexBaseCoreState state) {
