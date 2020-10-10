@@ -101,8 +101,8 @@ void main() {
       });
 
       test(
-          'Should be valid when: close price >= low price && close price <= high price',
-          () {
+          'Should be valid when: close price >= low price && '
+          'close price <= high price', () {
         calculator.highPrice(2).lowPrice(1);
 
         expect(calculator.isValid, equals(false));
@@ -124,8 +124,8 @@ void main() {
       });
 
       test(
-          'Should not be valid when no low, high, open and close prices are set when the method is DeMark',
-          () {
+          'Should not be valid when no low, high, open and '
+          'close prices are set when the method is DeMark', () {
         calculator.method(MatexPivotPointsMethods.DeMark);
         expect(calculator.isValid, equals(false));
 
@@ -146,8 +146,8 @@ void main() {
       });
 
       test(
-          'Should be valid when: close price >= low price && open price <= high price',
-          () {
+          'Should be valid when: close price >= low price && '
+          'open price <= high price', () {
         calculator.highPrice(2).lowPrice(1).closePrice(2);
         calculator.method(MatexPivotPointsMethods.DeMark);
 

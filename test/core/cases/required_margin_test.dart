@@ -103,7 +103,7 @@ void main() {
       });
 
       test('should update the lot descriptors value', () {
-        MatexLotDescriptors lotDescriptors = kDefaultLotDescriptors.copyWith(
+        var lotDescriptors = kDefaultLotDescriptors.copyWith(
           standard: MatexLotDescriptor(multiplier: 5000),
         );
 
@@ -169,8 +169,8 @@ void main() {
 
     group('#isValid()', () {
       test(
-          'Should be valid when the position size and the trading exchange rate are set',
-          () {
+          'Should be valid when the position size and '
+          'the trading exchange rate are set', () {
         expect(calculator.isValid, equals(false));
         calculator.tradingPairExchangeRate(1);
         calculator.positionSize(100000);

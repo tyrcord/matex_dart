@@ -102,7 +102,8 @@ void main() {
     });
 
     group(
-      'Scenario: the position is short and when the currency account is listed first in a pair',
+      'Scenario: the position is short and '
+      'when the currency account is listed first in a pair',
       () {
         final calculator = stopLossTakeProfit();
 
@@ -166,7 +167,8 @@ void main() {
     );
 
     group(
-      'Scenario: the position is long and when the currency account is listed first in a pair',
+      'Scenario: the position is long and '
+      'when the currency account is listed first in a pair',
       () {
         final calculator = stopLossTakeProfit();
 
@@ -228,7 +230,8 @@ void main() {
     );
 
     group(
-      'Scenario: the position is long and when the currency account is not listed in a pair',
+      'Scenario: the position is long and '
+      'when the currency account is not listed in a pair',
       () {
         final calculator = stopLossTakeProfit();
 

@@ -442,7 +442,7 @@ void main() {
       test(
           'should define the stopLossAmount and stopLossPrice values '
           'when stopLossPips is set and the position is short', () {
-        MatexStopLossTakeProfitResult results = calculator
+        var results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .stopLossPips(220)
@@ -510,7 +510,7 @@ void main() {
       test(
           'should define the takeProfitAmount and takeProfitPrice values '
           'when takeProfitPips is set and the position is short', () {
-        MatexStopLossTakeProfitResult results = calculator
+        var results = calculator
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .takeProfitPips(220)

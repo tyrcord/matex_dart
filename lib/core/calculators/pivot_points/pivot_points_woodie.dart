@@ -1,7 +1,11 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
-MatexPivotPointsResult pivotPointsWoodie(double high, double low, double close) {
+MatexPivotPointsResult pivotPointsWoodie(
+  double high,
+  double low,
+  double close,
+) {
   final highParsed = Decimal.parse(high.toString());
   final lowParsed = Decimal.parse(low.toString());
   final closeParsed = Decimal.parse(close.toString());

@@ -105,8 +105,8 @@ void main() {
       );
 
       test(
-          'Should be valid when the account size and the amount at risk are incorrect',
-          () {
+          'Should be valid when the account size and '
+          'the amount at risk are incorrect', () {
         calculator.accountSize(5000).amountAtRisk(10000);
         expect(calculator.isValid, equals(false));
 
@@ -157,8 +157,8 @@ void main() {
       });
 
       test(
-          'should return a partial result when the account size and the risk ratio are set',
-          () {
+          'should return a partial result when the account size and '
+          'the risk ratio are set', () {
         final results = calculator
             .accountSize(5000)
             .riskRatio(1)
@@ -169,8 +169,8 @@ void main() {
       });
 
       test(
-          'should return a partial result when the account size and the amount at risk are set',
-          () {
+          'should return a partial result when the account size and '
+          'the amount at risk are set', () {
         final results = calculator
             .accountSize(5000)
             .amountAtRisk(50)
@@ -180,8 +180,8 @@ void main() {
       });
 
       test(
-          'should return a partial result when the account size, the entry price and the risk ratio are set',
-          () {
+          'should return a partial result when the account size, '
+          'the entry price and the risk ratio are set', () {
         final results = calculator
             .accountSize(5000)
             .riskRatio(1)
@@ -192,8 +192,8 @@ void main() {
       });
 
       test(
-          'should return a partial result when the account size, the stop loss price and the risk ratio are set',
-          () {
+          'should return a partial result when the account size, '
+          'the stop loss price and the risk ratio are set', () {
         final results = calculator
             .accountSize(5000)
             .riskRatio(1)
@@ -204,8 +204,8 @@ void main() {
       });
 
       test(
-          'should return a result when the account size, the stop loss price, the entry price and the risk ratio are set',
-          () {
+          'should return a result when the account size, the stop loss price, '
+          'the entry price and the risk ratio are set', () {
         final results = calculator
             .accountSize(5000)
             .riskRatio(1)
@@ -391,7 +391,7 @@ void main() {
       });
 
       test('should update the lot descriptors value', () {
-        MatexLotDescriptors lotDescriptors = kDefaultLotDescriptors.copyWith(
+        var lotDescriptors = kDefaultLotDescriptors.copyWith(
           standard: MatexLotDescriptor(
             exists: true,
             multiplier: 5000,
