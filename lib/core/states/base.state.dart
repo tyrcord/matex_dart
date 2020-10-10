@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
+import 'package:tstore_dart/tstore_dart.dart';
 
 class MatexBaseCoreState extends Equatable {
   final double customPrice;
@@ -252,6 +253,7 @@ class MatexBaseCoreState extends Equatable {
     );
   }
 
+  @override
   MatexBaseCoreState copyWith({
     double customPrice,
     double highPrice,
@@ -321,6 +323,7 @@ class MatexBaseCoreState extends Equatable {
     );
   }
 
+  @override
   Map<String, dynamic> toJson() {
     return {
       'accountCode': accountCode,
@@ -431,4 +434,9 @@ class MatexBaseCoreState extends Equatable {
         takeProfitPrice,
         takeProfitAmount,
       ];
+
+  @override
+  MatexBaseCoreState merge({MatexBaseCoreState state}) {
+    return copyWithState(state);
+  }
 }
