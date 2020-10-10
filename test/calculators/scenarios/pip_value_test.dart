@@ -18,7 +18,7 @@ void main() {
       });
 
       test('And: USD is listed second in the pair EUR/USD', () {
-        calculator.baseCode('EUR').counterCode('USD');
+        calculator.currencyPairCode('EUR', 'USD');
       });
 
       test('When: my position size is 100,000', () {
@@ -43,7 +43,7 @@ void main() {
       });
 
       test('And: USD is listed second in the pair EUR/USD', () {
-        calculator.baseCode('EUR').counterCode('USD');
+        calculator.currencyPairCode('EUR', 'USD');
       });
 
       test('When: my position size is 100,000', () {
@@ -56,7 +56,7 @@ void main() {
       });
 
       test('Given: the exchange rate for the pair USD/AUD is 1.6', () {
-        calculator.baseCode('USD').counterCode('AUD');
+        calculator.currencyPairCode('USD', 'AUD');
       });
 
       test('Then: the pip value should be equal to €6.25', () async {
@@ -74,7 +74,7 @@ void main() {
       });
 
       test('And: the exchange rate for the pair EUR/CAD is 1.25', () {
-        calculator.baseCode('EUR').counterCode('CAD');
+        calculator.currencyPairCode('EUR', 'CAD');
       });
 
       test('When: my position size is 100,000', () {
@@ -95,7 +95,7 @@ void main() {
       });
 
       test('And: the exchange rate for the pair AUD/JPY is 100', () {
-        calculator.baseCode('AUD').counterCode('JPY');
+        calculator.currencyPairCode('AUD', 'JPY');
       });
 
       test('When: my position size is 100,000', () {
@@ -119,7 +119,7 @@ void main() {
         });
 
         test('And: the exchange rate for the pair AUD/JPY is 100', () {
-          calculator.baseCode('AUD').counterCode('JPY');
+          calculator.currencyPairCode('AUD', 'JPY');
         });
 
         test('When: my position size is 100,000', () {
@@ -136,7 +136,7 @@ void main() {
         });
 
         test('And: the exchange rate for the pair EUR/CAD is 1.25', () {
-          calculator.baseCode('EUR').counterCode('CAD');
+          calculator.currencyPairCode('EUR', 'CAD');
         });
 
         test('Then: the pip value should be equal to €8', () async {
@@ -201,8 +201,7 @@ void main() {
         });
 
         test('And: I set my currency pair to AUD/USD', () {
-          calculator.baseCode('AUD');
-          calculator.counterCode('USD');
+          calculator.currencyPairCode('AUD', 'USD');
           expect(calculator.getState().baseCode == 'AUD', equals(true));
           expect(calculator.getState().counterCode == 'USD', equals(true));
           expect(calculator.isDirty, equals(true));
@@ -253,8 +252,8 @@ void main() {
         });
 
         test('And: I set my currency pair to AUD/USD', () {
-          calculator.baseCode('AUD');
-          calculator.counterCode('USD');
+          calculator.currencyPairCode('AUD', 'USD');
+
           expect(calculator.getState().baseCode == 'AUD', equals(true));
           expect(calculator.getState().counterCode == 'USD', equals(true));
           expect(calculator.isDirty, equals(true));
@@ -320,8 +319,8 @@ void main() {
         });
 
         test('And: I set my currency pair to AUD/USD', () {
-          calculator.baseCode('AUD');
-          calculator.counterCode('USD');
+          calculator.currencyPairCode('AUD', 'USD');
+
           expect(calculator.getState().baseCode == 'AUD', equals(true));
           expect(calculator.getState().counterCode == 'USD', equals(true));
           expect(calculator.isDirty, equals(true));
@@ -342,7 +341,7 @@ void main() {
 
     group(
       'Scenario: When a default currency pair and an account currency are set '
-      'And the my default account currency value is reset'
+      'And my default account currency value is reset'
       'Then the default values should be used when the calculator is reset',
       () {
         final calculator = matex.pipValue();
@@ -400,8 +399,8 @@ void main() {
 
     group(
       'Scenario: When a default currency pair and an account currency are set '
-      'And the my default currency pair value is reset'
-      'Then the default values should be used when the calculator is reset',
+      'and my default currency pair value is reset '
+      'then the default values should be used when the calculator is reset',
       () {
         final calculator = matex.pipValue();
 
@@ -425,8 +424,8 @@ void main() {
           },
         );
         test('And: I set my currency pair to AUD/USD', () {
-          calculator.baseCode('AUD');
-          calculator.counterCode('USD');
+          calculator.currencyPairCode('AUD', 'USD');
+
           expect(calculator.getState().baseCode == 'AUD', equals(true));
           expect(calculator.getState().counterCode == 'USD', equals(true));
           expect(calculator.isDirty, equals(true));
@@ -486,8 +485,8 @@ void main() {
         );
 
         test('And: I set my currency pair to AUD/USD', () {
-          calculator.baseCode('AUD');
-          calculator.counterCode('USD');
+          calculator.currencyPairCode('AUD', 'USD');
+
           expect(calculator.getState().baseCode == 'AUD', equals(true));
           expect(calculator.getState().counterCode == 'USD', equals(true));
           expect(calculator.isDirty, equals(true));
@@ -554,8 +553,8 @@ void main() {
         });
 
         test('And: I set my currency pair to AUD/USD', () {
-          calculator.baseCode('AUD');
-          calculator.counterCode('USD');
+          calculator.currencyPairCode('AUD', 'USD');
+
           expect(calculator.getState().baseCode == 'AUD', equals(true));
           expect(calculator.getState().counterCode == 'USD', equals(true));
           expect(calculator.isDirty, equals(true));

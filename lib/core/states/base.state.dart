@@ -34,6 +34,9 @@ class MatexBaseCoreState extends Equatable {
   final String baseCode;
   final String counterCode;
 
+  @override
+  bool get stringify => true;
+
   const MatexBaseCoreState({
     this.accountCode,
     this.baseCode,
@@ -334,7 +337,7 @@ class MatexBaseCoreState extends Equatable {
       'tradingPairExchangeRate': tradingPairExchangeRate,
       'positionSize': positionSize,
       'pipPrecision': pipPrecision,
-      'lotDescriptors': lotDescriptors.toJson(),
+      'lotDescriptors': lotDescriptors?.toJson(),
       'baseListedSecond': baseListedSecond,
       'leverage': leverage,
       'closePrice': closePrice,

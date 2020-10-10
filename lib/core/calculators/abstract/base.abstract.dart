@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
@@ -13,7 +15,17 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
   @protected
   MatexBaseCoreState defaultState;
 
-  MatexBaseCoreState differenceState;
+  MatexBaseCoreState _differenceState;
+
+  MatexBaseCoreState get differenceState => _differenceState;
+
+  set differenceState(MatexBaseCoreState candidateState) {
+    if (candidateState != null) {
+      candidateState = _sanitizeDifferenceState(candidateState);
+    }
+
+    _differenceState = candidateState;
+  }
 
   MatexBaseCoreState get defaultCalculatorState;
 
@@ -25,8 +37,10 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
 
   bool get isDirty => state != defaultState;
 
+  Iterable<String> get propertiesUseForDifference => null;
+
   MatexBaseCalculator({
-    this.defaultState,
+    @required this.defaultState,
     this.validators,
   }) {
     reset();
@@ -72,6 +86,42 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
     this.state = state.clone();
     result = null;
     return _checkStateValidity();
+  }
+
+  MatexBaseCoreState _sanitizeDifferenceState(
+    MatexBaseCoreState candidateState,
+  ) {
+    var defaultMap = defaultState.toJson();
+    var candidateMap = candidateState.toJson();
+    var defaultCounterCode = defaultMap[MatexCoreStateProperty.counterCode];
+    var defaultBaseCode = defaultMap[MatexCoreStateProperty.baseCode];
+    var baseCode;
+    var counterCode;
+
+    candidateMap.entries.forEach((MapEntry<String, dynamic> entry) {
+      var isBaseCode = entry.key == MatexCoreStateProperty.baseCode;
+
+      // Special case (they are bounded)
+      if (isBaseCode || entry.key == MatexCoreStateProperty.counterCode) {
+        if (isBaseCode) {
+          baseCode = entry.value;
+        } else {
+          counterCode = entry.value;
+        }
+
+        if (baseCode == defaultBaseCode && counterCode == defaultCounterCode) {
+          candidateMap[MatexCoreStateProperty.counterCode] = null;
+          candidateMap[MatexCoreStateProperty.baseCode] = null;
+        }
+      } else if (entry.value == defaultMap[entry.key]) {
+        candidateMap[entry.key] = null;
+      } else if (propertiesUseForDifference != null &&
+          !propertiesUseForDifference.contains(entry.key)) {
+        candidateMap[entry.key] = null;
+      }
+    });
+
+    return MatexBaseCoreState.fromJson(candidateMap);
   }
 
   C _checkStateValidity() {

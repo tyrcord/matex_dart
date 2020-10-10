@@ -25,23 +25,10 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     return resetStateProperties([MatexCoreStateProperty.accountCode]);
   }
 
-  C baseCode(String baseCode) {
-    if (baseCode != null) {
+  C currencyPairCode(String baseCode, String counterCode) {
+    if (baseCode != null && counterCode != null) {
       return patchState(MatexBaseCoreState(
         baseCode: baseCode,
-        baseExchangeRate: kInitialMatexPipValueState.baseExchangeRate,
-        tradingPairExchangeRate:
-            kInitialMatexPipValueState.tradingPairExchangeRate,
-      ));
-    }
-
-    _resetRelatedProperties();
-    return resetStateProperties([MatexCoreStateProperty.baseCode]);
-  }
-
-  C counterCode(String counterCode) {
-    if (counterCode != null) {
-      return patchState(MatexBaseCoreState(
         counterCode: counterCode,
         baseExchangeRate: kInitialMatexPipValueState.baseExchangeRate,
         tradingPairExchangeRate:
@@ -50,7 +37,10 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     }
 
     _resetRelatedProperties();
-    return resetStateProperties([MatexCoreStateProperty.counterCode]);
+    return resetStateProperties([
+      MatexCoreStateProperty.baseCode,
+      MatexCoreStateProperty.counterCode,
+    ]);
   }
 
   C positionSize(double positionSize) {

@@ -16,8 +16,7 @@ void main() {
       });
 
       test('And: the exchange rate for the pair EUR/USD is 1.25', () {
-        calculator.baseCode('EUR');
-        calculator.counterCode('USD');
+        calculator.currencyPairCode('EUR', 'USD');
       });
 
       test('And: the position size is 100,000', () {
@@ -43,8 +42,7 @@ void main() {
       });
 
       test('And: the exchange rate for the pair EUR/CAD is 1.25', () {
-        calculator.baseCode('EUR');
-        calculator.counterCode('CAD');
+        calculator.currencyPairCode('EUR', 'CAD');
       });
 
       test('And: my position size is 100,000', () {
@@ -70,7 +68,7 @@ void main() {
       });
 
       test('And: the exchange rate for the pair AUD/JPY is 100', () {
-        calculator.baseCode('AUD').counterCode('JPY');
+        calculator.currencyPairCode('AUD', 'JPY');
       });
 
       test('When: my position size is 100, 000', () {

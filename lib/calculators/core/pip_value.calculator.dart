@@ -32,6 +32,14 @@ class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
 
     return pip(defaultState: state).value().toDouble();
   }
+
+  @override
+  Iterable<String> get propertiesUseForDifference => [
+        MatexCoreStateProperty.accountCode,
+        MatexCoreStateProperty.baseCode,
+        MatexCoreStateProperty.counterCode,
+        MatexCoreStateProperty.positionSize,
+      ];
 }
 
 MatexPipValueCalculator matexPipValue({
