@@ -9,12 +9,15 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
         MatexFibonacciLevelsCoreMixin<MatexFibonacciLevelsCalculatorCore,
             FibonacciLevelsResult> {
   MatexFibonacciLevelsCalculatorCore({
-    MatexBaseCoreState initialState,
+    MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          initialState: initialState ?? kInitialFibonacciLevelsState,
+          defaultState: defaultState,
           validators: validators ?? fibonacciLevelsValidators,
         );
+
+  @override
+  MatexBaseCoreState get defaultCalculatorState => kInitialFibonacciLevelsState;
 
   @override
   FibonacciLevelsResult value() {
@@ -107,10 +110,10 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexFibonacciLevelsCalculatorCore fibonacciLevels({
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) =>
     MatexFibonacciLevelsCalculatorCore(
-      initialState: initialState,
+      defaultState: defaultState,
       validators: validators,
     );

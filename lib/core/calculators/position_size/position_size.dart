@@ -19,12 +19,15 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
         MatexPositionSizeMarginCoreMixin<MatexPositionSizeCalculatorCore,
             MatexPositionSizeResult> {
   MatexPositionSizeCalculatorCore({
-    MatexBaseCoreState initialState,
+    MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          initialState: initialState ?? kInitialPositionSizeState,
+          defaultState: defaultState,
           validators: validators ?? positionSizeValidators,
         );
+
+  @override
+  MatexBaseCoreState get defaultCalculatorState => kInitialPositionSizeState;
 
   @override
   MatexPositionSizeResult value() {
@@ -116,10 +119,10 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexPositionSizeCalculatorCore positionSize({
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) =>
     MatexPositionSizeCalculatorCore(
-      initialState: initialState,
+      defaultState: defaultState,
       validators: validators,
     );

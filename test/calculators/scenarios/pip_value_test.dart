@@ -146,5 +146,441 @@ void main() {
         });
       },
     );
+
+    group(
+      'Scenario: When a default currency account is set '
+      'Then the default value should be used when the calculator is reset',
+      () {
+        final calculator = matex.pipValue();
+
+        test('Given: my default account currency is USD', () {
+          calculator.setDefaultState(
+            kInitialMatexPipValueState.copyWith(accountCode: 'USD'),
+          );
+
+          expect(calculator is MatexPipValueCalculator, equals(true));
+          expect(calculator.getState().accountCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(false));
+        });
+
+        test('And: I set my account currency to EUR', () {
+          calculator.accountCode('EUR');
+          expect(calculator.getState().accountCode == 'EUR', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('When: I reset the calculator', () {
+          calculator.reset();
+        });
+
+        test('Then: my default account currency should be set', () async {
+          expect(calculator.getState().accountCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(false));
+        });
+      },
+    );
+
+    group(
+      'Scenario: When a default currency pair is set '
+      'Then the default value should be used when the calculator is reset',
+      () {
+        final calculator = matex.pipValue();
+
+        test('Given: my default currency pair is EUR/USD', () {
+          calculator.setDefaultState(
+            kInitialMatexPipValueState.copyWith(
+              baseCode: 'EUR',
+              counterCode: 'USD',
+            ),
+          );
+
+          expect(calculator is MatexPipValueCalculator, equals(true));
+          expect(calculator.getState().baseCode == 'EUR', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(false));
+        });
+
+        test('And: I set my currency pair to AUD/USD', () {
+          calculator.baseCode('AUD');
+          calculator.counterCode('USD');
+          expect(calculator.getState().baseCode == 'AUD', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('When: I reset the calculator', () {
+          calculator.reset();
+        });
+
+        test('Then: my default currency pair should be set', () async {
+          expect(calculator.getState().baseCode == 'EUR', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(false));
+        });
+      },
+    );
+
+    group(
+      'Scenario: When a default currency pair and an account currency are set '
+      'Then the default values should be used when the calculator is reset',
+      () {
+        final calculator = matex.pipValue();
+
+        test(
+          'Given: my default currency pair is EUR/USD and '
+          'my account currency to USD',
+          () {
+            calculator.setDefaultState(
+              kInitialMatexPipValueState.copyWith(
+                accountCode: 'USD',
+                baseCode: 'EUR',
+                counterCode: 'USD',
+              ),
+            );
+
+            expect(calculator is MatexPipValueCalculator, equals(true));
+            expect(calculator.getState().accountCode == 'USD', equals(true));
+            expect(calculator.getState().baseCode == 'EUR', equals(true));
+            expect(calculator.getState().counterCode == 'USD', equals(true));
+            expect(calculator.isDirty, equals(false));
+          },
+        );
+
+        test('And: I set my account currency to EUR', () {
+          calculator.accountCode('EUR');
+          expect(calculator.getState().accountCode == 'EUR', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('And: I set my currency pair to AUD/USD', () {
+          calculator.baseCode('AUD');
+          calculator.counterCode('USD');
+          expect(calculator.getState().baseCode == 'AUD', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('When: I reset the calculator', () {
+          calculator.reset();
+        });
+
+        test('Then: my default currency pair should be set', () async {
+          expect(calculator.getState().accountCode == 'USD', equals(true));
+          expect(calculator.getState().baseCode == 'EUR', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(false));
+        });
+      },
+    );
+
+    group(
+      'Scenario: When a default currency pair and an account currency are set '
+      'And the default values are changed'
+      'Then the default values should be used when the calculator is reset',
+      () {
+        final calculator = matex.pipValue();
+
+        test(
+          'Given: my default currency pair is EUR/USD and '
+          'my account currency to USD',
+          () {
+            calculator.setDefaultState(
+              kInitialMatexPipValueState.copyWith(
+                accountCode: 'USD',
+                baseCode: 'EUR',
+                counterCode: 'USD',
+              ),
+            );
+
+            expect(calculator is MatexPipValueCalculator, equals(true));
+            expect(calculator.getState().accountCode == 'USD', equals(true));
+            expect(calculator.getState().baseCode == 'EUR', equals(true));
+            expect(calculator.getState().counterCode == 'USD', equals(true));
+            expect(calculator.isDirty, equals(false));
+          },
+        );
+
+        test('And: I set my account currency to EUR', () {
+          calculator.accountCode('EUR');
+          expect(calculator.getState().accountCode == 'EUR', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('And: I set my default account currency to EUR', () {
+          calculator.setDefaultState(
+            kInitialMatexPipValueState.copyWith(
+              accountCode: 'EUR',
+              baseCode: 'EUR',
+              counterCode: 'USD',
+            ),
+          );
+
+          expect(calculator.getState().accountCode == 'EUR', equals(true));
+          expect(calculator.isDirty, equals(false));
+        });
+
+        test('And: I set my currency pair to AUD/USD', () {
+          calculator.baseCode('AUD');
+          calculator.counterCode('USD');
+          expect(calculator.getState().baseCode == 'AUD', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('When: I reset the calculator', () {
+          calculator.reset();
+        });
+
+        test('Then: my default currency pair should be set', () async {
+          expect(calculator.getState().accountCode == 'EUR', equals(true));
+          expect(calculator.getState().baseCode == 'EUR', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(false));
+        });
+      },
+    );
+
+    group(
+      'Scenario: When a default currency pair and an account currency are set '
+      'And the my default account currency value is reset'
+      'Then the default values should be used when the calculator is reset',
+      () {
+        final calculator = matex.pipValue();
+
+        test(
+          'Given: my default currency pair is EUR/USD and '
+          'my account currency to EUR',
+          () {
+            calculator.setDefaultState(
+              kInitialMatexPipValueState.copyWith(
+                accountCode: 'EUR',
+                baseCode: 'EUR',
+                counterCode: 'USD',
+              ),
+            );
+
+            expect(calculator is MatexPipValueCalculator, equals(true));
+            expect(calculator.getState().accountCode == 'EUR', equals(true));
+            expect(calculator.getState().baseCode == 'EUR', equals(true));
+            expect(calculator.getState().counterCode == 'USD', equals(true));
+            expect(calculator.isDirty, equals(false));
+          },
+        );
+
+        test('And: I set my account currency to USD', () {
+          calculator.accountCode('USD');
+          expect(calculator.getState().accountCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('And: I clear my default account currency', () {
+          calculator.setDefaultState(
+            kInitialMatexPipValueState.copyWith(
+              baseCode: 'EUR',
+              counterCode: 'USD',
+            ),
+          );
+
+          expect(calculator.getState().accountCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('When: I reset the calculator', () {
+          calculator.reset();
+        });
+
+        test('Then: my default currency pair should be set', () async {
+          expect(calculator.getState().accountCode == null, equals(true));
+          expect(calculator.getState().baseCode == 'EUR', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(false));
+        });
+      },
+    );
+
+    group(
+      'Scenario: When a default currency pair and an account currency are set '
+      'And the my default currency pair value is reset'
+      'Then the default values should be used when the calculator is reset',
+      () {
+        final calculator = matex.pipValue();
+
+        test(
+          'Given: my default currency pair is EUR/USD and '
+          'my account currency to EUR',
+          () {
+            calculator.setDefaultState(
+              kInitialMatexPipValueState.copyWith(
+                accountCode: 'EUR',
+                baseCode: 'EUR',
+                counterCode: 'USD',
+              ),
+            );
+
+            expect(calculator is MatexPipValueCalculator, equals(true));
+            expect(calculator.getState().accountCode == 'EUR', equals(true));
+            expect(calculator.getState().baseCode == 'EUR', equals(true));
+            expect(calculator.getState().counterCode == 'USD', equals(true));
+            expect(calculator.isDirty, equals(false));
+          },
+        );
+        test('And: I set my currency pair to AUD/USD', () {
+          calculator.baseCode('AUD');
+          calculator.counterCode('USD');
+          expect(calculator.getState().baseCode == 'AUD', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('And: I clear my default currency pair', () {
+          calculator.setDefaultState(
+            kInitialMatexPipValueState.copyWith(
+              accountCode: 'EUR',
+            ),
+          );
+
+          expect(calculator.getState().baseCode == 'AUD', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('When: I reset the calculator', () {
+          calculator.reset();
+        });
+
+        test('Then: my default currency pair should be set', () async {
+          expect(calculator.getState().accountCode == 'EUR', equals(true));
+          expect(calculator.getState().baseCode == null, equals(true));
+          expect(calculator.getState().counterCode == null, equals(true));
+          expect(calculator.isDirty, equals(false));
+        });
+      },
+    );
+
+    group(
+      'Scenario: When a default currency pair and an account currency are set '
+      'And the my default account currency value is reset, '
+      'but my currency pair is set'
+      'Then the default values should be used when the calculator is reset',
+      () {
+        final calculator = matex.pipValue();
+
+        test(
+          'Given: my default currency pair is EUR/USD and '
+          'my account currency to EUR',
+          () {
+            calculator.setDefaultState(
+              kInitialMatexPipValueState.copyWith(
+                accountCode: 'EUR',
+                baseCode: 'EUR',
+                counterCode: 'USD',
+              ),
+            );
+
+            expect(calculator is MatexPipValueCalculator, equals(true));
+            expect(calculator.getState().accountCode == 'EUR', equals(true));
+            expect(calculator.getState().baseCode == 'EUR', equals(true));
+            expect(calculator.getState().counterCode == 'USD', equals(true));
+            expect(calculator.isDirty, equals(false));
+          },
+        );
+
+        test('And: I set my currency pair to AUD/USD', () {
+          calculator.baseCode('AUD');
+          calculator.counterCode('USD');
+          expect(calculator.getState().baseCode == 'AUD', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('And: I clear my default account currency', () {
+          calculator.setDefaultState(
+            kInitialMatexPipValueState.copyWith(
+              baseCode: 'EUR',
+              counterCode: 'USD',
+            ),
+          );
+
+          expect(calculator.getState().accountCode == null, equals(true));
+          expect(calculator.getState().baseCode == 'AUD', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('When: I reset the calculator', () {
+          calculator.reset();
+        });
+
+        test('Then: my default currency pair should be set', () async {
+          expect(calculator.getState().accountCode == null, equals(true));
+          expect(calculator.getState().baseCode == 'EUR', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(false));
+        });
+      },
+    );
+
+    group(
+      'Scenario: When a default currency pair and an account currency are set '
+      'And the my default values are reset, '
+      'Then the default values should be used when the calculator is reset',
+      () {
+        final calculator = matex.pipValue();
+
+        test(
+          'Given: my default currency pair is EUR/USD and '
+          'my account currency to EUR',
+          () {
+            calculator.setDefaultState(
+              kInitialMatexPipValueState.copyWith(
+                accountCode: 'EUR',
+                baseCode: 'EUR',
+                counterCode: 'USD',
+              ),
+            );
+
+            expect(calculator is MatexPipValueCalculator, equals(true));
+            expect(calculator.getState().accountCode == 'EUR', equals(true));
+            expect(calculator.getState().baseCode == 'EUR', equals(true));
+            expect(calculator.getState().counterCode == 'USD', equals(true));
+            expect(calculator.isDirty, equals(false));
+          },
+        );
+
+        test('And: I set my account currency to USD', () {
+          calculator.accountCode('USD');
+          expect(calculator.getState().accountCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('And: I set my currency pair to AUD/USD', () {
+          calculator.baseCode('AUD');
+          calculator.counterCode('USD');
+          expect(calculator.getState().baseCode == 'AUD', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('And: I clear my default account currency', () {
+          calculator.setDefaultState(kInitialMatexPipValueState);
+
+          expect(calculator.getState().accountCode == 'USD', equals(true));
+          expect(calculator.getState().baseCode == 'AUD', equals(true));
+          expect(calculator.getState().counterCode == 'USD', equals(true));
+          expect(calculator.isDirty, equals(true));
+        });
+
+        test('When: I reset the calculator', () {
+          calculator.reset();
+        });
+
+        test('Then: my default currency pair should be set', () async {
+          expect(calculator.getState().accountCode == null, equals(true));
+          expect(calculator.getState().baseCode == null, equals(true));
+          expect(calculator.getState().counterCode == null, equals(true));
+          expect(calculator.isDirty, equals(false));
+        });
+      },
+    );
   });
 }

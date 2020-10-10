@@ -21,12 +21,16 @@ class MatexStopLossTakeProfitCalculator
 
   MatexStopLossTakeProfitCalculator({
     @required this.config,
-    MatexBaseCoreState initialState,
+    MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          initialState: initialState ?? kInitialMatexStopLossTakeProfitState,
+          defaultState: defaultState,
           validators: validators ?? matexStopLossTakeProfitValidators,
         );
+
+  @override
+  MatexBaseCoreState get defaultCalculatorState =>
+      kInitialMatexStopLossTakeProfitState;
 
   @override
   Future<MatexStopLossTakeProfitResult> value() async {
@@ -36,18 +40,18 @@ class MatexStopLossTakeProfitCalculator
       await setExchangeRates();
     }
 
-    return stopLossTakeProfit(initialState: state).value();
+    return stopLossTakeProfit(defaultState: state).value();
   }
 }
 
 MatexStopLossTakeProfitCalculator matexStopLossTakeProfit({
   MatexConfig config,
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) {
   return MatexStopLossTakeProfitCalculator(
     config: config,
-    initialState: initialState,
+    defaultState: defaultState,
     validators: validators,
   );
 }

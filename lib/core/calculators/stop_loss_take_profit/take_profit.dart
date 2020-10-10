@@ -8,8 +8,11 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
             MatexTakeProfitResult>,
         MatexPipValueCoreMixin<MatexTakeProfitCalculatorCore,
             MatexTakeProfitResult> {
-  MatexTakeProfitCalculatorCore({MatexBaseCoreState initialState})
-      : super(initialState: initialState ?? kInitialTakeProfitState);
+  MatexTakeProfitCalculatorCore({MatexBaseCoreState defaultState})
+      : super(defaultState: defaultState);
+
+  @override
+  MatexBaseCoreState get defaultCalculatorState => kInitialTakeProfitState;
 
   @override
   MatexTakeProfitResult value({Decimal pipValue}) {
@@ -140,6 +143,6 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexTakeProfitCalculatorCore takeProfit({
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
 }) =>
-    MatexTakeProfitCalculatorCore(initialState: initialState);
+    MatexTakeProfitCalculatorCore(defaultState: defaultState);

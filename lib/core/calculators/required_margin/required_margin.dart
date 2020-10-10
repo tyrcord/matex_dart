@@ -9,12 +9,15 @@ class MatexRequiredMarginCalculatorCore
         MatexRequiredMarginCoreMixin<MatexRequiredMarginCalculatorCore,
             double> {
   MatexRequiredMarginCalculatorCore({
-    MatexBaseCoreState initialState,
+    MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          initialState: initialState ?? kInitialRequiredMarginState,
+          defaultState: defaultState,
           validators: validators ?? requiredMarginValidators,
         );
+
+  @override
+  MatexBaseCoreState get defaultCalculatorState => kInitialRequiredMarginState;
 
   @override
   double value() {
@@ -42,10 +45,10 @@ class MatexRequiredMarginCalculatorCore
 }
 
 MatexRequiredMarginCalculatorCore requiredMargin({
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) =>
     MatexRequiredMarginCalculatorCore(
-      initialState: initialState,
+      defaultState: defaultState,
       validators: validators,
     );

@@ -25,6 +25,14 @@ void main() {
       test('should return true when a calculator state is dirty', () {
         calculator.positionSize(5);
         expect(calculator.isDirty, equals(true));
+
+        calculator.setDefaultState(
+          kInitialPipValueState.copyWith(positionSize: 5),
+        );
+        expect(calculator.isDirty, equals(false));
+
+        calculator.positionSize(kInitialPipValueState.positionSize);
+        expect(calculator.isDirty, equals(true));
       });
 
       test(

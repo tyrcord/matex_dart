@@ -12,12 +12,15 @@ class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
 
   MatexPipValueCalculator({
     @required this.config,
-    MatexBaseCoreState initialState,
+    MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          initialState: initialState ?? kInitialMatexPipValueState,
+          defaultState: defaultState,
           validators: validators ?? matexPipValueValidators,
         );
+
+  @override
+  MatexBaseCoreState get defaultCalculatorState => kInitialMatexPipValueState;
 
   @override
   Future<double> value() async {
@@ -27,18 +30,18 @@ class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
       await setExchangeRates();
     }
 
-    return pip(initialState: state).value().toDouble();
+    return pip(defaultState: state).value().toDouble();
   }
 }
 
 MatexPipValueCalculator matexPipValue({
   MatexConfig config,
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) {
   return MatexPipValueCalculator(
     config: config,
-    initialState: initialState,
+    defaultState: defaultState,
     validators: validators,
   );
 }

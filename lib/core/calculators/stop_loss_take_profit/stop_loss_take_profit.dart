@@ -13,12 +13,16 @@ class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
         MatexPipValueCoreMixin<MatexStopLossTakeProfitCalculatorCore,
             MatexStopLossTakeProfitResult> {
   MatexStopLossTakeProfitCalculatorCore({
-    MatexBaseCoreState initialState,
+    MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          initialState: initialState ?? kInitialStopLossTakeProfitState,
+          defaultState: defaultState,
           validators: validators ?? stopLossTakeProfitValidators,
         );
+
+  @override
+  MatexBaseCoreState get defaultCalculatorState =>
+      kInitialStopLossTakeProfitState;
 
   @override
   MatexStopLossTakeProfitResult value() {
@@ -78,10 +82,10 @@ class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexStopLossTakeProfitCalculatorCore stopLossTakeProfit({
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) =>
     MatexStopLossTakeProfitCalculatorCore(
-      initialState: initialState,
+      defaultState: defaultState,
       validators: validators,
     );

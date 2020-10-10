@@ -9,8 +9,11 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
         MatexPipValueCoreMixin<MatexStopLossCalculatorCore,
             MatexStopLossResult> {
   MatexStopLossCalculatorCore({
-    MatexBaseCoreState initialState,
-  }) : super(initialState: initialState ?? kInitialStopLossState);
+    MatexBaseCoreState defaultState,
+  }) : super(defaultState: defaultState);
+
+  @override
+  MatexBaseCoreState get defaultCalculatorState => kInitialStopLossState;
 
   @override
   MatexStopLossResult value({Decimal pipValue}) {
@@ -130,8 +133,8 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexStopLossCalculatorCore stopLoss({
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
 }) =>
     MatexStopLossCalculatorCore(
-      initialState: initialState,
+      defaultState: defaultState,
     );

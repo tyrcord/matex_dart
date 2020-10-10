@@ -29,7 +29,7 @@ class MatexApp {
   }) {
     return matexPipValue(
       config: config,
-      initialState: state,
+      defaultState: state,
       validators: validators,
     );
   }
@@ -40,7 +40,7 @@ class MatexApp {
   }) {
     return matexPivotPoints(
       config: config,
-      initialState: state,
+      defaultState: state,
       validators: validators,
     );
   }
@@ -51,7 +51,7 @@ class MatexApp {
   }) {
     return matexFibonacciLevels(
       config: config,
-      initialState: state,
+      defaultState: state,
       validators: validators,
     );
   }
@@ -62,7 +62,7 @@ class MatexApp {
   }) {
     return matexRequiredMargin(
       config: config,
-      initialState: state,
+      defaultState: state,
       validators: validators,
     );
   }
@@ -73,7 +73,7 @@ class MatexApp {
   }) {
     return matexPositionSize(
       config: config,
-      initialState: state,
+      defaultState: state,
       validators: validators,
     );
   }
@@ -84,7 +84,7 @@ class MatexApp {
   }) {
     return matexStopLossTakeProfit(
       config: config,
-      initialState: state,
+      defaultState: state,
       validators: validators,
     );
   }

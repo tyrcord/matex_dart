@@ -10,27 +10,30 @@ class MatexPivotPointsCalculator extends MatexBaseCalculator<
 
   MatexPivotPointsCalculator({
     @required this.config,
-    MatexBaseCoreState initialState,
+    MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          initialState: initialState,
+          defaultState: defaultState,
           validators: validators,
         );
 
   @override
+  MatexBaseCoreState get defaultCalculatorState => kInitialPivotPointsState;
+
+  @override
   Future<MatexPivotPointsResult> value() async {
-    return pivotPoints(initialState: state).value();
+    return pivotPoints(defaultState: state).value();
   }
 }
 
 MatexPivotPointsCalculator matexPivotPoints({
   MatexConfig config,
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) {
   return MatexPivotPointsCalculator(
     config: config,
-    initialState: initialState,
+    defaultState: defaultState,
     validators: validators,
   );
 }

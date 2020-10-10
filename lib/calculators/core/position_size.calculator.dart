@@ -17,12 +17,16 @@ class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
 
   MatexPositionSizeCalculator({
     @required this.config,
-    MatexBaseCoreState initialState,
+    MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          initialState: initialState ?? kInitialMatexPositionSizeState,
+          defaultState: defaultState,
           validators: validators ?? matexPositionSizeValidators,
         );
+
+  @override
+  MatexBaseCoreState get defaultCalculatorState =>
+      kInitialMatexPositionSizeState;
 
   @override
   Future<MatexPositionSizeResult> value() async {
@@ -32,18 +36,18 @@ class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
       await setExchangeRates();
     }
 
-    return positionSize(initialState: state).value();
+    return positionSize(defaultState: state).value();
   }
 }
 
 MatexPositionSizeCalculator matexPositionSize({
   MatexConfig config,
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) {
   return MatexPositionSizeCalculator(
     config: config,
-    initialState: initialState,
+    defaultState: defaultState,
     validators: validators,
   );
 }

@@ -10,27 +10,30 @@ class MatexFibonacciLevelsCalculator extends MatexBaseCalculator<
 
   MatexFibonacciLevelsCalculator({
     @required this.config,
-    MatexBaseCoreState initialState,
+    MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          initialState: initialState,
+          defaultState: defaultState,
           validators: validators,
         );
 
   @override
+  MatexBaseCoreState get defaultCalculatorState => kInitialFibonacciLevelsState;
+
+  @override
   Future<FibonacciLevelsResult> value() async {
-    return fibonacciLevels(initialState: state).value();
+    return fibonacciLevels(defaultState: state).value();
   }
 }
 
 MatexFibonacciLevelsCalculator matexFibonacciLevels({
   MatexConfig config,
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) {
   return MatexFibonacciLevelsCalculator(
     config: config,
-    initialState: initialState,
+    defaultState: defaultState,
     validators: validators,
   );
 }

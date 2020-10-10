@@ -14,12 +14,16 @@ class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
 
   MatexRequiredMarginCalculator({
     @required this.config,
-    MatexBaseCoreState initialState,
+    MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          initialState: initialState ?? kInitialMatexRequiredMarginState,
+          defaultState: defaultState,
           validators: validators ?? matexPipValueValidators,
         );
+
+  @override
+  MatexBaseCoreState get defaultCalculatorState =>
+      kInitialMatexRequiredMarginState;
 
   @override
   Future<double> value() async {
@@ -27,7 +31,7 @@ class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
 
     if (isValid && exchangeProvider != null) {
       await setExchangeRates();
-      return requiredMargin(initialState: state).value();
+      return requiredMargin(defaultState: state).value();
     }
 
     return 0.0;
@@ -69,12 +73,12 @@ class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
 
 MatexRequiredMarginCalculator matexRequiredMargin({
   MatexConfig config,
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) {
   return MatexRequiredMarginCalculator(
     config: config,
-    initialState: initialState,
+    defaultState: defaultState,
     validators: validators,
   );
 }

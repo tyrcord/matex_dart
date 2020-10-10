@@ -9,51 +9,68 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
   @protected
   bool isStateValid = true;
   @protected
-  MatexBaseCoreState initialState;
-  @protected
   List<MatexStateValidator> validators;
+  @protected
+  MatexBaseCoreState defaultState;
+
+  MatexBaseCoreState differenceState;
+
+  MatexBaseCoreState get defaultCalculatorState;
 
   MatexBaseCoreState get validState {
-    return isStateValid ? state : initialState;
+    return isStateValid ? state : defaultState;
   }
 
   bool get isValid => isStateValid;
 
-  bool get isDirty => state != initialState;
+  bool get isDirty => state != defaultState;
 
   MatexBaseCalculator({
-    @required this.initialState,
+    this.defaultState,
     this.validators,
-  }) : assert(initialState != null) {
+  }) {
     reset();
   }
 
   R value();
 
-  C reset() => setState(initialState);
+  C reset() {
+    defaultState ??= defaultCalculatorState;
+    var calculator = setState(defaultState);
+    differenceState = MatexBaseCoreState();
+    return calculator;
+  }
 
   MatexBaseCoreState getState() => state.clone();
 
   C patchState(MatexBaseCoreState partialState) {
-    result = null;
+    differenceState = differenceState.copyWithState(partialState);
     state = state.copyWithState(partialState);
+    result = null;
     return _checkStateValidity();
   }
 
   C resetStateProperties(List<String> properties) {
+    differenceState = state.copyWithOmittedProperties(properties);
+    state = state.copyWithOmittedProperties(
+      properties,
+      defaultState: defaultCalculatorState,
+    );
+
     result = null;
-    state = state.copyWithOmittedProperties(properties, initialState);
+
     return _checkStateValidity();
   }
 
-  C setInitialState(MatexBaseCoreState state) {
-    initialState = state.clone();
-    return this as C;
+  C setDefaultState(MatexBaseCoreState defaultState) {
+    this.defaultState = defaultState.clone();
+    state = defaultState.copyWithState(differenceState);
+    return _checkStateValidity();
   }
 
   C setState(MatexBaseCoreState state) {
-    result = null;
     this.state = state.clone();
+    result = null;
     return _checkStateValidity();
   }
 

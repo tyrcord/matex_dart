@@ -6,12 +6,15 @@ class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
         MatexPivotPointsCoreMixin<MatexPivotPointsCalculatorCore,
             MatexPivotPointsResult> {
   MatexPivotPointsCalculatorCore({
-    MatexBaseCoreState initialState,
+    MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          initialState: initialState ?? kInitialPivotPointsState,
+          defaultState: defaultState,
           validators: validators ?? pivotPointsValidators,
         );
+
+  @override
+  MatexBaseCoreState get defaultCalculatorState => kInitialPivotPointsState;
 
   @override
   MatexPivotPointsResult value() {
@@ -49,10 +52,10 @@ class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexPivotPointsCalculatorCore pivotPoints({
-  MatexBaseCoreState initialState,
+  MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) =>
     MatexPivotPointsCalculatorCore(
-      initialState: initialState,
+      defaultState: defaultState,
       validators: validators,
     );

@@ -17,41 +17,58 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     if (accountCode != null) {
       return patchState(MatexBaseCoreState(
         accountCode: accountCode,
-        baseExchangeRate: 0,
+        baseExchangeRate: kInitialMatexPipValueState.baseExchangeRate,
       ));
     }
 
-    return resetStateProperties([
-      MatexCoreStateProperty.accountCode,
-      MatexCoreStateProperty.baseExchangeRate,
-    ]);
+    _resetRelatedProperties();
+    return resetStateProperties([MatexCoreStateProperty.accountCode]);
   }
 
   C baseCode(String baseCode) {
     if (baseCode != null) {
       return patchState(MatexBaseCoreState(
         baseCode: baseCode,
-        tradingPairExchangeRate: 0,
+        baseExchangeRate: kInitialMatexPipValueState.baseExchangeRate,
+        tradingPairExchangeRate:
+            kInitialMatexPipValueState.tradingPairExchangeRate,
       ));
     }
 
-    return resetStateProperties([
-      MatexCoreStateProperty.baseCode,
-      MatexCoreStateProperty.tradingPairExchangeRate,
-    ]);
+    _resetRelatedProperties();
+    return resetStateProperties([MatexCoreStateProperty.baseCode]);
   }
 
   C counterCode(String counterCode) {
     if (counterCode != null) {
       return patchState(MatexBaseCoreState(
         counterCode: counterCode,
-        tradingPairExchangeRate: 0,
+        baseExchangeRate: kInitialMatexPipValueState.baseExchangeRate,
+        tradingPairExchangeRate:
+            kInitialMatexPipValueState.tradingPairExchangeRate,
       ));
     }
 
+    _resetRelatedProperties();
+    return resetStateProperties([MatexCoreStateProperty.counterCode]);
+  }
+
+  C positionSize(double positionSize) {
+    if (positionSize != null &&
+        positionSize != kInitialMatexPipValueState.positionSize) {
+      final sanitizedValue = sanitizeDouble(positionSize);
+      return patchState(MatexBaseCoreState(positionSize: sanitizedValue));
+    }
+
+    _resetRelatedProperties();
+    return resetStateProperties([MatexCoreStateProperty.positionSize]);
+  }
+
+  C _resetRelatedProperties() {
     return resetStateProperties([
-      MatexCoreStateProperty.counterCode,
       MatexCoreStateProperty.tradingPairExchangeRate,
+      MatexCoreStateProperty.baseExchangeRate,
+      MatexCoreStateProperty.baseListedSecond,
     ]);
   }
 
