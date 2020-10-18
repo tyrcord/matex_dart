@@ -864,11 +864,6 @@
     "counter": "HKD",
     "type": "currency_exotic"
   },
-  "USDHRK": {
-    "base": "USD",
-    "counter": "HRK",
-    "type": "currency_exotic"
-  },
   "USDHUF": {
     "base": "USD",
     "counter": "HUF",
@@ -916,7 +911,7 @@
   },
   "USDNGN": {
     "base": "USD",
-    "counter": "HUF",
+    "counter": "NGN",
     "pip": {
       "pipette": 3,
       "precision": 2,
