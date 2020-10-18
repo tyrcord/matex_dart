@@ -1,6 +1,9 @@
 name: matex_dart
-version: 0.1.0
-author: Tyrcord, Inc. <dev@tyrcord.com>
+version: 0.2.0
+description: Set of Forex calculators.
+homepage: https://github.com/tyrcord/matex_dart
+issue_tracker: https://github.com/tyrcord/matex_dart/issues
+
 environment:
   sdk: ">=2.10.0 <3.0.0"
   flutter: ">=1.22.0 <2.0.0"
