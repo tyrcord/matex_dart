@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
@@ -29,7 +31,7 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
     final takeProfitAmount = validState.takeProfitAmount;
     final takeProfitPips = validState.takeProfitPips;
     final takeProfitPrice = validState.takeProfitPrice;
-    final divider = Decimal.fromInt(10).pow(pipPrecision).toDouble();
+    final divider = pow(10, pipPrecision).toDouble();
 
     if (takeProfitAmount > 0) {
       return _computeTakeProfitWithAmount(

@@ -10,6 +10,8 @@ class ExchangeProvider extends MatexAbstractExchangeProvider {
     if (base == 'EUR') {
       if (counter == 'USD' || counter == 'CAD') {
         price = 1.25;
+      } else if (counter == 'XAU') {
+        price = 0.001;
       } else {
         price = 1;
       }
@@ -26,6 +28,10 @@ class ExchangeProvider extends MatexAbstractExchangeProvider {
         price = 100;
       } else if (counter == 'USD') {
         price = 0.75;
+      }
+    } else if (base == 'XAU') {
+      if (counter == 'JPY') {
+        price = 200000;
       }
     }
 

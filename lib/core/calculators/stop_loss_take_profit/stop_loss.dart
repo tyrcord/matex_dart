@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
@@ -30,7 +32,7 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
     final stopLossAmount = validState.stopLossAmount;
     final stopLossPips = validState.stopLossPips;
     final stopLossPrice = validState.stopLossPrice;
-    final divider = Decimal.fromInt(10).pow(pipPrecision).toDouble();
+    final divider = pow(10, pipPrecision).toDouble();
 
     if (stopLossAmount > 0) {
       return _computeStopLossWithAmount(stopLossAmount, pipValue, divider);

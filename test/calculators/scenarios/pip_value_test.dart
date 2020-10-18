@@ -581,5 +581,26 @@ void main() {
         });
       },
     );
+
+    group('Scenario: When the currency pair is XAU/JPY', () {
+      final calculator = matex.pipValue();
+
+      test('Given: my trading account is in EUR', () {
+        expect(calculator is MatexPipValueCalculator, equals(true));
+        calculator.accountCode('EUR');
+      });
+
+      test('And: USD is listed second in the pair XAU/JPY', () {
+        calculator.currencyPairCode('XAU', 'JPY');
+      });
+
+      test('When: my position size is 100', () {
+        calculator.positionSize(100);
+      });
+
+      test('Then: the pip value should be equal to 5€', () async {
+        expect(await calculator.value(), equals(5));
+      });
+    });
   });
 }

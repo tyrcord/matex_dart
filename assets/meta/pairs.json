@@ -148,8 +148,8 @@
     "base": "XAU",
     "counter": "JPY",
     "pip": {
-      "pipette": -1,
-      "precision": -2,
+      "pipette": 0,
+      "precision": -1,
       "round": 0
     },
     "type": "commodity_metal"

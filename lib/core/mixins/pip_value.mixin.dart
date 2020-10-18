@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
@@ -35,9 +37,8 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     final pipPrecision = state.pipPrecision;
     final positionSize = state.positionSize;
     final tradingPairExchangeRate = state.tradingPairExchangeRate;
-
-    final decimalPip =
-        Decimal.fromInt(1) / Decimal.fromInt(10).pow(pipPrecision);
+    final decimalMultiplicator = pow(10, pipPrecision).toString();
+    final decimalPip = Decimal.fromInt(1) / Decimal.parse(decimalMultiplicator);
 
     return (decimalPip /
         Decimal.parse(

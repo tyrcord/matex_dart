@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
@@ -106,12 +108,13 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
     final entryPrice = validState.entryPrice;
 
     if (stopLossPips == 0 && entryPrice > 0 && stopLossPrice > 0) {
+      final decimalMultiplicator = pow(10, pipPrecision).toString();
       final deltaPrice = (Decimal.parse(entryPrice.toString()) -
               Decimal.parse(stopLossPrice.toString()))
           .abs();
 
       stopLossPips =
-          (deltaPrice * Decimal.fromInt(10).pow(pipPrecision)).toDouble();
+          (deltaPrice * Decimal.parse(decimalMultiplicator)).toDouble();
     }
 
     return stopLossPips;
