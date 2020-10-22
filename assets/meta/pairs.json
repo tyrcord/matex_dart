@@ -234,8 +234,8 @@
     },
     "type": "crypto"
   },
-  "XBTUSD": {
-    "base": "XBT",
+  "BTCUSD": {
+    "base": "BTC",
     "counter": "USD",
     "pip": {
       "pipette": 3,
@@ -248,9 +248,9 @@
     "base": "XRP",
     "counter": "USD",
     "pip": {
-      "pipette": 6,
-      "precision": 5,
-      "round": 6
+      "pipette": 5,
+      "precision": 4,
+      "round": 5
     },
     "type": "crypto"
   },

@@ -136,8 +136,8 @@
     },
     "type": "crypto"
   },
-  "XBT": {
-    "code": "XBT",
+  "BTC": {
+    "code": "BTC",
     "format": {
       "round": 3
     },
@@ -149,7 +149,7 @@
     "symbol": {
       "long": "BTC",
       "short": "₿",
-      "ticker": "XBT"
+      "ticker": "BTC"
     },
     "type": "crypto"
   },
