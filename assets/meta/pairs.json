@@ -1305,9 +1305,129 @@
       "weight": 80
     },
     "index": {
-      "key": "indexes",
+      "key": "indices",
       "main": "index",
       "weight": 40
     }
+  },
+  "GSPCUSD": {
+    "base": "GSPC",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "GDAXIEUR": {
+    "base": "GDAXI",
+    "counter": "EUR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "NDXUSD": {
+    "base": "NDX",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "DJIUSD": {
+    "base": "DJI",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "FCHIEUR": {
+    "base": "FCHI",
+    "counter": "EUR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "FTSEGBP": {
+    "base": "FTSE",
+    "counter": "GBP",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "STOXX50EEUR": {
+    "base": "STOXX50E",
+    "counter": "EUR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "N225JPY": {
+    "base": "N225",
+    "counter": "JPY",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "HSIHKD": {
+    "base": "HSI",
+    "counter": "HKD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "IBEXEUR": {
+    "base": "IBEX",
+    "counter": "EUR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "AXJOAUD": {
+    "base": "AXJO",
+    "counter": "AUD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "GSPTSECAD": {
+    "base": "GSPTSE",
+    "counter": "CAD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
   }
 }
