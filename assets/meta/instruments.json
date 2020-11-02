@@ -976,6 +976,81 @@
     },
     "type": "currency"
   },
+  "IDR": {
+    "code": "IDR",
+    "format": {
+      "round": 3
+    },
+    "icon": "indonesia",
+    "lots": {
+      "micro": 1000,
+      "mini": 10000,
+      "nano": 100,
+      "normalized": true,
+      "standard": 100000,
+      "unit": "forex"
+    },
+    "name": {
+      "key": "indonesian_rupiah",
+      "localized": "Indonesian rupiah"
+    },
+    "symbol": {
+      "long": "IDR",
+      "short": "IDR",
+      "ticker": "IDR"
+    },
+    "type": "currency"
+  },
+  "HRK": {
+    "code": "HRK",
+    "format": {
+      "round": 3
+    },
+    "icon": "croatia",
+    "lots": {
+      "micro": 1000,
+      "mini": 10000,
+      "nano": 100,
+      "normalized": true,
+      "standard": 100000,
+      "unit": "forex"
+    },
+    "name": {
+      "key": "croatian_kuna",
+      "localized": "Croatian kuna"
+    },
+    "symbol": {
+      "long": "HRK",
+      "short": "HRK",
+      "ticker": "HRK"
+    },
+    "type": "currency"
+  },
+  "MYR": {
+    "code": "MYR",
+    "format": {
+      "round": 3
+    },
+    "icon": "malaysia",
+    "lots": {
+      "micro": 1000,
+      "mini": 10000,
+      "nano": 100,
+      "normalized": true,
+      "standard": 100000,
+      "unit": "forex"
+    },
+    "name": {
+      "key": "malaysian_ringgit",
+      "localized": "Malaysian ringgit"
+    },
+    "symbol": {
+      "long": "MYR",
+      "short": "MYR",
+      "ticker": "MYR"
+    },
+    "type": "currency"
+  },
   "instrument_types": {
     "commodity_energy": {
       "key": "commodities",

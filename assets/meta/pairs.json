@@ -984,6 +984,26 @@
     },
     "type": "currency_exotic"
   },
+  "USDHRK": {
+    "base": "USD",
+    "counter": "HRK",
+    "type": "currency_exotic"
+  },
+  "USDMYR": {
+    "base": "USD",
+    "counter": "MYR",
+    "type": "currency_exotic"
+  },
+  "USDIDR": {
+    "base": "USD",
+    "counter": "IDR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "currency_exotic"
+  },
   "AUDUSD": {
     "base": "AUD",
     "counter": "USD",
