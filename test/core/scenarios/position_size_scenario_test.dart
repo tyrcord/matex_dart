@@ -193,8 +193,8 @@ void main() {
         calculator.pipPrecision(2);
       });
 
-      test('And: the exchange rate for the pair USD/AUD is 1.6', () {
-        calculator.baseExchangeRate(1.6);
+      test('And: the exchange rate for the pair JPY/USD is 0.05', () {
+        calculator.baseExchangeRate(0.05);
       });
 
       test('When: my account size is \$5,000', () {
@@ -215,7 +215,7 @@ void main() {
           equals(MatexPositionSizeResult(
             amountAtRisk: 50,
             pipValue: 0.25,
-            positionSize: 4000,
+            positionSize: 500,
             riskRatio: 1,
           )),
         );

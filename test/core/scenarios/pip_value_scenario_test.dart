@@ -66,16 +66,16 @@ void main() {
         calculator.pipPrecision(2);
       });
 
-      test('And: the exchange rate for the pair USD/AUD is 1.6', () {
-        calculator.baseExchangeRate(1.6);
+      test('And: the exchange rate for the pair JPY/USD is 0.05', () {
+        calculator.baseExchangeRate(0.05);
       });
 
       test('When: my position size is 100, 000', () {
         calculator.positionSize(100000);
       });
 
-      test('Then: the pip value should be equal to \$6.25', () {
-        expect(calculator.value(), equals(6.25));
+      test('Then: the pip value should be equal to \$50', () {
+        expect(calculator.value(), equals(50));
       });
     });
   });

@@ -201,7 +201,7 @@ void main() {
           calculator.getState().baseExchangeRate,
           equals(1.25),
         );
-        expect(pipValue, equals(0.00008));
+        expect(pipValue, equals(0.000125));
 
         pipValue = calculator
             .positionSize(1)
@@ -213,7 +213,7 @@ void main() {
           calculator.getState().baseExchangeRate,
           equals(2),
         );
-        expect(pipValue, equals(0.00005));
+        expect(pipValue, equals(0.0002));
       });
     });
 

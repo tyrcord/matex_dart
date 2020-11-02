@@ -110,10 +110,10 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
 
       if (accountCode == counterCode) {
         baseListedSecond(true);
-      } else if (accountCode != baseCode) {
+      } else {
         final accountBaseQuote = await exchangeProvider.rates(
+          counterCode,
           accountCode,
-          baseCode,
         );
 
         baseExchangeRate(accountBaseQuote.price);

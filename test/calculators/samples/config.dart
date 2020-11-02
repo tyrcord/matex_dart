@@ -23,6 +23,12 @@ class ExchangeProvider extends MatexAbstractExchangeProvider {
       } else {
         price = 1;
       }
+    } else if (base == 'JPY') {
+      if (counter == 'EUR') {
+        price = 0.05;
+      } else if (counter == 'USD') {
+        price = 0.05;
+      }
     } else if (base == 'AUD') {
       if (counter == 'JPY') {
         price = 100;

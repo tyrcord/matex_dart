@@ -59,8 +59,8 @@ void main() {
         calculator.currencyPairCode('USD', 'AUD');
       });
 
-      test('Then: the pip value should be equal to €6.25', () async {
-        expect(await calculator.value(), equals(6.25));
+      test('Then: the pip value should be equal to €7.5', () async {
+        expect(await calculator.value(), equals(7.5));
         expect(calculator.getState().baseListedSecond == false, equals(true));
       });
     });
@@ -102,8 +102,8 @@ void main() {
         calculator.positionSize(100000);
       });
 
-      test('Then: the pip value should be equal to \$6.25', () async {
-        expect(await calculator.value(), equals(6.25));
+      test('Then: the pip value should be equal to \$50', () async {
+        expect(await calculator.value(), equals(50));
       });
     });
 
@@ -126,8 +126,8 @@ void main() {
           calculator.positionSize(100000);
         });
 
-        test('Then: the pip value should be equal to \$6.25', () async {
-          expect(await calculator.value(), equals(6.25));
+        test('Then: the pip value should be equal to \$50', () async {
+          expect(await calculator.value(), equals(50));
         });
 
         test('Given: My trading account switch to EUR', () {
@@ -590,7 +590,7 @@ void main() {
         calculator.accountCode('EUR');
       });
 
-      test('And: USD is listed second in the pair XAU/JPY', () {
+      test('And: EUR is not listed second in the pair XAU/JPY', () {
         calculator.currencyPairCode('XAU', 'JPY');
       });
 
@@ -598,8 +598,8 @@ void main() {
         calculator.positionSize(100);
       });
 
-      test('Then: the pip value should be equal to 5€', () async {
-        expect(await calculator.value(), equals(5));
+      test('Then: the pip value should be equal to 50€', () async {
+        expect(await calculator.value(), equals(50));
       });
     });
   });

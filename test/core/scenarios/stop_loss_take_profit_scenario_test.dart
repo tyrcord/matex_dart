@@ -245,8 +245,8 @@ void main() {
           calculator.pipPrecision(2);
         });
 
-        test('And: the exchange rate for the pair USD/AUD is 1.6', () {
-          calculator.baseExchangeRate(1.6);
+        test('And: the exchange rate for the pair JPY/USD is 0.05', () {
+          calculator.baseExchangeRate(0.05);
         });
 
         test('And: my entry price is 100', () {
@@ -269,22 +269,22 @@ void main() {
           calculator.position(MatexPosition.Long);
         });
 
-        test('Then:I should take my profit at 1.06 or accept my loss at 1.12',
+        test('Then:I should take my profit at 100.8 or accept my loss at 99.6',
             () {
           expect(
             calculator.value() ==
                 MatexStopLossTakeProfitResult(
-                  pipValue: 0.625,
+                  pipValue: 5,
                   riskRewardRatio: 2,
                   stopLoss: MatexStopLossResult(
                     amount: 200,
-                    pips: 320,
-                    price: 96.8,
+                    pips: 40,
+                    price: 99.6,
                   ),
                   takeProfit: MatexTakeProfitResult(
                     amount: 400,
-                    pips: 640,
-                    price: 106.4,
+                    pips: 80,
+                    price: 100.8,
                   ),
                 ),
             equals(true),
