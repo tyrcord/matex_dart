@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.2.3](https://github.com/tyrcord/matex_dart/releases/tag/0.2.3) (2020-11-02)
+
+### Features
+
+- Support more currencies.
+
 ## [0.2.2](https://github.com/tyrcord/matex_dart/releases/tag/0.2.2) (2020-11-02)
 
 ### Fixes
