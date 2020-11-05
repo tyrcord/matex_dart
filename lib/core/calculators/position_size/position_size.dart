@@ -9,6 +9,7 @@ const DEFAULT_RESULTS = MatexPositionSizeResult(
   pipValue: 0.0,
   positionSize: 0.0,
   riskRatio: 0.0,
+  stopLossPips: 0.0,
 );
 
 class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
@@ -53,6 +54,7 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
         pipValue: (pipValue * Decimal.parse(tradingSize.toString())).toDouble(),
         positionSize: tradingSize,
         riskRatio: riskRatio,
+        stopLossPips: stopLossPips,
       ));
     }
 

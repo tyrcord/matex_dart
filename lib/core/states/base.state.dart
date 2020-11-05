@@ -333,7 +333,7 @@ class MatexBaseCoreState extends Equatable implements Model {
       'highPrice': highPrice,
       'lowPrice': lowPrice,
       'precision': precision,
-      'trend': trend,
+      'trend': trend?.index,
       'extensionLevels': extensionLevels,
       'retracementLevels': retracementLevels,
       'baseExchangeRate': baseExchangeRate,
@@ -345,12 +345,12 @@ class MatexBaseCoreState extends Equatable implements Model {
       'leverage': leverage,
       'closePrice': closePrice,
       'openPrice': openPrice,
-      'method': method,
+      'method': method?.index,
       'accountSize': accountSize,
       'amountAtRisk': amountAtRisk,
       'riskRatio': riskRatio,
       'entryPrice': entryPrice,
-      'position': position,
+      'position': position?.index,
       'stopLossPips': stopLossPips,
       'stopLossPrice': stopLossPrice,
       'stopLossAmount': stopLossAmount,
@@ -362,6 +362,9 @@ class MatexBaseCoreState extends Equatable implements Model {
 
   factory MatexBaseCoreState.fromJson(dynamic json) {
     var lotDescriptors = json['lotDescriptors'];
+    var trend = json['trend'] as int;
+    var method = json['method'] as int;
+    var position = json['position'] as int;
 
     return MatexBaseCoreState(
       accountCode: json['accountCode'] as String,
@@ -371,7 +374,7 @@ class MatexBaseCoreState extends Equatable implements Model {
       highPrice: json['highPrice'] as double,
       lowPrice: json['lowPrice'] as double,
       precision: json['precision'] as int,
-      trend: json['trend'] as MatexTrend,
+      trend: trend != null ? MatexTrend.values[trend] : null,
       extensionLevels: json['extensionLevels'] as List<double>,
       retracementLevels: json['retracementLevels'] as List<double>,
       baseExchangeRate: json['baseExchangeRate'] as double,
@@ -385,12 +388,12 @@ class MatexBaseCoreState extends Equatable implements Model {
       leverage: json['leverage'] as double,
       closePrice: json['closePrice'] as double,
       openPrice: json['openPrice'] as double,
-      method: json['method'] as MatexPivotPointsMethods,
+      method: method != null ? MatexPivotPointsMethods.values[method] : null,
       accountSize: json['accountSize'] as double,
       amountAtRisk: json['amountAtRisk'] as double,
       riskRatio: json['riskRatio'] as double,
       entryPrice: json['entryPrice'] as double,
-      position: json['position'] as MatexPosition,
+      position: position != null ? MatexPosition.values[position] : null,
       stopLossPips: json['stopLossPips'] as double,
       stopLossPrice: json['stopLossPrice'] as double,
       stopLossAmount: json['stopLossAmount'] as double,

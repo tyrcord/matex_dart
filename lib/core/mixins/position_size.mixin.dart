@@ -17,14 +17,18 @@ mixin MatexPositionSizeMarginCoreMixin<C extends MatexBaseCalculator<C, R>, R>
 
   C entryPrice(double entryPrice) {
     final sanitizedValue = sanitizeDouble(entryPrice);
-    return patchState(
-        MatexBaseCoreState(entryPrice: sanitizedValue, stopLossPips: 0));
+    return patchState(MatexBaseCoreState(
+      entryPrice: sanitizedValue,
+      stopLossPips: 0,
+    ));
   }
 
   C riskRatio(double riskRatio) {
     final sanitizedValue = sanitizeDouble(riskRatio);
-    return patchState(
-        MatexBaseCoreState(riskRatio: sanitizedValue, amountAtRisk: 0));
+    return patchState(MatexBaseCoreState(
+      riskRatio: sanitizedValue,
+      amountAtRisk: 0,
+    ));
   }
 
   C stopLossPips(double stopLossPips) {

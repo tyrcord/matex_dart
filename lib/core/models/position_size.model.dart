@@ -5,12 +5,14 @@ class MatexPositionSizeResult extends Equatable {
   final double pipValue;
   final double positionSize;
   final double riskRatio;
+  final double stopLossPips;
 
   const MatexPositionSizeResult({
     this.amountAtRisk,
     this.pipValue,
     this.positionSize,
     this.riskRatio,
+    this.stopLossPips,
   });
 
   @override
@@ -19,6 +21,7 @@ class MatexPositionSizeResult extends Equatable {
         pipValue,
         positionSize,
         riskRatio,
+        stopLossPips,
       ];
 
   MatexPositionSizeResult clone() {
@@ -27,6 +30,7 @@ class MatexPositionSizeResult extends Equatable {
       pipValue: pipValue,
       positionSize: positionSize,
       riskRatio: riskRatio,
+      stopLossPips: stopLossPips,
     );
   }
 }

@@ -18,8 +18,8 @@ class MatexReporterProvider implements MatexAbstractReporterProvider {
     var index = 0;
 
     return entries.fold('', (String accumulator, MatexReportEntry entry) {
-      final label = entry.label;
-      var value = entry.value;
+      final label = entry.label ?? '';
+      var value = entry.value ?? '';
 
       if (value is num) {
         final formatter = NumberFormat.decimalPattern(locale);

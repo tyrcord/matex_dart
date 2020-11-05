@@ -8,8 +8,8 @@ class MatexReportEntry extends Equatable {
   final int maximumFractionDigits;
 
   const MatexReportEntry({
-    @required this.label,
-    @required this.value,
+    this.label,
+    this.value,
     this.minimumFractionDigits = 2,
     this.maximumFractionDigits,
   });
@@ -22,3 +22,5 @@ class MatexReportEntry extends Equatable {
         maximumFractionDigits,
       ];
 }
+
+const kEmptyMatexReportEntry = MatexReportEntry();
