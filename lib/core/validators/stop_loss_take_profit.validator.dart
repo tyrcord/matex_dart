@@ -1,7 +1,6 @@
 import 'package:matex_dart/matex_dart.dart';
 
-final List<MatexStateValidator> stopLossTakeProfitValidators = [
-  ...pipValueValidators,
+final List<MatexStateValidator> coreStopLossTakeProfitValidators = [
   (MatexBaseCoreState state) =>
       state.entryPrice != null && state.entryPrice > 0,
   (MatexBaseCoreState state) {
@@ -19,4 +18,9 @@ final List<MatexStateValidator> stopLossTakeProfitValidators = [
             (takeProfitPrice != null && takeProfitPrice > 0) ||
             (takeProfitPips != null && takeProfitPips > 0)));
   },
+];
+
+final List<MatexStateValidator> stopLossTakeProfitValidators = [
+  ...pipValueValidators,
+  ...coreStopLossTakeProfitValidators,
 ];

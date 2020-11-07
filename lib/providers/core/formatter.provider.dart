@@ -76,8 +76,8 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
     final formatter = NumberFormat.simpleCurrency(locale: locale, name: code);
 
     maximumFractionDigits = value != 0 ? maximumFractionDigits : 0;
-    formatter.minimumFractionDigits = maximumFractionDigits;
-    formatter.maximumFractionDigits = minimumFractionDigits;
+    formatter.minimumFractionDigits = minimumFractionDigits;
+    formatter.maximumFractionDigits = maximumFractionDigits;
 
     return formatter.format(value);
   }
@@ -91,8 +91,8 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
     final formatter = NumberFormat.decimalPattern(locale);
 
     maximumFractionDigits = value != 0 ? maximumFractionDigits : 0;
-    formatter.minimumFractionDigits = maximumFractionDigits;
-    formatter.maximumFractionDigits = minimumFractionDigits;
+    formatter.minimumFractionDigits = minimumFractionDigits;
+    formatter.maximumFractionDigits = maximumFractionDigits;
 
     return formatter.format(value);
   }
