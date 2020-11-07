@@ -5,6 +5,7 @@ const DEFAULT_POSITION_SIZE_RESULTS = MatexPositionSizeResult(
   pipValue: 0.25,
   positionSize: 2500,
   riskRatio: 1,
+  stopLossPips: 200,
 );
 
 const DEFAULT_PARTIAL_RESULTS = MatexPositionSizeResult(
@@ -12,4 +13,5 @@ const DEFAULT_PARTIAL_RESULTS = MatexPositionSizeResult(
   pipValue: 0,
   positionSize: 0,
   riskRatio: 1,
+  stopLossPips: 0,
 );

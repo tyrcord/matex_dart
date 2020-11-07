@@ -176,6 +176,7 @@ void main() {
             pipValue: 0.25,
             positionSize: 2800,
             riskRatio: 1,
+            stopLossPips: 200,
           )),
         );
       });
@@ -217,6 +218,7 @@ void main() {
             pipValue: 0.25,
             positionSize: 500,
             riskRatio: 1,
+            stopLossPips: 200,
           )),
         );
       });
