@@ -9,10 +9,10 @@ MatexPivotPointsResult pivotPointsWoodie(
   final highParsed = Decimal.parse(high.toString());
   final lowParsed = Decimal.parse(low.toString());
   final closeParsed = Decimal.parse(close.toString());
-  final decimal2 = Decimal.fromInt(2);
+  final decimal2 = MatexDecimal.two;
 
   final pivotPoint =
-      (closeParsed * decimal2 + lowParsed + highParsed) / Decimal.fromInt(4);
+      (closeParsed * decimal2 + lowParsed + highParsed) / MatexDecimal.four;
 
   final resistance1 = pivotPoint * decimal2 - lowParsed;
   final resistance2 = pivotPoint + highParsed - lowParsed;

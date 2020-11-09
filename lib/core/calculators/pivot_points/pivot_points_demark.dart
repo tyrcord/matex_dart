@@ -10,7 +10,7 @@ MatexPivotPointsResult pivotPointsDeMark(
   final highParsed = Decimal.parse(high.toString());
   final lowParsed = Decimal.parse(low.toString());
   final closeParsed = Decimal.parse(close.toString());
-  final decimal2 = Decimal.fromInt(2);
+  final decimal2 = MatexDecimal.two;
   Decimal pivotPoint;
 
   if (close < open) {
@@ -22,7 +22,7 @@ MatexPivotPointsResult pivotPointsDeMark(
   }
 
   final pivotPointDividedBy2 = pivotPoint / decimal2;
-  final pivotPointDividedBy4 = pivotPoint / Decimal.fromInt(4);
+  final pivotPointDividedBy4 = pivotPoint / MatexDecimal.four;
   final resistance = pivotPointDividedBy2 - lowParsed;
   final support = pivotPointDividedBy2 - highParsed;
 

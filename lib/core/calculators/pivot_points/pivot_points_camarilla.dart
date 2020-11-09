@@ -18,7 +18,7 @@ MatexPivotPointsResult pivotPointsCamarilla(
   final lowParsed = Decimal.parse(low.toString());
   final closeParsed = Decimal.parse(close.toString());
   final pivotPoint =
-      (highParsed + lowParsed + closeParsed) / Decimal.fromInt(3);
+      (highParsed + lowParsed + closeParsed) / MatexDecimal.three;
 
   final resistances = _dividers.map((Decimal divider) {
     return (((highParsed - lowParsed) * _multiplier / divider) + closeParsed)

@@ -9,10 +9,10 @@ MatexPivotPointsResult pivotPointsStandard(
   final highParsed = Decimal.parse(high.toString());
   final lowParsed = Decimal.parse(low.toString());
   final closeParsed = Decimal.parse(close.toString());
-  final decimal2 = Decimal.fromInt(2);
+  final decimal2 = MatexDecimal.two;
 
   final pivotPoint =
-      (highParsed + lowParsed + closeParsed) / Decimal.fromInt(3);
+      (highParsed + lowParsed + closeParsed) / MatexDecimal.three;
 
   final resistance1 = pivotPoint * decimal2 - lowParsed;
   final resistance2 = pivotPoint + (highParsed - lowParsed);

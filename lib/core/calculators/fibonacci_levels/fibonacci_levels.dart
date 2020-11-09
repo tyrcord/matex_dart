@@ -1,8 +1,6 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:decimal/decimal.dart';
 
-final _hundred = Decimal.parse('100');
-
 class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
         MatexFibonacciLevelsCalculatorCore, FibonacciLevelsResult>
     with
@@ -43,7 +41,7 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 
       return [...extensionLevels].reversed.map((double level) {
         final parsedValue = isValid
-            ? Decimal.parse(level.toString()) / _hundred * delta +
+            ? Decimal.parse(level.toString()) / MatexDecimal.hundred * delta +
                 parsedHighPrice
             : Decimal.zero;
 
@@ -55,7 +53,7 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 
     return extensionLevels.map((double level) {
       final parsedValue = isValid
-          ? -(Decimal.parse(level.toString()) / _hundred * delta) +
+          ? -(Decimal.parse(level.toString()) / MatexDecimal.hundred * delta) +
               parsedLowPrice
           : Decimal.zero;
 
@@ -75,7 +73,7 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 
       return [...retracementLevels].reversed.map((double level) {
         final parsedValue = isValid
-            ? Decimal.parse(level.toString()) / _hundred * delta +
+            ? Decimal.parse(level.toString()) / MatexDecimal.hundred * delta +
                 parsedLowPrice
             : Decimal.zero;
 
@@ -87,7 +85,7 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 
     return retracementLevels.map((double level) {
       final parsedValue = isValid
-          ? -(Decimal.parse(level.toString()) / _hundred * delta) +
+          ? -(Decimal.parse(level.toString()) / MatexDecimal.hundred * delta) +
               parsedHighPrice
           : Decimal.zero;
 

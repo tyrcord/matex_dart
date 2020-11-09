@@ -38,7 +38,7 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     final positionSize = state.positionSize;
     final tradingPairExchangeRate = state.tradingPairExchangeRate;
     final decimalMultiplicator = pow(10, pipPrecision).toString();
-    final decimalPip = Decimal.fromInt(1) / Decimal.parse(decimalMultiplicator);
+    final decimalPip = Decimal.one / Decimal.parse(decimalMultiplicator);
     final pipValue = Decimal.parse(positionSize.toString()) * decimalPip;
 
     if (baseListedSecond) {
@@ -56,6 +56,6 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
       return pipValue(validState);
     }
 
-    return Decimal.fromInt(0);
+    return Decimal.zero;
   }
 }
