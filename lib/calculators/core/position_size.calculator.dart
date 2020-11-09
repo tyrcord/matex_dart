@@ -20,8 +20,8 @@ class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
     MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          defaultState: defaultState,
           validators: validators ?? matexPositionSizeValidators,
+          defaultState: defaultState,
         );
 
   @override

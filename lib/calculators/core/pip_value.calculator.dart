@@ -15,8 +15,8 @@ class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
     MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          defaultState: defaultState,
           validators: validators ?? matexPipValueValidators,
+          defaultState: defaultState,
         );
 
   @override

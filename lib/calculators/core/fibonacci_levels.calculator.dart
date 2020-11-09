@@ -13,8 +13,8 @@ class MatexFibonacciLevelsCalculator extends MatexBaseCalculator<
     MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
+          validators: validators ?? fibonacciLevelsValidators,
           defaultState: defaultState,
-          validators: validators,
         );
 
   @override

@@ -266,6 +266,9 @@ void main() {
         final result = calculator.value();
         expect(result == defaultFibonacciLevelsResult, equals(true));
 
+        calculator.lowPrice(1.35);
+        expect(calculator.isValid, equals(false));
+
         calculator.lowPrice(1.25);
         expect(calculator.isValid, equals(true));
       });

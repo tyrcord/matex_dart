@@ -13,8 +13,8 @@ class MatexPivotPointsCalculator extends MatexBaseCalculator<
     MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
+          validators: validators ?? pivotPointsValidators,
           defaultState: defaultState,
-          validators: validators,
         );
 
   @override

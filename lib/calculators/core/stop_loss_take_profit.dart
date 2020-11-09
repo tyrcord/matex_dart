@@ -24,8 +24,8 @@ class MatexStopLossTakeProfitCalculator
     MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
   }) : super(
-          defaultState: defaultState,
           validators: validators ?? matexStopLossTakeProfitValidators,
+          defaultState: defaultState,
         );
 
   @override
