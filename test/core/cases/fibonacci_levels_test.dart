@@ -21,6 +21,8 @@ void main() {
     group('#isDirty', () {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
         expect(calculator.isDirty, equals(false));
+        final result = calculator.value();
+        expect(result == defaultFibonacciLevelsResult, equals(true));
       });
 
       test('should return true when a calculator state is dirty', () {
@@ -261,10 +263,10 @@ void main() {
 
         expect(calculator.isValid, equals(false));
 
-        calculator.lowPrice(1.25);
-        expect(calculator.isValid, equals(true));
+        final result = calculator.value();
+        expect(result == defaultFibonacciLevelsResult, equals(true));
 
-        calculator.lowPrice(1.35);
+        calculator.lowPrice(1.25);
         expect(calculator.isValid, equals(true));
       });
     });

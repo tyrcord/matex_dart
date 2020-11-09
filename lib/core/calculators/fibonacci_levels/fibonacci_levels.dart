@@ -42,8 +42,10 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
       final parsedHighPrice = Decimal.parse(highPrice.toString());
 
       return [...extensionLevels].reversed.map((double level) {
-        final parsedValue = Decimal.parse(level.toString()) / _hundred * delta +
-            parsedHighPrice;
+        final parsedValue = isValid
+            ? Decimal.parse(level.toString()) / _hundred * delta +
+                parsedHighPrice
+            : Decimal.zero;
 
         return _makeFibonacciLevel(level, parsedValue.toDouble());
       }).toList();
@@ -52,9 +54,10 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
     final parsedLowPrice = Decimal.parse(lowPrice.toString());
 
     return extensionLevels.map((double level) {
-      final parsedValue =
-          -(Decimal.parse(level.toString()) / _hundred * delta) +
-              parsedLowPrice;
+      final parsedValue = isValid
+          ? -(Decimal.parse(level.toString()) / _hundred * delta) +
+              parsedLowPrice
+          : Decimal.zero;
 
       return _makeFibonacciLevel(level, parsedValue.toDouble());
     }).toList();
@@ -71,8 +74,10 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
       final parsedLowPrice = Decimal.parse(lowPrice.toString());
 
       return [...retracementLevels].reversed.map((double level) {
-        final parsedValue =
-            Decimal.parse(level.toString()) / _hundred * delta + parsedLowPrice;
+        final parsedValue = isValid
+            ? Decimal.parse(level.toString()) / _hundred * delta +
+                parsedLowPrice
+            : Decimal.zero;
 
         return _makeFibonacciLevel(level, parsedValue.toDouble());
       }).toList();
@@ -81,9 +86,10 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
     final parsedHighPrice = Decimal.parse(highPrice.toString());
 
     return retracementLevels.map((double level) {
-      final parsedValue =
-          -(Decimal.parse(level.toString()) / _hundred * delta) +
-              parsedHighPrice;
+      final parsedValue = isValid
+          ? -(Decimal.parse(level.toString()) / _hundred * delta) +
+              parsedHighPrice
+          : Decimal.zero;
 
       return _makeFibonacciLevel(level, parsedValue.toDouble());
     }).toList();
