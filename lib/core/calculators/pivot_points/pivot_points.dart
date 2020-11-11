@@ -55,7 +55,7 @@ class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
       case MatexPivotPointsMethods.Camarilla:
         return pivotPointsCamarilla(highPrice, lowPrice, closePrice);
       case MatexPivotPointsMethods.DeMark:
-        final openPrice = isValid ? state.openPrice : 0.0;
+        final openPrice = state.openPrice;
         return pivotPointsDeMark(highPrice, lowPrice, closePrice, openPrice);
       case MatexPivotPointsMethods.Fibonacci:
         return pivotPointsFibonacci(highPrice, lowPrice, closePrice);
