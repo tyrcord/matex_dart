@@ -30,6 +30,7 @@ class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
     final exchangeProvider = config?.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
+      // TODO: Workaround before using counterAccountPairExchangeRate
       var skipAccountBaseQuote = state.accountCode == state.baseCode;
 
       await setExchangeRates(

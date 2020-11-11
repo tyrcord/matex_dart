@@ -10,6 +10,7 @@ class MatexBaseCoreState extends Equatable implements Model {
   final MatexTrend trend;
   final List<double> extensionLevels;
   final List<double> retracementLevels;
+  // TODO: should be renamed to counterAccountPairExchangeRate;
   final double baseExchangeRate;
   final double tradingPairExchangeRate;
   final double positionSize;

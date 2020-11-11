@@ -25,6 +25,7 @@ class MatexRequiredMarginCalculatorCore
       return result;
     }
 
+    // TODO: Workaround before using counterAccountPairExchangeRate
     final tradingPairExchangeRate = validState.tradingPairExchangeRate;
     final baseListedSecond = validState.baseListedSecond;
     final baseExchangeRate = validState.baseExchangeRate;
