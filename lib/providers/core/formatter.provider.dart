@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:intl/intl.dart';
-import 'package:matex_dart/providers/core/core.dart';
-import 'package:matex_dart/providers/models/instrument_pip_metadata.model.dart';
+import 'package:matex_dart/matex_dart.dart';
 
 import '../interfaces/interfaces.dart';
 import 'instrument.provider.dart';
@@ -75,9 +74,13 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
   ) {
     final formatter = NumberFormat.simpleCurrency(locale: locale, name: code);
 
-    maximumFractionDigits = value != 0 ? maximumFractionDigits : 0;
-    formatter.minimumFractionDigits = minimumFractionDigits;
-    formatter.maximumFractionDigits = maximumFractionDigits;
+    if (minimumFractionDigits != null) {
+      formatter.minimumFractionDigits = minimumFractionDigits;
+    }
+
+    if (maximumFractionDigits != null) {
+      formatter.maximumFractionDigits = maximumFractionDigits;
+    }
 
     return formatter.format(value);
   }
@@ -90,9 +93,13 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
   ) {
     final formatter = NumberFormat.decimalPattern(locale);
 
-    maximumFractionDigits = value != 0 ? maximumFractionDigits : 0;
-    formatter.minimumFractionDigits = minimumFractionDigits;
-    formatter.maximumFractionDigits = maximumFractionDigits;
+    if (minimumFractionDigits != null) {
+      formatter.minimumFractionDigits = minimumFractionDigits;
+    }
+
+    if (maximumFractionDigits != null) {
+      formatter.maximumFractionDigits = maximumFractionDigits;
+    }
 
     return formatter.format(value);
   }
