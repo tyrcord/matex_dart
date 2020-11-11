@@ -4,6 +4,8 @@ import 'package:matex_dart/matex_dart.dart';
 import '../samples/config.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   group('Feature: Calculating the required margin', () {
     final matex = MatexApp(config: testMatexConfig);
 

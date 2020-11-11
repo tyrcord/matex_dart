@@ -27,7 +27,7 @@ class ExchangeProvider extends MatexAbstractExchangeProvider {
       if (counter == 'EUR') {
         price = 0.05;
       } else if (counter == 'USD') {
-        price = 0.05;
+        price = 0.0075;
       }
     } else if (base == 'AUD') {
       if (counter == 'JPY') {

@@ -37,7 +37,7 @@ void main() {
       });
 
       test('And: the exchange rate for the pair EUR/CAD is 1.25', () {
-        calculator.tradingPairExchangeRate(1.25);
+        calculator.tradingPairExchangeRate(1);
       });
 
       test('And: the position size is 100,000', () {
@@ -62,7 +62,7 @@ void main() {
       });
 
       test('And: the exchange rate for the pair AUD/JPY is 100', () {
-        calculator.baseExchangeRate(0.75); // AUD/USD
+        calculator.baseExchangeRate(0.0075); // JPY/USD
         calculator.tradingPairExchangeRate(100); // AUD/JPY
       });
 

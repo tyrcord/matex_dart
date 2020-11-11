@@ -83,10 +83,10 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     return pairProvider.metadata(baseCode + counterCode);
   }
 
-  Future<void> setExchangeRates() async {
-    final baseCode = state.baseCode;
+  Future<void> setExchangeRates({bool skipAccountBaseQuote = false}) async {
     final accountCode = state.accountCode;
     final counterCode = state.counterCode;
+    final baseCode = state.baseCode;
     final tradingPairQuoteFuture = exchangeProvider?.rates(
       baseCode,
       counterCode,
@@ -111,12 +111,14 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
       if (accountCode == counterCode) {
         baseListedSecond(true);
       } else {
-        final accountBaseQuote = await exchangeProvider.rates(
-          counterCode,
-          accountCode,
-        );
+        if (!skipAccountBaseQuote) {
+          final accountBaseQuote = await exchangeProvider.rates(
+            counterCode,
+            accountCode,
+          );
 
-        baseExchangeRate(accountBaseQuote.price);
+          baseExchangeRate(accountBaseQuote.price);
+        }
       }
     }
   }

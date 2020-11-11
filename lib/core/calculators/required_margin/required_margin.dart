@@ -25,21 +25,25 @@ class MatexRequiredMarginCalculatorCore
       return result;
     }
 
-    final positionSize = validState.positionSize;
     final tradingPairExchangeRate = validState.tradingPairExchangeRate;
-    final leverage = validState.leverage;
     final baseListedSecond = validState.baseListedSecond;
     final baseExchangeRate = validState.baseExchangeRate;
+    final positionSize = validState.positionSize;
+    final decimalLeverage = Decimal.parse(validState.leverage.toString());
+    final rate = baseExchangeRate > 0 ? baseExchangeRate : 1;
 
-    final rate = baseExchangeRate > 0
-        ? baseExchangeRate
-        : baseListedSecond
-            ? tradingPairExchangeRate
-            : 1;
+    if (!baseListedSecond) {
+      return (result = (Decimal.parse(positionSize.toString()) *
+              Decimal.parse(tradingPairExchangeRate.toString()) /
+              decimalLeverage *
+              Decimal.parse(rate.toString()))
+          .toDouble());
+    }
 
-    return (result = (Decimal.parse(positionSize.toString()) /
-            Decimal.parse(leverage.toString()) *
-            Decimal.parse(rate.toString()))
+    return (result = (Decimal.parse(positionSize.toString()) *
+            Decimal.parse(tradingPairExchangeRate.toString()) /
+            decimalLeverage /
+            Decimal.one)
         .toDouble());
   }
 }

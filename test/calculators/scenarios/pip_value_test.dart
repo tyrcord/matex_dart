@@ -102,8 +102,8 @@ void main() {
         calculator.positionSize(100000);
       });
 
-      test('Then: the pip value should be equal to \$50', () async {
-        expect(await calculator.value(), equals(50));
+      test('Then: the pip value should be equal to \$7.5', () async {
+        expect(await calculator.value(), equals(7.5));
       });
     });
 
@@ -126,8 +126,8 @@ void main() {
           calculator.positionSize(100000);
         });
 
-        test('Then: the pip value should be equal to \$50', () async {
-          expect(await calculator.value(), equals(50));
+        test('Then: the pip value should be equal to \$7.5', () async {
+          expect(await calculator.value(), equals(7.5));
         });
 
         test('Given: My trading account switch to EUR', () {
