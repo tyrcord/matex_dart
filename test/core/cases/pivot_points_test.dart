@@ -83,6 +83,20 @@ void main() {
 
         calculator.highPrice(0).lowPrice(0).closePrice(0);
         expect(calculator.isValid, equals(false));
+
+        expect(calculator.value(), equals(kDefaultStandardPivotPointsResult));
+
+        calculator.method(MatexPivotPointsMethods.Fibonacci);
+        expect(calculator.value(), equals(kDefaultFibonacciPivotPointsResult));
+
+        calculator.method(MatexPivotPointsMethods.Woodie);
+        expect(calculator.value(), equals(kDefaultWoodiePivotPointsResult));
+
+        calculator.method(MatexPivotPointsMethods.DeMark);
+        expect(calculator.value(), equals(kDefaultDeMarkPivotPointsResult));
+
+        calculator.method(MatexPivotPointsMethods.Camarilla);
+        expect(calculator.value(), equals(kDefaultCamarillaPivotPointsResult));
       });
 
       test('Should not be valid when only the low price is set', () {
@@ -158,6 +172,9 @@ void main() {
 
         calculator.openPrice(0.5);
         expect(calculator.isValid, equals(false));
+
+        calculator.method(MatexPivotPointsMethods.DeMark);
+        expect(calculator.value(), equals(kDefaultDeMarkPivotPointsResult));
 
         calculator.openPrice(1.5);
         expect(calculator.isValid, equals(true));

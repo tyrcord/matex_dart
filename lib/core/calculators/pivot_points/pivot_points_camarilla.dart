@@ -3,6 +3,12 @@ import 'package:matex_dart/matex_dart.dart';
 
 const List<double> _kDividers = [12.0, 6.0, 4.0, 2.0];
 
+const kDefaultCamarillaPivotPointsResult = MatexPivotPointsResult(
+  pivotPoint: 0.0,
+  resistances: [0.0, 0.0, 0.0, 0.0],
+  supports: [0.0, 0.0, 0.0, 0.0],
+);
+
 final List<Decimal> _dividers = _kDividers.map((double divider) {
   return Decimal.parse(divider.toString());
 }).toList();

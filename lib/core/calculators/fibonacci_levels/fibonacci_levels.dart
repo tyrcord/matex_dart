@@ -32,8 +32,8 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
   List<MatexFibonacciLevel> _computeExtensions() {
     final extensionLevels = state.extensionLevels;
     final trend = state.trend;
-    final highPrice = validState.highPrice;
-    final lowPrice = validState.lowPrice;
+    final highPrice = state.highPrice;
+    final lowPrice = state.lowPrice;
     final delta = Decimal.parse((highPrice - lowPrice).toString());
 
     if (trend == MatexTrend.Up) {
@@ -64,8 +64,8 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
   List<MatexFibonacciLevel> _computeRetracements() {
     final retracementLevels = state.retracementLevels;
     final trend = state.trend;
-    final highPrice = validState.highPrice;
-    final lowPrice = validState.lowPrice;
+    final highPrice = state.highPrice;
+    final lowPrice = state.lowPrice;
     final delta = Decimal.parse((highPrice - lowPrice).toString());
 
     if (trend == MatexTrend.Down) {

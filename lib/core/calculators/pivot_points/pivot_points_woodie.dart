@@ -1,6 +1,12 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
+const kDefaultWoodiePivotPointsResult = MatexPivotPointsResult(
+  pivotPoint: 0.0,
+  resistances: [0.0, 0.0],
+  supports: [0.0, 0.0],
+);
+
 MatexPivotPointsResult pivotPointsWoodie(
   double high,
   double low,

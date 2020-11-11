@@ -18,36 +18,52 @@ class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
 
   @override
   MatexPivotPointsResult value() {
-    if (this.result != null) {
-      return this.result;
+    if (result != null) {
+      return result;
     }
 
-    final method = validState.method;
-    final closePrice = validState.closePrice;
-    final highPrice = validState.highPrice;
-    final lowPrice = validState.lowPrice;
-    MatexPivotPointsResult result;
+    final method = state.method;
+
+    if (!isValid) {
+      return (result = _defaultValue(method));
+    }
+
+    return (result = _value(method));
+  }
+
+  MatexPivotPointsResult _defaultValue(MatexPivotPointsMethods method) {
+    switch (method) {
+      case MatexPivotPointsMethods.Camarilla:
+        return kDefaultCamarillaPivotPointsResult;
+      case MatexPivotPointsMethods.DeMark:
+        return kDefaultDeMarkPivotPointsResult;
+      case MatexPivotPointsMethods.Fibonacci:
+        return kDefaultFibonacciPivotPointsResult;
+      case MatexPivotPointsMethods.Woodie:
+        return kDefaultWoodiePivotPointsResult;
+      default:
+        return kDefaultStandardPivotPointsResult;
+    }
+  }
+
+  MatexPivotPointsResult _value(MatexPivotPointsMethods method) {
+    var closePrice = state.closePrice;
+    var highPrice = state.highPrice;
+    var lowPrice = state.lowPrice;
 
     switch (method) {
       case MatexPivotPointsMethods.Camarilla:
-        result = pivotPointsCamarilla(highPrice, lowPrice, closePrice);
-        break;
+        return pivotPointsCamarilla(highPrice, lowPrice, closePrice);
       case MatexPivotPointsMethods.DeMark:
-        final openPrice = validState.openPrice;
-        result = pivotPointsDeMark(highPrice, lowPrice, closePrice, openPrice);
-        break;
+        final openPrice = isValid ? state.openPrice : 0.0;
+        return pivotPointsDeMark(highPrice, lowPrice, closePrice, openPrice);
       case MatexPivotPointsMethods.Fibonacci:
-        result = pivotPointsFibonacci(highPrice, lowPrice, closePrice);
-        break;
+        return pivotPointsFibonacci(highPrice, lowPrice, closePrice);
       case MatexPivotPointsMethods.Woodie:
-        result = pivotPointsWoodie(highPrice, lowPrice, closePrice);
-        break;
+        return pivotPointsWoodie(highPrice, lowPrice, closePrice);
       default:
-        result = pivotPointsStandard(highPrice, lowPrice, closePrice);
-        break;
+        return pivotPointsStandard(highPrice, lowPrice, closePrice);
     }
-
-    return (this.result = result);
   }
 }
 

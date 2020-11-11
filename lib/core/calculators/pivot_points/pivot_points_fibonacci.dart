@@ -4,6 +4,12 @@ import 'package:matex_dart/matex_dart.dart';
 final _fibonacci382 = Decimal.parse('0.382');
 final _fibonacci618 = Decimal.parse('0.618');
 
+const kDefaultFibonacciPivotPointsResult = MatexPivotPointsResult(
+  pivotPoint: 0.0,
+  resistances: [0.0, 0.0, 0.0],
+  supports: [0.0, 0.0, 0.0],
+);
+
 MatexPivotPointsResult pivotPointsFibonacci(
   double high,
   double low,
