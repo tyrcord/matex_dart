@@ -7,7 +7,7 @@ const kInitialPositionSizeState = MatexBaseCoreState(
   pipPrecision: 4,
   positionSize: 1.0,
   tradingPairExchangeRate: 0.0,
-  accountSize: 0.0,
+  accountSize: null,
   amountAtRisk: 0.0,
   entryPrice: 0.0,
   riskRatio: 0.0,

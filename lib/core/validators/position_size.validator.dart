@@ -1,12 +1,12 @@
 import 'package:matex_dart/matex_dart.dart';
 
 final List<MatexStateValidator> corePositionSizeValidators = [
-  (MatexBaseCoreState state) => state.accountSize != null,
-  (MatexBaseCoreState state) =>
-      state.accountSize != null && state.accountSize > 0,
   (MatexBaseCoreState state) =>
       (state.amountAtRisk != null && state.amountAtRisk > 0) ||
-      (state.riskRatio != null && state.riskRatio > 0),
+      (state.riskRatio != null &&
+          state.riskRatio > 0 &&
+          state.accountSize != null &&
+          state.accountSize > 0),
   (MatexBaseCoreState state) {
     final amountAtRisk = state.amountAtRisk;
     final accountSize = state.accountSize;
@@ -18,7 +18,11 @@ final List<MatexStateValidator> corePositionSizeValidators = [
     }
 
     if (amountAtRisk != null && amountAtRisk > 0) {
-      isValid = amountAtRisk > 0 && amountAtRisk <= accountSize;
+      isValid = amountAtRisk > 0;
+
+      if (isValid && accountSize != null && accountSize > 0) {
+        isValid = amountAtRisk <= accountSize;
+      }
     }
 
     return isValid;

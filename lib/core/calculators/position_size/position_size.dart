@@ -39,8 +39,8 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
     }
 
     if (isValid) {
-      final accountSize = validState.accountSize;
-      final pipPrecision = validState.pipPrecision;
+      final accountSize = state.accountSize;
+      final pipPrecision = state.pipPrecision;
       final stopLossPips = computeStopLossPip(pipPrecision);
       final amountAtRisk = computeAmountAtRisk();
       final riskRatio = computeRiskRatio(amountAtRisk, accountSize);
@@ -75,7 +75,7 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
   double computeRiskRatio(double amountAtRisk, double accountSize) {
     final riskRatio = validState.riskRatio ?? 0.0;
 
-    if (riskRatio == 0) {
+    if (riskRatio == 0 && accountSize != null && accountSize > 0) {
       return (Decimal.parse(amountAtRisk.toString()) *
               MatexDecimal.hundred /
               Decimal.parse(accountSize.toString()))

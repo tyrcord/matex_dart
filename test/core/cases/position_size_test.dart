@@ -93,7 +93,7 @@ void main() {
       });
 
       test(
-        'Should be valid when the account size and '
+        'Should not be valid when the account size and '
         'the risk ratio are incorrect',
         () {
           calculator.accountSize(5000).riskRatio(112);
@@ -105,13 +105,23 @@ void main() {
       );
 
       test(
-          'Should be valid when the account size and '
+          'Should not be valid when the account size and '
           'the amount at risk are incorrect', () {
         calculator.accountSize(5000).amountAtRisk(10000);
         expect(calculator.isValid, equals(false));
 
         calculator.accountSize(5000).riskRatio(0);
         expect(calculator.isValid, equals(false));
+      });
+
+      test(
+          'Should be valid when the amount at risk and '
+          'the stop loss are set', () {
+        calculator
+            .amountAtRisk(10000)
+            .stopLossPips(20)
+            .tradingPairExchangeRate(1);
+        expect(calculator.isValid, equals(true));
       });
     });
 
