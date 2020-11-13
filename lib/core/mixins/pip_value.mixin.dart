@@ -53,7 +53,7 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
   @protected
   Decimal computePipValue() {
     if (isValid) {
-      return pipValue(validState);
+      return pipValue(state);
     }
 
     return Decimal.zero;

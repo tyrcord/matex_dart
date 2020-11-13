@@ -73,7 +73,7 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
 
   @protected
   double computeRiskRatio(double amountAtRisk, double accountSize) {
-    final riskRatio = validState.riskRatio ?? 0.0;
+    final riskRatio = state.riskRatio ?? 0.0;
 
     if (riskRatio == 0 && accountSize != null && accountSize > 0) {
       return (Decimal.parse(amountAtRisk.toString()) *
@@ -87,9 +87,9 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
 
   @protected
   double computeAmountAtRisk() {
-    var amountAtRisk = validState.amountAtRisk ?? 0.0;
-    final riskRatio = validState.riskRatio;
-    final accountSize = validState.accountSize;
+    var amountAtRisk = state.amountAtRisk ?? 0.0;
+    final riskRatio = state.riskRatio;
+    final accountSize = state.accountSize;
 
     if (riskRatio > 0 && riskRatio <= 100) {
       amountAtRisk = accountSize > 0
@@ -105,9 +105,9 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
 
   @protected
   double computeStopLossPip(int pipPrecision) {
-    var stopLossPips = validState.stopLossPips ?? 0.0;
-    final stopLossPrice = validState.stopLossPrice;
-    final entryPrice = validState.entryPrice;
+    var stopLossPips = state.stopLossPips ?? 0.0;
+    final stopLossPrice = state.stopLossPrice;
+    final entryPrice = state.entryPrice;
 
     if (stopLossPips == 0 && entryPrice > 0 && stopLossPrice > 0) {
       final decimalMultiplicator = pow(10, pipPrecision).toString();
