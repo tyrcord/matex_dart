@@ -26,13 +26,12 @@ class MatexReporterProvider implements MatexAbstractReporterProvider {
         final minimumFractionDigits = entry.minimumFractionDigits;
         final maximumFractionDigits = entry.maximumFractionDigits;
 
-        if (minimumFractionDigits != null) {
-          formatter.minimumFractionDigits = minimumFractionDigits;
-          formatter.maximumFractionDigits = minimumFractionDigits;
-        }
-
         if (maximumFractionDigits != null) {
           formatter.maximumFractionDigits = maximumFractionDigits;
+        }
+
+        if (minimumFractionDigits != null) {
+          formatter.minimumFractionDigits = minimumFractionDigits;
         }
 
         value = formatter.format(value);

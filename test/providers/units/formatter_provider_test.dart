@@ -22,7 +22,7 @@ void main() {
             locale: 'en-US',
           ),
           completion(equals(
-            '€10,000.000',
+            '€10,000',
           )),
         );
         expect(
@@ -32,7 +32,7 @@ void main() {
             locale: 'fr-FR',
           ),
           completion(equals(
-            '10 000,000 €',
+            '10 000 €',
           )),
         );
       });
@@ -45,10 +45,9 @@ void main() {
             value: 1.4255,
             pair: 'EURUSD',
             locale: 'en-US',
+            minimumFractionDigits: 5,
           ),
-          completion(equals(
-            '1.42550',
-          )),
+          completion(equals('1.42550')),
         );
       });
     });

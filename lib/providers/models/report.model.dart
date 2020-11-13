@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
 
 class MatexReportEntry extends Equatable {
   final String label;
@@ -10,7 +9,7 @@ class MatexReportEntry extends Equatable {
   const MatexReportEntry({
     this.label,
     this.value,
-    this.minimumFractionDigits = 2,
+    this.minimumFractionDigits = 0,
     this.maximumFractionDigits,
   });
 

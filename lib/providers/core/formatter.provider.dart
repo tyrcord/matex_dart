@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'package:intl/intl.dart';
-import 'package:matex_dart/matex_dart.dart';
 
-import '../interfaces/interfaces.dart';
-import 'instrument.provider.dart';
+import 'package:intl/intl.dart';
+import 'package:meta/meta.dart';
+
+import 'package:matex_dart/matex_dart.dart';
 
 const _kEmptyString = '';
 
@@ -20,11 +20,11 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
 
   @override
   Future<String> formatInstrument({
-    double value,
+    @required double value,
     String code,
     String locale,
+    int minimumFractionDigits = 0,
     int maximumFractionDigits,
-    int minimumFractionDigits,
   }) async {
     final instrumentMetadata = await instrumentProvider.metadata(code);
 
@@ -33,11 +33,11 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
       final round = format.round;
 
       return _formatCurrency(
-        value,
-        code,
-        locale,
-        maximumFractionDigits ?? round,
-        minimumFractionDigits ?? round,
+        value: value,
+        code: code,
+        locale: locale,
+        minimumFractionDigits: minimumFractionDigits ?? round,
+        maximumFractionDigits: maximumFractionDigits ?? round,
       );
     }
 
@@ -46,11 +46,11 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
 
   @override
   Future<String> formatQuote({
-    double value,
+    @required double value,
     String pair,
     String locale,
+    int minimumFractionDigits = 0,
     int maximumFractionDigits,
-    int minimumFractionDigits,
   }) async {
     final pairMetadata = await pairProvider.metadata(pair);
     var round = pairMetadata != null
@@ -58,47 +58,47 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
         : MatexPairPipMetadata.defaultMetatda().round;
 
     return formatNumber(
-      value,
-      locale,
-      maximumFractionDigits ?? round,
-      minimumFractionDigits ?? round,
+      value: value,
+      locale: locale,
+      minimumFractionDigits: minimumFractionDigits ?? round,
+      maximumFractionDigits: maximumFractionDigits ?? round,
     );
   }
 
-  String _formatCurrency(
-    double value,
+  String _formatCurrency({
+    @required double value,
     String code,
     String locale,
+    int minimumFractionDigits = 0,
     int maximumFractionDigits,
-    int minimumFractionDigits,
-  ) {
+  }) {
     final formatter = NumberFormat.simpleCurrency(locale: locale, name: code);
-
-    if (minimumFractionDigits != null) {
-      formatter.minimumFractionDigits = minimumFractionDigits;
-    }
 
     if (maximumFractionDigits != null) {
       formatter.maximumFractionDigits = maximumFractionDigits;
+    }
+
+    if (minimumFractionDigits != null) {
+      formatter.minimumFractionDigits = minimumFractionDigits;
     }
 
     return formatter.format(value);
   }
 
-  String formatNumber(
-    double value,
+  String formatNumber({
+    @required double value,
     String locale,
+    int minimumFractionDigits = 0,
     int maximumFractionDigits,
-    int minimumFractionDigits,
-  ) {
+  }) {
     final formatter = NumberFormat.decimalPattern(locale);
-
-    if (minimumFractionDigits != null) {
-      formatter.minimumFractionDigits = minimumFractionDigits;
-    }
 
     if (maximumFractionDigits != null) {
       formatter.maximumFractionDigits = maximumFractionDigits;
+    }
+
+    if (minimumFractionDigits != null) {
+      formatter.minimumFractionDigits = minimumFractionDigits;
     }
 
     return formatter.format(value);
