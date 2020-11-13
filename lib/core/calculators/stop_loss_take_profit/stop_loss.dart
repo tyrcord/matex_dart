@@ -122,9 +122,9 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
   }
 
   MatexStopLossResult _buildStopLossResult({
-    double amount,
-    double pips,
-    double price,
+    double amount = 0,
+    double pips = 0,
+    double price = 0,
   }) {
     return MatexStopLossResult(
       amount: amount,

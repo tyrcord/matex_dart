@@ -34,7 +34,7 @@ class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
       final pipValue = computePipValue();
       final stopLossCalculator = stopLoss();
       final takeProfitCalculator = takeProfit();
-      final tmpState = validState.copyWithState(
+      final tmpState = state.copyWithState(
         MatexBaseCoreState(position: state.position),
       );
 

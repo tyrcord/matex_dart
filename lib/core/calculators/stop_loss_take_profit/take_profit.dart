@@ -132,9 +132,9 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
   }
 
   MatexTakeProfitResult _buildTakeProfitResult({
-    double amount,
-    double pips,
-    double price,
+    double amount = 0,
+    double pips = 0,
+    double price = 0,
   }) {
     return MatexTakeProfitResult(
       amount: amount,
