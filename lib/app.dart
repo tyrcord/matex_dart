@@ -13,14 +13,15 @@ class MatexApp {
   MatexApp({
     MatexConfig config,
   }) : config = MatexConfig(
-          exchangeProvider:
-              config?.exchangeProvider ?? _defaultMatexConfig.exchangeProvider,
+          exchangeProvider: config?.exchangeProvider,
           instrumentProvider: config?.instrumentProvider ??
               _defaultMatexConfig.instrumentProvider,
           reporterProvider:
               config?.reporterProvider ?? _defaultMatexConfig.reporterProvider,
           formatterProvider: config?.formatterProvider ??
               _defaultMatexConfig.formatterProvider,
+          pairProvider:
+              config?.pairProvider ?? _defaultMatexConfig.pairProvider,
         );
 
   MatexPipValueCalculator pipValue({

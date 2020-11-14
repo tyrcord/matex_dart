@@ -49,7 +49,7 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
     @required double value,
     String pair,
     String locale,
-    int minimumFractionDigits = 0,
+    int minimumFractionDigits,
     int maximumFractionDigits,
   }) async {
     final pairMetadata = await pairProvider.metadata(pair);
