@@ -1600,31 +1600,6 @@
     },
     "type": "currency"
   },
-  "ZWD": {
-    "code": "ZWD",
-    "format": {
-      "round": 3
-    },
-    "icon": "zimbabwe",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
-    "name": {
-      "key": "zimbabwe_dollar",
-      "localized": "Zimbabwe dollar"
-    },
-    "symbol": {
-      "long": "ZWD",
-      "short": "ZWD",
-      "ticker": "ZWD"
-    },
-    "type": "currency"
-  },
   "KZT": {
     "code": "KZT",
     "format": {
