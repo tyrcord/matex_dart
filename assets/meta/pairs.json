@@ -194,8 +194,28 @@
     },
     "type": "commodity_metal"
   },
+  "XPTUSD": {
+    "base": "XPT",
+    "counter": "USD",
+    "pip": {
+      "pipette": 3,
+      "precision": 2,
+      "round": 3
+    },
+    "type": "commodity_metal"
+  },
   "BCHUSD": {
     "base": "BCH",
+    "counter": "USD",
+    "pip": {
+      "pipette": 3,
+      "precision": 2,
+      "round": 3
+    },
+    "type": "crypto"
+  },
+  "BTCUSD": {
+    "base": "BTC",
     "counter": "USD",
     "pip": {
       "pipette": 3,
@@ -226,16 +246,6 @@
   },
   "LTCUSD": {
     "base": "LTC",
-    "counter": "USD",
-    "pip": {
-      "pipette": 3,
-      "precision": 2,
-      "round": 3
-    },
-    "type": "crypto"
-  },
-  "BTCUSD": {
-    "base": "BTC",
     "counter": "USD",
     "pip": {
       "pipette": 3,
@@ -864,6 +874,11 @@
     "counter": "HKD",
     "type": "currency_exotic"
   },
+  "USDHRK": {
+    "base": "USD",
+    "counter": "HRK",
+    "type": "currency_exotic"
+  },
   "USDHUF": {
     "base": "USD",
     "counter": "HUF",
@@ -871,6 +886,16 @@
       "pipette": 3,
       "precision": 2,
       "round": 3
+    },
+    "type": "currency_exotic"
+  },
+  "USDIDR": {
+    "base": "USD",
+    "counter": "IDR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
     },
     "type": "currency_exotic"
   },
@@ -907,6 +932,11 @@
   "USDMXN": {
     "base": "USD",
     "counter": "MXN",
+    "type": "currency_exotic"
+  },
+  "USDMYR": {
+    "base": "USD",
+    "counter": "MYR",
     "type": "currency_exotic"
   },
   "USDNGN": {
@@ -981,26 +1011,6 @@
       "pipette": 3,
       "precision": 2,
       "round": 3
-    },
-    "type": "currency_exotic"
-  },
-  "USDHRK": {
-    "base": "USD",
-    "counter": "HRK",
-    "type": "currency_exotic"
-  },
-  "USDMYR": {
-    "base": "USD",
-    "counter": "MYR",
-    "type": "currency_exotic"
-  },
-  "USDIDR": {
-    "base": "USD",
-    "counter": "IDR",
-    "pip": {
-      "pipette": 1,
-      "precision": 0,
-      "round": 1
     },
     "type": "currency_exotic"
   },
@@ -1330,29 +1340,9 @@
       "weight": 40
     }
   },
-  "GSPCUSD": {
-    "base": "GSPC",
-    "counter": "USD",
-    "pip": {
-      "pipette": 1,
-      "precision": 0,
-      "round": 1
-    },
-    "type": "index"
-  },
-  "GDAXIEUR": {
-    "base": "GDAXI",
-    "counter": "EUR",
-    "pip": {
-      "pipette": 1,
-      "precision": 0,
-      "round": 1
-    },
-    "type": "index"
-  },
-  "NDXUSD": {
-    "base": "NDX",
-    "counter": "USD",
+  "AXJOAUD": {
+    "base": "AXJO",
+    "counter": "AUD",
     "pip": {
       "pipette": 1,
       "precision": 0,
@@ -1390,8 +1380,8 @@
     },
     "type": "index"
   },
-  "STOXX50EEUR": {
-    "base": "STOXX50E",
+  "GDAXIEUR": {
+    "base": "GDAXI",
     "counter": "EUR",
     "pip": {
       "pipette": 1,
@@ -1400,9 +1390,19 @@
     },
     "type": "index"
   },
-  "N225JPY": {
-    "base": "N225",
-    "counter": "JPY",
+  "GSPCUSD": {
+    "base": "GSPC",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "GSPTSECAD": {
+    "base": "GSPTSE",
+    "counter": "CAD",
     "pip": {
       "pipette": 1,
       "precision": 0,
@@ -1430,9 +1430,9 @@
     },
     "type": "index"
   },
-  "AXJOAUD": {
-    "base": "AXJO",
-    "counter": "AUD",
+  "N225JPY": {
+    "base": "N225",
+    "counter": "JPY",
     "pip": {
       "pipette": 1,
       "precision": 0,
@@ -1440,9 +1440,39 @@
     },
     "type": "index"
   },
-  "GSPTSECAD": {
-    "base": "GSPTSE",
-    "counter": "CAD",
+  "NDXUSD": {
+    "base": "NDX",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "NSEIINR": {
+    "base": "NSEI",
+    "counter": "INR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "RUTUSD": {
+    "base": "RUT",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "STOXX50EEUR": {
+    "base": "STOXX50E",
+    "counter": "EUR",
     "pip": {
       "pipette": 1,
       "precision": 0,
