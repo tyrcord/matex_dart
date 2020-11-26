@@ -31,4 +31,5 @@ class MatexCoreStateProperty {
   static const String baseCode = 'baseCode';
   static const String counterCode = 'counterCode';
   static const String currencyPairCode = 'currencyPairCode';
+  static const String exchangeRateLastUpdateAt = 'exchangeRateLastUpdateAt';
 }

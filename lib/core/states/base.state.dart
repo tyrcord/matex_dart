@@ -35,6 +35,7 @@ class MatexBaseCoreState extends Equatable implements Model {
   final String accountCode;
   final String baseCode;
   final String counterCode;
+  final int exchangeRateLastUpdateAt;
 
   @override
   bool get stringify => true;
@@ -71,6 +72,7 @@ class MatexBaseCoreState extends Equatable implements Model {
     this.takeProfitPips,
     this.takeProfitPrice,
     this.takeProfitAmount,
+    this.exchangeRateLastUpdateAt,
   });
 
   MatexBaseCoreState clone() {
@@ -106,6 +108,7 @@ class MatexBaseCoreState extends Equatable implements Model {
       takeProfitPips: takeProfitPips,
       takeProfitPrice: takeProfitPrice,
       takeProfitAmount: takeProfitAmount,
+      exchangeRateLastUpdateAt: exchangeRateLastUpdateAt,
     );
   }
 
@@ -143,6 +146,8 @@ class MatexBaseCoreState extends Equatable implements Model {
       takeProfitPips: state.takeProfitPips ?? takeProfitPips,
       takeProfitPrice: state.takeProfitPrice ?? takeProfitPrice,
       takeProfitAmount: state.takeProfitAmount ?? takeProfitAmount,
+      exchangeRateLastUpdateAt:
+          state.exchangeRateLastUpdateAt ?? exchangeRateLastUpdateAt,
     );
   }
 
@@ -251,6 +256,10 @@ class MatexBaseCoreState extends Equatable implements Model {
           properties.contains(MatexCoreStateProperty.takeProfitAmount)
               ? defaultState?.takeProfitAmount
               : takeProfitAmount,
+      exchangeRateLastUpdateAt:
+          properties.contains(MatexCoreStateProperty.exchangeRateLastUpdateAt)
+              ? defaultState?.exchangeRateLastUpdateAt
+              : exchangeRateLastUpdateAt,
     );
   }
 
@@ -287,6 +296,7 @@ class MatexBaseCoreState extends Equatable implements Model {
     String accountCode,
     String baseCode,
     String counterCode,
+    int exchangeRateLastUpdateAt,
   }) {
     return MatexBaseCoreState(
       accountCode: accountCode ?? this.accountCode,
@@ -321,6 +331,8 @@ class MatexBaseCoreState extends Equatable implements Model {
       takeProfitPips: takeProfitPips ?? this.takeProfitPips,
       takeProfitPrice: takeProfitPrice ?? this.takeProfitPrice,
       takeProfitAmount: takeProfitAmount ?? this.takeProfitAmount,
+      exchangeRateLastUpdateAt:
+          exchangeRateLastUpdateAt ?? this.exchangeRateLastUpdateAt,
     );
   }
 
@@ -358,6 +370,7 @@ class MatexBaseCoreState extends Equatable implements Model {
       'takeProfitPips': takeProfitPips,
       'takeProfitPrice': takeProfitPrice,
       'takeProfitAmount': takeProfitAmount,
+      'exchangeRateLastUpdateAt': exchangeRateLastUpdateAt,
     };
   }
 
@@ -401,6 +414,7 @@ class MatexBaseCoreState extends Equatable implements Model {
       takeProfitPips: json['takeProfitPips'] as double,
       takeProfitPrice: json['takeProfitPrice'] as double,
       takeProfitAmount: json['takeProfitAmount'] as double,
+      exchangeRateLastUpdateAt: json['exchangeRateLastUpdateAt'] as int,
     );
   }
 
@@ -437,6 +451,7 @@ class MatexBaseCoreState extends Equatable implements Model {
         takeProfitPips,
         takeProfitPrice,
         takeProfitAmount,
+        exchangeRateLastUpdateAt,
       ];
 
   @override

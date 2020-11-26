@@ -13,6 +13,12 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
   MatexAbstractExchangeProvider get exchangeProvider =>
       config?.exchangeProvider;
 
+  C exchangeRateLastUpdateAt(int exchangeRateLastUpdateAt) {
+    return patchState(MatexBaseCoreState(
+      exchangeRateLastUpdateAt: exchangeRateLastUpdateAt,
+    ));
+  }
+
   C accountCode(String accountCode) {
     if (accountCode != null) {
       return patchState(MatexBaseCoreState(
@@ -104,6 +110,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
 
     if (tradingPairQuoteFuture != null) {
       final tradingPairQuote = await tradingPairQuoteFuture;
+      exchangeRateLastUpdateAt(tradingPairQuote.timestamp);
       tradingPairExchangeRate(tradingPairQuote.price);
       baseListedSecond(false);
       baseExchangeRate(0);
