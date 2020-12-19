@@ -4,6 +4,7 @@ mixin MatexFibonacciLevelsCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     on MatexBaseCalculator<C, R> {
   C customPrice(double customPrice) {
     final sanitizedValue = sanitizeDouble(customPrice);
+
     return patchState(MatexBaseCoreState(customPrice: sanitizedValue));
   }
 
@@ -13,16 +14,19 @@ mixin MatexFibonacciLevelsCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     }).toList();
 
     sanitizedValue.sort(sortNumberAsc);
+
     return patchState(MatexBaseCoreState(extensionLevels: sanitizedValue));
   }
 
   C highPrice(double highPrice) {
     final sanitizedValue = sanitizeDouble(highPrice);
+
     return patchState(MatexBaseCoreState(highPrice: sanitizedValue));
   }
 
   C lowPrice(double lowPrice) {
     final sanitizedValue = sanitizeDouble(lowPrice);
+
     return patchState(MatexBaseCoreState(lowPrice: sanitizedValue));
   }
 

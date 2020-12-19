@@ -13,6 +13,7 @@ mixin MatexLotCoreMixin<C extends MatexBaseCalculator<C, R>, R>
       state.lotDescriptors.standard,
       lot,
     );
+
     return patchState(MatexBaseCoreState(positionSize: positionSize));
   }
 
@@ -21,6 +22,7 @@ mixin MatexLotCoreMixin<C extends MatexBaseCalculator<C, R>, R>
       state.lotDescriptors.micro,
       microLot,
     );
+
     return patchState(MatexBaseCoreState(positionSize: positionSize));
   }
 
@@ -29,6 +31,7 @@ mixin MatexLotCoreMixin<C extends MatexBaseCalculator<C, R>, R>
       state.lotDescriptors.mini,
       miniLot,
     );
+
     return patchState(MatexBaseCoreState(positionSize: positionSize));
   }
 
@@ -37,6 +40,7 @@ mixin MatexLotCoreMixin<C extends MatexBaseCalculator<C, R>, R>
       state.lotDescriptors.nano,
       nanoLot,
     );
+
     return patchState(MatexBaseCoreState(positionSize: positionSize));
   }
 

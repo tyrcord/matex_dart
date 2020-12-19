@@ -27,7 +27,7 @@ void main() {
 
       test('Then: the pip value should be equal to \$10', () async {
         expect(await calculator.value(), equals(10));
-        expect(calculator.getState().baseListedSecond == true, equals(true));
+        expect(calculator.getState().baseListedSecond, equals(true));
       });
     });
 
@@ -52,7 +52,7 @@ void main() {
 
       test('Then: the pip value should be equal to \$10', () async {
         expect(await calculator.value(), equals(10));
-        expect(calculator.getState().baseListedSecond == true, equals(true));
+        expect(calculator.getState().baseListedSecond, equals(true));
       });
 
       test('Given: the exchange rate for the pair USD/AUD is 1.6', () {
@@ -61,7 +61,7 @@ void main() {
 
       test('Then: the pip value should be equal to €7.5', () async {
         expect(await calculator.value(), equals(7.5));
-        expect(calculator.getState().baseListedSecond == false, equals(true));
+        expect(!calculator.getState().baseListedSecond, equals(true));
       });
     });
 
@@ -142,7 +142,7 @@ void main() {
         test('Then: the pip value should be equal to €8', () async {
           expect(await calculator.value(), equals(8));
           expect(calculator.getState().baseExchangeRate == 0, equals(true));
-          expect(calculator.getState().baseListedSecond == false, equals(true));
+          expect(!calculator.getState().baseListedSecond, equals(true));
         });
       },
     );

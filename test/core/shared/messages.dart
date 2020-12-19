@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 const SHOULD_RESET_CALCULATOR = 'should reset the calculator';
 
 const SHOULD_MEMOIZE_LAST_VALUE = 'should memoize last value';

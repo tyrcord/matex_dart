@@ -4,6 +4,7 @@ mixin MatexStopLossCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     on MatexBaseCalculator<C, R> {
   C entryPrice(double entryPrice) {
     final sanitizedValue = sanitizeDouble(entryPrice);
+
     return patchState(MatexBaseCoreState(entryPrice: sanitizedValue));
   }
 

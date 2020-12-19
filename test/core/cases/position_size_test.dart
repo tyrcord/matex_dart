@@ -146,7 +146,7 @@ void main() {
     group('#value()', () {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
         final results = calculator.value();
-        expect(results == DEFAULT_RESULTS, equals(true));
+        expect(results == kDefaultPositionSizeResult, equals(true));
       });
 
       test(SHOULD_MEMOIZE_LAST_VALUE, () {
@@ -156,14 +156,14 @@ void main() {
       test('should return the default value when only the account size is set',
           () {
         final results = calculator.accountSize(5000).value();
-        expect(results == DEFAULT_RESULTS, equals(true));
+        expect(results == kDefaultPositionSizeResult, equals(true));
       });
 
       test(
           'should return the default value when only the amount at risk is set',
           () {
         final results = calculator.amountAtRisk(50).value();
-        expect(results == DEFAULT_RESULTS, equals(true));
+        expect(results == kDefaultPositionSizeResult, equals(true));
       });
 
       test(
@@ -484,7 +484,7 @@ void main() {
             .reset()
             .value();
 
-        expect(results == DEFAULT_RESULTS, equals(true));
+        expect(results == kDefaultPositionSizeResult, equals(true));
       });
     });
   });

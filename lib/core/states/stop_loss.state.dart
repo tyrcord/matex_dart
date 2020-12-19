@@ -8,7 +8,7 @@ const kInitialStopLossState = MatexBaseCoreState(
   positionSize: 0.0,
   tradingPairExchangeRate: 0.0,
   entryPrice: 0.0,
-  position: MatexPosition.Long,
+  position: MatexPosition.long,
   stopLossAmount: 0.0,
   stopLossPips: 0.0,
   stopLossPrice: 0.0,

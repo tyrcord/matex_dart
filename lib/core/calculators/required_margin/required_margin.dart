@@ -21,9 +21,7 @@ class MatexRequiredMarginCalculatorCore
 
   @override
   double value() {
-    if (result != null) {
-      return result;
-    }
+    if (result != null) return result;
 
     // TODO: Workaround before using counterAccountPairExchangeRate
     final tradingPairExchangeRate = validState.tradingPairExchangeRate;

@@ -50,6 +50,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
     defaultState ??= defaultCalculatorState;
     var calculator = setState(defaultState);
     differenceState = MatexBaseCoreState();
+
     return calculator;
   }
 
@@ -59,6 +60,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
     differenceState = differenceState.copyWithState(partialState);
     state = state.copyWithState(partialState);
     result = null;
+
     return _checkStateValidity();
   }
 
@@ -77,12 +79,14 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
   C setDefaultState(MatexBaseCoreState defaultState) {
     this.defaultState = defaultState.clone();
     state = defaultState.copyWithState(differenceState);
+
     return _checkStateValidity();
   }
 
   C setState(MatexBaseCoreState state) {
     this.state = state.clone();
     result = null;
+
     return _checkStateValidity();
   }
 
@@ -130,6 +134,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
     }
 
     isStateValid = validity;
+
     return this as C;
   }
 

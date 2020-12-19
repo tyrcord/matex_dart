@@ -33,13 +33,13 @@ class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
 
   MatexPivotPointsResult _defaultValue(MatexPivotPointsMethods method) {
     switch (method) {
-      case MatexPivotPointsMethods.Camarilla:
+      case MatexPivotPointsMethods.camarilla:
         return kDefaultCamarillaPivotPointsResult;
-      case MatexPivotPointsMethods.DeMark:
+      case MatexPivotPointsMethods.deMark:
         return kDefaultDeMarkPivotPointsResult;
-      case MatexPivotPointsMethods.Fibonacci:
+      case MatexPivotPointsMethods.fibonacci:
         return kDefaultFibonacciPivotPointsResult;
-      case MatexPivotPointsMethods.Woodie:
+      case MatexPivotPointsMethods.woodie:
         return kDefaultWoodiePivotPointsResult;
       default:
         return kDefaultStandardPivotPointsResult;
@@ -52,14 +52,14 @@ class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
     var lowPrice = state.lowPrice;
 
     switch (method) {
-      case MatexPivotPointsMethods.Camarilla:
+      case MatexPivotPointsMethods.camarilla:
         return pivotPointsCamarilla(highPrice, lowPrice, closePrice);
-      case MatexPivotPointsMethods.DeMark:
+      case MatexPivotPointsMethods.deMark:
         final openPrice = state.openPrice;
         return pivotPointsDeMark(highPrice, lowPrice, closePrice, openPrice);
-      case MatexPivotPointsMethods.Fibonacci:
+      case MatexPivotPointsMethods.fibonacci:
         return pivotPointsFibonacci(highPrice, lowPrice, closePrice);
-      case MatexPivotPointsMethods.Woodie:
+      case MatexPivotPointsMethods.woodie:
         return pivotPointsWoodie(highPrice, lowPrice, closePrice);
       default:
         return pivotPointsStandard(highPrice, lowPrice, closePrice);

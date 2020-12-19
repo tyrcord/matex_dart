@@ -4,7 +4,7 @@ import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
 
-const DEFAULT_RESULTS = MatexPositionSizeResult(
+const kDefaultPositionSizeResult = MatexPositionSizeResult(
   amountAtRisk: 0.0,
   pipValue: 0.0,
   positionSize: 0.0,
@@ -58,7 +58,7 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
       ));
     }
 
-    return (result = DEFAULT_RESULTS.clone());
+    return (result = kDefaultPositionSizeResult.clone());
   }
 
   @protected
@@ -68,6 +68,7 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
     double stopLossPip,
   ) {
     final divider = pipValue * Decimal.parse(stopLossPip.toString());
+
     return (Decimal.parse(amountAtRisk.toString()) / divider).toDouble();
   }
 

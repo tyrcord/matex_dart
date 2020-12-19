@@ -17,7 +17,7 @@ void main() {
       });
 
       test('When: the trend is up', () {
-        calculator.trend(MatexTrend.Up);
+        calculator.trend(MatexTrend.up);
       });
 
       test('Then: the fibonacci levels should be valid', () {
@@ -47,7 +47,7 @@ void main() {
       });
 
       test('When: the trend is down', () {
-        calculator.trend(MatexTrend.Down);
+        calculator.trend(MatexTrend.down);
       });
 
       test('Then: the fibonacci levels should be valid', () {

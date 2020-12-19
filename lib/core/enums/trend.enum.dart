@@ -1,4 +1,4 @@
 enum MatexTrend {
-  Up,
-  Down,
+  up,
+  down,
 }

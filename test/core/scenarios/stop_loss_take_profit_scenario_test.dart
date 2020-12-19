@@ -40,7 +40,7 @@ void main() {
       });
 
       test('When: my position is buying', () {
-        calculator.position(MatexPosition.Long);
+        calculator.position(MatexPosition.long);
       });
 
       test(
@@ -89,7 +89,7 @@ void main() {
       });
 
       test('When: my position is short', () {
-        calculator.position(MatexPosition.Short);
+        calculator.position(MatexPosition.short);
       });
 
       test('Then:I should take my profit at 1.06 or accept my loss at 1.12',
@@ -139,7 +139,7 @@ void main() {
         });
 
         test('When: my position is short', () {
-          calculator.position(MatexPosition.Short);
+          calculator.position(MatexPosition.short);
         });
 
         test('Then: I should take my profit at 1.205 or accept my loss at 1.28',
@@ -202,7 +202,7 @@ void main() {
         });
 
         test('When: my position is long', () {
-          calculator.position(MatexPosition.Long);
+          calculator.position(MatexPosition.long);
         });
 
         test('Then:I should take my profit at 1.06 or accept my loss at 1.12',
@@ -266,7 +266,7 @@ void main() {
         });
 
         test('When: my position is long', () {
-          calculator.position(MatexPosition.Long);
+          calculator.position(MatexPosition.long);
         });
 
         test('Then:I should take my profit at 100.8 or accept my loss at 99.6',

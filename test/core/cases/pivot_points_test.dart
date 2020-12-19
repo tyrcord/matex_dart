@@ -86,16 +86,16 @@ void main() {
 
         expect(calculator.value(), equals(kDefaultStandardPivotPointsResult));
 
-        calculator.method(MatexPivotPointsMethods.Fibonacci);
+        calculator.method(MatexPivotPointsMethods.fibonacci);
         expect(calculator.value(), equals(kDefaultFibonacciPivotPointsResult));
 
-        calculator.method(MatexPivotPointsMethods.Woodie);
+        calculator.method(MatexPivotPointsMethods.woodie);
         expect(calculator.value(), equals(kDefaultWoodiePivotPointsResult));
 
-        calculator.method(MatexPivotPointsMethods.DeMark);
+        calculator.method(MatexPivotPointsMethods.deMark);
         expect(calculator.value(), equals(kDefaultDeMarkPivotPointsResult));
 
-        calculator.method(MatexPivotPointsMethods.Camarilla);
+        calculator.method(MatexPivotPointsMethods.camarilla);
         expect(calculator.value(), equals(kDefaultCamarillaPivotPointsResult));
       });
 
@@ -140,7 +140,7 @@ void main() {
       test(
           'Should not be valid when no low, high, open and '
           'close prices are set when the method is DeMark', () {
-        calculator.method(MatexPivotPointsMethods.DeMark);
+        calculator.method(MatexPivotPointsMethods.deMark);
         expect(calculator.isValid, equals(false));
 
         calculator.lowPrice(1);
@@ -163,7 +163,7 @@ void main() {
           'Should be valid when: close price >= low price && '
           'open price <= high price', () {
         calculator.highPrice(2).lowPrice(1).closePrice(2);
-        calculator.method(MatexPivotPointsMethods.DeMark);
+        calculator.method(MatexPivotPointsMethods.deMark);
 
         expect(calculator.isValid, equals(false));
 
@@ -173,7 +173,7 @@ void main() {
         calculator.openPrice(0.5);
         expect(calculator.isValid, equals(false));
 
-        calculator.method(MatexPivotPointsMethods.DeMark);
+        calculator.method(MatexPivotPointsMethods.deMark);
         expect(calculator.value(), equals(kDefaultDeMarkPivotPointsResult));
 
         calculator.openPrice(1.5);
@@ -241,18 +241,18 @@ void main() {
     group('#method()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
         expect(
-            calculator.method(MatexPivotPointsMethods.DeMark),
+            calculator.method(MatexPivotPointsMethods.deMark),
             equals(
               calculator,
             ));
       });
 
       test('should define the method value', () {
-        calculator.method(MatexPivotPointsMethods.DeMark);
+        calculator.method(MatexPivotPointsMethods.deMark);
         expect(
             calculator.getState().method,
             equals(
-              MatexPivotPointsMethods.DeMark,
+              MatexPivotPointsMethods.deMark,
             ));
       });
     });

@@ -1,7 +1,7 @@
 enum MatexPivotPointsMethods {
-  Camarilla,
-  DeMark,
-  Fibonacci,
-  Standard,
-  Woodie,
+  camarilla,
+  deMark,
+  fibonacci,
+  standard,
+  woodie,
 }

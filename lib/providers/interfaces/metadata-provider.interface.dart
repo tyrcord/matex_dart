@@ -16,6 +16,7 @@ abstract class MatexAbstractMetadataProvider<T> {
       _metadataFuture = init().then((Map<String, T> map) {
         metadataMap = map;
         isInitialized = true;
+
         return map;
       });
     }
@@ -28,6 +29,7 @@ abstract class MatexAbstractMetadataProvider<T> {
 
   Future<T> metadata(String key) async {
     await initIfNeeded();
+
     return metadataMap[key];
   }
 }

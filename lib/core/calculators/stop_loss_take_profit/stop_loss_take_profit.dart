@@ -26,23 +26,22 @@ class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
 
   @override
   MatexStopLossTakeProfitResult value() {
-    if (result != null) {
-      return result;
-    }
+    if (result != null) return result;
 
     if (isValid) {
       final pipValue = computePipValue();
       final stopLossCalculator = stopLoss();
       final takeProfitCalculator = takeProfit();
-      final tmpState = state.copyWithState(
-        MatexBaseCoreState(position: state.position),
-      );
+      final tmpState =
+          state.copyWithState(MatexBaseCoreState(position: state.position));
 
-      final stopLossResult =
-          stopLossCalculator.setState(tmpState).value(pipValue: pipValue);
+      final stopLossResult = stopLossCalculator.setState(tmpState).value(
+            pipValue: pipValue,
+          );
 
-      final takeProfitResult =
-          takeProfitCalculator.setState(tmpState).value(pipValue: pipValue);
+      final takeProfitResult = takeProfitCalculator.setState(tmpState).value(
+            pipValue: pipValue,
+          );
 
       return (result = MatexStopLossTakeProfitResult(
         pipValue: pipValue.toDouble(),

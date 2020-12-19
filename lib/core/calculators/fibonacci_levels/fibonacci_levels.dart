@@ -36,7 +36,7 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
     final lowPrice = state.lowPrice;
     final delta = Decimal.parse((highPrice - lowPrice).toString());
 
-    if (trend == MatexTrend.Up) {
+    if (trend == MatexTrend.up) {
       final parsedHighPrice = Decimal.parse(highPrice.toString());
 
       return [...extensionLevels].reversed.map((double level) {
@@ -68,7 +68,7 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
     final lowPrice = state.lowPrice;
     final delta = Decimal.parse((highPrice - lowPrice).toString());
 
-    if (trend == MatexTrend.Down) {
+    if (trend == MatexTrend.down) {
       final parsedLowPrice = Decimal.parse(lowPrice.toString());
 
       return [...retracementLevels].reversed.map((double level) {
@@ -96,12 +96,14 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
   String _formatLevelLabel(double level) {
     final bigNumber = Decimal.parse(level.toString());
     final fixedValue = bigNumber.toStringAsFixed(level % 1 == 0 ? 0 : 1);
+
     return '$fixedValue%';
   }
 
   double _formatLevelValue(double value) {
     final number = Decimal.parse(value.toString());
     final precision = state.precision;
+
     return Decimal.parse(number.toStringAsFixed(precision)).toDouble();
   }
 

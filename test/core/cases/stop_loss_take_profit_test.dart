@@ -401,7 +401,7 @@ void main() {
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .stopLossAmount(200)
-            .position(MatexPosition.Short)
+            .position(MatexPosition.short)
             .entryPrice(1.1)
             .value();
 
@@ -423,7 +423,7 @@ void main() {
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .stopLossPrice(1.122)
-            .position(MatexPosition.Short)
+            .position(MatexPosition.short)
             .entryPrice(1.1)
             .value();
 
@@ -446,7 +446,7 @@ void main() {
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .stopLossPips(220)
-            .position(MatexPosition.Short)
+            .position(MatexPosition.short)
             .entryPrice(1.1)
             .value();
 
@@ -469,7 +469,7 @@ void main() {
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .takeProfitAmount(200)
-            .position(MatexPosition.Short)
+            .position(MatexPosition.short)
             .entryPrice(1.1)
             .value();
 
@@ -491,7 +491,7 @@ void main() {
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .takeProfitPrice(1.078)
-            .position(MatexPosition.Short)
+            .position(MatexPosition.short)
             .entryPrice(1.1)
             .value();
 
@@ -514,7 +514,7 @@ void main() {
             .positionSize(10000)
             .tradingPairExchangeRate(1.1)
             .takeProfitPips(220)
-            .position(MatexPosition.Short)
+            .position(MatexPosition.short)
             .entryPrice(1.1)
             .value();
 
@@ -588,12 +588,12 @@ void main() {
 
     group('#position()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator.position(MatexPosition.Long), equals(calculator));
+        expect(calculator.position(MatexPosition.long), equals(calculator));
       });
 
       test('should define the position value', () {
-        calculator.position(MatexPosition.Long);
-        expect(calculator.getState().position, equals(MatexPosition.Long));
+        calculator.position(MatexPosition.long);
+        expect(calculator.getState().position, equals(MatexPosition.long));
       });
     });
 

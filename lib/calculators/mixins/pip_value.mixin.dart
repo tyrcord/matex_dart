@@ -28,6 +28,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     }
 
     _resetRelatedProperties();
+
     return resetStateProperties([MatexCoreStateProperty.accountCode]);
   }
 
@@ -43,6 +44,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     }
 
     _resetRelatedProperties();
+
     return resetStateProperties([
       MatexCoreStateProperty.baseCode,
       MatexCoreStateProperty.counterCode,
@@ -53,10 +55,12 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     if (positionSize != null &&
         positionSize != kInitialMatexPipValueState.positionSize) {
       final sanitizedValue = sanitizeDouble(positionSize);
+
       return patchState(MatexBaseCoreState(positionSize: sanitizedValue));
     }
 
     _resetRelatedProperties();
+
     return resetStateProperties([MatexCoreStateProperty.positionSize]);
   }
 
@@ -70,22 +74,26 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
 
   Future<MatexInstrumentMetadata> fetchAccountInstrumentMetadata() {
     final accountCode = state.accountCode;
+
     return instrumentProvider?.metadata(accountCode);
   }
 
   Future<MatexInstrumentMetadata> fetchCounterInstrumentMetadata() {
     final counterCode = state.counterCode;
+
     return instrumentProvider?.metadata(counterCode);
   }
 
   Future<MatexInstrumentMetadata> fetchBaseInstrumentMetadata() {
     final baseCode = state.baseCode;
+
     return instrumentProvider.metadata(baseCode);
   }
 
   Future<MatexPairMetadata> fetchPairMetadata() {
     final baseCode = state.baseCode;
     final counterCode = state.counterCode;
+
     return pairProvider.metadata(baseCode + counterCode);
   }
 

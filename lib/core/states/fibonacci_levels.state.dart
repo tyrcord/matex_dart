@@ -5,7 +5,7 @@ const kInitialFibonacciLevelsState = MatexBaseCoreState(
   highPrice: 0.0,
   lowPrice: 0.0,
   precision: 5,
-  trend: MatexTrend.Up,
+  trend: MatexTrend.up,
   extensionLevels: kMatexFibonacciExtensionLevels,
   retracementLevels: kMatexFibonacciRetracementLevels,
 );

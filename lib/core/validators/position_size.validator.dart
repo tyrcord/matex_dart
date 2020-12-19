@@ -26,7 +26,7 @@ final List<MatexStateValidator> corePositionSizeValidators = [
     }
 
     return isValid;
-  }
+  },
 ];
 
 final List<MatexStateValidator> positionSizeValidators = [

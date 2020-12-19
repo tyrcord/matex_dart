@@ -8,6 +8,7 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     on MatexBaseCalculator<C, R> {
   C baseExchangeRate(double baseExchangeRate) {
     final sanitizedValue = sanitizeDouble(baseExchangeRate);
+
     return patchState(MatexBaseCoreState(baseExchangeRate: sanitizedValue));
   }
 
@@ -21,11 +22,13 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
 
   C positionSize(double positionSize) {
     final sanitizedValue = sanitizeDouble(positionSize);
+
     return patchState(MatexBaseCoreState(positionSize: sanitizedValue));
   }
 
   C tradingPairExchangeRate(double tradingPairExchangeRate) {
     final sanitizedValue = sanitizeDouble(tradingPairExchangeRate);
+
     return patchState(
         MatexBaseCoreState(tradingPairExchangeRate: sanitizedValue));
   }

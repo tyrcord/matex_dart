@@ -11,7 +11,7 @@ const kInitialMatexStopLossTakeProfitState = MatexBaseCoreState(
   positionSize: 0.0,
   tradingPairExchangeRate: 0.0,
   entryPrice: 0.0,
-  position: MatexPosition.Long,
+  position: MatexPosition.long,
   takeProfitAmount: 0.0,
   takeProfitPips: 0.0,
   takeProfitPrice: 0.0,

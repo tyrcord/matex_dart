@@ -22,23 +22,27 @@ class MatexReporterProvider implements MatexAbstractReporterProvider {
       var value = entry.value ?? '';
 
       if (value is num) {
-        final formatter = NumberFormat.decimalPattern(locale);
-        final minimumFractionDigits = entry.minimumFractionDigits;
-        final maximumFractionDigits = entry.maximumFractionDigits;
-
-        if (maximumFractionDigits != null) {
-          formatter.maximumFractionDigits = maximumFractionDigits;
-        }
-
-        if (minimumFractionDigits != null) {
-          formatter.minimumFractionDigits = minimumFractionDigits;
-        }
-
-        value = formatter.format(value);
+        value = _formatNumberValue(value as num, entry, locale);
       }
 
       return (accumulator += '$label $value'
           '${index++ < length - 1 ? '\n' : ''}');
     });
+  }
+
+  String _formatNumberValue(num value, MatexReportEntry entry, String locale) {
+    final formatter = NumberFormat.decimalPattern(locale);
+    final minimumFractionDigits = entry.minimumFractionDigits;
+    final maximumFractionDigits = entry.maximumFractionDigits;
+
+    if (maximumFractionDigits != null) {
+      formatter.maximumFractionDigits = maximumFractionDigits;
+    }
+
+    if (minimumFractionDigits != null) {
+      formatter.minimumFractionDigits = minimumFractionDigits;
+    }
+
+    return formatter.format(value);
   }
 }

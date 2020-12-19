@@ -24,6 +24,7 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
     }
 
     pipValue ??= computePipValue();
+
     return (result = _computeStopLossLevels(pipValue));
   }
 
@@ -72,12 +73,12 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
     final entryPriceParsed = Decimal.parse(entryPrice.toString());
     var stopLossPips = 0.0;
 
-    if (position == MatexPosition.Long && stopLossPrice < entryPrice) {
+    if (position == MatexPosition.long && stopLossPrice < entryPrice) {
       stopLossPips =
           ((entryPriceParsed - stopLossPriceParsed) * _divider).toDouble();
     }
 
-    if (position == MatexPosition.Short && stopLossPrice > entryPrice) {
+    if (position == MatexPosition.short && stopLossPrice > entryPrice) {
       stopLossPips =
           ((stopLossPriceParsed - entryPriceParsed) * _divider).toDouble();
     }
@@ -115,7 +116,7 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
     final deltaPrice = Decimal.parse(stopLossPips.toString()) / _divider;
     final entryPriceBigNumber = Decimal.parse(entryPrice.toString());
 
-    return (position == MatexPosition.Long
+    return (position == MatexPosition.long
             ? entryPriceBigNumber - deltaPrice
             : entryPriceBigNumber + deltaPrice)
         .toDouble();

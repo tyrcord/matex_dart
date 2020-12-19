@@ -1,5 +1,7 @@
 include: package:pedantic/analysis_options.yaml
 analyzer:
+  plugins:
+    - dart_code_metrics
   strong-mode:
     implicit-casts: false
 linter:
@@ -41,3 +43,17 @@ linter:
     - unrelated_type_equality_checks
     - valid_regexps
     - lines_longer_than_80_chars
+dart_code_metrics:
+  anti-patterns:
+    - long-method
+  metrics:
+    cyclomatic-complexity: 7
+    lines-of-executable-code: 25
+    number-of-arguments: 4
+  metrics-exclude:
+    - test/**
+  rules:
+    - newline-before-return
+    - no-boolean-literal-compare
+    - no-empty-block
+    - prefer-trailing-comma-for-collection

@@ -4,6 +4,6 @@ const kInitialPivotPointsState = MatexBaseCoreState(
   closePrice: 0,
   highPrice: 0,
   lowPrice: 0,
-  method: MatexPivotPointsMethods.Standard,
+  method: MatexPivotPointsMethods.standard,
   openPrice: 0,
 );

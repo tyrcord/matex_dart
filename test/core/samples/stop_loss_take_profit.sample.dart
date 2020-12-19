@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:matex_dart/matex_dart.dart';
 
 const DEFAULT_TAKE_PROFIT_UP = MatexTakeProfitResult(

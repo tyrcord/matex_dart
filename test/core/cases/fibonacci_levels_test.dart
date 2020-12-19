@@ -136,7 +136,7 @@ void main() {
             .precision(2)
             .lowPrice(1.4)
             .highPrice(1.5)
-            .trend(MatexTrend.Up);
+            .trend(MatexTrend.up);
 
         expect(calculator.value().extensionLevels[0].value, equals(1.76));
         expect(calculator.value().retracementLevels[0].value, equals(1.48));
@@ -189,21 +189,21 @@ void main() {
 
     group('#trend()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator.trend(MatexTrend.Up), equals(calculator));
+        expect(calculator.trend(MatexTrend.up), equals(calculator));
       });
 
       test('Should have a default value', () {
         expect(
           calculator.getState().trend,
-          equals(MatexTrend.Up),
+          equals(MatexTrend.up),
         );
       });
 
       test('Should define the trend value', () {
-        calculator.trend(MatexTrend.Down);
+        calculator.trend(MatexTrend.down);
         expect(
           calculator.getState().trend,
-          equals(MatexTrend.Down),
+          equals(MatexTrend.down),
         );
       });
 
@@ -231,7 +231,7 @@ void main() {
         expect(results.extensionLevels[0].level, equals('50%'));
         expect(results.extensionLevels[1].level, equals('23.6%'));
 
-        results = calculator.trend(MatexTrend.Down).value();
+        results = calculator.trend(MatexTrend.down).value();
 
         expect(results.retracementLevels[0].level, equals('50%'));
         expect(results.retracementLevels[1].level, equals('23.6%'));
