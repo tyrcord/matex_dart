@@ -1,8 +1,9 @@
 import 'dart:math';
 
 import 'package:decimal/decimal.dart';
-import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
+
+import 'package:matex_dart/matex_dart.dart';
 
 mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     on MatexBaseCalculator<C, R> {
