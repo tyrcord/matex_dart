@@ -12,9 +12,5 @@ class MatexPivotPointsResult extends Equatable {
   });
 
   @override
-  List<Object> get props => [
-        pivotPoint,
-        resistances,
-        supports,
-      ];
+  List<Object> get props => [pivotPoint, resistances, supports];
 }
