@@ -5,13 +5,6 @@
       "round": 3
     },
     "icon": "oil",
-    "lots": {
-      "micro": 10,
-      "mini": 100,
-      "normalized": false,
-      "standard": 1000,
-      "unit": "barrel"
-    },
     "name": {
       "key": "brent_crude_oil",
       "localized": "Brent Crude Oil"
@@ -29,13 +22,6 @@
       "round": 3
     },
     "icon": "oil",
-    "lots": {
-      "micro": 10,
-      "mini": 100,
-      "normalized": false,
-      "standard": 1000,
-      "unit": "barrel"
-    },
     "name": {
       "key": "crude_oil",
       "localized": "Crude Oil"
@@ -53,13 +39,6 @@
       "round": 3
     },
     "icon": "gas",
-    "lots": {
-      "micro": 1250,
-      "mini": 2500,
-      "normalized": true,
-      "standard": 10000,
-      "unit": "mmbtu"
-    },
     "name": {
       "key": "natural_gas",
       "localized": "Natural Gas"
@@ -77,13 +56,6 @@
       "round": 3
     },
     "icon": "silver",
-    "lots": {
-      "micro": 50,
-      "mini": 500,
-      "normalized": true,
-      "standard": 5000,
-      "unit": "ounce"
-    },
     "name": {
       "key": "silver",
       "localized": "Silver"
@@ -101,13 +73,6 @@
       "round": 3
     },
     "icon": "gold",
-    "lots": {
-      "micro": 1,
-      "mini": 10,
-      "normalized": true,
-      "standard": 100,
-      "unit": "ounce"
-    },
     "name": {
       "key": "gold",
       "localized": "gold"
@@ -125,13 +90,6 @@
       "round": 3
     },
     "icon": "platinum",
-    "lots": {
-      "micro": 1,
-      "mini": 10,
-      "normalized": true,
-      "standard": 100,
-      "unit": "ounce"
-    },
     "name": {
       "key": "platinum",
       "localized": "platinum"
@@ -251,14 +209,6 @@
       "round": 3
     },
     "icon": "united_arab_emirates",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "united_arab_emirates_dirham",
       "localized": "United Arab Emirates dirham"
@@ -276,14 +226,6 @@
       "round": 3
     },
     "icon": "argentina",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "argentine_peso",
       "localized": "Argentine peso"
@@ -301,14 +243,6 @@
       "round": 3
     },
     "icon": "australia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "australian_dollar",
       "localized": "Australian Dollar"
@@ -326,14 +260,6 @@
       "round": 3
     },
     "icon": "brazil",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "brazilian_real",
       "localized": "Brazilian real"
@@ -356,14 +282,6 @@
       "round": 3
     },
     "icon": "canada",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "canadian_dollar",
       "localized": "Canadian Dollar"
@@ -381,14 +299,6 @@
       "round": 3
     },
     "icon": "switzerland",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "swiss_franc",
       "localized": "Swiss franc"
@@ -406,14 +316,6 @@
       "round": 3
     },
     "icon": "chile",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "chilean_peso",
       "localized": "Chilean peso"
@@ -431,14 +333,6 @@
       "round": 3
     },
     "icon": "china",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "chinese_yuan_renminbi",
       "localized": "Chinese Yuan Renminbi"
@@ -456,14 +350,6 @@
       "round": 3
     },
     "icon": "colombia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "colombian_peso",
       "localized": "Colombian peso"
@@ -481,14 +367,6 @@
       "round": 3
     },
     "icon": "czech",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "czech_koruna",
       "localized": "Czech koruna"
@@ -506,14 +384,6 @@
       "round": 3
     },
     "icon": "denmark",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "danish_krone",
       "localized": "Danish krone"
@@ -531,14 +401,6 @@
       "round": 3
     },
     "icon": "algeria",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "algerian_dinar",
       "localized": "Algerian dinar"
@@ -556,14 +418,6 @@
       "round": 3
     },
     "icon": "egypt",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "egyptian_pound",
       "localized": "Egyptian pound"
@@ -581,14 +435,6 @@
       "round": 3
     },
     "icon": "ethiopia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "ethiopian_birr",
       "localized": "Ethiopian birr"
@@ -606,14 +452,6 @@
       "round": 3
     },
     "icon": "euro",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "euro",
       "localized": "Euro"
@@ -631,14 +469,6 @@
       "round": 3
     },
     "icon": "fiji",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "fiji_dollar",
       "localized": "Fiji dollar"
@@ -656,14 +486,6 @@
       "round": 3
     },
     "icon": "uk",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "pound_sterling",
       "localized": "Pound sterling"
@@ -681,14 +503,6 @@
       "round": 3
     },
     "icon": "hong_kong",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "hong_kong_dollar",
       "localized": "Hong Kong dollar"
@@ -706,14 +520,6 @@
       "round": 3
     },
     "icon": "croatia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "croatian_kuna",
       "localized": "Croatian kuna"
@@ -731,14 +537,6 @@
       "round": 3
     },
     "icon": "hungary",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "hungarian_forint",
       "localized": "Hungarian forint"
@@ -756,14 +554,6 @@
       "round": 3
     },
     "icon": "indonesia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "indonesian_rupiah",
       "localized": "Indonesian rupiah"
@@ -781,14 +571,6 @@
       "round": 3
     },
     "icon": "israel",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "israeli_new_shekel",
       "localized": "Israeli new shekel"
@@ -806,14 +588,6 @@
       "round": 3
     },
     "icon": "india",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "indian_rupee",
       "localized": "Indian rupee"
@@ -831,14 +605,6 @@
       "round": 3
     },
     "icon": "iraq",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "iraqi_dinar",
       "localized": "Iraqi dinar"
@@ -856,14 +622,6 @@
       "round": 3
     },
     "icon": "iran",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "iranian_rial",
       "localized": "Iranian rial"
@@ -881,14 +639,6 @@
       "round": 3
     },
     "icon": "iceland",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "icelandic_krona",
       "localized": "Icelandic króna"
@@ -906,14 +656,6 @@
       "round": 3
     },
     "icon": "japan",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "japanese_yen",
       "localized": "Japanese yen"
@@ -931,14 +673,6 @@
       "round": 3
     },
     "icon": "cambodia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "cambodian_riel",
       "localized": "Cambodian riel"
@@ -956,14 +690,6 @@
       "round": 3
     },
     "icon": "south_korea",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "south_korean_won",
       "localized": "South Korean won"
@@ -981,14 +707,6 @@
       "round": 3
     },
     "icon": "kuwait",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "kuwaiti_dinar",
       "localized": "Kuwaiti dinar"
@@ -1006,14 +724,6 @@
       "round": 3
     },
     "icon": "cayman_islands",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "cayman_islands_dollar",
       "localized": "Cayman Islands dollar"
@@ -1031,14 +741,6 @@
       "round": 3
     },
     "icon": "kazakhstan",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "kazakhstani_tenge",
       "localized": "Kazakhstani tenge"
@@ -1056,14 +758,6 @@
       "round": 3
     },
     "icon": "morocco",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "moroccan_dirham",
       "localized": "Moroccan dirham"
@@ -1081,14 +775,6 @@
       "round": 3
     },
     "icon": "myanmar",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "myanmar_kyat",
       "localized": "Myanma kyat"
@@ -1106,14 +792,6 @@
       "round": 3
     },
     "icon": "mexico",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "mexican_peso",
       "localized": "Mexican peso"
@@ -1131,14 +809,6 @@
       "round": 3
     },
     "icon": "malaysia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "malaysian_ringgit",
       "localized": "Malaysian ringgit"
@@ -1156,14 +826,6 @@
       "round": 3
     },
     "icon": "namibia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "namibian_dollar",
       "localized": "Namibian dollar"
@@ -1181,14 +843,6 @@
       "round": 3
     },
     "icon": "nigeria",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "nigerian_naira",
       "localized": "Nigerian naira"
@@ -1206,14 +860,6 @@
       "round": 3
     },
     "icon": "norway",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "norwegian_krone",
       "localized": "Norwegian krone"
@@ -1231,14 +877,6 @@
       "round": 3
     },
     "icon": "new_zealand",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "new_zealand_dollar",
       "localized": "New Zealand dollar"
@@ -1256,14 +894,6 @@
       "round": 3
     },
     "icon": "peru",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "peruvian_nuevo_sol",
       "localized": "Peruvian nuevo sol"
@@ -1281,14 +911,6 @@
       "round": 3
     },
     "icon": "philippines",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "philippine_peso",
       "localized": "Philippine peso"
@@ -1306,14 +928,6 @@
       "round": 3
     },
     "icon": "pakistan",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "pakistani_rupee",
       "localized": "Pakistani rupee"
@@ -1331,14 +945,6 @@
       "round": 3
     },
     "icon": "poland",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "polish_zloty",
       "localized": "Polish złoty"
@@ -1356,14 +962,6 @@
       "round": 3
     },
     "icon": "qatar",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "qatari_riyal",
       "localized": "Qatari riyal"
@@ -1381,14 +979,6 @@
       "round": 3
     },
     "icon": "romania",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "romanian_leu",
       "localized": "Romanian leu"
@@ -1406,14 +996,6 @@
       "round": 3
     },
     "icon": "russia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "russian_ruble",
       "localized": "Russian Ruble"
@@ -1431,14 +1013,6 @@
       "round": 3
     },
     "icon": "saudi_arabia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "saudi_riyal",
       "localized": "Saudi riyal"
@@ -1456,14 +1030,6 @@
       "round": 3
     },
     "icon": "seychelles",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "seychelles_rupee",
       "localized": "Seychelles rupee"
@@ -1481,14 +1047,6 @@
       "round": 3
     },
     "icon": "sweden",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "swedish_krona",
       "localized": "Swedish krona"
@@ -1506,14 +1064,6 @@
       "round": 3
     },
     "icon": "singapore",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "singapore_dollar",
       "localized": "Singapore dollar"
@@ -1531,14 +1081,6 @@
       "round": 3
     },
     "icon": "somalia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "somali_shilling",
       "localized": "Somali shilling"
@@ -1556,14 +1098,6 @@
       "round": 3
     },
     "icon": "thailand",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "thai_baht",
       "localized": "Thai baht"
@@ -1581,14 +1115,6 @@
       "round": 3
     },
     "icon": "tunisia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "tunisian_dinar",
       "localized": "Tunisian dinar"
@@ -1606,14 +1132,6 @@
       "round": 3
     },
     "icon": "turkey",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "turkish_lira",
       "localized": "Turkish lira"
@@ -1631,14 +1149,6 @@
       "round": 3
     },
     "icon": "taiwan",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "new_taiwan_dollar",
       "localized": "New Taiwan dollar"
@@ -1656,14 +1166,6 @@
       "round": 3
     },
     "icon": "ukraine",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "ukrainian_hryvnia",
       "localized": "Ukrainian hryvnia"
@@ -1681,14 +1183,6 @@
       "round": 3
     },
     "icon": "usa",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "american_dollar",
       "localized": "American Dollar"
@@ -1706,14 +1200,6 @@
       "round": 3
     },
     "icon": "uruguay",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "uruguayan_peso",
       "localized": "Uruguayan peso"
@@ -1731,14 +1217,6 @@
       "round": 3
     },
     "icon": "vietnam",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "vietnamese_dong",
       "localized": "Vietnamese dong"
@@ -1756,14 +1234,6 @@
       "round": 3
     },
     "icon": "south_africa",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "south_african_rand",
       "localized": "South African rand"
@@ -1781,14 +1251,6 @@
       "round": 3
     },
     "icon": "zambia",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "zambian_kwacha",
       "localized": "Zambian kwacha"
@@ -1806,14 +1268,6 @@
       "round": 3
     },
     "icon": "zimbabwe",
-    "lots": {
-      "micro": 1000,
-      "mini": 10000,
-      "nano": 100,
-      "normalized": true,
-      "standard": 100000,
-      "unit": "forex"
-    },
     "name": {
       "key": "zimbabwe_dollar",
       "localized": "Zimbabwe dollar"
@@ -1854,28 +1308,6 @@
       "key": "indices",
       "main": "index",
       "weight": 75
-    }
-  },
-  "lot_units": {
-    "barrel": {
-      "key": "barrel",
-      "long": "barrel",
-      "short": "bbl"
-    },
-    "forex": {
-      "key": "forex",
-      "long": "unit",
-      "short": "unit"
-    },
-    "mmbtu": {
-      "key": "mmbtu",
-      "long": "metric million british Thermal unit",
-      "short": "MMBtu"
-    },
-    "ounce": {
-      "key": "ounce",
-      "long": "ounce",
-      "short": "oz"
     }
   },
   "AXJO": {

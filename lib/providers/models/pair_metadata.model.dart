@@ -2,35 +2,42 @@ import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexPairMetadata extends Equatable {
-  final String baseCode;
-  final String counterCode;
-  final MatexPairTypeMetadata type;
-  final MatexInstrumentMetadata baseInstrumentMetadata;
   final MatexInstrumentMetadata counterInstrumentMetadata;
+  final MatexInstrumentMetadata baseInstrumentMetadata;
+  final MatexPairTypeMetadata type;
+  final MatexPairLotsMetadata lots;
   final MatexPairPipMetadata pip;
+  final String counterCode;
+  final String baseCode;
 
   const MatexPairMetadata({
-    this.baseCode,
-    this.counterCode,
-    this.type,
-    this.pip,
-    this.baseInstrumentMetadata,
     this.counterInstrumentMetadata,
+    this.baseInstrumentMetadata,
+    this.counterCode,
+    this.baseCode,
+    this.type,
+    this.lots,
+    this.pip,
   });
 
   factory MatexPairMetadata.fromJson(Map<String, dynamic> json) {
     var pipMetadata = json['pip'] as Map<String, dynamic>;
+    final lots = json['lots'] as Map<String, dynamic>;
 
     return MatexPairMetadata(
-      baseCode: json['base'] as String,
-      counterCode: json['counter'] as String,
       type: MatexPairTypeMetadata.fromCache(json['type'] as String),
+      counterCode: json['counter'] as String,
+      baseCode: json['base'] as String,
+      lots: lots != null
+          ? MatexPairLotsMetadata.fromJson(lots)
+          : MatexPairLotsMetadata.defaultMetatada(),
       pip: pipMetadata != null
           ? MatexPairPipMetadata.fromJson(pipMetadata)
-          : MatexPairPipMetadata.defaultMetatda(),
+          : MatexPairPipMetadata.defaultMetatada(),
     );
   }
 
+  // ignore: code-metrics
   MatexPairMetadata copyWith({
     String baseCode,
     String counterCode,
@@ -43,6 +50,7 @@ class MatexPairMetadata extends Equatable {
       baseCode: baseCode ?? this.baseCode,
       counterCode: counterCode ?? this.counterCode,
       type: type ?? this.type,
+      lots: lots ?? this.lots,
       pip: pip ?? this.pip,
       baseInstrumentMetadata:
           baseInstrumentMetadata ?? this.baseInstrumentMetadata,
@@ -52,5 +60,11 @@ class MatexPairMetadata extends Equatable {
   }
 
   @override
-  List<Object> get props => [baseCode, counterCode, type, pip];
+  List<Object> get props => [
+        baseCode,
+        counterCode,
+        type,
+        pip,
+        lots,
+      ];
 }

@@ -21,8 +21,8 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
   @override
   Future<String> formatInstrument({
     @required double value,
-    String code,
-    String locale,
+    @required String code,
+    String locale = kMatexDefaultLocale,
     int minimumFractionDigits = 0,
     int maximumFractionDigits,
   }) async {
@@ -47,15 +47,15 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
   @override
   Future<String> formatQuote({
     @required double value,
-    String pair,
-    String locale,
+    @required String pair,
+    String locale = kMatexDefaultLocale,
     int minimumFractionDigits,
     int maximumFractionDigits,
   }) async {
     final pairMetadata = await pairProvider.metadata(pair);
     var round = pairMetadata != null
         ? pairMetadata.pip.round
-        : MatexPairPipMetadata.defaultMetatda().round;
+        : MatexPairPipMetadata.defaultMetatada().round;
 
     return formatNumber(
       value: value,
@@ -67,8 +67,8 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
 
   String _formatCurrency({
     @required double value,
-    String code,
-    String locale,
+    @required String code,
+    String locale = kMatexDefaultLocale,
     int minimumFractionDigits = 0,
     int maximumFractionDigits,
   }) {
@@ -87,7 +87,7 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
 
   String formatNumber({
     @required double value,
-    String locale,
+    String locale = kMatexDefaultLocale,
     int minimumFractionDigits = 0,
     int maximumFractionDigits,
   }) {

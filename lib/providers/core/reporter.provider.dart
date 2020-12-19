@@ -2,13 +2,12 @@ import 'dart:async';
 
 import 'package:intl/intl.dart';
 
-import '../interfaces/interfaces.dart';
-import '../models/models.dart';
+import 'package:matex_dart/matex_dart.dart';
 
 class MatexReporterProvider implements MatexAbstractReporterProvider {
   @override
   Future<String> report({
-    String locale = 'EN_US',
+    String locale = kMatexDefaultLocale,
     List<MatexReportEntry> entries,
   }) async =>
       _stringify(locale, entries);

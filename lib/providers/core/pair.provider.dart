@@ -8,6 +8,13 @@ import '../models/models.dart';
 
 const _kAssetPath = 'packages/matex_dart/assets/meta/pairs.json';
 
+const _kPairKeyMetadata = {
+  'default_pip': 'default_pip',
+  'pair_types': 'pair_types',
+  'default_forex_lots': 'default_forex_lots',
+  'lot_units': 'lot_units',
+};
+
 class MatexPairMetadataProvider extends MatexAbstractPairMetadataProvider {
   static final MatexPairMetadataProvider _singleton =
       MatexPairMetadataProvider._();
@@ -33,8 +40,7 @@ class MatexPairMetadataProvider extends MatexAbstractPairMetadataProvider {
 
   void _removeExtraMetadata(Map<String, dynamic> metadata) {
     metadata.removeWhere((String key, dynamic json) {
-      final shouldRemoveExtraMetadata =
-          key == 'pair_types' || key == 'default_pip';
+      final shouldRemoveExtraMetadata = _shouldRemoveExtraMetadata(key);
 
       if (shouldRemoveExtraMetadata) {
         _extractExtraMetadata(key, json as Map<String, dynamic>);
@@ -44,8 +50,12 @@ class MatexPairMetadataProvider extends MatexAbstractPairMetadataProvider {
     });
   }
 
+  bool _shouldRemoveExtraMetadata(String key) {
+    return _kPairKeyMetadata.containsKey(key);
+  }
+
   void _extractExtraMetadata(String key, Map<String, dynamic> json) {
-    if (key == 'pair_types') {
+    if (key == _kPairKeyMetadata['pair_types']) {
       json.forEach((String key, dynamic value) {
         MatexPairTypeMetadata.addToCache(
           key,

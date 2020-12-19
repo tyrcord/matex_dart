@@ -8,6 +8,10 @@ import '../models/models.dart';
 
 const _kAssetPath = 'packages/matex_dart/assets/meta/instruments.json';
 
+const _kInstrumentKeyMetadata = {
+  'instrument_types': 'instrument_types',
+};
+
 class MatexInstrumentProvider extends MatexAbstractInstrumentMetadataProvider {
   static final MatexInstrumentProvider _singleton = MatexInstrumentProvider._();
 
@@ -32,8 +36,7 @@ class MatexInstrumentProvider extends MatexAbstractInstrumentMetadataProvider {
 
   void _removeExtraMetadata(Map<String, dynamic> metadata) {
     metadata.removeWhere((String key, dynamic json) {
-      final shouldRemoveExtraMetadata =
-          key == 'lot_units' || key == 'instrument_types';
+      final shouldRemoveExtraMetadata = _shouldRemoveExtraMetadata(key);
 
       if (shouldRemoveExtraMetadata) {
         _extractExtraMetadata(key, json as Map<String, dynamic>);
@@ -43,15 +46,12 @@ class MatexInstrumentProvider extends MatexAbstractInstrumentMetadataProvider {
     });
   }
 
+  bool _shouldRemoveExtraMetadata(String key) {
+    return _kInstrumentKeyMetadata.containsKey(key);
+  }
+
   void _extractExtraMetadata(String key, Map<String, dynamic> json) {
-    if (key == 'lot_units') {
-      json.forEach((String key, dynamic value) {
-        MatexInstrumentLotUnitMetadata.addToCache(
-          key,
-          value as Map<String, dynamic>,
-        );
-      });
-    } else if (key == 'instrument_types') {
+    if (key == 'instrument_types') {
       json.forEach((String key, dynamic value) {
         MatexInstrumentTypeMetadata.addToCache(
           key,

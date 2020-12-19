@@ -25,7 +25,7 @@ class MatexPairPipMetadata extends Equatable {
     );
   }
 
-  factory MatexPairPipMetadata.defaultMetatda() => _kDefault;
+  factory MatexPairPipMetadata.defaultMetatada() => _kDefault;
 
   @override
   List<Object> get props => [precision, pipette, round];

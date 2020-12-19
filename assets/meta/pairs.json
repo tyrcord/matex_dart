@@ -2,6 +2,13 @@
   "BZUSD": {
     "base": "BZ",
     "counter": "USD",
+    "lots": {
+      "micro": 10,
+      "mini": 100,
+      "normalized": false,
+      "standard": 1000,
+      "unit": "barrel"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -12,6 +19,13 @@
   "CLUSD": {
     "base": "CL",
     "counter": "USD",
+    "lots": {
+      "micro": 10,
+      "mini": 100,
+      "normalized": false,
+      "standard": 1000,
+      "unit": "barrel"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -22,6 +36,13 @@
   "NGUSD": {
     "base": "NG",
     "counter": "USD",
+    "lots": {
+      "micro": 1250,
+      "mini": 2500,
+      "normalized": true,
+      "standard": 10000,
+      "unit": "mmbtu"
+    },
     "pip": {
       "pipette": 4,
       "precision": 3,
@@ -32,6 +53,13 @@
   "XAGAUD": {
     "base": "XAG",
     "counter": "AUD",
+    "default_silver_lots": {
+      "micro": 50,
+      "mini": 500,
+      "normalized": true,
+      "standard": 5000,
+      "unit": "ounce"
+    },
     "type": "commodity_metal"
   },
   "XAGCAD": {
@@ -42,26 +70,61 @@
   "XAGCHF": {
     "base": "XAG",
     "counter": "CHF",
+    "default_silver_lots": {
+      "micro": 50,
+      "mini": 500,
+      "normalized": true,
+      "standard": 5000,
+      "unit": "ounce"
+    },
     "type": "commodity_metal"
   },
   "XAGEUR": {
     "base": "XAG",
     "counter": "EUR",
+    "default_silver_lots": {
+      "micro": 50,
+      "mini": 500,
+      "normalized": true,
+      "standard": 5000,
+      "unit": "ounce"
+    },
     "type": "commodity_metal"
   },
   "XAGGBP": {
     "base": "XAG",
     "counter": "GBP",
+    "default_silver_lots": {
+      "micro": 50,
+      "mini": 500,
+      "normalized": true,
+      "standard": 5000,
+      "unit": "ounce"
+    },
     "type": "commodity_metal"
   },
   "XAGHKD": {
     "base": "XAG",
     "counter": "HKD",
+    "default_silver_lots": {
+      "micro": 50,
+      "mini": 500,
+      "normalized": true,
+      "standard": 5000,
+      "unit": "ounce"
+    },
     "type": "commodity_metal"
   },
   "XAGJPY": {
     "base": "XAG",
     "counter": "JPY",
+    "default_silver_lots": {
+      "micro": 50,
+      "mini": 500,
+      "normalized": true,
+      "standard": 5000,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 1,
       "precision": 0,
@@ -72,21 +135,49 @@
   "XAGNZD": {
     "base": "XAG",
     "counter": "NZD",
+    "default_silver_lots": {
+      "micro": 50,
+      "mini": 500,
+      "normalized": true,
+      "standard": 5000,
+      "unit": "ounce"
+    },
     "type": "commodity_metal"
   },
   "XAGSGD": {
     "base": "XAG",
     "counter": "SGD",
+    "default_silver_lots": {
+      "micro": 50,
+      "mini": 500,
+      "normalized": true,
+      "standard": 5000,
+      "unit": "ounce"
+    },
     "type": "commodity_metal"
   },
   "XAGUSD": {
     "base": "XAG",
     "counter": "USD",
+    "default_silver_lots": {
+      "micro": 50,
+      "mini": 500,
+      "normalized": true,
+      "standard": 5000,
+      "unit": "ounce"
+    },
     "type": "commodity_metal"
   },
   "XAUAUD": {
     "base": "XAU",
     "counter": "AUD",
+    "lots": {
+      "micro": 1,
+      "mini": 10,
+      "normalized": true,
+      "standard": 100,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -97,6 +188,13 @@
   "XAUCAD": {
     "base": "XAU",
     "counter": "CAD",
+    "lots": {
+      "micro": 1,
+      "mini": 10,
+      "normalized": true,
+      "standard": 100,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -107,6 +205,13 @@
   "XAUCHF": {
     "base": "XAU",
     "counter": "CHF",
+    "lots": {
+      "micro": 1,
+      "mini": 10,
+      "normalized": true,
+      "standard": 100,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -117,6 +222,13 @@
   "XAUEUR": {
     "base": "XAU",
     "counter": "EUR",
+    "lots": {
+      "micro": 1,
+      "mini": 10,
+      "normalized": true,
+      "standard": 100,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -127,6 +239,13 @@
   "XAUGBP": {
     "base": "XAU",
     "counter": "GBP",
+    "lots": {
+      "micro": 1,
+      "mini": 10,
+      "normalized": true,
+      "standard": 100,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -137,6 +256,13 @@
   "XAUHKD": {
     "base": "XAU",
     "counter": "HKD",
+    "lots": {
+      "micro": 1,
+      "mini": 10,
+      "normalized": true,
+      "standard": 100,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -147,6 +273,13 @@
   "XAUJPY": {
     "base": "XAU",
     "counter": "JPY",
+    "lots": {
+      "micro": 1,
+      "mini": 10,
+      "normalized": true,
+      "standard": 100,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 0,
       "precision": -1,
@@ -157,6 +290,13 @@
   "XAUNZD": {
     "base": "XAU",
     "counter": "NZD",
+    "lots": {
+      "micro": 1,
+      "mini": 10,
+      "normalized": true,
+      "standard": 100,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -177,6 +317,13 @@
   "XAUUSD": {
     "base": "XAU",
     "counter": "USD",
+    "lots": {
+      "micro": 1,
+      "mini": 10,
+      "normalized": true,
+      "standard": 100,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -187,6 +334,13 @@
   "XAUXAG": {
     "base": "XAU",
     "counter": "XAG",
+    "lots": {
+      "micro": 1,
+      "mini": 10,
+      "normalized": true,
+      "standard": 100,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -197,6 +351,13 @@
   "XPTUSD": {
     "base": "XPT",
     "counter": "USD",
+    "lots": {
+      "micro": 1,
+      "mini": 10,
+      "normalized": true,
+      "standard": 100,
+      "unit": "ounce"
+    },
     "pip": {
       "pipette": 3,
       "precision": 2,
@@ -1294,10 +1455,40 @@
     },
     "type": "currency_minor"
   },
+  "default_forex_lots": {
+    "micro": 1000,
+    "mini": 10000,
+    "nano": 100,
+    "normalized": true,
+    "standard": 100000,
+    "unit": "forex"
+  },
   "default_pip": {
     "pipette": 5,
     "precision": 4,
     "round": 5
+  },
+  "lot_units": {
+    "barrel": {
+      "key": "barrel",
+      "long": "barrel",
+      "short": "bbl"
+    },
+    "forex": {
+      "key": "forex",
+      "long": "unit",
+      "short": "unit"
+    },
+    "mmbtu": {
+      "key": "mmbtu",
+      "long": "metric million british Thermal unit",
+      "short": "MMBtu"
+    },
+    "ounce": {
+      "key": "ounce",
+      "long": "ounce",
+      "short": "oz"
+    }
   },
   "pair_types": {
     "commodity_energy": {

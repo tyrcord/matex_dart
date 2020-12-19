@@ -112,7 +112,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
       patchState(MatexBaseCoreState(pipPrecision: pairMetadata.pip.precision));
     } else {
       patchState(MatexBaseCoreState(
-        pipPrecision: MatexPairPipMetadata.defaultMetatda().precision,
+        pipPrecision: MatexPairPipMetadata.defaultMetatada().precision,
       ));
     }
 
