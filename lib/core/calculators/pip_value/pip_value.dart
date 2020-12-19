@@ -26,7 +26,7 @@ class MatexPipValueCalculatorCore
   }
 }
 
-MatexPipValueCalculatorCore pip({
+MatexPipValueCalculatorCore pipValue({
   MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) =>

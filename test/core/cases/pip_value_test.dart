@@ -8,7 +8,7 @@ void main() {
     MatexPipValueCalculatorCore calculator;
 
     setUp(() {
-      calculator = pip();
+      calculator = pipValue();
     });
 
     group('pip', () {

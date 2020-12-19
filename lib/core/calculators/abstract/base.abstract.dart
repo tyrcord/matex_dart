@@ -35,7 +35,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
 
   bool get isDirty => state != defaultState;
 
-  Iterable<String> get propertiesUseForDifference => null;
+  Iterable<String> get propertiesUseForDifference => const [];
 
   MatexBaseCalculator({
     @required this.defaultState,
@@ -90,21 +90,23 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
     return _checkStateValidity();
   }
 
+  // ignore: code-metrics, long-method
   MatexBaseCoreState _sanitizeDifferenceState(
     MatexBaseCoreState candidateState,
   ) {
-    var defaultMap = defaultState.toJson();
     var candidateMap = candidateState.toJson();
+    var defaultMap = defaultState.toJson();
     var defaultCounterCode = defaultMap[MatexCoreStateProperty.counterCode];
     var defaultBaseCode = defaultMap[MatexCoreStateProperty.baseCode];
-    var baseCode;
     var counterCode;
+    var baseCode;
 
     candidateMap.entries.forEach((MapEntry<String, dynamic> entry) {
+      var isCounterCode = entry.key == MatexCoreStateProperty.counterCode;
       var isBaseCode = entry.key == MatexCoreStateProperty.baseCode;
 
       // Special case (they are bounded)
-      if (isBaseCode || entry.key == MatexCoreStateProperty.counterCode) {
+      if (isBaseCode || isCounterCode) {
         if (isBaseCode) {
           baseCode = entry.value;
         } else {
@@ -117,8 +119,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
         }
       } else if (entry.value == defaultMap[entry.key]) {
         candidateMap[entry.key] = null;
-      } else if (propertiesUseForDifference != null &&
-          !propertiesUseForDifference.contains(entry.key)) {
+      } else if (!propertiesUseForDifference.contains(entry.key)) {
         candidateMap[entry.key] = null;
       }
     });

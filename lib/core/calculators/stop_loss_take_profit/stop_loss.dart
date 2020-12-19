@@ -135,9 +135,5 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
   }
 }
 
-MatexStopLossCalculatorCore stopLoss({
-  MatexBaseCoreState defaultState,
-}) =>
-    MatexStopLossCalculatorCore(
-      defaultState: defaultState,
-    );
+MatexStopLossCalculatorCore stopLoss({MatexBaseCoreState defaultState}) =>
+    MatexStopLossCalculatorCore(defaultState: defaultState);

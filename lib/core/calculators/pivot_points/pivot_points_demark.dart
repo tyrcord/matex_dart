@@ -1,4 +1,5 @@
 import 'package:decimal/decimal.dart';
+
 import 'package:matex_dart/matex_dart.dart';
 
 const kDefaultDeMarkPivotPointsResult = MatexPivotPointsResult(

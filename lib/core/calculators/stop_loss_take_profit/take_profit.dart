@@ -18,9 +18,7 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
 
   @override
   MatexTakeProfitResult value({Decimal pipValue}) {
-    if (result != null) {
-      return result;
-    }
+    if (result != null) return result;
 
     pipValue ??= computePipValue();
 
@@ -144,7 +142,5 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
   }
 }
 
-MatexTakeProfitCalculatorCore takeProfit({
-  MatexBaseCoreState defaultState,
-}) =>
+MatexTakeProfitCalculatorCore takeProfit({MatexBaseCoreState defaultState}) =>
     MatexTakeProfitCalculatorCore(defaultState: defaultState);

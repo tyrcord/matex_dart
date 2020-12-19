@@ -30,7 +30,7 @@ class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
       await setExchangeRates();
     }
 
-    return pip(defaultState: state).value().toDouble();
+    return pipValue(defaultState: state).value().toDouble();
   }
 
   @override

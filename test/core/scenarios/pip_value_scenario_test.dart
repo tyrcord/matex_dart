@@ -5,7 +5,7 @@ void main() {
   group('Feature: User calculating a Pip Value', () {
     group('Scenario: Currency account is listed second within a trading pair',
         () {
-      final calculator = pip();
+      final calculator = pipValue();
 
       test('Given: my trading account is in USD', () {
         expect(calculator is MatexPipValueCalculatorCore, equals(true));
@@ -30,7 +30,7 @@ void main() {
 
     group('Scenario: Currency account is listed first within a trading pair',
         () {
-      final calculator = pip();
+      final calculator = pipValue();
 
       test('Given: my trading account is in EUR', () {
         expect(calculator is MatexPipValueCalculatorCore, equals(true));
@@ -55,7 +55,7 @@ void main() {
 
     group('Scenario: the currency account is not listed within a trading pair',
         () {
-      final calculator = pip();
+      final calculator = pipValue();
 
       test('Given: my trading account is in USD', () {
         expect(calculator is MatexPipValueCalculatorCore, equals(true));

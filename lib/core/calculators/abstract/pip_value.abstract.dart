@@ -5,10 +5,7 @@ abstract class MatexAbstractPipValueCalculatorCore<
   MatexAbstractPipValueCalculatorCore({
     MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
-  }) : super(
-          defaultState: defaultState,
-          validators: validators,
-        );
+  }) : super(defaultState: defaultState, validators: validators);
 
   C tradingPairExchangeRate(double tradingPairExchangeRate);
 

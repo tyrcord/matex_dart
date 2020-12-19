@@ -1,4 +1,5 @@
 import 'package:decimal/decimal.dart';
+
 import 'package:matex_dart/matex_dart.dart';
 
 const List<double> _kDividers = [12.0, 6.0, 4.0, 2.0];
