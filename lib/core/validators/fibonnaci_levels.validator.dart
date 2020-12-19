@@ -2,10 +2,7 @@ import 'package:matex_dart/matex_dart.dart';
 
 List<MatexStateValidator> fibonacciLevelsValidators = [
   (MatexBaseCoreState state) {
-    final lowPrice = state.lowPrice;
-    final highPrice = state.highPrice;
-
-    return lowPrice != null && highPrice != null;
+    return state.lowPrice != null && state.highPrice != null;
   },
   (MatexBaseCoreState state) {
     final lowPrice = state.lowPrice;
