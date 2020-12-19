@@ -1,6 +1,5 @@
 export './calculators/calculators.dart';
 export './constants/constants.dart';
-export './data/data.dart';
 export './enums/enums.dart';
 export './helpers/helpers.dart';
 export './mixins/mixins.dart';
