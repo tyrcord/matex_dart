@@ -43,6 +43,7 @@ class MatexPairMetadata extends Equatable {
     String counterCode,
     MatexPairPipMetadata pip,
     MatexPairTypeMetadata type,
+    MatexPairLotsMetadata lots,
     MatexInstrumentMetadata baseInstrumentMetadata,
     MatexInstrumentMetadata counterInstrumentMetadata,
   }) {
