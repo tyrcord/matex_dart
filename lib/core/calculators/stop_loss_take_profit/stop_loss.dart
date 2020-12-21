@@ -29,10 +29,10 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
   }
 
   MatexStopLossResult _computeStopLossLevels(Decimal pipValue) {
-    final pipPrecision = validState.pipPrecision;
-    final stopLossAmount = validState.stopLossAmount;
-    final stopLossPips = validState.stopLossPips;
-    final stopLossPrice = validState.stopLossPrice;
+    final pipPrecision = state.pipPrecision;
+    final stopLossAmount = state.stopLossAmount;
+    final stopLossPips = state.stopLossPips;
+    final stopLossPrice = state.stopLossPrice;
     final divider = pow(10, pipPrecision).toDouble();
 
     if (stopLossAmount > 0) {
@@ -66,8 +66,8 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
     Decimal pipValue,
     double divider,
   ) {
-    final position = validState.position;
-    final entryPrice = validState.entryPrice;
+    final position = state.position;
+    final entryPrice = state.entryPrice;
     final _divider = Decimal.parse(divider.toString());
     final stopLossPriceParsed = Decimal.parse(stopLossPrice.toString());
     final entryPriceParsed = Decimal.parse(entryPrice.toString());
@@ -109,8 +109,8 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
   }
 
   double _computeStopLossPrice(double stopLossPips, double divider) {
-    final position = validState.position;
-    final entryPrice = validState.entryPrice;
+    final position = state.position;
+    final entryPrice = state.entryPrice;
     final _divider = Decimal.parse(divider.toString());
 
     final deltaPrice = Decimal.parse(stopLossPips.toString()) / _divider;

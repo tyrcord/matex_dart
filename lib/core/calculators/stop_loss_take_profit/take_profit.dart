@@ -26,10 +26,10 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
   }
 
   MatexTakeProfitResult _computeTakeProfitLevels(Decimal pipValue) {
-    final takeProfitAmount = validState.takeProfitAmount;
-    final takeProfitPips = validState.takeProfitPips;
-    final takeProfitPrice = validState.takeProfitPrice;
-    final divider = pow(10, validState.pipPrecision).toDouble();
+    final takeProfitAmount = state.takeProfitAmount;
+    final takeProfitPips = state.takeProfitPips;
+    final takeProfitPrice = state.takeProfitPrice;
+    final divider = pow(10, state.pipPrecision).toDouble();
 
     if (takeProfitAmount > 0) {
       return _computeTakeProfitWithAmount(
@@ -70,8 +70,8 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
     Decimal pipValue,
     double divider,
   ) {
-    final position = validState.position;
-    final entryPrice = validState.entryPrice;
+    final position = state.position;
+    final entryPrice = state.entryPrice;
     final _divider = Decimal.parse(divider.toString());
     final takeProfitPriceParsed = Decimal.parse(takeProfitPrice.toString());
     final entryPriceParsed = Decimal.parse(entryPrice.toString());
@@ -116,8 +116,8 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
   }
 
   double _computeTakeProfitPrice(double takeProfitPips, double divider) {
-    final position = validState.position;
-    final entryPrice = validState.entryPrice;
+    final position = state.position;
+    final entryPrice = state.entryPrice;
     final _divider = Decimal.parse(divider.toString());
 
     final deltaPrice = Decimal.parse(takeProfitPips.toString()) / _divider;

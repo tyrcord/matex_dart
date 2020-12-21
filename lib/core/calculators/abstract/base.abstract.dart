@@ -27,10 +27,6 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
 
   MatexBaseCoreState get defaultCalculatorState;
 
-  MatexBaseCoreState get validState {
-    return isStateValid ? state : defaultState;
-  }
-
   bool get isValid => isStateValid;
 
   bool get isDirty => state != defaultState;
