@@ -13,8 +13,7 @@ class MatexBaseCoreState extends Equatable implements Model {
   final MatexTrend trend;
   final List<double> extensionLevels;
   final List<double> retracementLevels;
-  // TODO: should be renamed to counterAccountPairExchangeRate;
-  final double baseExchangeRate;
+  final double counterAccountCurrencyPairExchangeRate;
   final double tradingPairExchangeRate;
   final double positionSize;
   final int pipPrecision;
@@ -54,7 +53,7 @@ class MatexBaseCoreState extends Equatable implements Model {
     this.trend,
     this.extensionLevels,
     this.retracementLevels,
-    this.baseExchangeRate,
+    this.counterAccountCurrencyPairExchangeRate,
     this.tradingPairExchangeRate,
     this.positionSize,
     this.pipPrecision,
@@ -88,7 +87,8 @@ class MatexBaseCoreState extends Equatable implements Model {
       lowPrice: lowPrice,
       precision: precision,
       extensionLevels: extensionLevels,
-      baseExchangeRate: baseExchangeRate,
+      counterAccountCurrencyPairExchangeRate:
+          counterAccountCurrencyPairExchangeRate,
       retracementLevels: retracementLevels,
       trend: trend,
       tradingPairExchangeRate: tradingPairExchangeRate,
@@ -127,7 +127,9 @@ class MatexBaseCoreState extends Equatable implements Model {
       trend: state.trend ?? trend,
       extensionLevels: state.extensionLevels ?? extensionLevels,
       retracementLevels: state.retracementLevels ?? retracementLevels,
-      baseExchangeRate: state.baseExchangeRate ?? baseExchangeRate,
+      counterAccountCurrencyPairExchangeRate:
+          state.counterAccountCurrencyPairExchangeRate ??
+              counterAccountCurrencyPairExchangeRate,
       tradingPairExchangeRate:
           state.tradingPairExchangeRate ?? tradingPairExchangeRate,
       positionSize: state.positionSize ?? positionSize,
@@ -191,10 +193,10 @@ class MatexBaseCoreState extends Equatable implements Model {
           properties.contains(MatexCoreStateProperty.retracementLevels)
               ? defaultState?.retracementLevels
               : retracementLevels,
-      baseExchangeRate:
-          properties.contains(MatexCoreStateProperty.baseExchangeRate)
-              ? defaultState?.baseExchangeRate
-              : baseExchangeRate,
+      counterAccountCurrencyPairExchangeRate: properties.contains(
+              MatexCoreStateProperty.counterAccountCurrencyPairExchangeRate)
+          ? defaultState?.counterAccountCurrencyPairExchangeRate
+          : counterAccountCurrencyPairExchangeRate,
       tradingPairExchangeRate:
           properties.contains(MatexCoreStateProperty.tradingPairExchangeRate)
               ? defaultState?.tradingPairExchangeRate
@@ -275,7 +277,7 @@ class MatexBaseCoreState extends Equatable implements Model {
     MatexTrend trend,
     List<double> extensionLevels,
     List<double> retracementLevels,
-    double baseExchangeRate,
+    double counterAccountCurrencyPairExchangeRate,
     double tradingPairExchangeRate,
     double positionSize,
     int pipPrecision,
@@ -312,7 +314,9 @@ class MatexBaseCoreState extends Equatable implements Model {
       trend: trend ?? this.trend,
       extensionLevels: extensionLevels ?? this.extensionLevels,
       retracementLevels: retracementLevels ?? this.retracementLevels,
-      baseExchangeRate: baseExchangeRate ?? this.baseExchangeRate,
+      counterAccountCurrencyPairExchangeRate:
+          counterAccountCurrencyPairExchangeRate ??
+              this.counterAccountCurrencyPairExchangeRate,
       tradingPairExchangeRate:
           tradingPairExchangeRate ?? this.tradingPairExchangeRate,
       positionSize: positionSize ?? this.positionSize,
@@ -352,7 +356,8 @@ class MatexBaseCoreState extends Equatable implements Model {
       'trend': trend?.index,
       'extensionLevels': extensionLevels,
       'retracementLevels': retracementLevels,
-      'baseExchangeRate': baseExchangeRate,
+      'counterAccountCurrencyPairExchangeRate':
+          counterAccountCurrencyPairExchangeRate,
       'tradingPairExchangeRate': tradingPairExchangeRate,
       'positionSize': positionSize,
       'pipPrecision': pipPrecision,
@@ -394,7 +399,8 @@ class MatexBaseCoreState extends Equatable implements Model {
       trend: trend != null ? MatexTrend.values[trend] : null,
       extensionLevels: json['extensionLevels'] as List<double>,
       retracementLevels: json['retracementLevels'] as List<double>,
-      baseExchangeRate: json['baseExchangeRate'] as double,
+      counterAccountCurrencyPairExchangeRate:
+          json['counterAccountCurrencyPairExchangeRate'] as double,
       tradingPairExchangeRate: json['tradingPairExchangeRate'] as double,
       positionSize: json['positionSize'] as double,
       pipPrecision: json['pipPrecision'] as int,
@@ -433,7 +439,7 @@ class MatexBaseCoreState extends Equatable implements Model {
         trend,
         extensionLevels,
         retracementLevels,
-        baseExchangeRate,
+        counterAccountCurrencyPairExchangeRate,
         tradingPairExchangeRate,
         positionSize,
         pipPrecision,

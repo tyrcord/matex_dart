@@ -1,7 +1,7 @@
 import 'package:matex_dart/matex_dart.dart' hide positionSize;
 
 const kInitialPipValueState = MatexBaseCoreState(
-  baseExchangeRate: 0.0,
+  counterAccountCurrencyPairExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,
   pipPrecision: 4,

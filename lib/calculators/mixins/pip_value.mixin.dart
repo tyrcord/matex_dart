@@ -23,7 +23,8 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     if (accountCode != null) {
       return patchState(MatexBaseCoreState(
         accountCode: accountCode,
-        baseExchangeRate: kInitialMatexPipValueState.baseExchangeRate,
+        counterAccountCurrencyPairExchangeRate:
+            kInitialMatexPipValueState.counterAccountCurrencyPairExchangeRate,
       ));
     }
 
@@ -37,7 +38,8 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
       return patchState(MatexBaseCoreState(
         baseCode: baseCode,
         counterCode: counterCode,
-        baseExchangeRate: kInitialMatexPipValueState.baseExchangeRate,
+        counterAccountCurrencyPairExchangeRate:
+            kInitialMatexPipValueState.counterAccountCurrencyPairExchangeRate,
         tradingPairExchangeRate:
             kInitialMatexPipValueState.tradingPairExchangeRate,
       ));
@@ -67,7 +69,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
   C _resetRelatedProperties() {
     return resetStateProperties([
       MatexCoreStateProperty.tradingPairExchangeRate,
-      MatexCoreStateProperty.baseExchangeRate,
+      MatexCoreStateProperty.counterAccountCurrencyPairExchangeRate,
       MatexCoreStateProperty.baseListedSecond,
     ]);
   }
@@ -98,7 +100,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
   }
 
   // ignore: long-method
-  Future<void> setExchangeRates({bool skipAccountBaseQuote = false}) async {
+  Future<void> setExchangeRates() async {
     final accountCode = state.accountCode;
     final counterCode = state.counterCode;
     final baseCode = state.baseCode;
@@ -121,20 +123,18 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
       final tradingPairQuote = await tradingPairQuoteFuture;
       exchangeRateLastUpdateAt(tradingPairQuote.timestamp);
       tradingPairExchangeRate(tradingPairQuote.price);
+      counterAccountCurrencyPairExchangeRate(0);
       baseListedSecond(false);
-      baseExchangeRate(0);
 
       if (accountCode == counterCode) {
         baseListedSecond(true);
       } else {
-        if (!skipAccountBaseQuote) {
-          final accountBaseQuote = await exchangeProvider.rates(
-            counterCode,
-            accountCode,
-          );
+        final accountBaseQuote = await exchangeProvider.rates(
+          counterCode,
+          accountCode,
+        );
 
-          baseExchangeRate(accountBaseQuote.price);
-        }
+        counterAccountCurrencyPairExchangeRate(accountBaseQuote.price);
       }
     }
   }

@@ -11,5 +11,6 @@ abstract class MatexAbstractPipValueCalculatorCore<
 
   C baseListedSecond(bool baseListedSecond);
 
-  C baseExchangeRate(double baseExchangeRate);
+  C counterAccountCurrencyPairExchangeRate(
+      double counterAccountCurrencyPairExchangeRate);
 }

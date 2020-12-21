@@ -23,13 +23,15 @@ class MatexRequiredMarginCalculatorCore
   double value() {
     if (result != null) return result;
 
-    // TODO: Workaround before using counterAccountPairExchangeRate
     final tradingPairExchangeRate = validState.tradingPairExchangeRate;
     final baseListedSecond = validState.baseListedSecond;
-    final baseExchangeRate = validState.baseExchangeRate;
     final positionSize = validState.positionSize;
     final decimalLeverage = Decimal.parse(validState.leverage.toString());
-    final rate = baseExchangeRate > 0 ? baseExchangeRate : 1;
+    final counterAccountCurrencyPairExchangeRate =
+        validState.counterAccountCurrencyPairExchangeRate;
+    final rate = counterAccountCurrencyPairExchangeRate > 0
+        ? counterAccountCurrencyPairExchangeRate
+        : 1;
 
     if (!baseListedSecond) {
       return (result = (Decimal.parse(positionSize.toString()) *

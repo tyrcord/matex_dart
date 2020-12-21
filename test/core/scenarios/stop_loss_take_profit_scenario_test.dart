@@ -246,7 +246,7 @@ void main() {
         });
 
         test('And: the exchange rate for the pair JPY/USD is 0.05', () {
-          calculator.baseExchangeRate(0.05);
+          calculator.counterAccountCurrencyPairExchangeRate(0.05);
         });
 
         test('And: my entry price is 100', () {

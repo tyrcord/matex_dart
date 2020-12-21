@@ -6,7 +6,8 @@ class MatexCoreStateProperty {
   static const String trend = 'trend';
   static const String extensionLevels = 'extensionLevels';
   static const String retracementLevels = 'retracementLevels';
-  static const String baseExchangeRate = 'baseExchangeRate';
+  static const String counterAccountCurrencyPairExchangeRate =
+      'counterAccountCurrencyPairExchangeRate';
   static const String tradingPairExchangeRate = 'tradingPairExchangeRate';
   static const String positionSize = 'positionSize';
   static const String pipPrecision = 'pipPrecision';

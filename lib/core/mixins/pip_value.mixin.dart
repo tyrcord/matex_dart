@@ -7,10 +7,13 @@ import 'package:matex_dart/matex_dart.dart';
 
 mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     on MatexBaseCalculator<C, R> {
-  C baseExchangeRate(double baseExchangeRate) {
-    final sanitizedValue = sanitizeDouble(baseExchangeRate);
+  C counterAccountCurrencyPairExchangeRate(
+      double counterAccountCurrencyPairExchangeRate) {
+    final sanitizedValue =
+        sanitizeDouble(counterAccountCurrencyPairExchangeRate);
 
-    return patchState(MatexBaseCoreState(baseExchangeRate: sanitizedValue));
+    return patchState(MatexBaseCoreState(
+        counterAccountCurrencyPairExchangeRate: sanitizedValue));
   }
 
   C baseListedSecond(bool baseListedSecond) {
@@ -36,7 +39,8 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
 
   @protected
   Decimal pipValue(MatexBaseCoreState state) {
-    final baseExchangeRate = state.baseExchangeRate;
+    final counterAccountCurrencyPairExchangeRate =
+        state.counterAccountCurrencyPairExchangeRate;
     final baseListedSecond = state.baseListedSecond;
     final pipPrecision = state.pipPrecision;
     final positionSize = state.positionSize;
@@ -47,11 +51,12 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
 
     if (baseListedSecond) {
       return pipValue;
-    } else if (baseExchangeRate == 0) {
+    } else if (counterAccountCurrencyPairExchangeRate == 0) {
       return pipValue / Decimal.parse(tradingPairExchangeRate.toString());
     }
 
-    return pipValue * Decimal.parse(baseExchangeRate.toString());
+    return pipValue *
+        Decimal.parse(counterAccountCurrencyPairExchangeRate.toString());
   }
 
   @protected

@@ -61,14 +61,16 @@ void main() {
       });
     });
 
-    group('#baseExchangeRate()', () {
+    group('#counterAccountCurrencyPairExchangeRate()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator.baseExchangeRate(1.5), equals(calculator));
+        expect(calculator.counterAccountCurrencyPairExchangeRate(1.5),
+            equals(calculator));
       });
 
       test(SHOULD_RETURN_CALCULATOR_PROPERTY_STATE_VALUE, () {
-        calculator.baseExchangeRate(2);
-        expect(calculator.getState().baseExchangeRate, equals(2));
+        calculator.counterAccountCurrencyPairExchangeRate(2);
+        expect(calculator.getState().counterAccountCurrencyPairExchangeRate,
+            equals(2));
       });
     });
 
@@ -186,7 +188,7 @@ void main() {
       test(SHOULD_RESET_CALCULATOR, () {
         final result = requiredMargin()
             .positionSize(1000)
-            .baseExchangeRate(1.5)
+            .counterAccountCurrencyPairExchangeRate(1.5)
             .leverage(5)
             .reset()
             .value();

@@ -31,15 +31,10 @@ class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
     final exchangeProvider = config?.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
-      // TODO: Workaround before using counterAccountPairExchangeRate
-      var skipAccountBaseQuote = state.accountCode == state.baseCode;
-
-      await setExchangeRates(
-        skipAccountBaseQuote: state.accountCode == state.baseCode,
-      );
-
-      if (skipAccountBaseQuote) {
+      if (state.accountCode == state.baseCode) {
         tradingPairExchangeRate(1.0);
+      } else {
+        await setExchangeRates();
       }
 
       return requiredMargin(defaultState: state).value();

@@ -249,14 +249,16 @@ void main() {
       });
     });
 
-    group('#baseExchangeRate()', () {
+    group('#counterAccountCurrencyPairExchangeRate()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator.baseExchangeRate(1.2), equals(calculator));
+        expect(calculator.counterAccountCurrencyPairExchangeRate(1.2),
+            equals(calculator));
       });
 
       test('should define the base exchange rate value', () {
-        calculator.baseExchangeRate(1.25);
-        expect(calculator.getState().baseExchangeRate, equals(1.25));
+        calculator.counterAccountCurrencyPairExchangeRate(1.25);
+        expect(calculator.getState().counterAccountCurrencyPairExchangeRate,
+            equals(1.25));
       });
     });
 

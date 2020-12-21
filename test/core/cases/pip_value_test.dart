@@ -183,9 +183,10 @@ void main() {
       });
     });
 
-    group('#baseExchangeRate()', () {
+    group('#counterAccountCurrencyPairExchangeRate()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator.baseExchangeRate(1.2), equals(calculator));
+        expect(calculator.counterAccountCurrencyPairExchangeRate(1.2),
+            equals(calculator));
       });
 
       test(
@@ -194,11 +195,11 @@ void main() {
         var pipValue = calculator
             .positionSize(1)
             .tradingPairExchangeRate(1)
-            .baseExchangeRate(1.25)
+            .counterAccountCurrencyPairExchangeRate(1.25)
             .value();
 
         expect(
-          calculator.getState().baseExchangeRate,
+          calculator.getState().counterAccountCurrencyPairExchangeRate,
           equals(1.25),
         );
         expect(pipValue, equals(0.000125));
@@ -206,11 +207,11 @@ void main() {
         pipValue = calculator
             .positionSize(1)
             .tradingPairExchangeRate(1)
-            .baseExchangeRate(2)
+            .counterAccountCurrencyPairExchangeRate(2)
             .value();
 
         expect(
-          calculator.getState().baseExchangeRate,
+          calculator.getState().counterAccountCurrencyPairExchangeRate,
           equals(2),
         );
         expect(pipValue, equals(0.0002));
@@ -227,7 +228,7 @@ void main() {
             .positionSize(1)
             .tradingPairExchangeRate(1.25)
             .baseListedSecond(true)
-            .baseExchangeRate(1)
+            .counterAccountCurrencyPairExchangeRate(1)
             .value();
 
         expect(

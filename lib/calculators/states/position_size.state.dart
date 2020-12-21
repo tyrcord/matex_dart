@@ -4,7 +4,7 @@ const kInitialMatexPositionSizeState = MatexBaseCoreState(
   accountCode: null,
   baseCode: null,
   counterCode: null,
-  baseExchangeRate: 0.0,
+  counterAccountCurrencyPairExchangeRate: 0.0,
   baseListedSecond: false,
   lotDescriptors: kDefaultLotDescriptors,
   pipPrecision: 4,
