@@ -12,7 +12,8 @@ class MatexPivotPointsCalculator extends MatexBaseCalculator<
     @required this.config,
     MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
-  }) : super(
+  })  : assert(config != null),
+        super(
           validators: validators ?? pivotPointsValidators,
           defaultState: defaultState,
         );
@@ -27,10 +28,12 @@ class MatexPivotPointsCalculator extends MatexBaseCalculator<
 }
 
 MatexPivotPointsCalculator matexPivotPoints({
-  MatexConfig config,
+  @required MatexConfig config,
   MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) {
+  assert(config != null);
+
   return MatexPivotPointsCalculator(
     config: config,
     defaultState: defaultState,

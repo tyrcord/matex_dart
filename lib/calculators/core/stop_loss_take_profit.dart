@@ -23,7 +23,8 @@ class MatexStopLossTakeProfitCalculator
     @required this.config,
     MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
-  }) : super(
+  })  : assert(config != null),
+        super(
           validators: validators ?? matexStopLossTakeProfitValidators,
           defaultState: defaultState,
         );
@@ -45,10 +46,12 @@ class MatexStopLossTakeProfitCalculator
 }
 
 MatexStopLossTakeProfitCalculator matexStopLossTakeProfit({
-  MatexConfig config,
+  @required MatexConfig config,
   MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) {
+  assert(config != null);
+
   return MatexStopLossTakeProfitCalculator(
     config: config,
     defaultState: defaultState,

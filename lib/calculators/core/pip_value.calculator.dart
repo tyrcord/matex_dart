@@ -14,7 +14,8 @@ class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
     @required this.config,
     MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
-  }) : super(
+  })  : assert(config != null),
+        super(
           validators: validators ?? matexPipValueValidators,
           defaultState: defaultState,
         );
@@ -43,10 +44,12 @@ class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
 }
 
 MatexPipValueCalculator matexPipValue({
-  MatexConfig config,
+  @required MatexConfig config,
   MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) {
+  assert(config != null);
+
   return MatexPipValueCalculator(
     config: config,
     defaultState: defaultState,

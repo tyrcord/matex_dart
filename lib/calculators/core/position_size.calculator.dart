@@ -19,7 +19,8 @@ class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
     @required this.config,
     MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
-  }) : super(
+  })  : assert(config != null),
+        super(
           validators: validators ?? matexPositionSizeValidators,
           defaultState: defaultState,
         );
@@ -41,10 +42,12 @@ class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
 }
 
 MatexPositionSizeCalculator matexPositionSize({
-  MatexConfig config,
+  @required MatexConfig config,
   MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) {
+  assert(config != null);
+
   return MatexPositionSizeCalculator(
     config: config,
     defaultState: defaultState,

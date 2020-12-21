@@ -16,7 +16,8 @@ class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
     @required this.config,
     MatexBaseCoreState defaultState,
     List<MatexStateValidator> validators,
-  }) : super(
+  })  : assert(config != null),
+        super(
           validators: validators ?? matexPipValueValidators,
           defaultState: defaultState,
         );
@@ -49,10 +50,12 @@ class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
 }
 
 MatexRequiredMarginCalculator matexRequiredMargin({
-  MatexConfig config,
+  @required MatexConfig config,
   MatexBaseCoreState defaultState,
   List<MatexStateValidator> validators,
 }) {
+  assert(config != null);
+
   return MatexRequiredMarginCalculator(
     config: config,
     defaultState: defaultState,

@@ -97,6 +97,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     return pairProvider.metadata(baseCode + counterCode);
   }
 
+  // ignore: long-method
   Future<void> setExchangeRates({bool skipAccountBaseQuote = false}) async {
     final accountCode = state.accountCode;
     final counterCode = state.counterCode;
