@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.3.0](https://github.com/tyrcord/matex_dart/releases/tag/0.3.0) (2020-12-21)
+
+### Enhancements
+
+- Minor improvements.
+
+### Breaking Changes
+
+- Renamed baseExchangeRate to counterAccountCurrencyPairExchangeRate.
+
 ## [0.2.6](https://github.com/tyrcord/matex_dart/releases/tag/0.2.6) (2020-12-02)
 
 ### Features
