@@ -8,7 +8,7 @@ class MatexReporterProvider implements MatexAbstractReporterProvider {
   @override
   Future<String> report({
     String locale = kMatexDefaultLocale,
-    List<MatexReportEntry> entries,
+    required List<MatexReportEntry> entries,
   }) async =>
       _stringify(locale, entries);
 
@@ -21,7 +21,7 @@ class MatexReporterProvider implements MatexAbstractReporterProvider {
       var value = entry.value ?? '';
 
       if (value is num) {
-        value = _formatNumberValue(value as num, entry, locale);
+        value = _formatNumberValue(value, entry, locale);
       }
 
       return (accumulator += '$label $value'

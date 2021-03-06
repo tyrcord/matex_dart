@@ -8,11 +8,11 @@ class MatexPositionSizeResult extends Equatable {
   final double stopLossPips;
 
   const MatexPositionSizeResult({
-    this.amountAtRisk,
-    this.pipValue,
-    this.positionSize,
-    this.riskRatio,
-    this.stopLossPips,
+    required this.amountAtRisk,
+    required this.pipValue,
+    required this.positionSize,
+    required this.riskRatio,
+    required this.stopLossPips,
   });
 
   @override

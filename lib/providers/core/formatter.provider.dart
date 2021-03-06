@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:intl/intl.dart';
-import 'package:meta/meta.dart';
 
 import 'package:matex_dart/matex_dart.dart';
 
@@ -12,24 +11,24 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
   final MatexPairMetadataProvider pairProvider;
 
   MatexFormatterProvider({
-    MatexInstrumentProvider instrumentProvider,
-    MatexPairMetadataProvider pairProvider,
+    MatexInstrumentProvider? instrumentProvider,
+    MatexPairMetadataProvider? pairProvider,
   })  : instrumentProvider = instrumentProvider ?? MatexInstrumentProvider(),
         pairProvider = pairProvider ?? MatexPairMetadataProvider(),
         super();
 
   @override
   Future<String> formatInstrument({
-    @required double value,
-    @required String code,
+    required double value,
+    required String code,
     String locale = kMatexDefaultLocale,
-    int minimumFractionDigits = 0,
-    int maximumFractionDigits,
+    int? minimumFractionDigits = 0,
+    int? maximumFractionDigits,
   }) async {
     final instrumentMetadata = await instrumentProvider.metadata(code);
 
     if (instrumentMetadata != null) {
-      final format = instrumentMetadata.format;
+      final format = instrumentMetadata.format!;
       final round = format.round;
 
       return _formatCurrency(
@@ -46,11 +45,11 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
 
   @override
   Future<String> formatQuote({
-    @required double value,
-    @required String pair,
+    required double value,
+    required String pair,
     String locale = kMatexDefaultLocale,
-    int minimumFractionDigits,
-    int maximumFractionDigits,
+    int? minimumFractionDigits,
+    int? maximumFractionDigits,
   }) async {
     final pairMetadata = await pairProvider.metadata(pair);
     var round = pairMetadata != null
@@ -66,11 +65,11 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
   }
 
   String _formatCurrency({
-    @required double value,
-    @required String code,
+    required double value,
+    required String code,
     String locale = kMatexDefaultLocale,
-    int minimumFractionDigits = 0,
-    int maximumFractionDigits,
+    int? minimumFractionDigits = 0,
+    int? maximumFractionDigits,
   }) {
     final formatter = NumberFormat.simpleCurrency(locale: locale, name: code);
 
@@ -86,10 +85,10 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
   }
 
   String formatNumber({
-    @required double value,
+    required double value,
     String locale = kMatexDefaultLocale,
-    int minimumFractionDigits = 0,
-    int maximumFractionDigits,
+    int? minimumFractionDigits = 0,
+    int? maximumFractionDigits,
   }) {
     final formatter = NumberFormat.decimalPattern(locale);
 

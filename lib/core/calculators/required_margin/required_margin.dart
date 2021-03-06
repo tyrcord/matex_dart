@@ -2,15 +2,15 @@ import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexRequiredMarginCalculatorCore
-    extends MatexBaseCalculator<MatexRequiredMarginCalculatorCore, double>
+    extends MatexBaseCalculator<MatexRequiredMarginCalculatorCore, double?>
     with
-        MatexLotCoreMixin<MatexRequiredMarginCalculatorCore, double>,
-        MatexPipValueCoreMixin<MatexRequiredMarginCalculatorCore, double>,
+        MatexLotCoreMixin<MatexRequiredMarginCalculatorCore, double?>,
+        MatexPipValueCoreMixin<MatexRequiredMarginCalculatorCore, double?>,
         MatexRequiredMarginCoreMixin<MatexRequiredMarginCalculatorCore,
-            double> {
+            double?> {
   MatexRequiredMarginCalculatorCore({
-    MatexBaseCoreState defaultState,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? defaultState,
+    List<MatexStateValidator>? validators,
   }) : super(
           defaultState: defaultState,
           validators: validators ?? requiredMarginValidators,
@@ -20,15 +20,15 @@ class MatexRequiredMarginCalculatorCore
   MatexBaseCoreState get defaultCalculatorState => kInitialRequiredMarginState;
 
   @override
-  double value() {
+  double? value() {
     if (result != null) return result;
 
     final tradingPairExchangeRate = state.tradingPairExchangeRate;
-    final baseListedSecond = state.baseListedSecond;
+    final baseListedSecond = state.baseListedSecond!;
     final positionSize = state.positionSize;
     final decimalLeverage = Decimal.parse(state.leverage.toString());
     final counterAccountCurrencyPairExchangeRate =
-        state.counterAccountCurrencyPairExchangeRate;
+        state.counterAccountCurrencyPairExchangeRate!;
     final rate = counterAccountCurrencyPairExchangeRate > 0
         ? counterAccountCurrencyPairExchangeRate
         : 1;
@@ -50,8 +50,8 @@ class MatexRequiredMarginCalculatorCore
 }
 
 MatexRequiredMarginCalculatorCore requiredMargin({
-  MatexBaseCoreState defaultState,
-  List<MatexStateValidator> validators,
+  MatexBaseCoreState? defaultState,
+  List<MatexStateValidator>? validators,
 }) =>
     MatexRequiredMarginCalculatorCore(
       defaultState: defaultState,

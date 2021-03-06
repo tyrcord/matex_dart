@@ -6,9 +6,9 @@ class MatexQuote extends Equatable {
   final int timestamp;
 
   const MatexQuote({
-    this.price,
-    this.symbol,
-    this.timestamp,
+    required this.price,
+    required this.symbol,
+    required this.timestamp,
   });
 
   factory MatexQuote.fromJson(Map<String, dynamic> json) {

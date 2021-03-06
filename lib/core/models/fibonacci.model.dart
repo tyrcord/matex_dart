@@ -5,8 +5,8 @@ class MatexFibonacciLevel extends Equatable {
   final double value;
 
   const MatexFibonacciLevel({
-    this.level,
-    this.value,
+    required this.level,
+    required this.value,
   });
 
   @override
@@ -18,8 +18,8 @@ class FibonacciLevelsResult extends Equatable {
   final List<MatexFibonacciLevel> extensionLevels;
 
   const FibonacciLevelsResult({
-    this.retracementLevels,
-    this.extensionLevels,
+    required this.retracementLevels,
+    required this.extensionLevels,
   });
 
   @override

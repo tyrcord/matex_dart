@@ -4,7 +4,7 @@ class ExchangeProvider extends MatexAbstractExchangeProvider {
   const ExchangeProvider() : super();
 
   @override
-  Future<MatexQuote> rates(String base, String counter) async {
+  Future<MatexQuote> rates(String? base, String? counter) async {
     var price = 0.0;
 
     if (base == 'EUR') {

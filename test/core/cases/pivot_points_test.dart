@@ -6,7 +6,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('PivotPointsCalculator', () {
-    MatexPivotPointsCalculatorCore calculator;
+    late MatexPivotPointsCalculatorCore calculator;
 
     setUp(() {
       calculator = pivotPoints();
@@ -47,10 +47,10 @@ void main() {
           calculator.highPrice(1.5);
           expect(calculator.isDirty, equals(true));
 
-          calculator.highPrice(kInitialPivotPointsState.highPrice);
+          calculator.highPrice(kInitialPivotPointsState.highPrice!);
           expect(calculator.isDirty, equals(true));
 
-          calculator.lowPrice(kInitialPivotPointsState.highPrice);
+          calculator.lowPrice(kInitialPivotPointsState.highPrice!);
           expect(calculator.isDirty, equals(false));
         },
       );
@@ -197,9 +197,9 @@ void main() {
       });
 
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        final instance = calculator.setState(MatexBaseCoreState(
-          closePrice: 1,
-        ));
+        final instance = calculator.setState(
+          MatexBaseCoreState(closePrice: 1),
+        );
 
         expect(instance == calculator, equals(true));
       });

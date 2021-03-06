@@ -5,7 +5,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('PipValueCalculator', () {
-    MatexPipValueCalculatorCore calculator;
+    late MatexPipValueCalculatorCore calculator;
 
     setUp(() {
       calculator = pipValue();
@@ -31,7 +31,7 @@ void main() {
         );
         expect(calculator.isDirty, equals(false));
 
-        calculator.positionSize(kInitialPipValueState.positionSize);
+        calculator.positionSize(kInitialPipValueState.positionSize!);
         expect(calculator.isDirty, equals(true));
       });
 
@@ -42,7 +42,7 @@ void main() {
           calculator.positionSize(5);
           expect(calculator.isDirty, equals(true));
 
-          calculator.positionSize(kInitialPipValueState.positionSize);
+          calculator.positionSize(kInitialPipValueState.positionSize!);
           expect(calculator.isDirty, equals(false));
         },
       );

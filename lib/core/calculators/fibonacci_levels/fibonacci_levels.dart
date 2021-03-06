@@ -2,13 +2,13 @@ import 'package:matex_dart/matex_dart.dart';
 import 'package:decimal/decimal.dart';
 
 class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
-        MatexFibonacciLevelsCalculatorCore, FibonacciLevelsResult>
+        MatexFibonacciLevelsCalculatorCore, FibonacciLevelsResult?>
     with
         MatexFibonacciLevelsCoreMixin<MatexFibonacciLevelsCalculatorCore,
-            FibonacciLevelsResult> {
+            FibonacciLevelsResult?> {
   MatexFibonacciLevelsCalculatorCore({
-    MatexBaseCoreState defaultState,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? defaultState,
+    List<MatexStateValidator>? validators,
   }) : super(
           defaultState: defaultState,
           validators: validators ?? fibonacciLevelsValidators,
@@ -18,7 +18,7 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
   MatexBaseCoreState get defaultCalculatorState => kInitialFibonacciLevelsState;
 
   @override
-  FibonacciLevelsResult value() {
+  FibonacciLevelsResult? value() {
     if (result != null) {
       return result;
     }
@@ -30,10 +30,10 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
   }
 
   List<MatexFibonacciLevel> _computeExtensions() {
-    final extensionLevels = state.extensionLevels;
+    final extensionLevels = state.extensionLevels!;
     final trend = state.trend;
-    final highPrice = state.highPrice;
-    final lowPrice = state.lowPrice;
+    final highPrice = state.highPrice!;
+    final lowPrice = state.lowPrice!;
     final delta = Decimal.parse((highPrice - lowPrice).toString());
 
     if (trend == MatexTrend.up) {
@@ -62,10 +62,10 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
   }
 
   List<MatexFibonacciLevel> _computeRetracements() {
-    final retracementLevels = state.retracementLevels;
+    final retracementLevels = state.retracementLevels!;
     final trend = state.trend;
-    final highPrice = state.highPrice;
-    final lowPrice = state.lowPrice;
+    final highPrice = state.highPrice!;
+    final lowPrice = state.lowPrice!;
     final delta = Decimal.parse((highPrice - lowPrice).toString());
 
     if (trend == MatexTrend.down) {
@@ -102,7 +102,7 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 
   double _formatLevelValue(double value) {
     final number = Decimal.parse(value.toString());
-    final precision = state.precision;
+    final precision = state.precision!;
 
     return Decimal.parse(number.toStringAsFixed(precision)).toDouble();
   }
@@ -116,8 +116,8 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexFibonacciLevelsCalculatorCore fibonacciLevels({
-  MatexBaseCoreState defaultState,
-  List<MatexStateValidator> validators,
+  MatexBaseCoreState? defaultState,
+  List<MatexStateValidator>? validators,
 }) =>
     MatexFibonacciLevelsCalculatorCore(
       defaultState: defaultState,

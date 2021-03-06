@@ -22,7 +22,7 @@ void main() {
 
       test('Then: the fibonacci levels should be valid', () {
         expect(calculator.isValid, equals(true));
-        final fibonacciLevelsResult = calculator.value();
+        final fibonacciLevelsResult = calculator.value()!;
         expect(fibonacciLevelsResult, equals(defaultFibonacciLevelsResultUp));
         expect(
           fibonacciLevelsResult.extensionLevels[0].level,
@@ -52,12 +52,15 @@ void main() {
 
       test('Then: the fibonacci levels should be valid', () {
         expect(calculator.isValid, equals(true));
-        final fibonacciLevelsResult = calculator.value();
+        final fibonacciLevelsResult = calculator.value()!;
         expect(
           fibonacciLevelsResult,
           equals(defaultFibonacciLevelsResultDown),
         );
-        expect(fibonacciLevelsResult.extensionLevels[0].level, equals('23.6%'));
+        expect(
+          fibonacciLevelsResult.extensionLevels[0].level,
+          equals('23.6%'),
+        );
         expect(
           fibonacciLevelsResult.retracementLevels[0].level,
           equals('78.6%'),

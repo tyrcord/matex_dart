@@ -6,9 +6,9 @@ class MatexPivotPointsResult extends Equatable {
   final List<double> supports;
 
   const MatexPivotPointsResult({
-    this.pivotPoint,
-    this.resistances,
-    this.supports,
+    required this.pivotPoint,
+    required this.resistances,
+    required this.supports,
   });
 
   @override

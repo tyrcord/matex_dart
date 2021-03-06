@@ -10,15 +10,15 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
             MatexTakeProfitResult>,
         MatexPipValueCoreMixin<MatexTakeProfitCalculatorCore,
             MatexTakeProfitResult> {
-  MatexTakeProfitCalculatorCore({MatexBaseCoreState defaultState})
+  MatexTakeProfitCalculatorCore({MatexBaseCoreState? defaultState})
       : super(defaultState: defaultState);
 
   @override
   MatexBaseCoreState get defaultCalculatorState => kInitialTakeProfitState;
 
   @override
-  MatexTakeProfitResult value({Decimal pipValue}) {
-    if (result != null) return result;
+  MatexTakeProfitResult value({Decimal? pipValue}) {
+    if (result != null) return result!;
 
     pipValue ??= computePipValue();
 
@@ -26,10 +26,10 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
   }
 
   MatexTakeProfitResult _computeTakeProfitLevels(Decimal pipValue) {
-    final takeProfitAmount = state.takeProfitAmount;
-    final takeProfitPips = state.takeProfitPips;
-    final takeProfitPrice = state.takeProfitPrice;
-    final divider = pow(10, state.pipPrecision).toDouble();
+    final takeProfitAmount = state.takeProfitAmount!;
+    final takeProfitPips = state.takeProfitPips!;
+    final takeProfitPrice = state.takeProfitPrice!;
+    final divider = pow(10, state.pipPrecision!).toDouble();
 
     if (takeProfitAmount > 0) {
       return _computeTakeProfitWithAmount(
@@ -71,7 +71,7 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
     double divider,
   ) {
     final position = state.position;
-    final entryPrice = state.entryPrice;
+    final entryPrice = state.entryPrice!;
     final _divider = Decimal.parse(divider.toString());
     final takeProfitPriceParsed = Decimal.parse(takeProfitPrice.toString());
     final entryPriceParsed = Decimal.parse(entryPrice.toString());
@@ -142,5 +142,5 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
   }
 }
 
-MatexTakeProfitCalculatorCore takeProfit({MatexBaseCoreState defaultState}) =>
+MatexTakeProfitCalculatorCore takeProfit({MatexBaseCoreState? defaultState}) =>
     MatexTakeProfitCalculatorCore(defaultState: defaultState);

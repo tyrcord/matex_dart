@@ -2,7 +2,7 @@ import 'package:matex_dart/matex_dart.dart';
 
 mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     on MatexAbstractPipValueCalculatorCore<C, R> {
-  MatexConfig config;
+  MatexConfig? config;
 
   MatexAbstractPairMetadataProvider get pairProvider =>
       config?.pairProvider ?? MatexPairMetadataProvider();
@@ -10,16 +10,16 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
   MatexAbstractInstrumentMetadataProvider get instrumentProvider =>
       config?.instrumentProvider ?? MatexInstrumentProvider();
 
-  MatexAbstractExchangeProvider get exchangeProvider =>
+  MatexAbstractExchangeProvider? get exchangeProvider =>
       config?.exchangeProvider;
 
-  C exchangeRateLastUpdateAt(int exchangeRateLastUpdateAt) {
+  C exchangeRateLastUpdateAt(int? exchangeRateLastUpdateAt) {
     return patchState(MatexBaseCoreState(
       exchangeRateLastUpdateAt: exchangeRateLastUpdateAt,
     ));
   }
 
-  C accountCode(String accountCode) {
+  C accountCode(String? accountCode) {
     if (accountCode != null) {
       return patchState(MatexBaseCoreState(
         accountCode: accountCode,
@@ -33,7 +33,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     return resetStateProperties([MatexCoreStateProperty.accountCode]);
   }
 
-  C currencyPairCode(String baseCode, String counterCode) {
+  C currencyPairCode(String? baseCode, String? counterCode) {
     if (baseCode != null && counterCode != null) {
       return patchState(MatexBaseCoreState(
         baseCode: baseCode,
@@ -53,7 +53,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     ]);
   }
 
-  C positionSize(double positionSize) {
+  C positionSize(double? positionSize) {
     if (positionSize != null &&
         positionSize != kInitialMatexPipValueState.positionSize) {
       final sanitizedValue = sanitizeDouble(positionSize);
@@ -74,36 +74,30 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     ]);
   }
 
-  Future<MatexInstrumentMetadata> fetchAccountInstrumentMetadata() {
-    final accountCode = state.accountCode;
-
-    return instrumentProvider?.metadata(accountCode);
+  Future<MatexInstrumentMetadata?> fetchAccountInstrumentMetadata() {
+    return instrumentProvider.metadata(state.accountCode!);
   }
 
-  Future<MatexInstrumentMetadata> fetchCounterInstrumentMetadata() {
-    final counterCode = state.counterCode;
-
-    return instrumentProvider?.metadata(counterCode);
+  Future<MatexInstrumentMetadata?> fetchCounterInstrumentMetadata() {
+    return instrumentProvider.metadata(state.counterCode!);
   }
 
-  Future<MatexInstrumentMetadata> fetchBaseInstrumentMetadata() {
-    final baseCode = state.baseCode;
-
-    return instrumentProvider.metadata(baseCode);
+  Future<MatexInstrumentMetadata?> fetchBaseInstrumentMetadata() {
+    return instrumentProvider.metadata(state.baseCode!);
   }
 
-  Future<MatexPairMetadata> fetchPairMetadata() {
-    final baseCode = state.baseCode;
-    final counterCode = state.counterCode;
+  Future<MatexPairMetadata?> fetchPairMetadata() {
+    final baseCode = state.baseCode!;
+    final counterCode = state.counterCode!;
 
     return pairProvider.metadata(baseCode + counterCode);
   }
 
   // ignore: long-method
   Future<void> setExchangeRates() async {
-    final accountCode = state.accountCode;
-    final counterCode = state.counterCode;
-    final baseCode = state.baseCode;
+    final accountCode = state.accountCode!;
+    final counterCode = state.counterCode!;
+    final baseCode = state.baseCode!;
     final tradingPairQuoteFuture = exchangeProvider?.rates(
       baseCode,
       counterCode,
@@ -129,7 +123,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
       if (accountCode == counterCode) {
         baseListedSecond(true);
       } else {
-        final accountBaseQuote = await exchangeProvider.rates(
+        final accountBaseQuote = await exchangeProvider!.rates(
           counterCode,
           accountCode,
         );

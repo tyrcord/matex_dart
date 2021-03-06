@@ -5,12 +5,12 @@ List<MatexStateValidator> fibonacciLevelsValidators = [
     return state.lowPrice != null && state.highPrice != null;
   },
   (MatexBaseCoreState state) {
-    final lowPrice = state.lowPrice;
+    final lowPrice = state.lowPrice!;
     final highPrice = state.highPrice;
-    var isValid = lowPrice > 0 && highPrice > 0;
+    var isValid = lowPrice > 0 && highPrice! > 0;
 
     if (isValid) {
-      isValid = highPrice > lowPrice;
+      isValid = highPrice! > lowPrice;
     }
 
     return isValid;

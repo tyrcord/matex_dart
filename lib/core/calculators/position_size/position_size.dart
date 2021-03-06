@@ -14,17 +14,17 @@ const kDefaultPositionSizeResult = MatexPositionSizeResult(
 );
 
 class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
-        MatexPositionSizeCalculatorCore, MatexPositionSizeResult>
+        MatexPositionSizeCalculatorCore, MatexPositionSizeResult?>
     with
         MatexLotCoreMixin<MatexPositionSizeCalculatorCore,
-            MatexPositionSizeResult>,
+            MatexPositionSizeResult?>,
         MatexPipValueCoreMixin<MatexPositionSizeCalculatorCore,
-            MatexPositionSizeResult>,
+            MatexPositionSizeResult?>,
         MatexPositionSizeMarginCoreMixin<MatexPositionSizeCalculatorCore,
-            MatexPositionSizeResult> {
+            MatexPositionSizeResult?> {
   MatexPositionSizeCalculatorCore({
-    MatexBaseCoreState defaultState,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? defaultState,
+    List<MatexStateValidator>? validators,
   }) : super(
           defaultState: defaultState,
           validators: validators ?? positionSizeValidators,
@@ -34,15 +34,14 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
   MatexBaseCoreState get defaultCalculatorState => kInitialPositionSizeState;
 
   @override
-  MatexPositionSizeResult value() {
+  MatexPositionSizeResult? value() {
     if (result != null) {
       return result;
     }
 
     if (isValid) {
       final accountSize = state.accountSize;
-      final pipPrecision = state.pipPrecision;
-      final stopLossPips = computeStopLossPip(pipPrecision);
+      final stopLossPips = computeStopLossPip(state.pipPrecision!);
       final amountAtRisk = computeAmountAtRisk();
       final riskRatio = computeRiskRatio(amountAtRisk, accountSize);
       final pipValue = computePipValue();
@@ -74,7 +73,7 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
   }
 
   @protected
-  double computeRiskRatio(double amountAtRisk, double accountSize) {
+  double computeRiskRatio(double amountAtRisk, double? accountSize) {
     final riskRatio = state.riskRatio ?? 0.0;
 
     if (riskRatio == 0 && accountSize != null && accountSize > 0) {
@@ -90,8 +89,8 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
   @protected
   double computeAmountAtRisk() {
     var amountAtRisk = state.amountAtRisk ?? 0.0;
-    final riskRatio = state.riskRatio;
-    final accountSize = state.accountSize;
+    final riskRatio = state.riskRatio!;
+    final accountSize = state.accountSize!;
 
     if (riskRatio > 0 && riskRatio <= 100) {
       amountAtRisk = accountSize > 0
@@ -109,9 +108,9 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
   double computeStopLossPip(int pipPrecision) {
     var stopLossPips = state.stopLossPips ?? 0.0;
     final stopLossPrice = state.stopLossPrice;
-    final entryPrice = state.entryPrice;
+    final entryPrice = state.entryPrice!;
 
-    if (stopLossPips == 0 && entryPrice > 0 && stopLossPrice > 0) {
+    if (stopLossPips == 0 && entryPrice > 0 && stopLossPrice! > 0) {
       final decimalMultiplicator = pow(10, pipPrecision).toString();
       final deltaPrice = (Decimal.parse(entryPrice.toString()) -
               Decimal.parse(stopLossPrice.toString()))
@@ -126,8 +125,8 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexPositionSizeCalculatorCore positionSize({
-  MatexBaseCoreState defaultState,
-  List<MatexStateValidator> validators,
+  MatexBaseCoreState? defaultState,
+  List<MatexStateValidator>? validators,
 }) =>
     MatexPositionSizeCalculatorCore(
       defaultState: defaultState,

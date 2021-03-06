@@ -6,7 +6,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('PositionSizeCalculator', () {
-    MatexPositionSizeCalculatorCore calculator;
+    late MatexPositionSizeCalculatorCore calculator;
 
     setUp(() {
       calculator = positionSize();
@@ -35,7 +35,7 @@ void main() {
           calculator.positionSize(5);
           expect(calculator.isDirty, equals(true));
 
-          calculator.positionSize(kInitialPositionSizeState.positionSize);
+          calculator.positionSize(kInitialPositionSizeState.positionSize!);
           expect(calculator.isDirty, equals(false));
         },
       );

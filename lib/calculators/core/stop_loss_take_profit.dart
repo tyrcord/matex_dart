@@ -1,30 +1,28 @@
 import 'package:matex_dart/matex_dart.dart';
-import 'package:meta/meta.dart';
 
 class MatexStopLossTakeProfitCalculator
     extends MatexAbstractPipValueCalculatorCore<
         MatexStopLossTakeProfitCalculator,
-        Future<MatexStopLossTakeProfitResult>>
+        Future<MatexStopLossTakeProfitResult?>>
     with
         MatexLotCoreMixin<MatexStopLossTakeProfitCalculator,
-            Future<MatexStopLossTakeProfitResult>>,
+            Future<MatexStopLossTakeProfitResult?>>,
         MatexPipValueCoreMixin<MatexStopLossTakeProfitCalculator,
-            Future<MatexStopLossTakeProfitResult>>,
+            Future<MatexStopLossTakeProfitResult?>>,
         MatexPipValueMixin<MatexStopLossTakeProfitCalculator,
-            Future<MatexStopLossTakeProfitResult>>,
+            Future<MatexStopLossTakeProfitResult?>>,
         MatexTakeProfitCoreMixin<MatexStopLossTakeProfitCalculator,
-            Future<MatexStopLossTakeProfitResult>>,
+            Future<MatexStopLossTakeProfitResult?>>,
         MatexStopLossCoreMixin<MatexStopLossTakeProfitCalculator,
-            Future<MatexStopLossTakeProfitResult>> {
+            Future<MatexStopLossTakeProfitResult?>> {
   @override
   final MatexConfig config;
 
   MatexStopLossTakeProfitCalculator({
-    @required this.config,
-    MatexBaseCoreState defaultState,
-    List<MatexStateValidator> validators,
-  })  : assert(config != null),
-        super(
+    required this.config,
+    MatexBaseCoreState? defaultState,
+    List<MatexStateValidator>? validators,
+  }) : super(
           validators: validators ?? matexStopLossTakeProfitValidators,
           defaultState: defaultState,
         );
@@ -34,8 +32,8 @@ class MatexStopLossTakeProfitCalculator
       kInitialMatexStopLossTakeProfitState;
 
   @override
-  Future<MatexStopLossTakeProfitResult> value() async {
-    final exchangeProvider = config?.exchangeProvider;
+  Future<MatexStopLossTakeProfitResult?> value() async {
+    final exchangeProvider = config.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
       await setExchangeRates();
@@ -46,12 +44,10 @@ class MatexStopLossTakeProfitCalculator
 }
 
 MatexStopLossTakeProfitCalculator matexStopLossTakeProfit({
-  @required MatexConfig config,
-  MatexBaseCoreState defaultState,
-  List<MatexStateValidator> validators,
+  required MatexConfig config,
+  MatexBaseCoreState? defaultState,
+  List<MatexStateValidator>? validators,
 }) {
-  assert(config != null);
-
   return MatexStopLossTakeProfitCalculator(
     config: config,
     defaultState: defaultState,

@@ -1,26 +1,24 @@
 import 'package:matex_dart/matex_dart.dart';
-import 'package:meta/meta.dart';
 
 class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
-        MatexPositionSizeCalculator, Future<MatexPositionSizeResult>>
+        MatexPositionSizeCalculator, Future<MatexPositionSizeResult?>>
     with
         MatexLotCoreMixin<MatexPositionSizeCalculator,
-            Future<MatexPositionSizeResult>>,
+            Future<MatexPositionSizeResult?>>,
         MatexPipValueCoreMixin<MatexPositionSizeCalculator,
-            Future<MatexPositionSizeResult>>,
+            Future<MatexPositionSizeResult?>>,
         MatexPipValueMixin<MatexPositionSizeCalculator,
-            Future<MatexPositionSizeResult>>,
+            Future<MatexPositionSizeResult?>>,
         MatexPositionSizeMarginCoreMixin<MatexPositionSizeCalculator,
-            Future<MatexPositionSizeResult>> {
+            Future<MatexPositionSizeResult?>> {
   @override
   final MatexConfig config;
 
   MatexPositionSizeCalculator({
-    @required this.config,
-    MatexBaseCoreState defaultState,
-    List<MatexStateValidator> validators,
-  })  : assert(config != null),
-        super(
+    required this.config,
+    MatexBaseCoreState? defaultState,
+    List<MatexStateValidator>? validators,
+  }) : super(
           validators: validators ?? matexPositionSizeValidators,
           defaultState: defaultState,
         );
@@ -30,8 +28,8 @@ class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
       kInitialMatexPositionSizeState;
 
   @override
-  Future<MatexPositionSizeResult> value() async {
-    final exchangeProvider = config?.exchangeProvider;
+  Future<MatexPositionSizeResult?> value() async {
+    final exchangeProvider = config.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
       await setExchangeRates();
@@ -42,12 +40,10 @@ class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
 }
 
 MatexPositionSizeCalculator matexPositionSize({
-  @required MatexConfig config,
-  MatexBaseCoreState defaultState,
-  List<MatexStateValidator> validators,
+  required MatexConfig config,
+  MatexBaseCoreState? defaultState,
+  List<MatexStateValidator>? validators,
 }) {
-  assert(config != null);
-
   return MatexPositionSizeCalculator(
     config: config,
     defaultState: defaultState,

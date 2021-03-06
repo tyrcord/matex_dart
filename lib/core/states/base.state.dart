@@ -1,43 +1,42 @@
 // ignore_for_file: long-method
 // ignore_for_file: code-metrics
 
-import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:tstore_dart/tstore_dart.dart';
 
-class MatexBaseCoreState extends Equatable implements Model {
-  final double customPrice;
-  final double highPrice;
-  final double lowPrice;
-  final int precision;
-  final MatexTrend trend;
-  final List<double> extensionLevels;
-  final List<double> retracementLevels;
-  final double counterAccountCurrencyPairExchangeRate;
-  final double tradingPairExchangeRate;
-  final double positionSize;
-  final int pipPrecision;
-  final MatexLotDescriptors lotDescriptors;
-  final bool baseListedSecond;
-  final double leverage;
-  final double closePrice;
-  final double openPrice;
-  final MatexPivotPointsMethods method;
-  final double accountSize;
-  final double entryPrice;
-  final double amountAtRisk;
-  final double riskRatio;
-  final MatexPosition position;
-  final double stopLossPips;
-  final double stopLossPrice;
-  final double stopLossAmount;
-  final double takeProfitPips;
-  final double takeProfitPrice;
-  final double takeProfitAmount;
-  final String accountCode;
-  final String baseCode;
-  final String counterCode;
-  final int exchangeRateLastUpdateAt;
+class MatexBaseCoreState extends TEntity {
+  final double? customPrice;
+  final double? highPrice;
+  final double? lowPrice;
+  final int? precision;
+  final MatexTrend? trend;
+  final List<double>? extensionLevels;
+  final List<double>? retracementLevels;
+  final double? counterAccountCurrencyPairExchangeRate;
+  final double? tradingPairExchangeRate;
+  final double? positionSize;
+  final int? pipPrecision;
+  final MatexLotDescriptors? lotDescriptors;
+  final bool? baseListedSecond;
+  final double? leverage;
+  final double? closePrice;
+  final double? openPrice;
+  final MatexPivotPointsMethods? method;
+  final double? accountSize;
+  final double? entryPrice;
+  final double? amountAtRisk;
+  final double? riskRatio;
+  final MatexPosition? position;
+  final double? stopLossPips;
+  final double? stopLossPrice;
+  final double? stopLossAmount;
+  final double? takeProfitPips;
+  final double? takeProfitPrice;
+  final double? takeProfitAmount;
+  final String? accountCode;
+  final String? baseCode;
+  final String? counterCode;
+  final int? exchangeRateLastUpdateAt;
 
   @override
   bool get stringify => true;
@@ -77,6 +76,7 @@ class MatexBaseCoreState extends Equatable implements Model {
     this.exchangeRateLastUpdateAt,
   });
 
+  @override
   MatexBaseCoreState clone() {
     return MatexBaseCoreState(
       accountCode: accountCode,
@@ -158,7 +158,7 @@ class MatexBaseCoreState extends Equatable implements Model {
 
   MatexBaseCoreState copyWithOmittedProperties(
     List<String> properties, {
-    MatexBaseCoreState defaultState,
+    MatexBaseCoreState? defaultState,
   }) {
     return MatexBaseCoreState(
       accountCode: properties.contains(MatexCoreStateProperty.accountCode)
@@ -270,38 +270,38 @@ class MatexBaseCoreState extends Equatable implements Model {
 
   @override
   MatexBaseCoreState copyWith({
-    double customPrice,
-    double highPrice,
-    double lowPrice,
-    int precision,
-    MatexTrend trend,
-    List<double> extensionLevels,
-    List<double> retracementLevels,
-    double counterAccountCurrencyPairExchangeRate,
-    double tradingPairExchangeRate,
-    double positionSize,
-    int pipPrecision,
-    MatexLotDescriptors lotDescriptors,
-    bool baseListedSecond,
-    double leverage,
-    double closePrice,
-    double openPrice,
-    MatexPivotPointsMethods method,
-    double accountSize,
-    double entryPrice,
-    double amountAtRisk,
-    double riskRatio,
-    MatexPosition position,
-    double stopLossPips,
-    double stopLossPrice,
-    double stopLossAmount,
-    double takeProfitPips,
-    double takeProfitPrice,
-    double takeProfitAmount,
-    String accountCode,
-    String baseCode,
-    String counterCode,
-    int exchangeRateLastUpdateAt,
+    double? customPrice,
+    double? highPrice,
+    double? lowPrice,
+    int? precision,
+    MatexTrend? trend,
+    List<double>? extensionLevels,
+    List<double>? retracementLevels,
+    double? counterAccountCurrencyPairExchangeRate,
+    double? tradingPairExchangeRate,
+    double? positionSize,
+    int? pipPrecision,
+    MatexLotDescriptors? lotDescriptors,
+    bool? baseListedSecond,
+    double? leverage,
+    double? closePrice,
+    double? openPrice,
+    MatexPivotPointsMethods? method,
+    double? accountSize,
+    double? entryPrice,
+    double? amountAtRisk,
+    double? riskRatio,
+    MatexPosition? position,
+    double? stopLossPips,
+    double? stopLossPrice,
+    double? stopLossAmount,
+    double? takeProfitPips,
+    double? takeProfitPrice,
+    double? takeProfitAmount,
+    String? accountCode,
+    String? baseCode,
+    String? counterCode,
+    int? exchangeRateLastUpdateAt,
   }) {
     return MatexBaseCoreState(
       accountCode: accountCode ?? this.accountCode,
@@ -384,51 +384,51 @@ class MatexBaseCoreState extends Equatable implements Model {
 
   factory MatexBaseCoreState.fromJson(dynamic json) {
     var lotDescriptors = json['lotDescriptors'];
-    var trend = json['trend'] as int;
-    var method = json['method'] as int;
-    var position = json['position'] as int;
+    var trend = json['trend'] as int?;
+    var method = json['method'] as int?;
+    var position = json['position'] as int?;
 
     return MatexBaseCoreState(
-      accountCode: json['accountCode'] as String,
-      baseCode: json['baseCode'] as String,
-      counterCode: json['counterCode'] as String,
-      customPrice: json['customPrice'] as double,
-      highPrice: json['highPrice'] as double,
-      lowPrice: json['lowPrice'] as double,
-      precision: json['precision'] as int,
+      accountCode: json['accountCode'] as String?,
+      baseCode: json['baseCode'] as String?,
+      counterCode: json['counterCode'] as String?,
+      customPrice: json['customPrice'] as double?,
+      highPrice: json['highPrice'] as double?,
+      lowPrice: json['lowPrice'] as double?,
+      precision: json['precision'] as int?,
       trend: trend != null ? MatexTrend.values[trend] : null,
-      extensionLevels: json['extensionLevels'] as List<double>,
-      retracementLevels: json['retracementLevels'] as List<double>,
+      extensionLevels: json['extensionLevels'] as List<double>?,
+      retracementLevels: json['retracementLevels'] as List<double>?,
       counterAccountCurrencyPairExchangeRate:
-          json['counterAccountCurrencyPairExchangeRate'] as double,
-      tradingPairExchangeRate: json['tradingPairExchangeRate'] as double,
-      positionSize: json['positionSize'] as double,
-      pipPrecision: json['pipPrecision'] as int,
+          json['counterAccountCurrencyPairExchangeRate'] as double?,
+      tradingPairExchangeRate: json['tradingPairExchangeRate'] as double?,
+      positionSize: json['positionSize'] as double?,
+      pipPrecision: json['pipPrecision'] as int?,
       lotDescriptors: lotDescriptors != null
           ? MatexLotDescriptors.fromJson(json['lotDescriptors'])
           : null,
-      baseListedSecond: json['baseListedSecond'] as bool,
-      leverage: json['leverage'] as double,
-      closePrice: json['closePrice'] as double,
-      openPrice: json['openPrice'] as double,
+      baseListedSecond: json['baseListedSecond'] as bool?,
+      leverage: json['leverage'] as double?,
+      closePrice: json['closePrice'] as double?,
+      openPrice: json['openPrice'] as double?,
       method: method != null ? MatexPivotPointsMethods.values[method] : null,
-      accountSize: json['accountSize'] as double,
-      amountAtRisk: json['amountAtRisk'] as double,
-      riskRatio: json['riskRatio'] as double,
-      entryPrice: json['entryPrice'] as double,
+      accountSize: json['accountSize'] as double?,
+      amountAtRisk: json['amountAtRisk'] as double?,
+      riskRatio: json['riskRatio'] as double?,
+      entryPrice: json['entryPrice'] as double?,
       position: position != null ? MatexPosition.values[position] : null,
-      stopLossPips: json['stopLossPips'] as double,
-      stopLossPrice: json['stopLossPrice'] as double,
-      stopLossAmount: json['stopLossAmount'] as double,
-      takeProfitPips: json['takeProfitPips'] as double,
-      takeProfitPrice: json['takeProfitPrice'] as double,
-      takeProfitAmount: json['takeProfitAmount'] as double,
-      exchangeRateLastUpdateAt: json['exchangeRateLastUpdateAt'] as int,
+      stopLossPips: json['stopLossPips'] as double?,
+      stopLossPrice: json['stopLossPrice'] as double?,
+      stopLossAmount: json['stopLossAmount'] as double?,
+      takeProfitPips: json['takeProfitPips'] as double?,
+      takeProfitPrice: json['takeProfitPrice'] as double?,
+      takeProfitAmount: json['takeProfitAmount'] as double?,
+      exchangeRateLastUpdateAt: json['exchangeRateLastUpdateAt'] as int?,
     );
   }
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         accountCode,
         baseCode,
         counterCode,
@@ -464,7 +464,9 @@ class MatexBaseCoreState extends Equatable implements Model {
       ];
 
   @override
-  MatexBaseCoreState merge({MatexBaseCoreState state}) {
-    return copyWithState(state);
+  MatexBaseCoreState merge({MatexBaseCoreState? state}) {
+    assert(state != null);
+
+    return copyWithState(state!);
   }
 }

@@ -4,14 +4,14 @@ abstract class MatexAbstractMetadataProvider<T> {
   @protected
   bool isInitialized = false;
   @protected
-  Map<String, T> metadataMap;
+  late Map<String, T> metadataMap;
 
-  Future<Map<String, T>> _metadataFuture;
+  Future<Map<String, T>>? _metadataFuture;
 
-  Future<Map<String, T>> list() => initIfNeeded();
+  Future<Map<String, T>>? list() => initIfNeeded();
 
   @protected
-  Future<Map<String, T>> initIfNeeded() async {
+  Future<Map<String, T>>? initIfNeeded() async {
     if (!isInitialized) {
       _metadataFuture = init().then((Map<String, T> map) {
         metadataMap = map;
@@ -21,13 +21,13 @@ abstract class MatexAbstractMetadataProvider<T> {
       });
     }
 
-    return _metadataFuture;
+    return _metadataFuture!;
   }
 
   @protected
   Future<Map<String, T>> init();
 
-  Future<T> metadata(String key) async {
+  Future<T?> metadata(String key) async {
     await initIfNeeded();
 
     return metadataMap[key];

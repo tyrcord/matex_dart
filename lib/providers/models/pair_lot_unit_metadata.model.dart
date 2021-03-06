@@ -1,5 +1,4 @@
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
 
 const kMatexForexPairLotUnitMetadata = MatexPairLotUnitMetadata(
   key: 'forex',
@@ -32,9 +31,9 @@ class MatexPairLotUnitMetadata extends Equatable {
   final String short;
 
   const MatexPairLotUnitMetadata({
-    @required this.key,
-    @required this.long,
-    @required this.short,
+    required this.key,
+    required this.long,
+    required this.short,
   });
 
   factory MatexPairLotUnitMetadata.fromJson(Map<String, dynamic> json) {
@@ -45,7 +44,7 @@ class MatexPairLotUnitMetadata extends Equatable {
     );
   }
 
-  factory MatexPairLotUnitMetadata.fromCache(String key) => _cacheMap[key];
+  factory MatexPairLotUnitMetadata.fromCache(String key) => _cacheMap[key]!;
 
   @override
   List<Object> get props => [key, long, short];

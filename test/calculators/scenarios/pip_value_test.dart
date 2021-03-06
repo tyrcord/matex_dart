@@ -61,7 +61,7 @@ void main() {
 
       test('Then: the pip value should be equal to €7.5', () async {
         expect(await calculator.value(), equals(7.5));
-        expect(!calculator.getState().baseListedSecond, equals(true));
+        expect(!calculator.getState().baseListedSecond!, equals(true));
       });
     });
 
@@ -144,7 +144,7 @@ void main() {
           expect(
               calculator.getState().counterAccountCurrencyPairExchangeRate == 0,
               equals(true));
-          expect(!calculator.getState().baseListedSecond, equals(true));
+          expect(!calculator.getState().baseListedSecond!, equals(true));
         });
       },
     );

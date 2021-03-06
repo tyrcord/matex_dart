@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
 class MatexReportEntry extends Equatable {
-  final String label;
+  final String? label;
   final dynamic value;
-  final int minimumFractionDigits;
-  final int maximumFractionDigits;
+  final int? minimumFractionDigits;
+  final int? maximumFractionDigits;
 
   const MatexReportEntry({
     this.label,
@@ -14,7 +14,7 @@ class MatexReportEntry extends Equatable {
   });
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         label,
         value,
         minimumFractionDigits,

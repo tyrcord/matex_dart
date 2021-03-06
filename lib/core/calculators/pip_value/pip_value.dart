@@ -6,8 +6,8 @@ class MatexPipValueCalculatorCore
         MatexLotCoreMixin<MatexPipValueCalculatorCore, double>,
         MatexPipValueCoreMixin<MatexPipValueCalculatorCore, double> {
   MatexPipValueCalculatorCore({
-    MatexBaseCoreState defaultState,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? defaultState,
+    List<MatexStateValidator>? validators,
   }) : super(
           defaultState: defaultState,
           validators: validators ?? pipValueValidators,
@@ -19,7 +19,7 @@ class MatexPipValueCalculatorCore
   @override
   double value() {
     if (result != null) {
-      return result;
+      return result!;
     }
 
     return (result = computePipValue().toDouble());
@@ -27,8 +27,8 @@ class MatexPipValueCalculatorCore
 }
 
 MatexPipValueCalculatorCore pipValue({
-  MatexBaseCoreState defaultState,
-  List<MatexStateValidator> validators,
+  MatexBaseCoreState? defaultState,
+  List<MatexStateValidator>? validators,
 }) =>
     MatexPipValueCalculatorCore(
       defaultState: defaultState,

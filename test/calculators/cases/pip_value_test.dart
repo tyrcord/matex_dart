@@ -5,14 +5,14 @@ import '../samples/config.dart';
 
 void main() {
   group('PipValueCalculator', () {
-    MatexApp matex;
+    late MatexApp matex;
 
     setUp(() {
       matex = MatexApp(config: testMatexConfig);
     });
 
     group('#pipValue()', () {
-      MatexPipValueCalculator pipValue;
+      MatexPipValueCalculator? pipValue;
 
       setUp(() {
         pipValue = matex.pipValue();

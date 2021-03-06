@@ -12,9 +12,9 @@ class MatexPairPipMetadata extends Equatable {
   final int round;
 
   const MatexPairPipMetadata({
-    this.precision,
-    this.pipette,
-    this.round,
+    required this.precision,
+    required this.pipette,
+    required this.round,
   });
 
   factory MatexPairPipMetadata.fromJson(Map<String, dynamic> json) {

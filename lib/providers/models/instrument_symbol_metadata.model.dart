@@ -6,9 +6,9 @@ class MatexInstrumentSymbolMetadata extends Equatable {
   final String short;
 
   const MatexInstrumentSymbolMetadata({
-    this.ticker,
-    this.long,
-    this.short,
+    required this.ticker,
+    required this.long,
+    required this.short,
   });
 
   static MatexInstrumentSymbolMetadata fromJson(Map<String, dynamic> json) {

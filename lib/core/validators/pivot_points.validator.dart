@@ -9,9 +9,9 @@ final List<MatexStateValidator> pivotPointsValidators = [
     return lowPrice != null && highPrice != null && closePrice != null;
   },
   (MatexBaseCoreState state) {
-    final lowPrice = state.lowPrice;
-    final highPrice = state.highPrice;
-    final closePrice = state.closePrice;
+    final lowPrice = state.lowPrice!;
+    final highPrice = state.highPrice!;
+    final closePrice = state.closePrice!;
     var isValid = lowPrice > 0 && highPrice > 0 && closePrice > 0;
 
     if (isValid) {
@@ -23,8 +23,8 @@ final List<MatexStateValidator> pivotPointsValidators = [
     return isValid;
   },
   (MatexBaseCoreState state) {
-    final lowPrice = state.lowPrice;
-    final highPrice = state.highPrice;
+    final lowPrice = state.lowPrice!;
+    final highPrice = state.highPrice!;
     final openPrice = state.openPrice;
     final method = state.method;
     var isValid = true;

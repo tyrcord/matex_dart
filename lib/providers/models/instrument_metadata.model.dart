@@ -3,26 +3,26 @@ import 'package:equatable/equatable.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexInstrumentMetadata extends Equatable {
-  final MatexInstrumentFormatMetadata format;
-  final MatexInstrumentSymbolMetadata symbol;
-  final MatexInstrumentNameMetadata name;
+  final MatexInstrumentFormatMetadata? format;
+  final MatexInstrumentSymbolMetadata? symbol;
+  final MatexInstrumentNameMetadata? name;
   final MatexInstrumentTypeMetadata type;
-  final String icon;
-  final String code;
+  final String? icon;
+  final String? code;
 
   const MatexInstrumentMetadata({
+    required this.type,
     this.format,
     this.symbol,
     this.code,
     this.icon,
     this.name,
-    this.type,
   });
 
   factory MatexInstrumentMetadata.fromJson(Map<String, dynamic> json) {
     return MatexInstrumentMetadata(
-      code: json['code'] as String,
-      icon: json['icon'] as String,
+      code: json['code'] as String?,
+      icon: json['icon'] as String?,
       format: MatexInstrumentFormatMetadata.fromJson(
         json['format'] as Map<String, dynamic>,
       ),
@@ -37,7 +37,7 @@ class MatexInstrumentMetadata extends Equatable {
   }
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         code,
         icon,
         format,

@@ -1,19 +1,17 @@
 import 'package:matex_dart/matex_dart.dart';
-import 'package:meta/meta.dart';
 
 class MatexPivotPointsCalculator extends MatexBaseCalculator<
-        MatexPivotPointsCalculator, Future<MatexPivotPointsResult>>
+        MatexPivotPointsCalculator, Future<MatexPivotPointsResult?>>
     with
         MatexPivotPointsCoreMixin<MatexPivotPointsCalculator,
-            Future<MatexPivotPointsResult>> {
+            Future<MatexPivotPointsResult?>> {
   final MatexConfig config;
 
   MatexPivotPointsCalculator({
-    @required this.config,
-    MatexBaseCoreState defaultState,
-    List<MatexStateValidator> validators,
-  })  : assert(config != null),
-        super(
+    required this.config,
+    MatexBaseCoreState? defaultState,
+    List<MatexStateValidator>? validators,
+  }) : super(
           validators: validators ?? pivotPointsValidators,
           defaultState: defaultState,
         );
@@ -22,18 +20,16 @@ class MatexPivotPointsCalculator extends MatexBaseCalculator<
   MatexBaseCoreState get defaultCalculatorState => kInitialPivotPointsState;
 
   @override
-  Future<MatexPivotPointsResult> value() async {
+  Future<MatexPivotPointsResult?> value() async {
     return pivotPoints(defaultState: state).value();
   }
 }
 
 MatexPivotPointsCalculator matexPivotPoints({
-  @required MatexConfig config,
-  MatexBaseCoreState defaultState,
-  List<MatexStateValidator> validators,
+  required MatexConfig config,
+  MatexBaseCoreState? defaultState,
+  List<MatexStateValidator>? validators,
 }) {
-  assert(config != null);
-
   return MatexPivotPointsCalculator(
     config: config,
     defaultState: defaultState,

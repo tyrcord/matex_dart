@@ -22,14 +22,14 @@ class MatexLotDescriptor extends Equatable {
   }
 
   @override
-  List<Object> get props => [exists, multiplier];
+  List<Object?> get props => [exists, multiplier];
 }
 
 class MatexLotDescriptors extends Equatable {
-  final MatexLotDescriptor standard;
-  final MatexLotDescriptor micro;
-  final MatexLotDescriptor mini;
-  final MatexLotDescriptor nano;
+  final MatexLotDescriptor? standard;
+  final MatexLotDescriptor? micro;
+  final MatexLotDescriptor? mini;
+  final MatexLotDescriptor? nano;
 
   const MatexLotDescriptors({
     this.standard,
@@ -39,10 +39,10 @@ class MatexLotDescriptors extends Equatable {
   });
 
   MatexLotDescriptors copyWith({
-    MatexLotDescriptor standard,
-    MatexLotDescriptor micro,
-    MatexLotDescriptor mini,
-    MatexLotDescriptor nano,
+    MatexLotDescriptor? standard,
+    MatexLotDescriptor? micro,
+    MatexLotDescriptor? mini,
+    MatexLotDescriptor? nano,
   }) {
     return MatexLotDescriptors(
       standard: standard ?? this.standard,
@@ -54,10 +54,10 @@ class MatexLotDescriptors extends Equatable {
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      'standard': standard.toJson(),
-      'micro': micro.toJson(),
-      'mini': mini.toJson(),
-      'nano': nano.toJson(),
+      'standard': standard?.toJson(),
+      'micro': micro?.toJson(),
+      'mini': mini?.toJson(),
+      'nano': nano?.toJson(),
     };
   }
 
@@ -71,7 +71,7 @@ class MatexLotDescriptors extends Equatable {
   }
 
   @override
-  List<Object> get props => [standard, micro, mini, nano];
+  List<Object?> get props => [standard, micro, mini, nano];
 }
 
 const kDefaultLotDescriptors = MatexLotDescriptors(

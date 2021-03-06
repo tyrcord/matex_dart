@@ -2,19 +2,19 @@ import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
-        MatexStopLossTakeProfitCalculatorCore, MatexStopLossTakeProfitResult>
+        MatexStopLossTakeProfitCalculatorCore, MatexStopLossTakeProfitResult?>
     with
         MatexTakeProfitCoreMixin<MatexStopLossTakeProfitCalculatorCore,
-            MatexStopLossTakeProfitResult>,
+            MatexStopLossTakeProfitResult?>,
         MatexStopLossCoreMixin<MatexStopLossTakeProfitCalculatorCore,
-            MatexStopLossTakeProfitResult>,
+            MatexStopLossTakeProfitResult?>,
         MatexLotCoreMixin<MatexStopLossTakeProfitCalculatorCore,
-            MatexStopLossTakeProfitResult>,
+            MatexStopLossTakeProfitResult?>,
         MatexPipValueCoreMixin<MatexStopLossTakeProfitCalculatorCore,
-            MatexStopLossTakeProfitResult> {
+            MatexStopLossTakeProfitResult?> {
   MatexStopLossTakeProfitCalculatorCore({
-    MatexBaseCoreState defaultState,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? defaultState,
+    List<MatexStateValidator>? validators,
   }) : super(
           defaultState: defaultState,
           validators: validators ?? stopLossTakeProfitValidators,
@@ -25,7 +25,7 @@ class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
       kInitialStopLossTakeProfitState;
 
   @override
-  MatexStopLossTakeProfitResult value() {
+  MatexStopLossTakeProfitResult? value() {
     if (result != null) return result;
 
     if (isValid) {
@@ -59,8 +59,8 @@ class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
   }
 
   double _computeRiskRewardRatio(
-    double stopLossAmount,
-    double takeProfitAmount,
+    double? stopLossAmount,
+    double? takeProfitAmount,
   ) {
     var ratio = 0.0;
 
@@ -82,8 +82,8 @@ class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexStopLossTakeProfitCalculatorCore stopLossTakeProfit({
-  MatexBaseCoreState defaultState,
-  List<MatexStateValidator> validators,
+  MatexBaseCoreState? defaultState,
+  List<MatexStateValidator>? validators,
 }) =>
     MatexStopLossTakeProfitCalculatorCore(
       defaultState: defaultState,

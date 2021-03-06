@@ -1,5 +1,4 @@
 import 'package:matex_dart/matex_dart.dart';
-import 'package:meta/meta.dart';
 
 class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
         MatexPipValueCalculator, Future<double>>
@@ -11,11 +10,10 @@ class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
   final MatexConfig config;
 
   MatexPipValueCalculator({
-    @required this.config,
-    MatexBaseCoreState defaultState,
-    List<MatexStateValidator> validators,
-  })  : assert(config != null),
-        super(
+    required this.config,
+    MatexBaseCoreState? defaultState,
+    List<MatexStateValidator>? validators,
+  }) : super(
           validators: validators ?? matexPipValueValidators,
           defaultState: defaultState,
         );
@@ -25,7 +23,7 @@ class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
 
   @override
   Future<double> value() async {
-    final exchangeProvider = config?.exchangeProvider;
+    final exchangeProvider = config.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
       await setExchangeRates();
@@ -44,12 +42,10 @@ class MatexPipValueCalculator extends MatexAbstractPipValueCalculatorCore<
 }
 
 MatexPipValueCalculator matexPipValue({
-  @required MatexConfig config,
-  MatexBaseCoreState defaultState,
-  List<MatexStateValidator> validators,
+  required MatexConfig config,
+  MatexBaseCoreState? defaultState,
+  List<MatexStateValidator>? validators,
 }) {
-  assert(config != null);
-
   return MatexPipValueCalculator(
     config: config,
     defaultState: defaultState,

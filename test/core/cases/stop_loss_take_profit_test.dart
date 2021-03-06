@@ -6,7 +6,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('StopLossTakeProfitCalculator', () {
-    MatexStopLossTakeProfitCalculatorCore calculator;
+    late MatexStopLossTakeProfitCalculatorCore calculator;
 
     setUp(() {
       calculator = stopLossTakeProfit();
@@ -39,7 +39,8 @@ void main() {
           calculator.positionSize(5);
           expect(calculator.isDirty, equals(true));
 
-          calculator.positionSize(kInitialStopLossTakeProfitState.positionSize);
+          calculator
+              .positionSize(kInitialStopLossTakeProfitState.positionSize!);
           expect(calculator.isDirty, equals(false));
 
           calculator.positionSize(5);
@@ -252,17 +253,17 @@ void main() {
             .tradingPairExchangeRate(1.5)
             .stopLossAmount(200)
             .entryPrice(1.5)
-            .value();
+            .value()!;
 
         expect(results.riskRewardRatio, equals(0));
 
-        results = calculator.value();
+        results = calculator.value()!;
         expect(results.riskRewardRatio, equals(0));
 
-        results = calculator.takeProfitAmount(400).value();
+        results = calculator.takeProfitAmount(400).value()!;
         expect(results.riskRewardRatio, equals(2));
 
-        results = calculator.takeProfitAmount(100).value();
+        results = calculator.takeProfitAmount(100).value()!;
         expect(results.riskRewardRatio, equals(0.5));
       });
 
@@ -274,7 +275,7 @@ void main() {
             .tradingPairExchangeRate(1.1)
             .stopLossAmount(200)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.stopLoss ==
@@ -295,7 +296,7 @@ void main() {
             .tradingPairExchangeRate(1.1)
             .stopLossPrice(1.078)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.stopLoss,
@@ -317,7 +318,7 @@ void main() {
             .tradingPairExchangeRate(1.1)
             .stopLossPips(220)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.stopLoss ==
@@ -338,7 +339,7 @@ void main() {
             .tradingPairExchangeRate(1.1)
             .takeProfitAmount(200)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.takeProfit ==
@@ -359,7 +360,7 @@ void main() {
             .tradingPairExchangeRate(1.1)
             .takeProfitPrice(1.122)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.takeProfit,
@@ -381,7 +382,7 @@ void main() {
             .tradingPairExchangeRate(1.1)
             .takeProfitPips(220)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.takeProfit ==
@@ -403,7 +404,7 @@ void main() {
             .stopLossAmount(200)
             .position(MatexPosition.short)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.stopLoss ==
@@ -425,7 +426,7 @@ void main() {
             .stopLossPrice(1.122)
             .position(MatexPosition.short)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.stopLoss,
@@ -448,7 +449,7 @@ void main() {
             .stopLossPips(220)
             .position(MatexPosition.short)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.stopLoss,
@@ -471,7 +472,7 @@ void main() {
             .takeProfitAmount(200)
             .position(MatexPosition.short)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.takeProfit ==
@@ -493,7 +494,7 @@ void main() {
             .takeProfitPrice(1.078)
             .position(MatexPosition.short)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.takeProfit,
@@ -516,7 +517,7 @@ void main() {
             .takeProfitPips(220)
             .position(MatexPosition.short)
             .entryPrice(1.1)
-            .value();
+            .value()!;
 
         expect(
           results.takeProfit,

@@ -5,7 +5,7 @@ import '../shared/messages.dart';
 
 void main() {
   group('RequiredMarginCalculator', () {
-    MatexRequiredMarginCalculatorCore calculator;
+    late MatexRequiredMarginCalculatorCore calculator;
 
     setUp(() {
       calculator = requiredMargin();
@@ -34,7 +34,7 @@ void main() {
           calculator.positionSize(5);
           expect(calculator.isDirty, equals(true));
 
-          calculator.positionSize(kInitialRequiredMarginState.positionSize);
+          calculator.positionSize(kInitialRequiredMarginState.positionSize!);
           expect(calculator.isDirty, equals(false));
         },
       );

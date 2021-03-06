@@ -1,13 +1,13 @@
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
-        MatexPivotPointsCalculatorCore, MatexPivotPointsResult>
+        MatexPivotPointsCalculatorCore, MatexPivotPointsResult?>
     with
         MatexPivotPointsCoreMixin<MatexPivotPointsCalculatorCore,
-            MatexPivotPointsResult> {
+            MatexPivotPointsResult?> {
   MatexPivotPointsCalculatorCore({
-    MatexBaseCoreState defaultState,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? defaultState,
+    List<MatexStateValidator>? validators,
   }) : super(
           defaultState: defaultState,
           validators: validators ?? pivotPointsValidators,
@@ -17,12 +17,12 @@ class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
   MatexBaseCoreState get defaultCalculatorState => kInitialPivotPointsState;
 
   @override
-  MatexPivotPointsResult value() {
+  MatexPivotPointsResult? value() {
     if (result != null) {
       return result;
     }
 
-    final method = state.method;
+    final method = state.method!;
 
     if (!isValid) {
       return (result = _defaultValue(method));
@@ -46,16 +46,16 @@ class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
     }
   }
 
-  MatexPivotPointsResult _value(MatexPivotPointsMethods method) {
-    var closePrice = state.closePrice;
-    var highPrice = state.highPrice;
-    var lowPrice = state.lowPrice;
+  MatexPivotPointsResult _value(MatexPivotPointsMethods? method) {
+    var closePrice = state.closePrice!;
+    var highPrice = state.highPrice!;
+    var lowPrice = state.lowPrice!;
 
     switch (method) {
       case MatexPivotPointsMethods.camarilla:
         return pivotPointsCamarilla(highPrice, lowPrice, closePrice);
       case MatexPivotPointsMethods.deMark:
-        final openPrice = state.openPrice;
+        final openPrice = state.openPrice!;
         return pivotPointsDeMark(highPrice, lowPrice, closePrice, openPrice);
       case MatexPivotPointsMethods.fibonacci:
         return pivotPointsFibonacci(highPrice, lowPrice, closePrice);
@@ -68,8 +68,8 @@ class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
 }
 
 MatexPivotPointsCalculatorCore pivotPoints({
-  MatexBaseCoreState defaultState,
-  List<MatexStateValidator> validators,
+  MatexBaseCoreState? defaultState,
+  List<MatexStateValidator>? validators,
 }) =>
     MatexPivotPointsCalculatorCore(
       defaultState: defaultState,

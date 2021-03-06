@@ -11,7 +11,7 @@ mixin MatexLotCoreMixin<C extends MatexBaseCalculator<C, R>, R>
 
   C lot(int lot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      state.lotDescriptors.standard,
+      state.lotDescriptors!.standard!,
       lot,
     );
 
@@ -20,7 +20,7 @@ mixin MatexLotCoreMixin<C extends MatexBaseCalculator<C, R>, R>
 
   C microLot(int microLot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      state.lotDescriptors.micro,
+      state.lotDescriptors!.micro!,
       microLot,
     );
 
@@ -29,7 +29,7 @@ mixin MatexLotCoreMixin<C extends MatexBaseCalculator<C, R>, R>
 
   C miniLot(int miniLot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      state.lotDescriptors.mini,
+      state.lotDescriptors!.mini!,
       miniLot,
     );
 
@@ -38,7 +38,7 @@ mixin MatexLotCoreMixin<C extends MatexBaseCalculator<C, R>, R>
 
   C nanoLot(int nanoLot) {
     final positionSize = getPositionSizeWithLotDescriptorAndValue(
-      state.lotDescriptors.nano,
+      state.lotDescriptors!.nano!,
       nanoLot,
     );
 

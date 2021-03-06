@@ -12,11 +12,11 @@ const _kDefaultPairLotsMetadata = MatexPairLotsMetadata(
 );
 
 class MatexPairLotsMetadata extends Equatable {
-  final int micro;
-  final int mini;
-  final int nano;
-  final bool normalized;
-  final int standard;
+  final int? micro;
+  final int? mini;
+  final int? nano;
+  final bool? normalized;
+  final int? standard;
   final MatexPairLotUnitMetadata unit;
 
   const MatexPairLotsMetadata({
@@ -25,16 +25,16 @@ class MatexPairLotsMetadata extends Equatable {
     this.nano,
     this.normalized,
     this.standard,
-    this.unit,
+    required this.unit,
   });
 
   static MatexPairLotsMetadata fromJson(Map<String, dynamic> json) {
     return MatexPairLotsMetadata(
-      micro: json['micro'] as int,
-      mini: json['mini'] as int,
-      nano: json['nano'] as int,
-      normalized: json['normalized'] as bool,
-      standard: json['standard'] as int,
+      micro: json['micro'] as int?,
+      mini: json['mini'] as int?,
+      nano: json['nano'] as int?,
+      normalized: json['normalized'] as bool?,
+      standard: json['standard'] as int?,
       unit: MatexPairLotUnitMetadata.fromCache(json['unit'] as String),
     );
   }
@@ -42,7 +42,7 @@ class MatexPairLotsMetadata extends Equatable {
   static MatexPairLotsMetadata defaultMetatada() => _kDefaultPairLotsMetadata;
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         micro,
         mini,
         nano,

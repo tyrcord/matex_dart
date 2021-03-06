@@ -41,8 +41,8 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
   Decimal pipValue(MatexBaseCoreState state) {
     final counterAccountCurrencyPairExchangeRate =
         state.counterAccountCurrencyPairExchangeRate;
-    final baseListedSecond = state.baseListedSecond;
-    final pipPrecision = state.pipPrecision;
+    final baseListedSecond = state.baseListedSecond!;
+    final pipPrecision = state.pipPrecision!;
     final positionSize = state.positionSize;
     final tradingPairExchangeRate = state.tradingPairExchangeRate;
     final decimalMultiplicator = pow(10, pipPrecision).toString();

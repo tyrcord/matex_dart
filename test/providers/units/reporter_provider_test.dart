@@ -4,7 +4,7 @@ import 'package:matex_dart/matex_dart.dart';
 
 void main() {
   group('ReporterProvider', () {
-    MatexReporterProvider reporter;
+    late MatexReporterProvider reporter;
 
     setUp(() {
       reporter = MatexReporterProvider();

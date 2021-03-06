@@ -11,7 +11,7 @@ class MatexApp {
   final MatexConfig config;
 
   MatexApp({
-    MatexConfig config,
+    MatexConfig? config,
   }) : config = MatexConfig(
           exchangeProvider: config?.exchangeProvider,
           instrumentProvider: config?.instrumentProvider ??
@@ -25,8 +25,8 @@ class MatexApp {
         );
 
   MatexPipValueCalculator pipValue({
-    MatexBaseCoreState state,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
   }) {
     return matexPipValue(
       config: config,
@@ -36,8 +36,8 @@ class MatexApp {
   }
 
   MatexPivotPointsCalculator pivotPoints({
-    MatexBaseCoreState state,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
   }) {
     return matexPivotPoints(
       config: config,
@@ -47,8 +47,8 @@ class MatexApp {
   }
 
   MatexFibonacciLevelsCalculator fibonacciLevels({
-    MatexBaseCoreState state,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
   }) {
     return matexFibonacciLevels(
       config: config,
@@ -58,8 +58,8 @@ class MatexApp {
   }
 
   MatexRequiredMarginCalculator requiredMargin({
-    MatexBaseCoreState state,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
   }) {
     return matexRequiredMargin(
       config: config,
@@ -69,8 +69,8 @@ class MatexApp {
   }
 
   MatexPositionSizeCalculator positionSize({
-    MatexBaseCoreState state,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
   }) {
     return matexPositionSize(
       config: config,
@@ -80,8 +80,8 @@ class MatexApp {
   }
 
   MatexStopLossTakeProfitCalculator stopLossTakeProfit({
-    MatexBaseCoreState state,
-    List<MatexStateValidator> validators,
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
   }) {
     return matexStopLossTakeProfit(
       config: config,

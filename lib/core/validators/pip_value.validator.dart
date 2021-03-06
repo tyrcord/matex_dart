@@ -6,5 +6,5 @@ final List<MatexStateValidator> pipValueValidators = [
       state.tradingPairExchangeRate != null &&
       state.counterAccountCurrencyPairExchangeRate != null,
   (MatexBaseCoreState state) =>
-      state.positionSize > 0 && state.tradingPairExchangeRate > 0,
+      state.positionSize! > 0 && state.tradingPairExchangeRate! > 0,
 ];

@@ -3,26 +3,22 @@ import 'package:meta/meta.dart';
 
 abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
   @protected
-  MatexBaseCoreState state;
+  late MatexBaseCoreState state;
   @protected
-  R result;
+  R? result;
   @protected
   bool isStateValid = true;
   @protected
-  List<MatexStateValidator> validators;
+  List<MatexStateValidator>? validators;
   @protected
-  MatexBaseCoreState defaultState;
+  MatexBaseCoreState? defaultState;
 
-  MatexBaseCoreState _differenceState;
+  late MatexBaseCoreState _differenceState;
 
   MatexBaseCoreState get differenceState => _differenceState;
 
   set differenceState(MatexBaseCoreState candidateState) {
-    if (candidateState != null) {
-      candidateState = _sanitizeDifferenceState(candidateState);
-    }
-
-    _differenceState = candidateState;
+    _differenceState = _sanitizeDifferenceState(candidateState);
   }
 
   MatexBaseCoreState get defaultCalculatorState;
@@ -34,7 +30,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
   Iterable<String> get propertiesUseForDifference => const [];
 
   MatexBaseCalculator({
-    @required this.defaultState,
+    this.defaultState,
     this.validators,
   }) {
     reset();
@@ -44,7 +40,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
 
   C reset() {
     defaultState ??= defaultCalculatorState;
-    var calculator = setState(defaultState);
+    var calculator = setState(defaultState!);
     differenceState = MatexBaseCoreState();
 
     return calculator;
@@ -72,15 +68,15 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
     return _checkStateValidity();
   }
 
-  C setDefaultState(MatexBaseCoreState defaultState) {
-    this.defaultState = defaultState.clone();
-    state = defaultState.copyWithState(differenceState);
+  C setDefaultState(MatexBaseCoreState nextDefaultState) {
+    defaultState = nextDefaultState.clone();
+    state = nextDefaultState.copyWithState(differenceState);
 
     return _checkStateValidity();
   }
 
-  C setState(MatexBaseCoreState state) {
-    this.state = state.clone();
+  C setState(MatexBaseCoreState nextState) {
+    state = nextState.clone();
     result = null;
 
     return _checkStateValidity();
@@ -91,7 +87,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
     MatexBaseCoreState candidateState,
   ) {
     var candidateMap = candidateState.toJson();
-    var defaultMap = defaultState.toJson();
+    var defaultMap = defaultState!.toJson();
     var defaultCounterCode = defaultMap[MatexCoreStateProperty.counterCode];
     var defaultBaseCode = defaultMap[MatexCoreStateProperty.baseCode];
     var counterCode;
@@ -127,7 +123,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
     var validity = true;
 
     if (validators != null) {
-      validity = validators.every((validator) => validator(state));
+      validity = validators!.every((validator) => validator(state));
     }
 
     isStateValid = validity;

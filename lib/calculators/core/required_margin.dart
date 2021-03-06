@@ -1,23 +1,21 @@
 import 'package:matex_dart/matex_dart.dart';
-import 'package:meta/meta.dart';
 
 class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
-        MatexRequiredMarginCalculator, Future<double>>
+        MatexRequiredMarginCalculator, Future<double?>>
     with
-        MatexLotCoreMixin<MatexRequiredMarginCalculator, Future<double>>,
-        MatexPipValueCoreMixin<MatexRequiredMarginCalculator, Future<double>>,
-        MatexPipValueMixin<MatexRequiredMarginCalculator, Future<double>>,
+        MatexLotCoreMixin<MatexRequiredMarginCalculator, Future<double?>>,
+        MatexPipValueCoreMixin<MatexRequiredMarginCalculator, Future<double?>>,
+        MatexPipValueMixin<MatexRequiredMarginCalculator, Future<double?>>,
         MatexRequiredMarginCoreMixin<MatexRequiredMarginCalculator,
-            Future<double>> {
+            Future<double?>> {
   @override
   final MatexConfig config;
 
   MatexRequiredMarginCalculator({
-    @required this.config,
-    MatexBaseCoreState defaultState,
-    List<MatexStateValidator> validators,
-  })  : assert(config != null),
-        super(
+    required this.config,
+    MatexBaseCoreState? defaultState,
+    List<MatexStateValidator>? validators,
+  }) : super(
           validators: validators ?? matexPipValueValidators,
           defaultState: defaultState,
         );
@@ -27,8 +25,8 @@ class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
       kInitialMatexRequiredMarginState;
 
   @override
-  Future<double> value() async {
-    final exchangeProvider = config?.exchangeProvider;
+  Future<double?> value() async {
+    final exchangeProvider = config.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {
       if (state.accountCode == state.baseCode) {
@@ -45,12 +43,10 @@ class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
 }
 
 MatexRequiredMarginCalculator matexRequiredMargin({
-  @required MatexConfig config,
-  MatexBaseCoreState defaultState,
-  List<MatexStateValidator> validators,
+  required MatexConfig config,
+  MatexBaseCoreState? defaultState,
+  List<MatexStateValidator>? validators,
 }) {
-  assert(config != null);
-
   return MatexRequiredMarginCalculator(
     config: config,
     defaultState: defaultState,

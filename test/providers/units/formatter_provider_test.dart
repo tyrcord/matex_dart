@@ -6,7 +6,7 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('FormatterProvider', () {
-    MatexFormatterProvider formatter;
+    late MatexFormatterProvider formatter;
 
     setUp(() {
       formatter = MatexFormatterProvider();

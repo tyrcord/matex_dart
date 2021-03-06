@@ -11,17 +11,15 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
         MatexPipValueCoreMixin<MatexStopLossCalculatorCore,
             MatexStopLossResult> {
   MatexStopLossCalculatorCore({
-    MatexBaseCoreState defaultState,
+    MatexBaseCoreState? defaultState,
   }) : super(defaultState: defaultState);
 
   @override
   MatexBaseCoreState get defaultCalculatorState => kInitialStopLossState;
 
   @override
-  MatexStopLossResult value({Decimal pipValue}) {
-    if (result != null) {
-      return result;
-    }
+  MatexStopLossResult value({Decimal? pipValue}) {
+    if (result != null) return result!;
 
     pipValue ??= computePipValue();
 
@@ -29,10 +27,10 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
   }
 
   MatexStopLossResult _computeStopLossLevels(Decimal pipValue) {
-    final pipPrecision = state.pipPrecision;
-    final stopLossAmount = state.stopLossAmount;
-    final stopLossPips = state.stopLossPips;
-    final stopLossPrice = state.stopLossPrice;
+    final pipPrecision = state.pipPrecision!;
+    final stopLossAmount = state.stopLossAmount!;
+    final stopLossPips = state.stopLossPips!;
+    final stopLossPrice = state.stopLossPrice!;
     final divider = pow(10, pipPrecision).toDouble();
 
     if (stopLossAmount > 0) {
@@ -67,7 +65,7 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
     double divider,
   ) {
     final position = state.position;
-    final entryPrice = state.entryPrice;
+    final entryPrice = state.entryPrice!;
     final _divider = Decimal.parse(divider.toString());
     final stopLossPriceParsed = Decimal.parse(stopLossPrice.toString());
     final entryPriceParsed = Decimal.parse(entryPrice.toString());
@@ -135,5 +133,5 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
   }
 }
 
-MatexStopLossCalculatorCore stopLoss({MatexBaseCoreState defaultState}) =>
+MatexStopLossCalculatorCore stopLoss({MatexBaseCoreState? defaultState}) =>
     MatexStopLossCalculatorCore(defaultState: defaultState);

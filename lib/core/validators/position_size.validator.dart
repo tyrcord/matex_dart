@@ -5,8 +5,8 @@ final List<MatexStateValidator> corePositionSizeValidators = [
       (state.amountAtRisk != null) ||
       (state.riskRatio != null && state.accountSize != null),
   (MatexBaseCoreState state) =>
-      (state.amountAtRisk > 0) ||
-      (state.riskRatio > 0 && state.accountSize > 0),
+      (state.amountAtRisk! > 0) ||
+      (state.riskRatio! > 0 && state.accountSize! > 0),
   (MatexBaseCoreState state) {
     final amountAtRisk = state.amountAtRisk;
     final accountSize = state.accountSize;

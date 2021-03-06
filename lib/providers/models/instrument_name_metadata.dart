@@ -4,7 +4,10 @@ class MatexInstrumentNameMetadata extends Equatable {
   final String key;
   final String localized;
 
-  const MatexInstrumentNameMetadata({this.key, this.localized});
+  const MatexInstrumentNameMetadata({
+    required this.key,
+    required this.localized,
+  });
 
   static MatexInstrumentNameMetadata fromJson(Map<String, dynamic> json) {
     return MatexInstrumentNameMetadata(
@@ -14,5 +17,5 @@ class MatexInstrumentNameMetadata extends Equatable {
   }
 
   @override
-  List<Object> get props => [key, localized];
+  List<Object?> get props => [key, localized];
 }
