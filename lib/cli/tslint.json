@@ -1,0 +1,14 @@
+{
+  "extends": ["tslint:recommended", "tslint-config-prettier", "tslint-sonarts"],
+  "rules": {
+    "interface-over-type-literal": false,
+    "no-empty": [true, "allow-empty-functions"],
+    "cyclomatic-complexity": [true, 6],
+    "deprecation": true,
+    "max-file-line-count": [true, 300],
+    "mccabe-complexity": true,
+    "no-empty-nested-blocks": true,
+    "no-nested-incdec": true,
+    "max-union-size": false
+  }
+}

@@ -1,0 +1,10 @@
+.nyc_output
+.vscode
+
+src
+
+.nycrc.json
+.prettierrc.json
+
+tsconfig.json
+tslint.json
