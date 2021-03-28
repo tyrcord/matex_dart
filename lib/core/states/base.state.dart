@@ -4,7 +4,7 @@
 import 'package:matex_dart/matex_dart.dart';
 import 'package:tstore_dart/tstore_dart.dart';
 
-class MatexBaseCoreState extends TEntity {
+class MatexBaseCoreState extends TDocument {
   final double? customPrice;
   final double? highPrice;
   final double? lowPrice;

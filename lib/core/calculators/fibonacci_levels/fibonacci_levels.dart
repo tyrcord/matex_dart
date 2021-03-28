@@ -2,10 +2,10 @@ import 'package:matex_dart/matex_dart.dart';
 import 'package:decimal/decimal.dart';
 
 class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
-        MatexFibonacciLevelsCalculatorCore, FibonacciLevelsResult?>
+        MatexFibonacciLevelsCalculatorCore, FibonacciLevelsResult>
     with
         MatexFibonacciLevelsCoreMixin<MatexFibonacciLevelsCalculatorCore,
-            FibonacciLevelsResult?> {
+            FibonacciLevelsResult> {
   MatexFibonacciLevelsCalculatorCore({
     MatexBaseCoreState? defaultState,
     List<MatexStateValidator>? validators,
@@ -18,9 +18,9 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
   MatexBaseCoreState get defaultCalculatorState => kInitialFibonacciLevelsState;
 
   @override
-  FibonacciLevelsResult? value() {
+  FibonacciLevelsResult value() {
     if (result != null) {
-      return result;
+      return result!;
     }
 
     return (result = FibonacciLevelsResult(

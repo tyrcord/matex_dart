@@ -1,16 +1,16 @@
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
-        MatexPositionSizeCalculator, Future<MatexPositionSizeResult?>>
+        MatexPositionSizeCalculator, Future<MatexPositionSizeResult>>
     with
         MatexLotCoreMixin<MatexPositionSizeCalculator,
-            Future<MatexPositionSizeResult?>>,
+            Future<MatexPositionSizeResult>>,
         MatexPipValueCoreMixin<MatexPositionSizeCalculator,
-            Future<MatexPositionSizeResult?>>,
+            Future<MatexPositionSizeResult>>,
         MatexPipValueMixin<MatexPositionSizeCalculator,
-            Future<MatexPositionSizeResult?>>,
+            Future<MatexPositionSizeResult>>,
         MatexPositionSizeMarginCoreMixin<MatexPositionSizeCalculator,
-            Future<MatexPositionSizeResult?>> {
+            Future<MatexPositionSizeResult>> {
   @override
   final MatexConfig config;
 
@@ -28,7 +28,7 @@ class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
       kInitialMatexPositionSizeState;
 
   @override
-  Future<MatexPositionSizeResult?> value() async {
+  Future<MatexPositionSizeResult> value() async {
     final exchangeProvider = config.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {

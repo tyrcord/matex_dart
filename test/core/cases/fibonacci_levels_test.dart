@@ -138,8 +138,8 @@ void main() {
             .highPrice(1.5)
             .trend(MatexTrend.up);
 
-        expect(calculator.value()!.extensionLevels[0].value, equals(1.76));
-        expect(calculator.value()!.retracementLevels[0].value, equals(1.48));
+        expect(calculator.value().extensionLevels[0].value, equals(1.76));
+        expect(calculator.value().retracementLevels[0].value, equals(1.48));
       });
     });
 
@@ -150,7 +150,7 @@ void main() {
 
       test('Should define the extension levels', () {
         calculator.extensionLevels([50]);
-        expect(calculator.value()!.extensionLevels[0].level, equals('50%'));
+        expect(calculator.value().extensionLevels[0].level, equals('50%'));
       });
 
       test('Should reorder extension levels', () {
@@ -172,7 +172,7 @@ void main() {
 
       test('Should define the retracement levels', () {
         calculator.retracementLevels([50]);
-        expect(calculator.value()!.retracementLevels[0].level, equals('50%'));
+        expect(calculator.value().retracementLevels[0].level, equals('50%'));
       });
 
       test('Should reorder retracement levels', () {
@@ -209,7 +209,7 @@ void main() {
 
       test('Should reorder retracement and extension levels', () {
         var results = calculator
-            .retracementLevels([50, 23.6]).extensionLevels([23.6, 50]).value()!;
+            .retracementLevels([50, 23.6]).extensionLevels([23.6, 50]).value();
 
         expect(
           calculator.getState().retracementLevels,
@@ -231,7 +231,7 @@ void main() {
         expect(results.extensionLevels[0].level, equals('50%'));
         expect(results.extensionLevels[1].level, equals('23.6%'));
 
-        results = calculator.trend(MatexTrend.down).value()!;
+        results = calculator.trend(MatexTrend.down).value();
 
         expect(results.retracementLevels[0].level, equals('50%'));
         expect(results.retracementLevels[1].level, equals('23.6%'));

@@ -5,7 +5,7 @@ class MatexPairMetadata extends Equatable {
   final MatexInstrumentMetadata? counterInstrumentMetadata;
   final MatexInstrumentMetadata? baseInstrumentMetadata;
   final MatexPairTypeMetadata type;
-  final MatexPairLotsMetadata lots;
+  final MatexPairLotsMetadata? lots;
   final MatexPairPipMetadata pip;
   final String counterCode;
   final String baseCode;
@@ -14,8 +14,8 @@ class MatexPairMetadata extends Equatable {
     required this.counterCode,
     required this.baseCode,
     required this.type,
-    required this.lots,
     required this.pip,
+    this.lots,
     this.counterInstrumentMetadata,
     this.baseInstrumentMetadata,
   });

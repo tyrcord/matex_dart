@@ -1,10 +1,10 @@
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
-        MatexPivotPointsCalculatorCore, MatexPivotPointsResult?>
+        MatexPivotPointsCalculatorCore, MatexPivotPointsResult>
     with
         MatexPivotPointsCoreMixin<MatexPivotPointsCalculatorCore,
-            MatexPivotPointsResult?> {
+            MatexPivotPointsResult> {
   MatexPivotPointsCalculatorCore({
     MatexBaseCoreState? defaultState,
     List<MatexStateValidator>? validators,
@@ -17,9 +17,9 @@ class MatexPivotPointsCalculatorCore extends MatexBaseCalculator<
   MatexBaseCoreState get defaultCalculatorState => kInitialPivotPointsState;
 
   @override
-  MatexPivotPointsResult? value() {
+  MatexPivotPointsResult value() {
     if (result != null) {
-      return result;
+      return result!;
     }
 
     final method = state.method!;

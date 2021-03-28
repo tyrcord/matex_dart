@@ -1,10 +1,10 @@
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexPivotPointsCalculator extends MatexBaseCalculator<
-        MatexPivotPointsCalculator, Future<MatexPivotPointsResult?>>
+        MatexPivotPointsCalculator, Future<MatexPivotPointsResult>>
     with
         MatexPivotPointsCoreMixin<MatexPivotPointsCalculator,
-            Future<MatexPivotPointsResult?>> {
+            Future<MatexPivotPointsResult>> {
   final MatexConfig config;
 
   MatexPivotPointsCalculator({
@@ -20,7 +20,7 @@ class MatexPivotPointsCalculator extends MatexBaseCalculator<
   MatexBaseCoreState get defaultCalculatorState => kInitialPivotPointsState;
 
   @override
-  Future<MatexPivotPointsResult?> value() async {
+  Future<MatexPivotPointsResult> value() async {
     return pivotPoints(defaultState: state).value();
   }
 }

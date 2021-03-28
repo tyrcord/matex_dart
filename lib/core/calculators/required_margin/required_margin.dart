@@ -2,12 +2,12 @@ import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexRequiredMarginCalculatorCore
-    extends MatexBaseCalculator<MatexRequiredMarginCalculatorCore, double?>
+    extends MatexBaseCalculator<MatexRequiredMarginCalculatorCore, double>
     with
-        MatexLotCoreMixin<MatexRequiredMarginCalculatorCore, double?>,
-        MatexPipValueCoreMixin<MatexRequiredMarginCalculatorCore, double?>,
+        MatexLotCoreMixin<MatexRequiredMarginCalculatorCore, double>,
+        MatexPipValueCoreMixin<MatexRequiredMarginCalculatorCore, double>,
         MatexRequiredMarginCoreMixin<MatexRequiredMarginCalculatorCore,
-            double?> {
+            double> {
   MatexRequiredMarginCalculatorCore({
     MatexBaseCoreState? defaultState,
     List<MatexStateValidator>? validators,
@@ -20,8 +20,8 @@ class MatexRequiredMarginCalculatorCore
   MatexBaseCoreState get defaultCalculatorState => kInitialRequiredMarginState;
 
   @override
-  double? value() {
-    if (result != null) return result;
+  double value() {
+    if (result != null) return result!;
 
     final tradingPairExchangeRate = state.tradingPairExchangeRate;
     final baseListedSecond = state.baseListedSecond!;

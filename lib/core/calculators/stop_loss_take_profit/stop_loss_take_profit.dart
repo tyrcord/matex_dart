@@ -2,16 +2,16 @@ import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
-        MatexStopLossTakeProfitCalculatorCore, MatexStopLossTakeProfitResult?>
+        MatexStopLossTakeProfitCalculatorCore, MatexStopLossTakeProfitResult>
     with
         MatexTakeProfitCoreMixin<MatexStopLossTakeProfitCalculatorCore,
-            MatexStopLossTakeProfitResult?>,
+            MatexStopLossTakeProfitResult>,
         MatexStopLossCoreMixin<MatexStopLossTakeProfitCalculatorCore,
-            MatexStopLossTakeProfitResult?>,
+            MatexStopLossTakeProfitResult>,
         MatexLotCoreMixin<MatexStopLossTakeProfitCalculatorCore,
-            MatexStopLossTakeProfitResult?>,
+            MatexStopLossTakeProfitResult>,
         MatexPipValueCoreMixin<MatexStopLossTakeProfitCalculatorCore,
-            MatexStopLossTakeProfitResult?> {
+            MatexStopLossTakeProfitResult> {
   MatexStopLossTakeProfitCalculatorCore({
     MatexBaseCoreState? defaultState,
     List<MatexStateValidator>? validators,
@@ -25,8 +25,8 @@ class MatexStopLossTakeProfitCalculatorCore extends MatexBaseCalculator<
       kInitialStopLossTakeProfitState;
 
   @override
-  MatexStopLossTakeProfitResult? value() {
-    if (result != null) return result;
+  MatexStopLossTakeProfitResult value() {
+    if (result != null) return result!;
 
     if (isValid) {
       final pipValue = computePipValue();

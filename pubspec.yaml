@@ -5,7 +5,7 @@ homepage: https://github.com/tyrcord/matex_dart
 issue_tracker: https://github.com/tyrcord/matex_dart/issues
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.12.0 <3.0.0"
   flutter: ">=2.0.0"
 
 dependencies:
@@ -16,7 +16,7 @@ dependencies:
   meta: ^1.3.0
   decimal: ^1.0.0
   intl: ^0.17.0
-  tstore_dart: ^0.3.0
+  tstore_dart: ^0.3.1
 
 dev_dependencies:
   flutter_test:

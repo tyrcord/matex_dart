@@ -14,14 +14,14 @@ const kDefaultPositionSizeResult = MatexPositionSizeResult(
 );
 
 class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
-        MatexPositionSizeCalculatorCore, MatexPositionSizeResult?>
+        MatexPositionSizeCalculatorCore, MatexPositionSizeResult>
     with
         MatexLotCoreMixin<MatexPositionSizeCalculatorCore,
-            MatexPositionSizeResult?>,
+            MatexPositionSizeResult>,
         MatexPipValueCoreMixin<MatexPositionSizeCalculatorCore,
-            MatexPositionSizeResult?>,
+            MatexPositionSizeResult>,
         MatexPositionSizeMarginCoreMixin<MatexPositionSizeCalculatorCore,
-            MatexPositionSizeResult?> {
+            MatexPositionSizeResult> {
   MatexPositionSizeCalculatorCore({
     MatexBaseCoreState? defaultState,
     List<MatexStateValidator>? validators,
@@ -34,9 +34,9 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
   MatexBaseCoreState get defaultCalculatorState => kInitialPositionSizeState;
 
   @override
-  MatexPositionSizeResult? value() {
+  MatexPositionSizeResult value() {
     if (result != null) {
-      return result;
+      return result!;
     }
 
     if (isValid) {

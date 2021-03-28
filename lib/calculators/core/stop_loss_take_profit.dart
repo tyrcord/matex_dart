@@ -3,18 +3,18 @@ import 'package:matex_dart/matex_dart.dart';
 class MatexStopLossTakeProfitCalculator
     extends MatexAbstractPipValueCalculatorCore<
         MatexStopLossTakeProfitCalculator,
-        Future<MatexStopLossTakeProfitResult?>>
+        Future<MatexStopLossTakeProfitResult>>
     with
         MatexLotCoreMixin<MatexStopLossTakeProfitCalculator,
-            Future<MatexStopLossTakeProfitResult?>>,
+            Future<MatexStopLossTakeProfitResult>>,
         MatexPipValueCoreMixin<MatexStopLossTakeProfitCalculator,
-            Future<MatexStopLossTakeProfitResult?>>,
+            Future<MatexStopLossTakeProfitResult>>,
         MatexPipValueMixin<MatexStopLossTakeProfitCalculator,
-            Future<MatexStopLossTakeProfitResult?>>,
+            Future<MatexStopLossTakeProfitResult>>,
         MatexTakeProfitCoreMixin<MatexStopLossTakeProfitCalculator,
-            Future<MatexStopLossTakeProfitResult?>>,
+            Future<MatexStopLossTakeProfitResult>>,
         MatexStopLossCoreMixin<MatexStopLossTakeProfitCalculator,
-            Future<MatexStopLossTakeProfitResult?>> {
+            Future<MatexStopLossTakeProfitResult>> {
   @override
   final MatexConfig config;
 
@@ -32,7 +32,7 @@ class MatexStopLossTakeProfitCalculator
       kInitialMatexStopLossTakeProfitState;
 
   @override
-  Future<MatexStopLossTakeProfitResult?> value() async {
+  Future<MatexStopLossTakeProfitResult> value() async {
     final exchangeProvider = config.exchangeProvider;
 
     if (isValid && exchangeProvider != null) {

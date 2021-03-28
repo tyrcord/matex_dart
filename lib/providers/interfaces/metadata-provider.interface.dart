@@ -8,10 +8,10 @@ abstract class MatexAbstractMetadataProvider<T> {
 
   Future<Map<String, T>>? _metadataFuture;
 
-  Future<Map<String, T>>? list() => initIfNeeded();
+  Future<Map<String, T>> list() => initIfNeeded();
 
   @protected
-  Future<Map<String, T>>? initIfNeeded() async {
+  Future<Map<String, T>> initIfNeeded() async {
     if (!isInitialized) {
       _metadataFuture = init().then((Map<String, T> map) {
         metadataMap = map;
