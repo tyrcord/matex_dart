@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.4.1](https://github.com/tyrcord/matex_dart/releases/tag/0.4.0) (2021-03-28)
+
+### Enhancements
+
+- Better sound null safety support.
+
 ## [0.4.0](https://github.com/tyrcord/matex_dart/releases/tag/0.4.0) (2021-03-06)
 
 ### Enhancements
