@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 
 class MatexCurrencyPairModel extends Equatable {
-  final String counterCode;
-  final String baseCode;
+  final String? counterCode;
+  final String? baseCode;
 
-  MatexCurrencyPairModel({required this.counterCode, required this.baseCode});
+  MatexCurrencyPairModel({this.counterCode, this.baseCode});
 
   @override
-  List<Object> get props => [baseCode, counterCode];
+  List<Object?> get props => [baseCode, counterCode];
 }
