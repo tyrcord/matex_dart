@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+const _kWeight = 0.0;
+
 class MatexInstrumentTypeMetadata extends Equatable {
   static final Map<String, MatexInstrumentTypeMetadata> _cacheMap = {};
   final String key;
@@ -11,19 +13,25 @@ class MatexInstrumentTypeMetadata extends Equatable {
   const MatexInstrumentTypeMetadata({
     required this.key,
     required this.main,
+    this.weight = _kWeight,
     this.subKey,
     this.sub,
-    double? weight = 0,
-  })  : weight = weight ?? 0,
-        super();
+  }) : super();
 
   factory MatexInstrumentTypeMetadata.fromJson(Map<String, dynamic> json) {
+    final rawWeight = json['weight'];
+    double? weight;
+
+    if (rawWeight != null) {
+      weight = double.parse(rawWeight.toString());
+    }
+
     return MatexInstrumentTypeMetadata(
       key: json['key'] as String,
       main: json['main'] as String,
       subKey: json['subKey'] as String?,
       sub: json['sub'] as String?,
-      weight: double.parse(json['weight'].toString()),
+      weight: weight ?? _kWeight,
     );
   }
 

@@ -1,12 +1,15 @@
 import 'package:equatable/equatable.dart';
 
+const _kExists = true;
+const _kMultiplier = 1;
+
 class MatexLotDescriptor extends Equatable {
-  final bool exists;
   final num multiplier;
+  final bool exists;
 
   const MatexLotDescriptor({
-    this.exists = true,
-    this.multiplier = 1,
+    this.multiplier = _kMultiplier,
+    this.exists = _kExists,
   });
 
   Map<String, dynamic> toJson() => <String, dynamic>{
@@ -16,8 +19,8 @@ class MatexLotDescriptor extends Equatable {
 
   factory MatexLotDescriptor.fromJson(dynamic json) {
     return MatexLotDescriptor(
-      exists: json['standard'] as bool,
-      multiplier: json['multiplier'] as num,
+      multiplier: json['multiplier'] as num? ?? _kMultiplier,
+      exists: json['exists'] as bool? ?? _kExists,
     );
   }
 
