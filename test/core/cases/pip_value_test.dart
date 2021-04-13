@@ -60,7 +60,7 @@ void main() {
     });
 
     group('#isValid', () {
-      test('should return the number of tracked subscriptions', () {
+      test('should not be valid by default', () {
         expect(calculator.isValid, equals(false));
       });
 

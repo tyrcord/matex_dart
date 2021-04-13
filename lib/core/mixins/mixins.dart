@@ -1,5 +1,6 @@
 export './fibonacci_levels.mixin.dart';
 export './lot.mixin.dart';
+export './pip_delta.mixin.dart';
 export './pip_value.mixin.dart';
 export './pivot_points.mixin.dart';
 export './position_size.mixin.dart';

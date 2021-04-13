@@ -89,4 +89,15 @@ class MatexApp {
       validators: validators,
     );
   }
+
+  MatexPipDeltaCalculator pipDelta({
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
+  }) {
+    return matexPipDelta(
+      config: config,
+      defaultState: state,
+      validators: validators,
+    );
+  }
 }

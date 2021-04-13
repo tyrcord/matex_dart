@@ -37,6 +37,14 @@ class MatexBaseCoreState extends TDocument {
   final String? baseCode;
   final String? counterCode;
   final int? exchangeRateLastUpdateAt;
+  final double? exitPrice;
+  final double? entryFeePercentage;
+  final double? entryFeeAmount;
+  final double? exitFeePrecentage;
+  final double? exitFeeAmount;
+  final double? taxeRate;
+  final double? priceA;
+  final double? priceB;
 
   @override
   bool get stringify => true;
@@ -74,6 +82,14 @@ class MatexBaseCoreState extends TDocument {
     this.takeProfitPrice,
     this.takeProfitAmount,
     this.exchangeRateLastUpdateAt,
+    this.exitPrice,
+    this.entryFeePercentage,
+    this.entryFeeAmount,
+    this.exitFeePrecentage,
+    this.exitFeeAmount,
+    this.taxeRate,
+    this.priceA,
+    this.priceB,
   });
 
   @override
@@ -112,6 +128,14 @@ class MatexBaseCoreState extends TDocument {
       takeProfitPrice: takeProfitPrice,
       takeProfitAmount: takeProfitAmount,
       exchangeRateLastUpdateAt: exchangeRateLastUpdateAt,
+      exitPrice: exitPrice,
+      entryFeePercentage: entryFeePercentage,
+      entryFeeAmount: entryFeeAmount,
+      exitFeePrecentage: exitFeePrecentage,
+      exitFeeAmount: exitFeeAmount,
+      taxeRate: taxeRate,
+      priceA: priceA,
+      priceB: priceB,
     );
   }
 
@@ -153,6 +177,14 @@ class MatexBaseCoreState extends TDocument {
       takeProfitAmount: state.takeProfitAmount ?? takeProfitAmount,
       exchangeRateLastUpdateAt:
           state.exchangeRateLastUpdateAt ?? exchangeRateLastUpdateAt,
+      exitPrice: state.exitPrice ?? exitPrice,
+      entryFeePercentage: state.entryFeePercentage ?? entryFeePercentage,
+      entryFeeAmount: state.entryFeeAmount ?? entryFeeAmount,
+      exitFeePrecentage: state.exitFeePrecentage ?? exitFeePrecentage,
+      exitFeeAmount: state.exitFeeAmount ?? exitFeeAmount,
+      taxeRate: state.taxeRate ?? taxeRate,
+      priceA: state.priceA ?? priceA,
+      priceB: state.priceB ?? priceB,
     );
   }
 
@@ -265,6 +297,32 @@ class MatexBaseCoreState extends TDocument {
           properties.contains(MatexCoreStateProperty.exchangeRateLastUpdateAt)
               ? defaultState?.exchangeRateLastUpdateAt
               : exchangeRateLastUpdateAt,
+      exitPrice: properties.contains(MatexCoreStateProperty.exitPrice)
+          ? defaultState?.exitPrice
+          : exitPrice,
+      entryFeePercentage:
+          properties.contains(MatexCoreStateProperty.entryFeePercentage)
+              ? defaultState?.entryFeePercentage
+              : entryFeePercentage,
+      entryFeeAmount: properties.contains(MatexCoreStateProperty.entryFeeAmount)
+          ? defaultState?.entryFeeAmount
+          : entryFeeAmount,
+      exitFeePrecentage:
+          properties.contains(MatexCoreStateProperty.exitFeePrecentage)
+              ? defaultState?.exitFeePrecentage
+              : exitFeePrecentage,
+      exitFeeAmount: properties.contains(MatexCoreStateProperty.exitFeeAmount)
+          ? defaultState?.exitFeeAmount
+          : exitFeeAmount,
+      taxeRate: properties.contains(MatexCoreStateProperty.taxeRate)
+          ? defaultState?.taxeRate
+          : taxeRate,
+      priceA: properties.contains(MatexCoreStateProperty.priceA)
+          ? defaultState?.priceA
+          : priceA,
+      priceB: properties.contains(MatexCoreStateProperty.priceB)
+          ? defaultState?.priceB
+          : priceB,
     );
   }
 
@@ -302,6 +360,14 @@ class MatexBaseCoreState extends TDocument {
     String? baseCode,
     String? counterCode,
     int? exchangeRateLastUpdateAt,
+    double? exitPrice,
+    double? entryFeePercentage,
+    double? entryFeeAmount,
+    double? exitFeePrecentage,
+    double? exitFeeAmount,
+    double? taxeRate,
+    double? priceA,
+    double? priceB,
   }) {
     return MatexBaseCoreState(
       accountCode: accountCode ?? this.accountCode,
@@ -340,6 +406,14 @@ class MatexBaseCoreState extends TDocument {
       takeProfitAmount: takeProfitAmount ?? this.takeProfitAmount,
       exchangeRateLastUpdateAt:
           exchangeRateLastUpdateAt ?? this.exchangeRateLastUpdateAt,
+      exitPrice: exitPrice ?? this.exitPrice,
+      entryFeePercentage: entryFeePercentage ?? this.entryFeePercentage,
+      entryFeeAmount: entryFeeAmount ?? this.entryFeeAmount,
+      exitFeePrecentage: exitFeePrecentage ?? this.exitFeePrecentage,
+      exitFeeAmount: exitFeeAmount ?? this.exitFeeAmount,
+      taxeRate: taxeRate ?? this.taxeRate,
+      priceA: priceA ?? this.priceA,
+      priceB: priceB ?? this.priceB,
     );
   }
 
@@ -379,6 +453,14 @@ class MatexBaseCoreState extends TDocument {
       'takeProfitPrice': takeProfitPrice,
       'takeProfitAmount': takeProfitAmount,
       'exchangeRateLastUpdateAt': exchangeRateLastUpdateAt,
+      'exitPrice': exitPrice,
+      'entryFeePercentage': entryFeePercentage,
+      'entryFeeAmount': entryFeeAmount,
+      'exitFeePrecentage': exitFeePrecentage,
+      'exitFeeAmount': exitFeeAmount,
+      'taxeRate': taxeRate,
+      'priceA': priceA,
+      'priceB': priceB,
     };
   }
 
@@ -424,6 +506,14 @@ class MatexBaseCoreState extends TDocument {
       takeProfitPrice: json['takeProfitPrice'] as double?,
       takeProfitAmount: json['takeProfitAmount'] as double?,
       exchangeRateLastUpdateAt: json['exchangeRateLastUpdateAt'] as int?,
+      exitPrice: json['exitPrice'] as double?,
+      entryFeePercentage: json['entryFeePercentage'] as double?,
+      entryFeeAmount: json['entryFeeAmount'] as double?,
+      exitFeePrecentage: json['exitFeePrecentage'] as double?,
+      exitFeeAmount: json['exitFeeAmount'] as double?,
+      taxeRate: json['taxeRate'] as double?,
+      priceA: json['priceA'] as double?,
+      priceB: json['priceB'] as double?,
     );
   }
 
@@ -461,6 +551,14 @@ class MatexBaseCoreState extends TDocument {
         takeProfitPrice,
         takeProfitAmount,
         exchangeRateLastUpdateAt,
+        exitPrice,
+        entryFeePercentage,
+        entryFeeAmount,
+        exitFeePrecentage,
+        exitFeeAmount,
+        taxeRate,
+        priceA,
+        priceB,
       ];
 
   @override
