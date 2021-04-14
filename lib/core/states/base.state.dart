@@ -40,7 +40,7 @@ class MatexBaseCoreState extends TDocument {
   final double? exitPrice;
   final double? entryFeePercentage;
   final double? entryFeeAmount;
-  final double? exitFeePrecentage;
+  final double? exitFeePercentage;
   final double? exitFeeAmount;
   final double? taxeRate;
   final double? priceA;
@@ -85,7 +85,7 @@ class MatexBaseCoreState extends TDocument {
     this.exitPrice,
     this.entryFeePercentage,
     this.entryFeeAmount,
-    this.exitFeePrecentage,
+    this.exitFeePercentage,
     this.exitFeeAmount,
     this.taxeRate,
     this.priceA,
@@ -131,7 +131,7 @@ class MatexBaseCoreState extends TDocument {
       exitPrice: exitPrice,
       entryFeePercentage: entryFeePercentage,
       entryFeeAmount: entryFeeAmount,
-      exitFeePrecentage: exitFeePrecentage,
+      exitFeePercentage: exitFeePercentage,
       exitFeeAmount: exitFeeAmount,
       taxeRate: taxeRate,
       priceA: priceA,
@@ -180,7 +180,7 @@ class MatexBaseCoreState extends TDocument {
       exitPrice: state.exitPrice ?? exitPrice,
       entryFeePercentage: state.entryFeePercentage ?? entryFeePercentage,
       entryFeeAmount: state.entryFeeAmount ?? entryFeeAmount,
-      exitFeePrecentage: state.exitFeePrecentage ?? exitFeePrecentage,
+      exitFeePercentage: state.exitFeePercentage ?? exitFeePercentage,
       exitFeeAmount: state.exitFeeAmount ?? exitFeeAmount,
       taxeRate: state.taxeRate ?? taxeRate,
       priceA: state.priceA ?? priceA,
@@ -307,10 +307,10 @@ class MatexBaseCoreState extends TDocument {
       entryFeeAmount: properties.contains(MatexCoreStateProperty.entryFeeAmount)
           ? defaultState?.entryFeeAmount
           : entryFeeAmount,
-      exitFeePrecentage:
+      exitFeePercentage:
           properties.contains(MatexCoreStateProperty.exitFeePrecentage)
-              ? defaultState?.exitFeePrecentage
-              : exitFeePrecentage,
+              ? defaultState?.exitFeePercentage
+              : exitFeePercentage,
       exitFeeAmount: properties.contains(MatexCoreStateProperty.exitFeeAmount)
           ? defaultState?.exitFeeAmount
           : exitFeeAmount,
@@ -409,7 +409,7 @@ class MatexBaseCoreState extends TDocument {
       exitPrice: exitPrice ?? this.exitPrice,
       entryFeePercentage: entryFeePercentage ?? this.entryFeePercentage,
       entryFeeAmount: entryFeeAmount ?? this.entryFeeAmount,
-      exitFeePrecentage: exitFeePrecentage ?? this.exitFeePrecentage,
+      exitFeePercentage: exitFeePrecentage ?? this.exitFeePercentage,
       exitFeeAmount: exitFeeAmount ?? this.exitFeeAmount,
       taxeRate: taxeRate ?? this.taxeRate,
       priceA: priceA ?? this.priceA,
@@ -456,7 +456,7 @@ class MatexBaseCoreState extends TDocument {
       'exitPrice': exitPrice,
       'entryFeePercentage': entryFeePercentage,
       'entryFeeAmount': entryFeeAmount,
-      'exitFeePrecentage': exitFeePrecentage,
+      'exitFeePrecentage': exitFeePercentage,
       'exitFeeAmount': exitFeeAmount,
       'taxeRate': taxeRate,
       'priceA': priceA,
@@ -509,7 +509,7 @@ class MatexBaseCoreState extends TDocument {
       exitPrice: json['exitPrice'] as double?,
       entryFeePercentage: json['entryFeePercentage'] as double?,
       entryFeeAmount: json['entryFeeAmount'] as double?,
-      exitFeePrecentage: json['exitFeePrecentage'] as double?,
+      exitFeePercentage: json['exitFeePrecentage'] as double?,
       exitFeeAmount: json['exitFeeAmount'] as double?,
       taxeRate: json['taxeRate'] as double?,
       priceA: json['priceA'] as double?,
@@ -554,7 +554,7 @@ class MatexBaseCoreState extends TDocument {
         exitPrice,
         entryFeePercentage,
         entryFeeAmount,
-        exitFeePrecentage,
+        exitFeePercentage,
         exitFeeAmount,
         taxeRate,
         priceA,

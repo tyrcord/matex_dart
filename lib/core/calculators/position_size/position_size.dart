@@ -45,14 +45,14 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
       final amountAtRisk = computeAmountAtRisk();
       final riskRatio = computeRiskRatio(amountAtRisk, accountSize);
       final pipValue = computePipValue();
-      final tradingSize = pipValue > Decimal.zero && stopLossPips > 0
+      final size = pipValue > Decimal.zero && stopLossPips > 0
           ? computePositionSize(amountAtRisk, pipValue, stopLossPips)
           : 0.0;
 
       return (result = MatexPositionSizeResult(
         amountAtRisk: amountAtRisk,
-        pipValue: (pipValue * Decimal.parse(tradingSize.toString())).toDouble(),
-        positionSize: tradingSize,
+        pipValue: (pipValue * Decimal.parse(size.toString())).toDouble(),
+        positionSize: size,
         riskRatio: riskRatio,
         stopLossPips: stopLossPips,
       ));
