@@ -16,7 +16,6 @@ void main() {
         expect(calculator is MatexProfitAndLossCalculatorCore, isTrue);
       });
     });
-
     group('#isDirty', () {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
         expect(calculator.isDirty, isFalse);
@@ -79,20 +78,28 @@ void main() {
 
       test('should impact the result', () {
         calculator.positionSize(100).entryPrice(10).exitPrice(15);
-        expect(calculator.value().profitOrLoss, equals(500));
-        expect(calculator.value().returnOnInvestement, equals(0.5));
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(500));
+        expect(result.returnOnInvestement, equals(0.5));
 
         calculator.positionSize(10).entryPrice(10).exitPrice(15);
-        expect(calculator.value().profitOrLoss, equals(50));
-        expect(calculator.value().returnOnInvestement, equals(0.5));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(50));
+        expect(result.returnOnInvestement, equals(0.5));
 
         calculator.positionSize(100).entryPrice(10).exitPrice(5);
-        expect(calculator.value().profitOrLoss, equals(-500));
-        expect(calculator.value().returnOnInvestement, equals(-0.5));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-500));
+        expect(result.returnOnInvestement, equals(-0.5));
 
         calculator.positionSize(10).entryPrice(10).exitPrice(5);
-        expect(calculator.value().profitOrLoss, equals(-50));
-        expect(calculator.value().returnOnInvestement, equals(-0.5));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-50));
+        expect(result.returnOnInvestement, equals(-0.5));
       });
     });
 
@@ -111,20 +118,28 @@ void main() {
 
       test('should impact the result', () {
         calculator.positionSize(100).entryPrice(10).exitPrice(15);
-        expect(calculator.value().profitOrLoss, equals(500));
-        expect(calculator.value().returnOnInvestement, equals(0.5));
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(500));
+        expect(result.returnOnInvestement, equals(0.5));
 
         calculator.positionSize(100).entryPrice(5).exitPrice(15);
-        expect(calculator.value().profitOrLoss, equals(1000));
-        expect(calculator.value().returnOnInvestement, equals(2));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(1000));
+        expect(result.returnOnInvestement, equals(2));
 
         calculator.positionSize(100).entryPrice(10).exitPrice(5);
-        expect(calculator.value().profitOrLoss, equals(-500));
-        expect(calculator.value().returnOnInvestement, equals(-0.5));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-500));
+        expect(result.returnOnInvestement, equals(-0.5));
 
         calculator.positionSize(100).entryPrice(7.5).exitPrice(5);
-        expect(calculator.value().profitOrLoss, equals(-250));
-        expect(calculator.value().returnOnInvestement, equals(-1 / 3));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-250));
+        expect(result.returnOnInvestement, equals(-1 / 3));
       });
     });
 
@@ -143,24 +158,34 @@ void main() {
 
       test('should impact the result', () {
         calculator.positionSize(100).entryPrice(10).exitPrice(15);
-        expect(calculator.value().profitOrLoss, equals(500));
-        expect(calculator.value().returnOnInvestement, equals(0.5));
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(500));
+        expect(result.returnOnInvestement, equals(0.5));
 
         calculator.positionSize(100).entryPrice(10).exitPrice(20);
-        expect(calculator.value().profitOrLoss, equals(1000));
-        expect(calculator.value().returnOnInvestement, equals(1));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(1000));
+        expect(result.returnOnInvestement, equals(1));
 
         calculator.positionSize(100).entryPrice(10).exitPrice(5);
-        expect(calculator.value().profitOrLoss, equals(-500));
-        expect(calculator.value().returnOnInvestement, equals(-0.5));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-500));
+        expect(result.returnOnInvestement, equals(-0.5));
 
         calculator.positionSize(100).entryPrice(10).exitPrice(2.5);
-        expect(calculator.value().profitOrLoss, equals(-750));
-        expect(calculator.value().returnOnInvestement, equals(-0.75));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-750));
+        expect(result.returnOnInvestement, equals(-0.75));
 
         calculator.positionSize(100).entryPrice(10).exitPrice(0);
-        expect(calculator.value().profitOrLoss, equals(-1000));
-        expect(calculator.value().returnOnInvestement, equals(-1));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-1000));
+        expect(result.returnOnInvestement, equals(-1));
       });
     });
 
@@ -187,41 +212,50 @@ void main() {
             .entryPrice(10)
             .exitPrice(15)
             .position(MatexPosition.long);
-        expect(calculator.value().profitOrLoss, equals(500));
-        expect(calculator.value().returnOnInvestement, equals(0.5));
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(500));
+        expect(result.returnOnInvestement, equals(0.5));
 
         calculator
             .positionSize(100)
             .entryPrice(10)
             .exitPrice(15)
             .position(MatexPosition.short);
+        result = calculator.value();
 
-        expect(calculator.value().profitOrLoss, equals(-500));
-        expect(calculator.value().returnOnInvestement, equals(-0.5));
+        expect(result.profitOrLoss, equals(-500));
+        expect(result.returnOnInvestement, equals(-0.5));
 
         calculator
             .positionSize(100)
             .entryPrice(10)
             .exitPrice(5)
             .position(MatexPosition.long);
-        expect(calculator.value().profitOrLoss, equals(-500));
-        expect(calculator.value().returnOnInvestement, equals(-0.5));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-500));
+        expect(result.returnOnInvestement, equals(-0.5));
 
         calculator
             .positionSize(100)
             .entryPrice(10)
             .exitPrice(5)
             .position(MatexPosition.short);
-        expect(calculator.value().profitOrLoss, equals(500));
-        expect(calculator.value().returnOnInvestement, equals(0.5));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(500));
+        expect(result.returnOnInvestement, equals(0.5));
 
         calculator
             .positionSize(100)
             .entryPrice(10)
             .exitPrice(30)
             .position(MatexPosition.short);
-        expect(calculator.value().profitOrLoss, equals(-2000));
-        expect(calculator.value().returnOnInvestement, equals(-2));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-2000));
+        expect(result.returnOnInvestement, equals(-2));
       });
     });
 
@@ -254,16 +288,22 @@ void main() {
 
       test('should impact the result', () {
         calculator.positionSize(100).entryPrice(10).exitPrice(15).taxeRate(30);
-        expect(calculator.value().profitOrLoss, equals(350));
-        expect(calculator.value().returnOnInvestement, equals(0.35));
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(350));
+        expect(result.returnOnInvestement, equals(0.35));
 
         calculator.positionSize(100).entryPrice(10).exitPrice(15).taxeRate(15);
-        expect(calculator.value().profitOrLoss, equals(425));
-        expect(calculator.value().returnOnInvestement, equals(0.425));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(425));
+        expect(result.returnOnInvestement, equals(0.425));
 
         calculator.positionSize(100).entryPrice(10).exitPrice(5).taxeRate(15);
-        expect(calculator.value().profitOrLoss, equals(-500));
-        expect(calculator.value().returnOnInvestement, equals(-0.5));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-500));
+        expect(result.returnOnInvestement, equals(-0.5));
 
         calculator
             .positionSize(100)
@@ -271,8 +311,10 @@ void main() {
             .exitPrice(5)
             .taxeRate(30)
             .position(MatexPosition.short);
-        expect(calculator.value().profitOrLoss, equals(350));
-        expect(calculator.value().returnOnInvestement, equals(0.35));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(350));
+        expect(result.returnOnInvestement, equals(0.35));
       });
     });
 
@@ -295,9 +337,11 @@ void main() {
             .entryPrice(10)
             .exitPrice(15)
             .entryFeeAmount(50);
-        expect(calculator.value().profitOrLoss, equals(450));
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(450));
         expect(
-          calculator.value().returnOnInvestement.toStringAsFixed(4),
+          result.returnOnInvestement.toStringAsFixed(4),
           equals('0.4286'),
         );
 
@@ -306,9 +350,11 @@ void main() {
             .entryPrice(10)
             .exitPrice(5)
             .entryFeeAmount(50);
-        expect(calculator.value().profitOrLoss, equals(-550));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-550));
         expect(
-          calculator.value().returnOnInvestement.toStringAsFixed(4),
+          result.returnOnInvestement.toStringAsFixed(4),
           equals('-0.5238'),
         );
 
@@ -318,9 +364,11 @@ void main() {
             .exitPrice(5)
             .entryFeeAmount(50)
             .position(MatexPosition.short);
-        expect(calculator.value().profitOrLoss, equals(450));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(450));
         expect(
-          calculator.value().returnOnInvestement.toStringAsFixed(4),
+          result.returnOnInvestement.toStringAsFixed(4),
           equals('0.4286'),
         );
 
@@ -330,9 +378,11 @@ void main() {
             .exitPrice(15)
             .entryFeeAmount(50)
             .position(MatexPosition.short);
-        expect(calculator.value().profitOrLoss, equals(-550));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-550));
         expect(
-          calculator.value().returnOnInvestement.toStringAsFixed(4),
+          result.returnOnInvestement.toStringAsFixed(4),
           equals('-0.5238'),
         );
       });
@@ -357,16 +407,20 @@ void main() {
             .entryPrice(10)
             .exitPrice(15)
             .exitFeeAmount(50);
-        expect(calculator.value().profitOrLoss, equals(450));
-        expect(calculator.value().returnOnInvestement, equals(0.45));
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(450));
+        expect(result.returnOnInvestement, equals(0.45));
 
         calculator
             .positionSize(100)
             .entryPrice(10)
             .exitPrice(5)
             .exitFeeAmount(50);
-        expect(calculator.value().profitOrLoss, equals(-550));
-        expect(calculator.value().returnOnInvestement, equals(-0.55));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-550));
+        expect(result.returnOnInvestement, equals(-0.55));
 
         calculator
             .positionSize(100)
@@ -374,8 +428,10 @@ void main() {
             .exitPrice(5)
             .exitFeeAmount(50)
             .position(MatexPosition.short);
-        expect(calculator.value().profitOrLoss, equals(450));
-        expect(calculator.value().returnOnInvestement, equals(0.45));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(450));
+        expect(result.returnOnInvestement, equals(0.45));
 
         calculator
             .positionSize(100)
@@ -383,8 +439,10 @@ void main() {
             .exitPrice(15)
             .exitFeeAmount(50)
             .position(MatexPosition.short);
-        expect(calculator.value().profitOrLoss, equals(-550));
-        expect(calculator.value().returnOnInvestement, equals(-0.55));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-550));
+        expect(result.returnOnInvestement, equals(-0.55));
       });
     });
 
@@ -417,16 +475,20 @@ void main() {
             .entryPrice(10)
             .exitPrice(15)
             .exitFeePercentage(10);
-        expect(calculator.value().profitOrLoss, equals(350));
-        expect(calculator.value().returnOnInvestement, equals(0.35));
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(350));
+        expect(result.returnOnInvestement, equals(0.35));
 
         calculator
             .positionSize(100)
             .entryPrice(10)
             .exitPrice(5)
             .exitFeePercentage(10);
-        expect(calculator.value().profitOrLoss, equals(-550));
-        expect(calculator.value().returnOnInvestement, equals(-0.55));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-550));
+        expect(result.returnOnInvestement, equals(-0.55));
 
         calculator
             .positionSize(100)
@@ -434,8 +496,10 @@ void main() {
             .exitPrice(5)
             .exitFeePercentage(10)
             .position(MatexPosition.short);
-        expect(calculator.value().profitOrLoss, equals(450));
-        expect(calculator.value().returnOnInvestement, equals(0.45));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(450));
+        expect(result.returnOnInvestement, equals(0.45));
 
         calculator
             .positionSize(100)
@@ -443,8 +507,10 @@ void main() {
             .exitPrice(15)
             .exitFeePercentage(10)
             .position(MatexPosition.short);
-        expect(calculator.value().profitOrLoss, equals(-650));
-        expect(calculator.value().returnOnInvestement, equals(-0.65));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-650));
+        expect(result.returnOnInvestement, equals(-0.65));
       });
     });
 
@@ -477,9 +543,11 @@ void main() {
             .entryPrice(10)
             .exitPrice(15)
             .entryFeePercentage(10);
-        expect(calculator.value().profitOrLoss, equals(400));
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(400));
         expect(
-          calculator.value().returnOnInvestement.toStringAsFixed(4),
+          result.returnOnInvestement.toStringAsFixed(4),
           equals('0.3636'),
         );
 
@@ -488,9 +556,11 @@ void main() {
             .entryPrice(10)
             .exitPrice(5)
             .entryFeePercentage(10);
-        expect(calculator.value().profitOrLoss, equals(-600));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-600));
         expect(
-          calculator.value().returnOnInvestement.toStringAsFixed(4),
+          result.returnOnInvestement.toStringAsFixed(4),
           equals('-0.5455'),
         );
 
@@ -500,11 +570,10 @@ void main() {
             .exitPrice(5)
             .entryFeePercentage(10)
             .position(MatexPosition.short);
-        expect(calculator.value().profitOrLoss, equals(400));
-        expect(
-          calculator.value().returnOnInvestement.toStringAsFixed(4),
-          equals('0.3636'),
-        );
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(400));
+        expect(result.returnOnInvestement.toStringAsFixed(4), equals('0.3636'));
 
         calculator
             .positionSize(100)
@@ -512,21 +581,29 @@ void main() {
             .exitPrice(15)
             .entryFeePercentage(10)
             .position(MatexPosition.short);
-        expect(calculator.value().profitOrLoss, equals(-600));
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-600));
         expect(
-          calculator.value().returnOnInvestement.toStringAsFixed(4),
+          result.returnOnInvestement.toStringAsFixed(4),
           equals('-0.5455'),
         );
       });
     });
-
     group('#reset()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator.reset(), equals(calculator));
+        expect(calculator is MatexProfitAndLossCalculatorCore, isTrue);
       });
 
       test('should reset the calculator', () {
-        // expect(value, equals(0));
+        var value = calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .exitFeeAmount(50)
+            .reset()
+            .value();
+        expect(value, equals(MatexProfitAndLossResult()));
       });
     });
   });

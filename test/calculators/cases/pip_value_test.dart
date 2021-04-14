@@ -1,25 +1,22 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:matex_dart/matex_dart.dart';
 
+import '../../core/shared/messages.dart';
 import '../samples/config.dart';
 
 void main() {
   group('PipValueCalculator', () {
+    late MatexPipValueCalculator pipValue;
     late MatexApp matex;
 
     setUp(() {
       matex = MatexApp(config: testMatexConfig);
+      pipValue = matex.pipValue();
     });
 
     group('#pipValue()', () {
-      MatexPipValueCalculator? pipValue;
-
-      setUp(() {
-        pipValue = matex.pipValue();
-      });
-
-      test('should return a MatexPipValueCalcultor instance', () {
-        expect(pipValue is MatexPipValueCalculator, equals(true));
+      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        expect(pipValue is MatexPipValueCalculator, isTrue);
       });
     });
   });

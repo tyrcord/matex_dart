@@ -34,7 +34,8 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     final sanitizedValue = sanitizeDouble(tradingPairExchangeRate);
 
     return patchState(
-        MatexBaseCoreState(tradingPairExchangeRate: sanitizedValue));
+      MatexBaseCoreState(tradingPairExchangeRate: sanitizedValue),
+    );
   }
 
   @protected
@@ -56,7 +57,7 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     }
 
     return pipValue *
-        Decimal.parse(counterAccountCurrencyPairExchangeRate.toString());
+        MatexDecimal.fromDouble(counterAccountCurrencyPairExchangeRate!);
   }
 
   @protected

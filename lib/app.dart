@@ -100,4 +100,15 @@ class MatexApp {
       validators: validators,
     );
   }
+
+  MatexForexProfitAndLossCalculator forexProfitAndLoss({
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
+  }) {
+    return matexForexProfitAndLoss(
+      config: config,
+      defaultState: state,
+      validators: validators,
+    );
+  }
 }

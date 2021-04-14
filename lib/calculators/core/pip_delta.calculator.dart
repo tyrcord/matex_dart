@@ -53,15 +53,6 @@ class MatexPipDeltaCalculator
 
     return 0;
   }
-
-  @override
-  Iterable<String> get propertiesUseForDifference => [
-        MatexCoreStateProperty.pipPrecision,
-        MatexCoreStateProperty.counterCode,
-        MatexCoreStateProperty.baseCode,
-        MatexCoreStateProperty.priceA,
-        MatexCoreStateProperty.priceB,
-      ];
 }
 
 MatexPipDeltaCalculator matexPipDelta({
