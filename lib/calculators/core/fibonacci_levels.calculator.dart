@@ -23,6 +23,13 @@ class MatexFibonacciLevelsCalculator extends MatexBaseCalculator<
   Future<FibonacciLevelsResult> value() async {
     return fibonacciLevels(defaultState: state).value();
   }
+
+  @override
+  Iterable<String> get propertiesUseForDifference => [
+        MatexCoreStateProperty.trend,
+        MatexCoreStateProperty.lowPrice,
+        MatexCoreStateProperty.highPrice,
+      ];
 }
 
 MatexFibonacciLevelsCalculator matexFibonacciLevels({

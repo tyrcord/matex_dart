@@ -41,6 +41,22 @@ class MatexStopLossTakeProfitCalculator
 
     return stopLossTakeProfit(defaultState: state).value();
   }
+
+  @override
+  Iterable<String> get propertiesUseForDifference => [
+        MatexCoreStateProperty.accountCode,
+        MatexCoreStateProperty.baseCode,
+        MatexCoreStateProperty.counterCode,
+        MatexCoreStateProperty.entryPrice,
+        MatexCoreStateProperty.positionSize,
+        MatexCoreStateProperty.stopLossAmount,
+        MatexCoreStateProperty.stopLossPips,
+        MatexCoreStateProperty.stopLossPrice,
+        MatexCoreStateProperty.takeProfitAmount,
+        MatexCoreStateProperty.takeProfitPips,
+        MatexCoreStateProperty.takeProfitPrice,
+        MatexCoreStateProperty.position,
+      ];
 }
 
 MatexStopLossTakeProfitCalculator matexStopLossTakeProfit({

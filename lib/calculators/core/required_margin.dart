@@ -40,6 +40,15 @@ class MatexRequiredMarginCalculator extends MatexAbstractPipValueCalculatorCore<
 
     return 0.0;
   }
+
+  @override
+  Iterable<String> get propertiesUseForDifference => [
+        MatexCoreStateProperty.accountCode,
+        MatexCoreStateProperty.baseCode,
+        MatexCoreStateProperty.counterCode,
+        MatexCoreStateProperty.positionSize,
+        MatexCoreStateProperty.leverage,
+      ];
 }
 
 MatexRequiredMarginCalculator matexRequiredMargin({

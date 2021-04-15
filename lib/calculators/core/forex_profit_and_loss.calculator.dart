@@ -70,6 +70,17 @@ class MatexForexProfitAndLossCalculator
       profitOrLoss: (dProfitOrLoss / dRate).toDouble(),
     );
   }
+
+  @override
+  Iterable<String> get propertiesUseForDifference => [
+        MatexCoreStateProperty.accountCode,
+        MatexCoreStateProperty.baseCode,
+        MatexCoreStateProperty.counterCode,
+        MatexCoreStateProperty.position,
+        MatexCoreStateProperty.positionSize,
+        MatexCoreStateProperty.entryPrice,
+        MatexCoreStateProperty.exitPrice,
+      ];
 }
 
 MatexForexProfitAndLossCalculator matexForexProfitAndLoss({

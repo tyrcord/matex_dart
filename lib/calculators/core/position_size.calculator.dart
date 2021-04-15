@@ -37,6 +37,19 @@ class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<
 
     return positionSize(defaultState: state).value();
   }
+
+  @override
+  Iterable<String> get propertiesUseForDifference => [
+        MatexCoreStateProperty.accountCode,
+        MatexCoreStateProperty.baseCode,
+        MatexCoreStateProperty.counterCode,
+        MatexCoreStateProperty.accountSize,
+        MatexCoreStateProperty.amountAtRisk,
+        MatexCoreStateProperty.riskRatio,
+        MatexCoreStateProperty.entryPrice,
+        MatexCoreStateProperty.stopLossPrice,
+        MatexCoreStateProperty.stopLossPips,
+      ];
 }
 
 MatexPositionSizeCalculator matexPositionSize({

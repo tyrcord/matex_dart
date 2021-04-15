@@ -23,6 +23,15 @@ class MatexPivotPointsCalculator extends MatexBaseCalculator<
   Future<MatexPivotPointsResult> value() async {
     return pivotPoints(defaultState: state).value();
   }
+
+  @override
+  Iterable<String> get propertiesUseForDifference => [
+        MatexCoreStateProperty.openPrice,
+        MatexCoreStateProperty.closePrice,
+        MatexCoreStateProperty.lowPrice,
+        MatexCoreStateProperty.highPrice,
+        MatexCoreStateProperty.method,
+      ];
 }
 
 MatexPivotPointsCalculator matexPivotPoints({
