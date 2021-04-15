@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.5.0](https://github.com/tyrcord/matex_dart/releases/tag/0.5.0) (2021-04-15)
+
+### Features
+
+- Added pip delta calculator.
+- Added forex profit and loss calculator.
+- Added profit and loss calculator.
+
+### Enhancements
+
+- Minor improvements.
+
 ## [0.4.3](https://github.com/tyrcord/matex_dart/releases/tag/0.4.3) (2021-04-04)
 
 ### Enhancements
