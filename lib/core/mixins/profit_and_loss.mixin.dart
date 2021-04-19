@@ -41,4 +41,18 @@ mixin MatexProfitAndLossCoreMixin<C extends MatexBaseCalculator<C, R>, R>
   C positionSize(double size) {
     return patchState(MatexBaseCoreState(positionSize: sanitizeDouble(size)));
   }
+
+  C fixedCosts(double costs) {
+    return patchState(MatexBaseCoreState(fixedCosts: sanitizeDouble(costs)));
+  }
+
+  C exitDiscountAmount(double amount) {
+    return patchState(MatexBaseCoreState(exitDiscountAmount: amount));
+  }
+
+  C exitDiscountPercentage(double rate) {
+    return patchState(MatexBaseCoreState(
+      exitDiscountPercentage: sanitizeDouble(rate),
+    ));
+  }
 }

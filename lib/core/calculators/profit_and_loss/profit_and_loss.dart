@@ -25,29 +25,33 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
 
     if (isValid) {
       final dGrossBuyPrice = _computeGrossBuyPrice();
-      final dBuyCommission = _computeBuyCommission(dGrossBuyPrice);
+      final dEntryCosts = _computeEntryCosts(dGrossBuyPrice);
       final dGrossSellPrice = _computeGrossSellPrice();
-      final dSellCommission = _computeSellCommission(dGrossSellPrice);
+      final dExitCosts = _computeExitCosts(dGrossSellPrice);
       final dNetBuyPrice = _computeNetGrossPrice(
         dGrossBuyPrice,
-        dBuyCommission,
+        dEntryCosts,
       );
       final dNetSellPrice = _computeNetSellPrice(
         dGrossSellPrice,
-        dSellCommission,
+        dExitCosts,
       );
       final dGrossPnl = computeGrossProfitOrLoss(
         dGrossBuyPrice,
         dGrossSellPrice,
       );
-      final dNetPnl = dGrossPnl - dBuyCommission - dSellCommission;
+
+      final dFixedCosts = state.fixedCosts != null
+          ? MatexDecimal.fromDouble(state.fixedCosts!)
+          : Decimal.zero;
+      final dNetPnl = dGrossPnl - dEntryCosts - dExitCosts - dFixedCosts;
       final dTaxAmount = computeTaxAmount(dNetPnl);
       final dNetPnlAfterTaxe = dNetPnl - dTaxAmount;
       final dROI = computeReturnOnInvestment(dNetBuyPrice, dNetPnlAfterTaxe);
 
       return MatexProfitAndLossResult(
-        buyCommissionAmount: dBuyCommission.toDouble(),
-        sellCommissionAmount: dSellCommission.toDouble(),
+        entryCostsAmount: dEntryCosts.toDouble(),
+        exitCostsAmount: dExitCosts.toDouble(),
         netSellPrice: dNetSellPrice.toDouble(),
         netBuyPrice: dNetBuyPrice.toDouble(),
         profitOrLoss: dNetPnlAfterTaxe.toDouble(),
@@ -68,26 +72,41 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
   Decimal _computeGrossSellPrice() {
     final dPositionSize = MatexDecimal.fromDouble(state.positionSize!);
     final dExitPrice = MatexDecimal.fromDouble(state.exitPrice!);
-    return dPositionSize * dExitPrice;
+    final exitDiscountPercentage = state.exitDiscountPercentage;
+    final exitDiscountAmount = state.exitDiscountAmount;
+    var dDiscountAmount = Decimal.zero;
+
+    if (exitDiscountPercentage != null && exitDiscountPercentage > 0) {
+      final dExitDiscountPercentage = MatexDecimal.fromDouble(
+        exitDiscountPercentage,
+      );
+
+      final multiplicator = dExitDiscountPercentage / MatexDecimal.hundred;
+      dDiscountAmount = multiplicator * dExitPrice;
+    } else if (exitDiscountAmount != null && exitDiscountAmount > 0) {
+      dDiscountAmount = MatexDecimal.fromDouble(exitDiscountAmount);
+    }
+
+    return dPositionSize * (dExitPrice - dDiscountAmount);
   }
 
-  Decimal _computeBuyCommission(Decimal dGrossBuyPrice) {
-    return _computeCommission(
+  Decimal _computeEntryCosts(Decimal dGrossBuyPrice) {
+    return _computeCosts(
       dGrossBuyPrice,
       state.entryFeeAmount,
       state.entryFeePercentage,
     );
   }
 
-  Decimal _computeSellCommission(Decimal dGrossSellPrice) {
-    return _computeCommission(
+  Decimal _computeExitCosts(Decimal dGrossSellPrice) {
+    return _computeCosts(
       dGrossSellPrice,
       state.exitFeeAmount,
       state.exitFeePercentage,
     );
   }
 
-  Decimal _computeCommission(
+  Decimal _computeCosts(
     Decimal grossPrice,
     double? feeAmount,
     double? feePercentage,
@@ -105,16 +124,16 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
 
   Decimal _computeNetGrossPrice(
     Decimal dGrossSellPrice,
-    Decimal dBuyCommission,
+    Decimal dEntryCosts,
   ) {
-    return dGrossSellPrice + dBuyCommission;
+    return dGrossSellPrice + dEntryCosts;
   }
 
   Decimal _computeNetSellPrice(
     Decimal dGrossSellPrice,
-    Decimal dSellCommission,
+    Decimal dExitCosts,
   ) {
-    return dGrossSellPrice - dSellCommission;
+    return dGrossSellPrice - dExitCosts;
   }
 
   Decimal computeGrossProfitOrLoss(Decimal netBuyPrice, Decimal netSellPrice) {

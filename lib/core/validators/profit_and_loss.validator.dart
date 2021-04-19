@@ -40,4 +40,33 @@ List<MatexStateValidator> profitAndLossValidators = [
 
     return true;
   },
+  (MatexBaseCoreState state) {
+    final exitDiscountPercentage = state.exitDiscountPercentage;
+
+    if (exitDiscountPercentage != null) {
+      return exitDiscountPercentage >= 0 && exitDiscountPercentage <= 100;
+    }
+
+    return true;
+  },
+  (MatexBaseCoreState state) {
+    final exitDiscountAmount = state.exitDiscountAmount;
+
+    if (exitDiscountAmount != null) {
+      final exitPrice = state.exitPrice;
+
+      return exitDiscountAmount >= 0 && exitDiscountAmount <= exitPrice!;
+    }
+
+    return true;
+  },
+  (MatexBaseCoreState state) {
+    final fixedCosts = state.fixedCosts;
+
+    if (fixedCosts != null) {
+      return fixedCosts >= 0;
+    }
+
+    return true;
+  },
 ];

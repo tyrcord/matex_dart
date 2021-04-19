@@ -590,6 +590,171 @@ void main() {
         );
       });
     });
+
+    group('#fixedCosts()', () {
+      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        expect(calculator.fixedCosts(5), equals(calculator));
+      });
+
+      test('should define the fixed costs', () {
+        calculator.fixedCosts(100);
+        expect(calculator.getState().fixedCosts, equals(100));
+
+        calculator.fixedCosts(1000);
+        expect(calculator.getState().fixedCosts, equals(1000));
+      });
+
+      test('should impact the result', () {
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .fixedCosts(50);
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(450));
+        expect(result.returnOnInvestement, equals(0.45));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .fixedCosts(100);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(400));
+        expect(result.returnOnInvestement, equals(0.4));
+
+        calculator.positionSize(100).entryPrice(10).exitPrice(5).fixedCosts(50);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-550));
+        expect(result.returnOnInvestement, equals(-0.55));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(7.5)
+            .exitPrice(5)
+            .fixedCosts(50);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-300));
+        expect(result.returnOnInvestement, equals(-0.4));
+      });
+    });
+
+    group('#exitDiscountAmount()', () {
+      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        expect(calculator.exitDiscountAmount(5), equals(calculator));
+      });
+
+      test('should define the fixed costs', () {
+        calculator.exitDiscountAmount(100);
+        expect(calculator.getState().exitDiscountAmount, equals(100));
+
+        calculator.exitDiscountAmount(1000);
+        expect(calculator.getState().exitDiscountAmount, equals(1000));
+      });
+
+      test('should impact the result', () {
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .exitDiscountAmount(1);
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(400));
+        expect(result.returnOnInvestement, equals(0.4));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .exitDiscountAmount(2);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(300));
+        expect(result.returnOnInvestement, equals(0.3));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(5)
+            .exitDiscountAmount(1);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-600));
+        expect(result.returnOnInvestement, equals(-0.6));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(7.5)
+            .exitPrice(5)
+            .exitDiscountAmount(2);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-450));
+        expect(result.returnOnInvestement, equals(-0.6));
+      });
+    });
+
+    group('#exitDiscountPercentage()', () {
+      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        expect(calculator.exitDiscountPercentage(5), equals(calculator));
+      });
+
+      test('should define the fixed costs', () {
+        calculator.exitDiscountPercentage(5);
+        expect(calculator.getState().exitDiscountPercentage, equals(5));
+
+        calculator.exitDiscountPercentage(10);
+        expect(calculator.getState().exitDiscountPercentage, equals(10));
+      });
+
+      test('should impact the result', () {
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .exitDiscountPercentage(5);
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(425));
+        expect(result.returnOnInvestement, equals(0.425));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .exitDiscountPercentage(10);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(350));
+        expect(result.returnOnInvestement, equals(0.35));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(5)
+            .exitDiscountPercentage(5);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-525));
+        expect(result.returnOnInvestement, equals(-0.525));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(7.5)
+            .exitPrice(5)
+            .exitDiscountPercentage(10);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-300));
+        expect(result.returnOnInvestement, equals(-0.4));
+      });
+    });
+
     group('#reset()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
         expect(calculator is MatexProfitAndLossCalculatorCore, isTrue);

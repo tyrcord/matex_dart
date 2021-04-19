@@ -45,6 +45,9 @@ class MatexBaseCoreState extends TDocument {
   final double? taxeRate;
   final double? priceA;
   final double? priceB;
+  final double? fixedCosts;
+  final double? exitDiscountAmount;
+  final double? exitDiscountPercentage;
 
   @override
   bool get stringify => true;
@@ -90,6 +93,9 @@ class MatexBaseCoreState extends TDocument {
     this.taxeRate,
     this.priceA,
     this.priceB,
+    this.fixedCosts,
+    this.exitDiscountAmount,
+    this.exitDiscountPercentage,
   });
 
   @override
@@ -136,6 +142,9 @@ class MatexBaseCoreState extends TDocument {
       taxeRate: taxeRate,
       priceA: priceA,
       priceB: priceB,
+      fixedCosts: fixedCosts,
+      exitDiscountAmount: exitDiscountAmount,
+      exitDiscountPercentage: exitDiscountPercentage,
     );
   }
 
@@ -185,6 +194,10 @@ class MatexBaseCoreState extends TDocument {
       taxeRate: state.taxeRate ?? taxeRate,
       priceA: state.priceA ?? priceA,
       priceB: state.priceB ?? priceB,
+      fixedCosts: state.fixedCosts ?? fixedCosts,
+      exitDiscountAmount: state.exitDiscountAmount ?? exitDiscountAmount,
+      exitDiscountPercentage:
+          state.exitDiscountPercentage ?? exitDiscountPercentage,
     );
   }
 
@@ -308,7 +321,7 @@ class MatexBaseCoreState extends TDocument {
           ? defaultState?.entryFeeAmount
           : entryFeeAmount,
       exitFeePercentage:
-          properties.contains(MatexCoreStateProperty.exitFeePrecentage)
+          properties.contains(MatexCoreStateProperty.exitFeePercentage)
               ? defaultState?.exitFeePercentage
               : exitFeePercentage,
       exitFeeAmount: properties.contains(MatexCoreStateProperty.exitFeeAmount)
@@ -323,6 +336,17 @@ class MatexBaseCoreState extends TDocument {
       priceB: properties.contains(MatexCoreStateProperty.priceB)
           ? defaultState?.priceB
           : priceB,
+      fixedCosts: properties.contains(MatexCoreStateProperty.fixedCosts)
+          ? defaultState?.fixedCosts
+          : fixedCosts,
+      exitDiscountAmount:
+          properties.contains(MatexCoreStateProperty.exitDiscountAmount)
+              ? defaultState?.exitDiscountAmount
+              : exitDiscountAmount,
+      exitDiscountPercentage:
+          properties.contains(MatexCoreStateProperty.exitDiscountPercentage)
+              ? defaultState?.exitDiscountPercentage
+              : exitDiscountPercentage,
     );
   }
 
@@ -368,6 +392,10 @@ class MatexBaseCoreState extends TDocument {
     double? taxeRate,
     double? priceA,
     double? priceB,
+    double? exitFeePercentage,
+    double? fixedCosts,
+    double? exitDiscountAmount,
+    double? exitDiscountPercentage,
   }) {
     return MatexBaseCoreState(
       accountCode: accountCode ?? this.accountCode,
@@ -414,6 +442,10 @@ class MatexBaseCoreState extends TDocument {
       taxeRate: taxeRate ?? this.taxeRate,
       priceA: priceA ?? this.priceA,
       priceB: priceB ?? this.priceB,
+      fixedCosts: fixedCosts ?? this.fixedCosts,
+      exitDiscountAmount: exitDiscountAmount ?? this.exitDiscountAmount,
+      exitDiscountPercentage:
+          exitDiscountPercentage ?? this.exitDiscountPercentage,
     );
   }
 
@@ -461,6 +493,9 @@ class MatexBaseCoreState extends TDocument {
       'taxeRate': taxeRate,
       'priceA': priceA,
       'priceB': priceB,
+      'fixedCosts': fixedCosts,
+      'exitDiscountAmount': exitDiscountAmount,
+      'exitDiscountPercentage': exitDiscountPercentage,
     };
   }
 
@@ -514,6 +549,9 @@ class MatexBaseCoreState extends TDocument {
       taxeRate: json['taxeRate'] as double?,
       priceA: json['priceA'] as double?,
       priceB: json['priceB'] as double?,
+      fixedCosts: json['fixedCosts'] as double?,
+      exitDiscountAmount: json['exitDiscountAmount'] as double?,
+      exitDiscountPercentage: json['exitDiscountPercentage'] as double?,
     );
   }
 
@@ -559,6 +597,9 @@ class MatexBaseCoreState extends TDocument {
         taxeRate,
         priceA,
         priceB,
+        fixedCosts,
+        exitDiscountAmount,
+        exitDiscountPercentage,
       ];
 
   @override
