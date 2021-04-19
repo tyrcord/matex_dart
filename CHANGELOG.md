@@ -1,5 +1,12 @@
 # Changelog
 
+
+## [0.6.1](https://github.com/tyrcord/matex_dart/releases/tag/0.6.1) (2021-04-19)
+
+### Fixes
+
+- Fixed broken package.
+
 ## [0.6.0](https://github.com/tyrcord/matex_dart/releases/tag/0.6.0) (2021-04-19)
 
 ### Features
@@ -7,7 +14,6 @@
 - Added fixedCosts property to the profit and loss calculator.
 - Added exitDiscountAmount property to the profit and loss calculator.
 - Added exitDiscountPercentage property to the profit and loss calculator.
-
 
 ## [0.5.0](https://github.com/tyrcord/matex_dart/releases/tag/0.5.0) (2021-04-15)
 

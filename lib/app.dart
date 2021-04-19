@@ -111,4 +111,15 @@ class MatexApp {
       validators: validators,
     );
   }
+
+  MatexProfitAndLossCalculator profitAndLoss({
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
+  }) {
+    return matexProfitAndLoss(
+      config: config,
+      defaultState: state,
+      validators: validators,
+    );
+  }
 }
