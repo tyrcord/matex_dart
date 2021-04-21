@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.7.0](https://github.com/tyrcord/matex_dart/releases/tag/0.7.0) (2021-04-21)
+
+### Features
+
+- Added entryFeePercentagePerUnit property to the profit and loss calculator.
+- Added entryFeeAmountPerUnit property to the profit and loss calculator.
+- Added exitFeePercentagePerUnit property to the profit and loss calculator.
+- Added exitFeeAmountPerUnit property to the profit and loss calculator.
 
 ## [0.6.1](https://github.com/tyrcord/matex_dart/releases/tag/0.6.1) (2021-04-19)
 
