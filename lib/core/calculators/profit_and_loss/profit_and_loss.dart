@@ -44,23 +44,55 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
       final dFixedCosts = state.fixedCosts != null
           ? MatexDecimal.fromDouble(state.fixedCosts!)
           : Decimal.zero;
-      final dNetPnl = dGrossPnl - dEntryCosts - dExitCosts - dFixedCosts;
+      final dTotalCosts = dEntryCosts + dExitCosts + dFixedCosts;
+      final dNetPnl = dGrossPnl - dTotalCosts;
       final dTaxAmount = computeTaxAmount(dNetPnl);
       final dNetPnlAfterTaxe = dNetPnl - dTaxAmount;
       final dROI = computeReturnOnInvestment(dNetBuyPrice, dNetPnlAfterTaxe);
+      final dBreakEvenUnits = _computBreakEvenUnits(
+        dFixedCosts,
+        dGrossSellPrice,
+        dGrossBuyPrice,
+        dEntryCosts,
+        dExitCosts,
+      );
 
       return MatexProfitAndLossResult(
+        totalCosts: dTotalCosts.toDouble(),
         entryCostsAmount: dEntryCosts.toDouble(),
         exitCostsAmount: dExitCosts.toDouble(),
+        grossSellPrice: dGrossSellPrice.toDouble(),
+        grossBuyPrice: dGrossBuyPrice.toDouble(),
         netSellPrice: dNetSellPrice.toDouble(),
         netBuyPrice: dNetBuyPrice.toDouble(),
         profitOrLoss: dNetPnlAfterTaxe.toDouble(),
         returnOnInvestement: dROI.toDouble(),
         taxAmount: dTaxAmount.toDouble(),
+        breakEvenUnits: dBreakEvenUnits.toDouble(),
       );
     }
 
     return MatexProfitAndLossResult();
+  }
+
+  Decimal _computBreakEvenUnits(
+    Decimal dFixedCosts,
+    Decimal dGrossSellPrice,
+    Decimal dGrossBuyPrice,
+    Decimal dEntryCosts,
+    Decimal dExitCosts,
+  ) {
+    if (dFixedCosts > Decimal.zero) {
+      final dFraction =
+          dGrossSellPrice - dGrossBuyPrice - dEntryCosts - dExitCosts;
+
+      if (dFraction > Decimal.zero) {
+        final dPositionSize = MatexDecimal.fromDouble(state.positionSize!);
+        return (dFixedCosts / dFraction * dPositionSize).ceil();
+      }
+    }
+
+    return Decimal.zero;
   }
 
   Decimal _computeGrossBuyPrice() {

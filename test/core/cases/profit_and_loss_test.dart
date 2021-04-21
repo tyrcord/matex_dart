@@ -61,6 +61,30 @@ void main() {
       test(SHOULD_MEMOIZE_LAST_VALUE, () {
         expect(calculator.value(), equals(calculator.value()));
       });
+
+      test('Should return proper results', () {
+        calculator
+            .fixedCosts(100)
+            .positionSize(100)
+            .entryPrice(10)
+            .entryFeeAmountPerUnit(1)
+            .exitPrice(20)
+            .exitFeeAmountPerUnit(1)
+            .taxeRate(30);
+        var result = calculator.value();
+
+        expect(result.entryCostsAmount, equals(100));
+        expect(result.exitCostsAmount, equals(100));
+        expect(result.totalCosts, equals(300));
+        expect(result.grossBuyPrice, equals(1000));
+        expect(result.netBuyPrice, equals(1100));
+        expect(result.grossSellPrice, equals(2000));
+        expect(result.netSellPrice, equals(1900));
+        expect(result.profitOrLoss, equals(490));
+        expect(result.taxAmount, equals(210));
+        expect(result.breakEvenUnits, equals(13));
+        expect(result.returnOnInvestement.toStringAsFixed(4), equals('0.4455'));
+      });
     });
 
     group('#positionSize()', () {
