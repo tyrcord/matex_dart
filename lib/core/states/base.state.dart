@@ -48,6 +48,10 @@ class MatexBaseCoreState extends TDocument {
   final double? fixedCosts;
   final double? exitDiscountAmount;
   final double? exitDiscountPercentage;
+  final double? entryFeePercentagePerUnit;
+  final double? entryFeeAmountPerUnit;
+  final double? exitFeePercentagePerUnit;
+  final double? exitFeeAmountPerUnit;
 
   @override
   bool get stringify => true;
@@ -96,6 +100,10 @@ class MatexBaseCoreState extends TDocument {
     this.fixedCosts,
     this.exitDiscountAmount,
     this.exitDiscountPercentage,
+    this.entryFeePercentagePerUnit,
+    this.entryFeeAmountPerUnit,
+    this.exitFeePercentagePerUnit,
+    this.exitFeeAmountPerUnit,
   });
 
   @override
@@ -145,6 +153,10 @@ class MatexBaseCoreState extends TDocument {
       fixedCosts: fixedCosts,
       exitDiscountAmount: exitDiscountAmount,
       exitDiscountPercentage: exitDiscountPercentage,
+      entryFeePercentagePerUnit: entryFeePercentagePerUnit,
+      entryFeeAmountPerUnit: entryFeeAmountPerUnit,
+      exitFeePercentagePerUnit: exitFeePercentagePerUnit,
+      exitFeeAmountPerUnit: exitFeeAmountPerUnit,
     );
   }
 
@@ -198,6 +210,13 @@ class MatexBaseCoreState extends TDocument {
       exitDiscountAmount: state.exitDiscountAmount ?? exitDiscountAmount,
       exitDiscountPercentage:
           state.exitDiscountPercentage ?? exitDiscountPercentage,
+      entryFeePercentagePerUnit:
+          state.entryFeePercentagePerUnit ?? entryFeePercentagePerUnit,
+      entryFeeAmountPerUnit:
+          state.entryFeeAmountPerUnit ?? entryFeeAmountPerUnit,
+      exitFeePercentagePerUnit:
+          state.exitFeePercentagePerUnit ?? exitFeePercentagePerUnit,
+      exitFeeAmountPerUnit: state.exitFeeAmountPerUnit ?? exitFeeAmountPerUnit,
     );
   }
 
@@ -347,6 +366,22 @@ class MatexBaseCoreState extends TDocument {
           properties.contains(MatexCoreStateProperty.exitDiscountPercentage)
               ? defaultState?.exitDiscountPercentage
               : exitDiscountPercentage,
+      entryFeePercentagePerUnit:
+          properties.contains(MatexCoreStateProperty.entryFeePercentagePerUnit)
+              ? defaultState?.entryFeePercentagePerUnit
+              : entryFeePercentagePerUnit,
+      entryFeeAmountPerUnit:
+          properties.contains(MatexCoreStateProperty.entryFeeAmountPerUnit)
+              ? defaultState?.entryFeeAmountPerUnit
+              : entryFeeAmountPerUnit,
+      exitFeePercentagePerUnit:
+          properties.contains(MatexCoreStateProperty.exitFeePercentagePerUnit)
+              ? defaultState?.exitFeePercentagePerUnit
+              : exitFeePercentagePerUnit,
+      exitFeeAmountPerUnit:
+          properties.contains(MatexCoreStateProperty.exitFeeAmountPerUnit)
+              ? defaultState?.exitFeeAmountPerUnit
+              : exitFeeAmountPerUnit,
     );
   }
 
@@ -396,6 +431,10 @@ class MatexBaseCoreState extends TDocument {
     double? fixedCosts,
     double? exitDiscountAmount,
     double? exitDiscountPercentage,
+    double? entryFeePercentagePerUnit,
+    double? entryFeeAmountPerUnit,
+    double? exitFeePercentagePerUnit,
+    double? exitFeeAmountPerUnit,
   }) {
     return MatexBaseCoreState(
       accountCode: accountCode ?? this.accountCode,
@@ -446,6 +485,13 @@ class MatexBaseCoreState extends TDocument {
       exitDiscountAmount: exitDiscountAmount ?? this.exitDiscountAmount,
       exitDiscountPercentage:
           exitDiscountPercentage ?? this.exitDiscountPercentage,
+      entryFeePercentagePerUnit:
+          entryFeePercentagePerUnit ?? this.entryFeePercentagePerUnit,
+      entryFeeAmountPerUnit:
+          entryFeeAmountPerUnit ?? this.entryFeeAmountPerUnit,
+      exitFeePercentagePerUnit:
+          exitFeePercentagePerUnit ?? this.exitFeePercentagePerUnit,
+      exitFeeAmountPerUnit: exitFeeAmountPerUnit ?? this.exitFeeAmountPerUnit,
     );
   }
 
@@ -496,6 +542,10 @@ class MatexBaseCoreState extends TDocument {
       'fixedCosts': fixedCosts,
       'exitDiscountAmount': exitDiscountAmount,
       'exitDiscountPercentage': exitDiscountPercentage,
+      'entryFeePercentagePerUnit': entryFeePercentagePerUnit,
+      'entryFeeAmountPerUnit': entryFeeAmountPerUnit,
+      'exitFeePercentagePerUnit': exitFeePercentagePerUnit,
+      'exitFeeAmountPerUnit': exitFeeAmountPerUnit,
     };
   }
 
@@ -552,6 +602,10 @@ class MatexBaseCoreState extends TDocument {
       fixedCosts: json['fixedCosts'] as double?,
       exitDiscountAmount: json['exitDiscountAmount'] as double?,
       exitDiscountPercentage: json['exitDiscountPercentage'] as double?,
+      entryFeePercentagePerUnit: json['entryFeePercentagePerUnit'] as double?,
+      entryFeeAmountPerUnit: json['entryFeeAmountPerUnit'] as double?,
+      exitFeePercentagePerUnit: json['exitFeePercentagePerUnit'] as double?,
+      exitFeeAmountPerUnit: json['exitFeeAmountPerUnit'] as double?,
     );
   }
 
@@ -600,6 +654,10 @@ class MatexBaseCoreState extends TDocument {
         fixedCosts,
         exitDiscountAmount,
         exitDiscountPercentage,
+        entryFeePercentagePerUnit,
+        entryFeeAmountPerUnit,
+        exitFeePercentagePerUnit,
+        exitFeeAmountPerUnit,
       ];
 
   @override

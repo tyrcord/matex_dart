@@ -69,4 +69,40 @@ List<MatexStateValidator> profitAndLossValidators = [
 
     return true;
   },
+  (MatexBaseCoreState state) {
+    final fee = state.entryFeePercentagePerUnit;
+
+    if (fee != null) {
+      return fee >= 0 && fee <= 100;
+    }
+
+    return true;
+  },
+  (MatexBaseCoreState state) {
+    final fee = state.entryFeeAmountPerUnit;
+
+    if (fee != null) {
+      return fee >= 0;
+    }
+
+    return true;
+  },
+  (MatexBaseCoreState state) {
+    final fee = state.exitFeePercentagePerUnit;
+
+    if (fee != null) {
+      return fee >= 0 && fee <= 100;
+    }
+
+    return true;
+  },
+  (MatexBaseCoreState state) {
+    final fee = state.exitFeeAmountPerUnit;
+
+    if (fee != null) {
+      return fee >= 0;
+    }
+
+    return true;
+  },
 ];

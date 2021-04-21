@@ -388,6 +388,76 @@ void main() {
       });
     });
 
+    group('#entryFeeAmountPerUnit()', () {
+      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        expect(calculator.entryFeeAmountPerUnit(1), equals(calculator));
+      });
+
+      test('should define the entry fee amount', () {
+        calculator.entryFeeAmountPerUnit(1);
+        expect(calculator.getState().entryFeeAmountPerUnit, equals(1));
+
+        calculator.entryFeeAmountPerUnit(2);
+        expect(calculator.getState().entryFeeAmountPerUnit, equals(2));
+      });
+
+      test('should impact the result', () {
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .entryFeeAmountPerUnit(1);
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(400));
+        expect(
+          result.returnOnInvestement.toStringAsFixed(4),
+          equals('0.3636'),
+        );
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(5)
+            .entryFeeAmountPerUnit(1);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-600));
+        expect(
+          result.returnOnInvestement.toStringAsFixed(4),
+          equals('-0.5455'),
+        );
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(5)
+            .entryFeeAmountPerUnit(1)
+            .position(MatexPosition.short);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(400));
+        expect(
+          result.returnOnInvestement.toStringAsFixed(4),
+          equals('0.3636'),
+        );
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .entryFeeAmountPerUnit(1)
+            .position(MatexPosition.short);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-600));
+        expect(
+          result.returnOnInvestement.toStringAsFixed(4),
+          equals('-0.5455'),
+        );
+      });
+    });
+
     group('#exitFeeAmount()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
         expect(calculator.exitFeeAmount(100), equals(calculator));
@@ -443,6 +513,64 @@ void main() {
 
         expect(result.profitOrLoss, equals(-550));
         expect(result.returnOnInvestement, equals(-0.55));
+      });
+    });
+
+    group('#exitFeeAmountPerUnit()', () {
+      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        expect(calculator.exitFeeAmountPerUnit(1), equals(calculator));
+      });
+
+      test('should define the exit fee amount per unit', () {
+        calculator.exitFeeAmountPerUnit(1);
+        expect(calculator.getState().exitFeeAmountPerUnit, equals(1));
+
+        calculator.exitFeeAmountPerUnit(2);
+        expect(calculator.getState().exitFeeAmountPerUnit, equals(2));
+      });
+
+      test('should impact the result', () {
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .exitFeeAmountPerUnit(1);
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(400));
+        expect(result.returnOnInvestement, equals(0.4));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(5)
+            .exitFeeAmountPerUnit(1);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-600));
+        expect(result.returnOnInvestement, equals(-0.6));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(5)
+            .exitFeeAmountPerUnit(1)
+            .position(MatexPosition.short);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(400));
+        expect(result.returnOnInvestement, equals(0.4));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .exitFeeAmountPerUnit(1)
+            .position(MatexPosition.short);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-600));
+        expect(result.returnOnInvestement, equals(-0.6));
       });
     });
 
@@ -511,6 +639,74 @@ void main() {
 
         expect(result.profitOrLoss, equals(-650));
         expect(result.returnOnInvestement, equals(-0.65));
+      });
+    });
+
+    group('#exitFeePercentagePerUnit()', () {
+      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        expect(calculator.exitFeePercentagePerUnit(1), equals(calculator));
+      });
+
+      test('should invalid the state when its value is less than 0', () {
+        calculator.exitFeePercentagePerUnit(-1);
+        expect(calculator.isValid, isFalse);
+      });
+
+      test('should invalid the state when its value is greater than 100', () {
+        calculator.exitFeePercentagePerUnit(101);
+        expect(calculator.isValid, isFalse);
+      });
+
+      test('should define the exit fee amount', () {
+        calculator.exitFeePercentagePerUnit(1);
+        expect(calculator.getState().exitFeePercentagePerUnit, equals(1));
+
+        calculator.exitFeePercentagePerUnit(2);
+        expect(calculator.getState().exitFeePercentagePerUnit, equals(2));
+      });
+
+      test('should impact the result', () {
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .exitFeePercentagePerUnit(1);
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(485));
+        expect(result.returnOnInvestement, equals(0.485));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(5)
+            .exitFeePercentagePerUnit(1);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-505));
+        expect(result.returnOnInvestement, equals(-0.505));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(5)
+            .exitFeePercentagePerUnit(1)
+            .position(MatexPosition.short);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(495));
+        expect(result.returnOnInvestement, equals(0.495));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .exitFeePercentagePerUnit(1)
+            .position(MatexPosition.short);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-515));
+        expect(result.returnOnInvestement, equals(-0.515));
       });
     });
 
@@ -587,6 +783,83 @@ void main() {
         expect(
           result.returnOnInvestement.toStringAsFixed(4),
           equals('-0.5455'),
+        );
+      });
+    });
+
+    group('#entryFeePercentagePerUnit()', () {
+      test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        expect(calculator.entryFeePercentagePerUnit(1), equals(calculator));
+      });
+
+      test('should invalid the state when its value is less than 0', () {
+        calculator.entryFeePercentagePerUnit(-1);
+        expect(calculator.isValid, isFalse);
+      });
+
+      test('should invalid the state when its value is greater than 100', () {
+        calculator.entryFeePercentagePerUnit(101);
+        expect(calculator.isValid, isFalse);
+      });
+
+      test('should define the entry fee percentage', () {
+        calculator.entryFeePercentagePerUnit(1);
+        expect(calculator.getState().entryFeePercentagePerUnit, equals(1));
+
+        calculator.entryFeePercentagePerUnit(2);
+        expect(calculator.getState().entryFeePercentagePerUnit, equals(2));
+      });
+
+      test('should impact the result', () {
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .entryFeePercentagePerUnit(1);
+        var result = calculator.value();
+
+        expect(result.profitOrLoss, equals(490));
+        expect(
+          result.returnOnInvestement.toStringAsFixed(4),
+          equals('0.4851'),
+        );
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(5)
+            .entryFeePercentagePerUnit(1);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-510));
+        expect(
+          result.returnOnInvestement.toStringAsFixed(4),
+          equals('-0.5050'),
+        );
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(5)
+            .entryFeePercentagePerUnit(1)
+            .position(MatexPosition.short);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(490));
+        expect(result.returnOnInvestement.toStringAsFixed(4), equals('0.4851'));
+
+        calculator
+            .positionSize(100)
+            .entryPrice(10)
+            .exitPrice(15)
+            .entryFeePercentagePerUnit(1)
+            .position(MatexPosition.short);
+        result = calculator.value();
+
+        expect(result.profitOrLoss, equals(-510));
+        expect(
+          result.returnOnInvestement.toStringAsFixed(4),
+          equals('-0.5050'),
         );
       });
     });

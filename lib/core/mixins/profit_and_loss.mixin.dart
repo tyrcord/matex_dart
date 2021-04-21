@@ -55,4 +55,28 @@ mixin MatexProfitAndLossCoreMixin<C extends MatexBaseCalculator<C, R>, R>
       exitDiscountPercentage: sanitizeDouble(rate),
     ));
   }
+
+  C entryFeePercentagePerUnit(double fee) {
+    return patchState(MatexBaseCoreState(
+      entryFeePercentagePerUnit: sanitizeDouble(fee),
+    ));
+  }
+
+  C entryFeeAmountPerUnit(double fee) {
+    return patchState(
+      MatexBaseCoreState(entryFeeAmountPerUnit: sanitizeDouble(fee)),
+    );
+  }
+
+  C exitFeePercentagePerUnit(double fee) {
+    return patchState(
+      MatexBaseCoreState(exitFeePercentagePerUnit: sanitizeDouble(fee)),
+    );
+  }
+
+  C exitFeeAmountPerUnit(double fee) {
+    return patchState(
+      MatexBaseCoreState(exitFeeAmountPerUnit: sanitizeDouble(fee)),
+    );
+  }
 }

@@ -91,19 +91,53 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
   }
 
   Decimal _computeEntryCosts(Decimal dGrossBuyPrice) {
-    return _computeCosts(
-      dGrossBuyPrice,
-      state.entryFeeAmount,
-      state.entryFeePercentage,
-    );
+    var entryFeePercentage = state.entryFeePercentage;
+    var entryFeeAmount = state.entryFeeAmount;
+
+    if (entryFeeAmount == null) {
+      if (state.entryFeeAmountPerUnit != null) {
+        final dPositionSize = MatexDecimal.fromDouble(state.positionSize!);
+        final dAmountPerUnit = MatexDecimal.fromDouble(
+          state.entryFeeAmountPerUnit!,
+        );
+
+        entryFeeAmount = (dAmountPerUnit * dPositionSize).toDouble();
+      } else if (state.entryFeePercentagePerUnit != null) {
+        final dPercent = MatexDecimal.fromDouble(
+          state.entryFeePercentagePerUnit!,
+        );
+
+        final multiplicator = dPercent / MatexDecimal.hundred;
+        entryFeeAmount = (dGrossBuyPrice * multiplicator).toDouble();
+      }
+    }
+
+    return _computeCosts(dGrossBuyPrice, entryFeeAmount, entryFeePercentage);
   }
 
   Decimal _computeExitCosts(Decimal dGrossSellPrice) {
-    return _computeCosts(
-      dGrossSellPrice,
-      state.exitFeeAmount,
-      state.exitFeePercentage,
-    );
+    var exitFeePercentage = state.exitFeePercentage;
+    var exitFeeAmount = state.exitFeeAmount;
+
+    if (exitFeeAmount == null) {
+      if (state.exitFeeAmountPerUnit != null) {
+        final dPositionSize = MatexDecimal.fromDouble(state.positionSize!);
+        final dAmountPerUnit = MatexDecimal.fromDouble(
+          state.exitFeeAmountPerUnit!,
+        );
+
+        exitFeeAmount = (dAmountPerUnit * dPositionSize).toDouble();
+      } else if (state.exitFeePercentagePerUnit != null) {
+        final dPercent = MatexDecimal.fromDouble(
+          state.exitFeePercentagePerUnit!,
+        );
+
+        final multiplicator = dPercent / MatexDecimal.hundred;
+        exitFeeAmount = (dGrossSellPrice * multiplicator).toDouble();
+      }
+    }
+
+    return _computeCosts(dGrossSellPrice, exitFeeAmount, exitFeePercentage);
   }
 
   Decimal _computeCosts(
@@ -114,9 +148,9 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
     if (feeAmount != null && feeAmount > 0) {
       return MatexDecimal.fromDouble(feeAmount);
     } else if (feePercentage != null && feePercentage > 0) {
-      final dPercentage =
+      final dPercent =
           MatexDecimal.fromDouble(feePercentage) / MatexDecimal.hundred;
-      return grossPrice * dPercentage;
+      return grossPrice * dPercent;
     }
 
     return Decimal.zero;

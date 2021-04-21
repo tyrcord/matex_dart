@@ -44,4 +44,8 @@ class MatexCoreStateProperty {
   static const String fixedCosts = 'fixedCosts';
   static const String exitDiscountAmount = 'exitDiscountAmount';
   static const String exitDiscountPercentage = 'exitDiscountPercentage';
+  static const String entryFeePercentagePerUnit = 'entryFeePercentagePerUnit';
+  static const String entryFeeAmountPerUnit = 'entryFeeAmountPerUnit';
+  static const String exitFeePercentagePerUnit = 'exitFeePercentagePerUnit';
+  static const String exitFeeAmountPerUnit = 'exitFeeAmountPerUnit';
 }
