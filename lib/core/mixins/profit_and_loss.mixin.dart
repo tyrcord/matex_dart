@@ -11,23 +11,43 @@ mixin MatexProfitAndLossCoreMixin<C extends MatexBaseCalculator<C, R>, R>
   }
 
   C entryFeeAmount(double fee) {
-    return patchState(MatexBaseCoreState(entryFeeAmount: sanitizeDouble(fee)));
+    patchState(MatexBaseCoreState(entryFeeAmount: sanitizeDouble(fee)));
+
+    return resetStateProperties([
+      MatexCoreStateProperty.entryFeePercentagePerUnit,
+      MatexCoreStateProperty.entryFeeAmountPerUnit,
+      MatexCoreStateProperty.entryFeePercentage,
+    ]);
   }
 
   C exitFeeAmount(double fee) {
-    return patchState(MatexBaseCoreState(exitFeeAmount: sanitizeDouble(fee)));
+    patchState(MatexBaseCoreState(exitFeeAmount: sanitizeDouble(fee)));
+
+    return resetStateProperties([
+      MatexCoreStateProperty.exitFeeAmountPerUnit,
+      MatexCoreStateProperty.exitFeePercentage,
+      MatexCoreStateProperty.exitFeePercentagePerUnit,
+    ]);
   }
 
   C entryFeePercentage(double fee) {
-    return patchState(
-      MatexBaseCoreState(entryFeePercentage: sanitizeDouble(fee)),
-    );
+    patchState(MatexBaseCoreState(entryFeePercentage: sanitizeDouble(fee)));
+
+    return resetStateProperties([
+      MatexCoreStateProperty.entryFeePercentagePerUnit,
+      MatexCoreStateProperty.entryFeeAmountPerUnit,
+      MatexCoreStateProperty.entryFeeAmount,
+    ]);
   }
 
   C exitFeePercentage(double fee) {
-    return patchState(
-      MatexBaseCoreState(exitFeePercentage: sanitizeDouble(fee)),
-    );
+    patchState(MatexBaseCoreState(exitFeePercentage: sanitizeDouble(fee)));
+
+    return resetStateProperties([
+      MatexCoreStateProperty.exitFeeAmount,
+      MatexCoreStateProperty.exitFeeAmountPerUnit,
+      MatexCoreStateProperty.exitFeePercentagePerUnit,
+    ]);
   }
 
   C taxeRate(double rate) {
@@ -47,36 +67,64 @@ mixin MatexProfitAndLossCoreMixin<C extends MatexBaseCalculator<C, R>, R>
   }
 
   C exitDiscountAmount(double amount) {
-    return patchState(MatexBaseCoreState(exitDiscountAmount: amount));
+    patchState(MatexBaseCoreState(exitDiscountAmount: amount));
+
+    return resetStateProperties([
+      MatexCoreStateProperty.exitDiscountPercentage,
+    ]);
   }
 
   C exitDiscountPercentage(double rate) {
-    return patchState(MatexBaseCoreState(
-      exitDiscountPercentage: sanitizeDouble(rate),
-    ));
+    patchState(
+      MatexBaseCoreState(exitDiscountPercentage: sanitizeDouble(rate)),
+    );
+
+    return resetStateProperties([
+      MatexCoreStateProperty.exitDiscountAmount,
+    ]);
   }
 
   C entryFeePercentagePerUnit(double fee) {
-    return patchState(MatexBaseCoreState(
+    patchState(MatexBaseCoreState(
       entryFeePercentagePerUnit: sanitizeDouble(fee),
     ));
+
+    return resetStateProperties([
+      MatexCoreStateProperty.entryFeeAmountPerUnit,
+      MatexCoreStateProperty.entryFeePercentage,
+      MatexCoreStateProperty.entryFeeAmount,
+    ]);
   }
 
   C entryFeeAmountPerUnit(double fee) {
-    return patchState(
-      MatexBaseCoreState(entryFeeAmountPerUnit: sanitizeDouble(fee)),
-    );
+    patchState(MatexBaseCoreState(entryFeeAmountPerUnit: sanitizeDouble(fee)));
+
+    return resetStateProperties([
+      MatexCoreStateProperty.entryFeePercentagePerUnit,
+      MatexCoreStateProperty.entryFeePercentage,
+      MatexCoreStateProperty.entryFeeAmount,
+    ]);
   }
 
   C exitFeePercentagePerUnit(double fee) {
-    return patchState(
+    patchState(
       MatexBaseCoreState(exitFeePercentagePerUnit: sanitizeDouble(fee)),
     );
+
+    return resetStateProperties([
+      MatexCoreStateProperty.exitFeeAmountPerUnit,
+      MatexCoreStateProperty.exitFeePercentage,
+      MatexCoreStateProperty.exitFeeAmount,
+    ]);
   }
 
   C exitFeeAmountPerUnit(double fee) {
-    return patchState(
-      MatexBaseCoreState(exitFeeAmountPerUnit: sanitizeDouble(fee)),
-    );
+    patchState(MatexBaseCoreState(exitFeeAmountPerUnit: sanitizeDouble(fee)));
+
+    return resetStateProperties([
+      MatexCoreStateProperty.exitFeePercentagePerUnit,
+      MatexCoreStateProperty.exitFeePercentage,
+      MatexCoreStateProperty.exitFeeAmount,
+    ]);
   }
 }
