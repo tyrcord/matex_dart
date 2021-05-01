@@ -70,7 +70,7 @@ void main() {
             .entryFeeAmountPerUnit(1)
             .exitPrice(20)
             .exitFeeAmountPerUnit(1)
-            .taxeRate(30);
+            .taxRate(30);
         var result = calculator.value();
 
         expect(result.entryCostsAmount, equals(100));
@@ -283,47 +283,47 @@ void main() {
       });
     });
 
-    group('#taxeRate()', () {
+    group('#taxRate()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        expect(calculator.taxeRate(30), equals(calculator));
+        expect(calculator.taxRate(30), equals(calculator));
       });
 
       test('should be equal to 0 by default', () {
-        expect(calculator.getState().taxeRate, equals(0));
+        expect(calculator.getState().taxRate, equals(0));
       });
 
       test('should invalid the state when its value is less than 0', () {
-        calculator.taxeRate(-1);
+        calculator.taxRate(-1);
         expect(calculator.isValid, isFalse);
       });
 
       test('should invalid the state when its value is greater than 100', () {
-        calculator.taxeRate(101);
+        calculator.taxRate(101);
         expect(calculator.isValid, isFalse);
       });
 
       test('should define the tax rate', () {
-        calculator.taxeRate(30);
-        expect(calculator.getState().taxeRate, equals(30));
+        calculator.taxRate(30);
+        expect(calculator.getState().taxRate, equals(30));
 
-        calculator.taxeRate(15);
-        expect(calculator.getState().taxeRate, equals(15));
+        calculator.taxRate(15);
+        expect(calculator.getState().taxRate, equals(15));
       });
 
       test('should impact the result', () {
-        calculator.positionSize(100).entryPrice(10).exitPrice(15).taxeRate(30);
+        calculator.positionSize(100).entryPrice(10).exitPrice(15).taxRate(30);
         var result = calculator.value();
 
         expect(result.profitOrLoss, equals(350));
         expect(result.returnOnInvestement, equals(0.35));
 
-        calculator.positionSize(100).entryPrice(10).exitPrice(15).taxeRate(15);
+        calculator.positionSize(100).entryPrice(10).exitPrice(15).taxRate(15);
         result = calculator.value();
 
         expect(result.profitOrLoss, equals(425));
         expect(result.returnOnInvestement, equals(0.425));
 
-        calculator.positionSize(100).entryPrice(10).exitPrice(5).taxeRate(15);
+        calculator.positionSize(100).entryPrice(10).exitPrice(5).taxRate(15);
         result = calculator.value();
 
         expect(result.profitOrLoss, equals(-500));
@@ -333,7 +333,7 @@ void main() {
             .positionSize(100)
             .entryPrice(10)
             .exitPrice(5)
-            .taxeRate(30)
+            .taxRate(30)
             .position(MatexPosition.short);
         result = calculator.value();
 

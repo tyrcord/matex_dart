@@ -38,7 +38,7 @@ class MatexCoreStateProperty {
   static const String entryFeeAmount = 'entryFeeAmount';
   static const String exitFeePercentage = 'exitFeePercentage';
   static const String exitFeeAmount = 'exitFeeAmount';
-  static const String taxeRate = 'taxeRate';
+  static const String taxRate = 'taxRate';
   static const String priceA = 'priceA';
   static const String priceB = 'priceB';
   static const String fixedCosts = 'fixedCosts';

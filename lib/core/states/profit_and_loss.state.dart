@@ -6,5 +6,5 @@ const kInitialProfitAndLossState = MatexBaseCoreState(
   fixedCosts: 0,
   entryPrice: 0,
   exitPrice: 0,
-  taxeRate: 0,
+  taxRate: 0,
 );

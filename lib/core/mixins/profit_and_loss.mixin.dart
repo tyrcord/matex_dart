@@ -50,8 +50,8 @@ mixin MatexProfitAndLossCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     ]);
   }
 
-  C taxeRate(double rate) {
-    return patchState(MatexBaseCoreState(taxeRate: sanitizeDouble(rate)));
+  C taxRate(double rate) {
+    return patchState(MatexBaseCoreState(taxRate: sanitizeDouble(rate)));
   }
 
   C position(MatexPosition position) {

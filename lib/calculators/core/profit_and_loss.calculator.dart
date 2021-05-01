@@ -36,7 +36,7 @@ class MatexProfitAndLossCalculator extends MatexBaseCalculator<
         MatexCoreStateProperty.exitFeeAmountPerUnit,
         MatexCoreStateProperty.exitDiscountPercentage,
         MatexCoreStateProperty.exitDiscountAmount,
-        MatexCoreStateProperty.taxeRate,
+        MatexCoreStateProperty.taxRate,
       ];
 }
 

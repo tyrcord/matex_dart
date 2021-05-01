@@ -14,10 +14,10 @@ List<MatexStateValidator> profitAndLossValidators = [
     return entryPrice > 0 && exitPrice >= 0 && positionSize > 0;
   },
   (MatexBaseCoreState state) {
-    final taxeRate = state.taxeRate;
+    final taxRate = state.taxRate;
 
-    if (taxeRate != null) {
-      return taxeRate >= 0 && taxeRate <= 100;
+    if (taxRate != null) {
+      return taxRate >= 0 && taxRate <= 100;
     }
 
     return true;

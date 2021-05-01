@@ -221,8 +221,8 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
   }
 
   Decimal computeTaxAmount(Decimal grossPnl) {
-    if (!grossPnl.isNegative && state.taxeRate != null && state.taxeRate! > 0) {
-      final taxPercentage = state.taxeRate! / 100;
+    if (!grossPnl.isNegative && state.taxRate != null && state.taxRate! > 0) {
+      final taxPercentage = state.taxRate! / 100;
       return grossPnl * MatexDecimal.fromDouble(taxPercentage);
     }
 
