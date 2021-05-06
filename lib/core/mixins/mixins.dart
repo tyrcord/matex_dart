@@ -1,3 +1,4 @@
+export './dividend_reinvestment.mixin.dart';
 export './fibonacci_levels.mixin.dart';
 export './lot.mixin.dart';
 export './pip_delta.mixin.dart';

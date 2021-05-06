@@ -74,7 +74,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(220),
         );
         expect(
@@ -90,7 +90,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(174.40),
         );
         expect(
@@ -106,7 +106,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(210),
         );
         expect(
@@ -122,7 +122,7 @@ void main() {
         results = calculator.taxRate(20).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(168.00),
         );
         expect(
@@ -148,7 +148,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(225.76),
         );
         expect(
@@ -164,7 +164,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(178.02),
         );
         expect(
@@ -180,7 +180,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(210.00),
         );
         expect(
@@ -196,7 +196,7 @@ void main() {
         results = calculator.taxRate(20).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(168.00),
         );
         expect(
@@ -222,7 +222,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(228.78),
         );
         expect(
@@ -238,7 +238,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(179.90),
         );
         expect(
@@ -254,7 +254,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(210),
         );
         expect(
@@ -270,7 +270,7 @@ void main() {
         results = calculator.taxRate(20).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(168.00),
         );
         expect(
@@ -296,7 +296,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(230.86),
         );
         expect(
@@ -312,7 +312,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(181.19),
         );
         expect(
@@ -328,7 +328,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(210.00),
         );
         expect(
@@ -344,7 +344,7 @@ void main() {
         results = calculator.taxRate(20).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(168.00),
         );
         expect(
@@ -371,7 +371,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(210.00),
         );
         expect(
@@ -387,7 +387,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(166.40),
         );
         expect(
@@ -403,7 +403,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(200.00),
         );
         expect(
@@ -419,7 +419,7 @@ void main() {
         results = calculator.taxRate(20).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(160.00),
         );
         expect(
@@ -444,7 +444,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(215.51),
         );
         expect(
@@ -460,7 +460,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(169.86),
         );
         expect(
@@ -476,7 +476,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(200.00),
         );
         expect(
@@ -492,7 +492,7 @@ void main() {
         results = calculator.taxRate(20).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(160.00),
         );
         expect(
@@ -517,7 +517,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(218.40),
         );
         expect(
@@ -533,7 +533,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(171.66),
         );
         expect(
@@ -549,7 +549,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(200.00),
         );
         expect(
@@ -565,7 +565,7 @@ void main() {
         results = calculator.taxRate(20).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(160.00),
         );
         expect(
@@ -590,7 +590,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(220.39),
         );
         expect(
@@ -606,7 +606,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(172.89),
         );
         expect(
@@ -622,7 +622,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(200.00),
         );
         expect(
@@ -638,7 +638,7 @@ void main() {
         results = calculator.taxRate(20).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(160.00),
         );
         expect(
@@ -666,7 +666,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(209.09),
         );
         expect(
@@ -682,7 +682,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(165.82),
         );
         expect(
@@ -698,7 +698,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(200.0),
         );
         expect(
@@ -714,7 +714,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(160.0),
         );
         expect(
@@ -734,7 +734,7 @@ void main() {
             calculator.annualContribution(100).drip(true).taxRate(0).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(218.18),
         );
         expect(
@@ -750,7 +750,7 @@ void main() {
         results = calculator.drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(209.09),
         );
         expect(
@@ -766,7 +766,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(167.27),
         );
         expect(
@@ -782,7 +782,7 @@ void main() {
         results = calculator.drip(true).taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(173.09),
         );
         expect(
@@ -808,7 +808,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(214.28),
         );
         expect(
@@ -824,7 +824,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(169.08),
         );
         expect(
@@ -840,7 +840,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(200.0),
         );
         expect(
@@ -856,7 +856,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(160.0),
         );
         expect(
@@ -882,7 +882,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(217.06),
         );
         expect(
@@ -898,7 +898,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(170.82),
         );
         expect(
@@ -914,7 +914,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(200.0),
         );
         expect(
@@ -930,7 +930,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(160.0),
         );
         expect(
@@ -956,7 +956,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(218.99),
         );
         expect(
@@ -972,7 +972,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(172.02),
         );
         expect(
@@ -988,7 +988,7 @@ void main() {
         results = calculator.taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(200.0),
         );
         expect(
@@ -1004,7 +1004,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(160.0),
         );
         expect(
@@ -1032,7 +1032,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(221.00),
         );
         expect(
@@ -1048,7 +1048,7 @@ void main() {
         results = calculator.annualContribution(100).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(232.00),
         );
         expect(
@@ -1064,7 +1064,7 @@ void main() {
         results = calculator.annualContribution(0).taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(175.04),
         );
         expect(
@@ -1080,7 +1080,7 @@ void main() {
         results = calculator.annualSharePriceIncrease(10).taxRate(0).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(220),
         );
         expect(
@@ -1100,7 +1100,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(183.84),
         );
         expect(
@@ -1117,7 +1117,7 @@ void main() {
             calculator.annualContribution(0).taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(210.0),
         );
         expect(
@@ -1133,7 +1133,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(168.00),
         );
         expect(
@@ -1146,6 +1146,7 @@ void main() {
         );
         expect(results.yearlyReports.length, equals(2));
       });
+
       test('Should return proper results when set to semi-annually', () {
         var results = calculator
             .dividendPaymentFrequency(MatexFrequency.semiAnnually)
@@ -1158,7 +1159,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(227.11),
         );
         expect(
@@ -1174,7 +1175,7 @@ void main() {
         results = calculator.annualContribution(100).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(238.41),
         );
         expect(
@@ -1190,7 +1191,7 @@ void main() {
         results = calculator.annualContribution(0).taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(178.87),
         );
         expect(
@@ -1206,7 +1207,7 @@ void main() {
         results = calculator.annualSharePriceIncrease(10).taxRate(0).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(225.73),
         );
         expect(
@@ -1226,16 +1227,16 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
-          equals(178.87),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
+          equals(187.87),
         );
         expect(
           double.parse(results.numberOfShares.toStringAsFixed(2)),
-          equals(11.79),
+          equals(13.88),
         );
         expect(
           double.parse(results.endingBalance.toStringAsFixed(2)),
-          equals(1178.87),
+          equals(1387.87),
         );
         expect(results.yearlyReports.length, equals(2));
 
@@ -1243,7 +1244,7 @@ void main() {
             calculator.annualContribution(0).taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(210.0),
         );
         expect(
@@ -1259,7 +1260,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(168.00),
         );
         expect(
@@ -1285,7 +1286,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(230.33),
         );
         expect(
@@ -1301,7 +1302,7 @@ void main() {
         results = calculator.annualContribution(100).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(241.80),
         );
         expect(
@@ -1317,7 +1318,7 @@ void main() {
         results = calculator.annualContribution(0).taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(180.88),
         );
         expect(
@@ -1333,7 +1334,7 @@ void main() {
         results = calculator.annualSharePriceIncrease(10).taxRate(0).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(228.81),
         );
         expect(
@@ -1353,16 +1354,16 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
-          equals(180.88),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
+          equals(189.97),
         );
         expect(
           double.parse(results.numberOfShares.toStringAsFixed(2)),
-          equals(11.81),
+          equals(13.90),
         );
         expect(
           double.parse(results.endingBalance.toStringAsFixed(2)),
-          equals(1180.88),
+          equals(1389.97),
         );
         expect(results.yearlyReports.length, equals(2));
 
@@ -1370,7 +1371,7 @@ void main() {
             calculator.annualContribution(0).taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(210.0),
         );
         expect(
@@ -1386,7 +1387,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(168.00),
         );
         expect(
@@ -1412,7 +1413,7 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(232.55),
         );
         expect(
@@ -1428,7 +1429,7 @@ void main() {
         results = calculator.annualContribution(100).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(244.12),
         );
         expect(
@@ -1444,7 +1445,7 @@ void main() {
         results = calculator.annualContribution(0).taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(182.24),
         );
         expect(
@@ -1460,7 +1461,7 @@ void main() {
         results = calculator.annualSharePriceIncrease(10).taxRate(0).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(230.95),
         );
         expect(
@@ -1480,16 +1481,16 @@ void main() {
             .value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
-          equals(182.24),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
+          equals(191.41),
         );
         expect(
           double.parse(results.numberOfShares.toStringAsFixed(2)),
-          equals(11.82),
+          equals(13.91),
         );
         expect(
           double.parse(results.endingBalance.toStringAsFixed(2)),
-          equals(1182.24),
+          equals(1391.41),
         );
         expect(results.yearlyReports.length, equals(2));
 
@@ -1497,7 +1498,7 @@ void main() {
             calculator.annualContribution(0).taxRate(0).drip(false).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(210.0),
         );
         expect(
@@ -1513,7 +1514,7 @@ void main() {
         results = calculator.taxRate(20).value();
 
         expect(
-          double.parse(results.cumulativeDividends.toStringAsFixed(2)),
+          double.parse(results.cumulativeNetAmount.toStringAsFixed(2)),
           equals(168.00),
         );
         expect(

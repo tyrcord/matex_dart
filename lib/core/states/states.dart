@@ -1,4 +1,5 @@
 export './base.state.dart';
+export './dividend_investment.state.dart';
 export './fibonacci_levels.state.dart';
 export './pip_delta.state.dart';
 export './pip_value.state.dart';

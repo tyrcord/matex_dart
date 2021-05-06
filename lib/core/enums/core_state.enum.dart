@@ -48,4 +48,14 @@ class MatexCoreStateProperty {
   static const String entryFeeAmountPerUnit = 'entryFeeAmountPerUnit';
   static const String exitFeePercentagePerUnit = 'exitFeePercentagePerUnit';
   static const String exitFeeAmountPerUnit = 'exitFeeAmountPerUnit';
+  static const String dividendPaymentFrequency = 'dividendPaymentFrequency';
+  static const String annualSharePriceIncrease = 'annualSharePriceIncrease';
+  static const String annualDividendIncrease = 'annualDividendIncrease';
+  static const String annualContribution = 'annualContribution';
+  static const String numberOfShares = 'numberOfShares';
+  static const String dividendYield = 'dividendYield';
+  static const String yearsToGrow = 'yearsToGrow';
+  static const String sharePrice = 'sharePrice';
+  static const String drip = 'drip';
+  static const String taxExemptAmountPerYear = 'taxExemptAmountPerYear';
 }

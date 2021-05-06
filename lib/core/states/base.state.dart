@@ -52,6 +52,16 @@ class MatexBaseCoreState extends TDocument {
   final double? entryFeeAmountPerUnit;
   final double? exitFeePercentagePerUnit;
   final double? exitFeeAmountPerUnit;
+  final MatexFrequency? dividendPaymentFrequency;
+  final double? annualSharePriceIncrease;
+  final double? annualDividendIncrease;
+  final double? annualContribution;
+  final double? dividendYield;
+  final double? numberOfShares;
+  final double? sharePrice;
+  final int? yearsToGrow;
+  final bool? drip;
+  final double? taxExemptAmountPerYear;
 
   @override
   bool get stringify => true;
@@ -104,6 +114,16 @@ class MatexBaseCoreState extends TDocument {
     this.entryFeeAmountPerUnit,
     this.exitFeePercentagePerUnit,
     this.exitFeeAmountPerUnit,
+    this.drip,
+    this.dividendPaymentFrequency,
+    this.annualSharePriceIncrease,
+    this.annualDividendIncrease,
+    this.annualContribution,
+    this.numberOfShares,
+    this.dividendYield,
+    this.yearsToGrow,
+    this.sharePrice,
+    this.taxExemptAmountPerYear,
   });
 
   @override
@@ -157,6 +177,16 @@ class MatexBaseCoreState extends TDocument {
       entryFeeAmountPerUnit: entryFeeAmountPerUnit,
       exitFeePercentagePerUnit: exitFeePercentagePerUnit,
       exitFeeAmountPerUnit: exitFeeAmountPerUnit,
+      dividendPaymentFrequency: dividendPaymentFrequency,
+      annualSharePriceIncrease: annualSharePriceIncrease,
+      annualDividendIncrease: annualDividendIncrease,
+      annualContribution: annualContribution,
+      numberOfShares: numberOfShares,
+      dividendYield: dividendYield,
+      yearsToGrow: yearsToGrow,
+      sharePrice: sharePrice,
+      drip: drip,
+      taxExemptAmountPerYear: taxExemptAmountPerYear,
     );
   }
 
@@ -217,6 +247,20 @@ class MatexBaseCoreState extends TDocument {
       exitFeePercentagePerUnit:
           state.exitFeePercentagePerUnit ?? exitFeePercentagePerUnit,
       exitFeeAmountPerUnit: state.exitFeeAmountPerUnit ?? exitFeeAmountPerUnit,
+      annualContribution: state.annualContribution ?? annualContribution,
+      numberOfShares: state.numberOfShares ?? numberOfShares,
+      dividendYield: state.dividendYield ?? dividendYield,
+      yearsToGrow: state.yearsToGrow ?? yearsToGrow,
+      sharePrice: state.sharePrice ?? sharePrice,
+      drip: state.drip ?? drip,
+      dividendPaymentFrequency:
+          state.dividendPaymentFrequency ?? dividendPaymentFrequency,
+      annualSharePriceIncrease:
+          state.annualSharePriceIncrease ?? annualSharePriceIncrease,
+      annualDividendIncrease:
+          state.annualDividendIncrease ?? annualDividendIncrease,
+      taxExemptAmountPerYear:
+          state.taxExemptAmountPerYear ?? taxExemptAmountPerYear,
     );
   }
 
@@ -382,6 +426,41 @@ class MatexBaseCoreState extends TDocument {
           properties.contains(MatexCoreStateProperty.exitFeeAmountPerUnit)
               ? defaultState?.exitFeeAmountPerUnit
               : exitFeeAmountPerUnit,
+      dividendPaymentFrequency:
+          properties.contains(MatexCoreStateProperty.dividendPaymentFrequency)
+              ? defaultState?.dividendPaymentFrequency
+              : dividendPaymentFrequency,
+      annualSharePriceIncrease:
+          properties.contains(MatexCoreStateProperty.annualSharePriceIncrease)
+              ? defaultState?.annualSharePriceIncrease
+              : annualSharePriceIncrease,
+      annualDividendIncrease:
+          properties.contains(MatexCoreStateProperty.annualDividendIncrease)
+              ? defaultState?.annualDividendIncrease
+              : annualDividendIncrease,
+      annualContribution:
+          properties.contains(MatexCoreStateProperty.annualContribution)
+              ? defaultState?.annualContribution
+              : annualContribution,
+      numberOfShares: properties.contains(MatexCoreStateProperty.numberOfShares)
+          ? defaultState?.numberOfShares
+          : numberOfShares,
+      dividendYield: properties.contains(MatexCoreStateProperty.dividendYield)
+          ? defaultState?.dividendYield
+          : dividendYield,
+      yearsToGrow: properties.contains(MatexCoreStateProperty.yearsToGrow)
+          ? defaultState?.yearsToGrow
+          : yearsToGrow,
+      sharePrice: properties.contains(MatexCoreStateProperty.sharePrice)
+          ? defaultState?.sharePrice
+          : sharePrice,
+      drip: properties.contains(MatexCoreStateProperty.drip)
+          ? defaultState?.drip
+          : drip,
+      taxExemptAmountPerYear:
+          properties.contains(MatexCoreStateProperty.taxExemptAmountPerYear)
+              ? defaultState?.taxExemptAmountPerYear
+              : taxExemptAmountPerYear,
     );
   }
 
@@ -435,6 +514,16 @@ class MatexBaseCoreState extends TDocument {
     double? entryFeeAmountPerUnit,
     double? exitFeePercentagePerUnit,
     double? exitFeeAmountPerUnit,
+    bool? drip,
+    MatexFrequency? dividendPaymentFrequency,
+    double? annualSharePriceIncrease,
+    double? annualDividendIncrease,
+    double? annualContribution,
+    double? numberOfShares,
+    double? dividendYield,
+    int? yearsToGrow,
+    double? sharePrice,
+    double? taxExemptAmountPerYear,
   }) {
     return MatexBaseCoreState(
       accountCode: accountCode ?? this.accountCode,
@@ -492,6 +581,20 @@ class MatexBaseCoreState extends TDocument {
       exitFeePercentagePerUnit:
           exitFeePercentagePerUnit ?? this.exitFeePercentagePerUnit,
       exitFeeAmountPerUnit: exitFeeAmountPerUnit ?? this.exitFeeAmountPerUnit,
+      drip: drip ?? this.drip,
+      dividendPaymentFrequency:
+          dividendPaymentFrequency ?? this.dividendPaymentFrequency,
+      annualSharePriceIncrease:
+          annualSharePriceIncrease ?? this.annualSharePriceIncrease,
+      annualDividendIncrease:
+          annualDividendIncrease ?? this.annualDividendIncrease,
+      annualContribution: annualContribution ?? this.annualContribution,
+      numberOfShares: numberOfShares ?? this.numberOfShares,
+      dividendYield: dividendYield ?? this.dividendYield,
+      yearsToGrow: yearsToGrow ?? this.yearsToGrow,
+      sharePrice: sharePrice ?? this.sharePrice,
+      taxExemptAmountPerYear:
+          taxExemptAmountPerYear ?? this.taxExemptAmountPerYear,
     );
   }
 
@@ -546,6 +649,16 @@ class MatexBaseCoreState extends TDocument {
       'entryFeeAmountPerUnit': entryFeeAmountPerUnit,
       'exitFeePercentagePerUnit': exitFeePercentagePerUnit,
       'exitFeeAmountPerUnit': exitFeeAmountPerUnit,
+      'dividendPaymentFrequency': dividendPaymentFrequency,
+      'annualSharePriceIncrease': annualSharePriceIncrease,
+      'annualDividendIncrease': annualDividendIncrease,
+      'annualContribution': annualContribution,
+      'numberOfShares': numberOfShares,
+      'dividendYield': dividendYield,
+      'yearsToGrow': yearsToGrow,
+      'sharePrice': sharePrice,
+      'drip': drip,
+      'taxExemptAmountPerYear': taxExemptAmountPerYear,
     };
   }
 
@@ -606,6 +719,17 @@ class MatexBaseCoreState extends TDocument {
       entryFeeAmountPerUnit: json['entryFeeAmountPerUnit'] as double?,
       exitFeePercentagePerUnit: json['exitFeePercentagePerUnit'] as double?,
       exitFeeAmountPerUnit: json['exitFeeAmountPerUnit'] as double?,
+      dividendPaymentFrequency:
+          json['dividendPaymentFrequency'] as MatexFrequency?,
+      annualSharePriceIncrease: json['annualSharePriceIncrease'] as double?,
+      annualDividendIncrease: json['annualDividendIncrease'] as double?,
+      annualContribution: json['annualContribution'] as double?,
+      dividendYield: json['dividendYield'] as double?,
+      numberOfShares: json['numberOfShares'] as double?,
+      sharePrice: json['sharePrice'] as double?,
+      yearsToGrow: json['yearsToGrow'] as int?,
+      drip: json['drip'] as bool?,
+      taxExemptAmountPerYear: json['taxExemptAmountPerYear'] as double?,
     );
   }
 
@@ -658,6 +782,16 @@ class MatexBaseCoreState extends TDocument {
         entryFeeAmountPerUnit,
         exitFeePercentagePerUnit,
         exitFeeAmountPerUnit,
+        dividendPaymentFrequency,
+        annualSharePriceIncrease,
+        annualDividendIncrease,
+        annualContribution,
+        numberOfShares,
+        dividendYield,
+        yearsToGrow,
+        sharePrice,
+        drip,
+        taxExemptAmountPerYear,
       ];
 
   @override
