@@ -58,4 +58,6 @@ class MatexCoreStateProperty {
   static const String sharePrice = 'sharePrice';
   static const String drip = 'drip';
   static const String taxExemptAmountPerYear = 'taxExemptAmountPerYear';
+  static const String totalDividend = 'totalDividend';
+  static const String netIncome = 'netIncome';
 }

@@ -1,4 +1,5 @@
 export './currency_pair.model.dart';
+export './dividend_payout_ratio_result.model.dart';
 export './dividend_reinvestment_payout.model.dart';
 export './dividend_reinvestment_payout_report.model.dart';
 export './dividend_reinvestment_payout_yearly_report.model.dart';

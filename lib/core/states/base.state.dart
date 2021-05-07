@@ -62,6 +62,8 @@ class MatexBaseCoreState extends TDocument {
   final int? yearsToGrow;
   final bool? drip;
   final double? taxExemptAmountPerYear;
+  final double? totalDividend;
+  final double? netIncome;
 
   @override
   bool get stringify => true;
@@ -124,6 +126,8 @@ class MatexBaseCoreState extends TDocument {
     this.yearsToGrow,
     this.sharePrice,
     this.taxExemptAmountPerYear,
+    this.totalDividend,
+    this.netIncome,
   });
 
   @override
@@ -187,6 +191,8 @@ class MatexBaseCoreState extends TDocument {
       sharePrice: sharePrice,
       drip: drip,
       taxExemptAmountPerYear: taxExemptAmountPerYear,
+      totalDividend: totalDividend,
+      netIncome: netIncome,
     );
   }
 
@@ -261,6 +267,8 @@ class MatexBaseCoreState extends TDocument {
           state.annualDividendIncrease ?? annualDividendIncrease,
       taxExemptAmountPerYear:
           state.taxExemptAmountPerYear ?? taxExemptAmountPerYear,
+      totalDividend: state.totalDividend ?? totalDividend,
+      netIncome: state.netIncome ?? netIncome,
     );
   }
 
@@ -461,6 +469,12 @@ class MatexBaseCoreState extends TDocument {
           properties.contains(MatexCoreStateProperty.taxExemptAmountPerYear)
               ? defaultState?.taxExemptAmountPerYear
               : taxExemptAmountPerYear,
+      totalDividend: properties.contains(MatexCoreStateProperty.totalDividend)
+          ? defaultState?.totalDividend
+          : totalDividend,
+      netIncome: properties.contains(MatexCoreStateProperty.netIncome)
+          ? defaultState?.netIncome
+          : netIncome,
     );
   }
 
@@ -524,6 +538,8 @@ class MatexBaseCoreState extends TDocument {
     int? yearsToGrow,
     double? sharePrice,
     double? taxExemptAmountPerYear,
+    double? totalDividend,
+    double? netIncome,
   }) {
     return MatexBaseCoreState(
       accountCode: accountCode ?? this.accountCode,
@@ -595,6 +611,8 @@ class MatexBaseCoreState extends TDocument {
       sharePrice: sharePrice ?? this.sharePrice,
       taxExemptAmountPerYear:
           taxExemptAmountPerYear ?? this.taxExemptAmountPerYear,
+      totalDividend: totalDividend ?? this.totalDividend,
+      netIncome: netIncome ?? this.netIncome,
     );
   }
 
@@ -659,6 +677,8 @@ class MatexBaseCoreState extends TDocument {
       'sharePrice': sharePrice,
       'drip': drip,
       'taxExemptAmountPerYear': taxExemptAmountPerYear,
+      'totalDividend': totalDividend,
+      'netIncome': netIncome,
     };
   }
 
@@ -730,6 +750,8 @@ class MatexBaseCoreState extends TDocument {
       yearsToGrow: json['yearsToGrow'] as int?,
       drip: json['drip'] as bool?,
       taxExemptAmountPerYear: json['taxExemptAmountPerYear'] as double?,
+      totalDividend: json['totalDividend'] as double?,
+      netIncome: json['netIncome'] as double?,
     );
   }
 
@@ -792,6 +814,8 @@ class MatexBaseCoreState extends TDocument {
         sharePrice,
         drip,
         taxExemptAmountPerYear,
+        totalDividend,
+        netIncome,
       ];
 
   @override

@@ -1,3 +1,4 @@
+export './dividend_payout_ratio.mixin.dart';
 export './dividend_reinvestment.mixin.dart';
 export './fibonacci_levels.mixin.dart';
 export './lot.mixin.dart';
