@@ -1,3 +1,7 @@
 import 'package:matex_dart/matex_dart.dart';
 
-const kDefaultDividendPayoutRatioState = MatexBaseCoreState();
+const kDefaultDividendReinvestmentState = MatexBaseCoreState(
+  dividendPaymentFrequency: MatexFrequency.annually,
+  yearsToGrow: 25,
+  drip: true,
+);

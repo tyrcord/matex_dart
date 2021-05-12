@@ -1,3 +1,5 @@
+import 'package:matex_dart/calculators/core/dividend_payout_ratio.calculator.dart';
+import 'package:matex_dart/calculators/core/dividend_reinvestment.calculator.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 final MatexConfig _defaultMatexConfig = MatexConfig(
@@ -117,6 +119,28 @@ class MatexApp {
     List<MatexStateValidator>? validators,
   }) {
     return matexProfitAndLoss(
+      config: config,
+      defaultState: state,
+      validators: validators,
+    );
+  }
+
+  MatexDividendReinvestmentCalculator dividendReinvestment({
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
+  }) {
+    return matexDividendReinvestment(
+      config: config,
+      defaultState: state,
+      validators: validators,
+    );
+  }
+
+  MatexDividendPayoutRatioCalculator dividendPayoutRatio({
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
+  }) {
+    return matexDividendPayoutRatio(
       config: config,
       defaultState: state,
       validators: validators,

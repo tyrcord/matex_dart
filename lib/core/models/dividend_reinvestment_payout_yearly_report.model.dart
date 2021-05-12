@@ -4,6 +4,7 @@ class MatexDividendReinvestementYearlyPayoutReport
     extends MatexDividendReinvestementPayoutReport {
   final List<MatexDividendReinvestementPayoutReport> payouts;
   final double dividendAmountPerShare;
+  final double cumulativeContribution;
 
   MatexDividendReinvestementYearlyPayoutReport({
     this.payouts = const <MatexDividendReinvestementPayoutReport>[],
@@ -11,6 +12,7 @@ class MatexDividendReinvestementYearlyPayoutReport
     double additionalSharesFromDrip = 0,
     double cumulativeGrossAmount = 0,
     this.dividendAmountPerShare = 0,
+    this.cumulativeContribution = 0,
     double cumulativeNetAmount = 0,
     double grossDividendPayout = 0,
     double netDividendPayout = 0,
@@ -37,6 +39,7 @@ class MatexDividendReinvestementYearlyPayoutReport
         additionalSharesFromAnnualContribution,
         additionalSharesFromDrip,
         dividendAmountPerShare,
+        cumulativeContribution,
         cumulativeGrossAmount,
         cumulativeNetAmount,
         grossDividendPayout,

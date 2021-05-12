@@ -667,7 +667,7 @@ class MatexBaseCoreState extends TDocument {
       'entryFeeAmountPerUnit': entryFeeAmountPerUnit,
       'exitFeePercentagePerUnit': exitFeePercentagePerUnit,
       'exitFeeAmountPerUnit': exitFeeAmountPerUnit,
-      'dividendPaymentFrequency': dividendPaymentFrequency,
+      'dividendPaymentFrequency': dividendPaymentFrequency?.index,
       'annualSharePriceIncrease': annualSharePriceIncrease,
       'annualDividendIncrease': annualDividendIncrease,
       'annualContribution': annualContribution,
@@ -687,6 +687,7 @@ class MatexBaseCoreState extends TDocument {
     var trend = json['trend'] as int?;
     var method = json['method'] as int?;
     var position = json['position'] as int?;
+    var frequency = json['dividendPaymentFrequency'] as int?;
 
     return MatexBaseCoreState(
       accountCode: json['accountCode'] as String?,
@@ -740,7 +741,7 @@ class MatexBaseCoreState extends TDocument {
       exitFeePercentagePerUnit: json['exitFeePercentagePerUnit'] as double?,
       exitFeeAmountPerUnit: json['exitFeeAmountPerUnit'] as double?,
       dividendPaymentFrequency:
-          json['dividendPaymentFrequency'] as MatexFrequency?,
+          frequency != null ? MatexFrequency.values[frequency] : null,
       annualSharePriceIncrease: json['annualSharePriceIncrease'] as double?,
       annualDividendIncrease: json['annualDividendIncrease'] as double?,
       annualContribution: json['annualContribution'] as double?,
