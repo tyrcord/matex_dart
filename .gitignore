@@ -10,7 +10,7 @@ pubspec.lock
 
 # Directory created by dartdoc
 # If you don't generate documentation locally you can remove this line.
-# doc/api/
+doc/api/
 
 # Avoid committing generated Javascript files:
 *.dart.js
@@ -21,15 +21,20 @@ pubspec.lock
 *.js.deps
 *.js.map
 
+### Flutter ###
 # Flutter/Dart/Pub related
 **/doc/api/
-.dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
-.packages
+.fvm/
 .pub-cache/
 .pub/
-/build/
+coverage/
+lib/generated_plugin_registrant.dart
+# For library packages, don’t commit the pubspec.lock file.
+# Regenerating the pubspec.lock file lets you test your package against the latest compatible versions of its dependencies.
+# See https://dart.dev/guides/libraries/private-files#pubspeclock
+#pubspec.lock
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -37,6 +42,7 @@ pubspec.lock
 **/android/captures/
 **/android/gradlew
 **/android/gradlew.bat
+**/android/key.properties
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
 
@@ -57,12 +63,15 @@ pubspec.lock
 **/ios/**/profile
 **/ios/**/xcuserdata
 **/ios/.generated/
+**/ios/Flutter/.last_build_id
 **/ios/Flutter/App.framework
 **/ios/Flutter/Flutter.framework
+**/ios/Flutter/Flutter.podspec
 **/ios/Flutter/Generated.xcconfig
 **/ios/Flutter/app.flx
 **/ios/Flutter/app.zip
 **/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
 
@@ -122,14 +131,17 @@ Temporary Items
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+*.code-workspace
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+.ionide
 
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
+Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 
