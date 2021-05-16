@@ -5,6 +5,7 @@ export './dividend_reinvestment_payout_report.model.dart';
 export './dividend_reinvestment_payout_yearly_report.model.dart';
 export './dividend_reinvestment_record.model.dart';
 export './dividend_reinvestment_result.model.dart';
+export './dividend_yield_result.model.dart';
 export './fibonacci.model.dart';
 export './lot_descriptor.model.dart';
 export './pivot_points.model.dart';

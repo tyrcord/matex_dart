@@ -146,4 +146,15 @@ class MatexApp {
       validators: validators,
     );
   }
+
+  MatexDividendYieldCalculator dividendYield({
+    MatexBaseCoreState? state,
+    List<MatexStateValidator>? validators,
+  }) {
+    return matexDividendYield(
+      config: config,
+      defaultState: state,
+      validators: validators,
+    );
+  }
 }

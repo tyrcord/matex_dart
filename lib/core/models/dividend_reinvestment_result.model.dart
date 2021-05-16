@@ -4,6 +4,7 @@ import 'package:matex_dart/matex_dart.dart';
 
 class MatexDividendReinvestmentResult extends Equatable {
   final List<MatexDividendReinvestementYearlyPayoutReport> yearlyReports;
+  final double netDividendeIncome;
   final double grossDividendPaid;
   final double totalContribution;
   final double netDividendPaid;
@@ -14,6 +15,7 @@ class MatexDividendReinvestmentResult extends Equatable {
 
   const MatexDividendReinvestmentResult({
     this.yearlyReports = const [],
+    this.netDividendeIncome = 0,
     this.grossDividendPaid = 0,
     this.totalContribution = 0,
     this.netDividendPaid = 0,
@@ -25,6 +27,7 @@ class MatexDividendReinvestmentResult extends Equatable {
 
   @override
   List<Object> get props => [
+        netDividendeIncome,
         totalContribution,
         grossDividendPaid,
         netDividendPaid,

@@ -1,5 +1,6 @@
 export './dividend_payout_ratio.validator.dart';
 export './dividend_reinvestment.validator.dart';
+export './dividend_yield.validator.dart';
 export './fibonnaci_levels.validator.dart';
 export './pip_delta.validator.dart';
 export './pip_value.validator.dart';

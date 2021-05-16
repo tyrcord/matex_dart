@@ -1,6 +1,7 @@
 export './abstract/abstract.dart';
 export './dividend_payout_ratio/dividend_payout_ratio.dart';
 export './dividend_reinvestment/dividend_reinvestment.dart';
+export './dividend_yield/dividend_yield.dart';
 export './fibonacci_levels/fibonacci_levels.dart';
 export './pip_delta/pip_delta.dart';
 export './pip_value/pip_value.dart';
