@@ -12,6 +12,7 @@ class MatexDividendReinvestmentResult extends Equatable {
   final double numberOfShares;
   final double endingBalance;
   final double totalReturn;
+  final double sharePrice;
 
   const MatexDividendReinvestmentResult({
     this.yearlyReports = const [],
@@ -23,6 +24,7 @@ class MatexDividendReinvestmentResult extends Equatable {
     this.numberOfShares = 0,
     this.endingBalance = 0,
     this.totalReturn = 0,
+    this.sharePrice = 0,
   });
 
   @override
@@ -36,5 +38,6 @@ class MatexDividendReinvestmentResult extends Equatable {
         endingBalance,
         yearlyReports,
         totalReturn,
+        sharePrice,
       ];
 }

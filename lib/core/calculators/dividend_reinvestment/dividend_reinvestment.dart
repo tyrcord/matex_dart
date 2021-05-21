@@ -90,6 +90,7 @@ class MatexDividendReinvestmentCalculatorCore extends MatexBaseCalculator<
         startingBalance: dStartingPrincipal.toDouble(),
         numberOfShares: lastReport.numberOfShares,
         endingBalance: lastReport.endingBalance,
+        sharePrice: lastReport.sharePrice,
         yearlyReports: reports,
       );
     }
