@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.8.1](https://github.com/tyrcord/matex_dart/releases/tag/0.8.1) (2021-05-21)
+
+### Enhancements
+
+- FusexMatexResults exposes share price.
+
 ## [0.8.0](https://github.com/tyrcord/matex_dart/releases/tag/0.8.0) (2021-05-6)
 
 ### Features
