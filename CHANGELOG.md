@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.8.2](https://github.com/tyrcord/matex_dart/releases/tag/0.8.2) (2021-06-01)
+
+### Enhancements
+
+- Added default dividend payment frequency for the dividend yield calculator.
+
 ## [0.8.1](https://github.com/tyrcord/matex_dart/releases/tag/0.8.1) (2021-05-21)
 
 ### Enhancements
