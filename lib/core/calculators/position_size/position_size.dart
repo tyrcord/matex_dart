@@ -89,10 +89,13 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
   @protected
   double computeAmountAtRisk() {
     var amountAtRisk = state.amountAtRisk ?? 0.0;
-    final riskRatio = state.riskRatio!;
-    final accountSize = state.accountSize!;
+    final riskRatio = state.riskRatio;
+    final accountSize = state.accountSize;
 
-    if (riskRatio > 0 && riskRatio <= 100) {
+    if (accountSize != null &&
+        riskRatio != null &&
+        riskRatio > 0 &&
+        riskRatio <= 100) {
       amountAtRisk = accountSize > 0
           ? (Decimal.parse(riskRatio.toString()) *
                   Decimal.parse(accountSize.toString()) /
