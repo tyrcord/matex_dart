@@ -10,7 +10,7 @@ List<MatexStateValidator> fibonacciLevelsValidators = [
     var isValid = lowPrice > 0 && highPrice! > 0;
 
     if (isValid) {
-      isValid = highPrice! > lowPrice;
+      isValid = highPrice > lowPrice;
     }
 
     return isValid;
