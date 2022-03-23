@@ -19,7 +19,7 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
 
   @override
   Future<String> formatInstrument({
-    required double value,
+    required num value,
     required String code,
     String locale = kMatexDefaultLocale,
     int? minimumFractionDigits = 0,
@@ -45,7 +45,7 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
 
   @override
   Future<String> formatQuote({
-    required double value,
+    required num value,
     required String pair,
     String locale = kMatexDefaultLocale,
     int? minimumFractionDigits,
@@ -65,7 +65,7 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
   }
 
   String _formatCurrency({
-    required double value,
+    required num value,
     required String code,
     String locale = kMatexDefaultLocale,
     int? minimumFractionDigits = 0,
@@ -85,7 +85,7 @@ class MatexFormatterProvider implements MatexAbstractFormatterProvider {
   }
 
   String formatNumber({
-    required double value,
+    required num value,
     String locale = kMatexDefaultLocale,
     int? minimumFractionDigits = 0,
     int? maximumFractionDigits,
