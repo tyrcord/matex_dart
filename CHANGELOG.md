@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.9.2](https://github.com/tyrcord/matex_dart/releases/tag/0.9.2) (2022-08-12)
+
+### Features
+
+- Added isValid to Currency Pair Model.
+
 ## [0.9.1](https://github.com/tyrcord/matex_dart/releases/tag/0.9.1) (2022-03-23)
 
 ### Enhancements
