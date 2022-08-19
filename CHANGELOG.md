@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.9.3](https://github.com/tyrcord/matex_dart/releases/tag/0.9.3) (2022-08-19)
+
+### Fixes
+
+- Check entry and exit amount fees are greater than zero.
+
 ## [0.9.2](https://github.com/tyrcord/matex_dart/releases/tag/0.9.2) (2022-08-12)
 
 ### Features
