@@ -88,6 +88,7 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
 
       if (dFraction > Decimal.zero) {
         final dPositionSize = MatexDecimal.fromDouble(state.positionSize!);
+
         return (dFixedCosts / dFraction * dPositionSize).ceil();
       }
     }
@@ -98,6 +99,7 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
   Decimal _computeGrossBuyPrice() {
     final dPositionSize = MatexDecimal.fromDouble(state.positionSize!);
     final dEntryPrice = MatexDecimal.fromDouble(state.entryPrice!);
+
     return dPositionSize * dEntryPrice;
   }
 
@@ -127,14 +129,18 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
     var entryFeeAmount = state.entryFeeAmount;
 
     if (entryFeeAmount == null) {
-      if (state.entryFeeAmountPerUnit != null) {
+      final entryFeeAmountPerUnit = state.entryFeeAmountPerUnit;
+      final entryFeePercentagePerUnit = state.entryFeePercentagePerUnit;
+
+      if (entryFeeAmountPerUnit != null && entryFeeAmountPerUnit > 0) {
         final dPositionSize = MatexDecimal.fromDouble(state.positionSize!);
         final dAmountPerUnit = MatexDecimal.fromDouble(
           state.entryFeeAmountPerUnit!,
         );
 
         entryFeeAmount = (dAmountPerUnit * dPositionSize).toDouble();
-      } else if (state.entryFeePercentagePerUnit != null) {
+      } else if (entryFeePercentagePerUnit != null &&
+          entryFeePercentagePerUnit > 0) {
         final dPercent = MatexDecimal.fromDouble(
           state.entryFeePercentagePerUnit!,
         );
@@ -152,14 +158,18 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
     var exitFeeAmount = state.exitFeeAmount;
 
     if (exitFeeAmount == null) {
-      if (state.exitFeeAmountPerUnit != null) {
+      final exitFeeAmountPerUnit = state.exitFeeAmountPerUnit;
+      final exitFeePercentagePerUnit = state.exitFeePercentagePerUnit;
+
+      if (exitFeeAmountPerUnit != null && exitFeeAmountPerUnit > 0) {
         final dPositionSize = MatexDecimal.fromDouble(state.positionSize!);
         final dAmountPerUnit = MatexDecimal.fromDouble(
           state.exitFeeAmountPerUnit!,
         );
 
         exitFeeAmount = (dAmountPerUnit * dPositionSize).toDouble();
-      } else if (state.exitFeePercentagePerUnit != null) {
+      } else if (exitFeePercentagePerUnit != null &&
+          exitFeePercentagePerUnit > 0) {
         final dPercent = MatexDecimal.fromDouble(
           state.exitFeePercentagePerUnit!,
         );
@@ -182,6 +192,7 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
     } else if (feePercentage != null && feePercentage > 0) {
       final dPercent =
           MatexDecimal.fromDouble(feePercentage) / MatexDecimal.hundred;
+
       return grossPrice * dPercent;
     }
 
@@ -223,6 +234,7 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
   Decimal computeTaxAmount(Decimal grossPnl) {
     if (!grossPnl.isNegative && state.taxRate != null && state.taxRate! > 0) {
       final taxPercentage = state.taxRate! / 100;
+
       return grossPnl * MatexDecimal.fromDouble(taxPercentage);
     }
 

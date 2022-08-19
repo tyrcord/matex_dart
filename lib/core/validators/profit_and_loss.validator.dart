@@ -11,6 +11,7 @@ List<MatexStateValidator> profitAndLossValidators = [
     final positionSize = state.positionSize!;
     final entryPrice = state.entryPrice!;
     final exitPrice = state.exitPrice!;
+
     return entryPrice > 0 && exitPrice >= 0 && positionSize > 0;
   },
   (MatexBaseCoreState state) {
