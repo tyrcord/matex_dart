@@ -23,29 +23,33 @@ class MatexRequiredMarginCalculatorCore
   double value() {
     if (result != null) return result!;
 
-    final tradingPairExchangeRate = state.tradingPairExchangeRate;
-    final baseListedSecond = state.baseListedSecond!;
-    final positionSize = state.positionSize;
-    final decimalLeverage = Decimal.parse(state.leverage.toString());
-    final counterAccountCurrencyPairExchangeRate =
-        state.counterAccountCurrencyPairExchangeRate!;
-    final rate = counterAccountCurrencyPairExchangeRate > 0
-        ? counterAccountCurrencyPairExchangeRate
-        : 1;
+    if (isValid) {
+      final tradingPairExchangeRate = state.tradingPairExchangeRate;
+      final baseListedSecond = state.baseListedSecond!;
+      final positionSize = state.positionSize;
+      final decimalLeverage = Decimal.parse(state.leverage.toString());
+      final counterAccountCurrencyPairExchangeRate =
+          state.counterAccountCurrencyPairExchangeRate!;
+      final rate = counterAccountCurrencyPairExchangeRate > 0
+          ? counterAccountCurrencyPairExchangeRate
+          : 1;
 
-    if (!baseListedSecond) {
+      if (!baseListedSecond) {
+        return (result = (Decimal.parse(positionSize.toString()) *
+                Decimal.parse(tradingPairExchangeRate.toString()) /
+                decimalLeverage *
+                Decimal.parse(rate.toString()))
+            .toDouble());
+      }
+
       return (result = (Decimal.parse(positionSize.toString()) *
               Decimal.parse(tradingPairExchangeRate.toString()) /
-              decimalLeverage *
-              Decimal.parse(rate.toString()))
+              decimalLeverage /
+              Decimal.one)
           .toDouble());
     }
 
-    return (result = (Decimal.parse(positionSize.toString()) *
-            Decimal.parse(tradingPairExchangeRate.toString()) /
-            decimalLeverage /
-            Decimal.one)
-        .toDouble());
+    return 0.0;
   }
 }
 
