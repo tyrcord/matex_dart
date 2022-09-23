@@ -1,7 +1,9 @@
 #!/usr/bin/env node --no-warnings
-import * as program from 'commander';
+import { Command } from 'commander';
 
 import { update } from './commands';
+
+const program = new Command();
 
 program.version('0.2.0');
 

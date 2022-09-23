@@ -7,7 +7,7 @@ export interface IWorkingProjectInfo {
   path: string;
 }
 
-export function findWorkingProject(): IWorkingProjectInfo {
+export function findWorkingProject(): IWorkingProjectInfo | null {
   const cwd = process.cwd();
   const dirs = cwd.split(path.sep).reverse();
   let projectPath = cwd;
