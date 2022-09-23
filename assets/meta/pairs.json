@@ -1531,9 +1531,59 @@
       "weight": 40
     }
   },
+  "AEXEUR": {
+    "base": "AEX",
+    "counter": "EUR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "AORDAUD": {
+    "base": "AORD",
+    "counter": "AUD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
   "AXJOAUD": {
     "base": "AXJO",
     "counter": "AUD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "BFXEUR": {
+    "base": "BFX",
+    "counter": "EUR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "BVSPBRL": {
+    "base": "BVSP",
+    "counter": "BRL",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "CASE30EGP": {
+    "base": "CASE30",
+    "counter": "EGP",
     "pip": {
       "pipette": 1,
       "precision": 0,
@@ -1554,6 +1604,16 @@
   "FCHIEUR": {
     "base": "FCHI",
     "counter": "EUR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "FTMCGBP": {
+    "base": "FTMC",
+    "counter": "GBP",
     "pip": {
       "pipette": 1,
       "precision": 0,

@@ -1310,6 +1310,40 @@
       "weight": 75
     }
   },
+  "AEX": {
+    "code": "AEX",
+    "format": {
+      "round": 1
+    },
+    "icon": "netherlands",
+    "name": {
+      "key": "aex",
+      "localized": "Amsterdam Exchange index"
+    },
+    "symbol": {
+      "long": "AEX",
+      "short": "AEX",
+      "ticker": "AEX"
+    },
+    "type": "index"
+  },
+  "AORD": {
+    "code": "AORD",
+    "format": {
+      "round": 1
+    },
+    "icon": "australia",
+    "name": {
+      "key": "aord",
+      "localized": "ALL ORDINARIES"
+    },
+    "symbol": {
+      "long": "AORD",
+      "short": "AORD",
+      "ticker": "AORD"
+    },
+    "type": "index"
+  },
   "AXJO": {
     "code": "AXJO",
     "format": {
@@ -1324,6 +1358,57 @@
       "long": "AXJO",
       "short": "AXJO",
       "ticker": "AXJO"
+    },
+    "type": "index"
+  },
+  "BFX": {
+    "code": "BFX",
+    "format": {
+      "round": 1
+    },
+    "icon": "belgium",
+    "name": {
+      "key": "bfx",
+      "localized": "BEL 20"
+    },
+    "symbol": {
+      "long": "BFX",
+      "short": "BFX",
+      "ticker": "BFX"
+    },
+    "type": "index"
+  },
+  "BVSP": {
+    "code": "BVSP",
+    "format": {
+      "round": 1
+    },
+    "icon": "brazil",
+    "name": {
+      "key": "bvsp",
+      "localized": "BOVESPA"
+    },
+    "symbol": {
+      "long": "BVSP",
+      "short": "BVSP",
+      "ticker": "BVSP"
+    },
+    "type": "index"
+  },
+  "CASE30": {
+    "code": "CASE30",
+    "format": {
+      "round": 1
+    },
+    "icon": "egypt",
+    "name": {
+      "key": "case30",
+      "localized": "EGX 30"
+    },
+    "symbol": {
+      "long": "CASE30",
+      "short": "CASE30",
+      "ticker": "CASE30"
     },
     "type": "index"
   },
@@ -1358,6 +1443,23 @@
       "long": "FCHI",
       "short": "FCHI",
       "ticker": "FCHI"
+    },
+    "type": "index"
+  },
+  "FTMC": {
+    "code": "FTMC",
+    "format": {
+      "round": 1
+    },
+    "icon": "uk",
+    "name": {
+      "key": "uk_250",
+      "localized": "UK Mid 250"
+    },
+    "symbol": {
+      "long": "FTMC",
+      "short": "FTMC",
+      "ticker": "FTMC"
     },
     "type": "index"
   },
