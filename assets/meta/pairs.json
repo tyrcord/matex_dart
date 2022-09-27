@@ -1631,6 +1631,16 @@
     },
     "type": "index"
   },
+  "FVXUSD": {
+    "base": "FVX",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 2
+    },
+    "type": "index"
+  },
   "GDAXIEUR": {
     "base": "GDAXI",
     "counter": "EUR",
@@ -1681,6 +1691,66 @@
     },
     "type": "index"
   },
+  "IMOEX_MERUB": {
+    "base": "IMOEX_ME",
+    "counter": "RUB",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "JKSEIDR": {
+    "base": "JKSE",
+    "counter": "IDR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "KLSEMYR": {
+    "base": "KLSE",
+    "counter": "MYR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "KS11KRW": {
+    "base": "KS11",
+    "counter": "KRW",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "MXXMXN": {
+    "base": "MXX",
+    "counter": "MXN",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "N100EUR": {
+    "base": "N100",
+    "counter": "EUR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
   "N225JPY": {
     "base": "N225",
     "counter": "JPY",
@@ -1711,6 +1781,36 @@
     },
     "type": "index"
   },
+  "NZ50NZD": {
+    "base": "NZ50",
+    "counter": "NZD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "RUAUSD": {
+    "base": "RUA",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "RUIUSD": {
+    "base": "RUI",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
   "RUTUSD": {
     "base": "RUT",
     "counter": "USD",
@@ -1721,9 +1821,99 @@
     },
     "type": "index"
   },
+  "SPGNRUPUSD": {
+    "base": "SPGNRUP",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "SPGSCIUSD": {
+    "base": "SPGSCI",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "SSMICHF": {
+    "base": "SSMI",
+    "counter": "CHF",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "STISGD": {
+    "base": "STI",
+    "counter": "SGD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
   "STOXX50EEUR": {
     "base": "STOXX50E",
     "counter": "EUR",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "TA125_TAILS": {
+    "base": "TA125_TA",
+    "counter": "ILS",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 1
+    },
+    "type": "index"
+  },
+  "TNXUSD": {
+    "base": "TNX",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 2
+    },
+    "type": "index"
+  },
+  "TYXUSD": {
+    "base": "TYX",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 2
+    },
+    "type": "index"
+  },
+  "VIXUSD": {
+    "base": "VIX",
+    "counter": "USD",
+    "pip": {
+      "pipette": 1,
+      "precision": 0,
+      "round": 2
+    },
+    "type": "index"
+  },
+  "XU100_ISTRY": {
+    "base": "XU100_IS",
+    "counter": "TRY",
     "pip": {
       "pipette": 1,
       "precision": 0,

@@ -1480,6 +1480,23 @@
     },
     "type": "index"
   },
+  "FVX": {
+    "code": "FVX",
+    "format": {
+      "round": 2
+    },
+    "icon": "usa",
+    "name": {
+      "key": "us5y",
+      "localized": "Treasury Yield 5 Years"
+    },
+    "symbol": {
+      "long": "FVX",
+      "short": "FVX",
+      "ticker": "FVX"
+    },
+    "type": "index"
+  },
   "GDAXI": {
     "code": "GDAXI",
     "format": {
@@ -1565,6 +1582,108 @@
     },
     "type": "index"
   },
+  "IMOEX_ME": {
+    "code": "IMOEX_ME",
+    "format": {
+      "round": 1
+    },
+    "icon": "russia",
+    "name": {
+      "key": "IMOEX_ME",
+      "localized": "MOEX Russia Index"
+    },
+    "symbol": {
+      "long": "IMOEX_ME",
+      "short": "IMOEX_ME",
+      "ticker": "IMOEX.ME"
+    },
+    "type": "index"
+  },
+  "JKSE": {
+    "code": "JKSE",
+    "format": {
+      "round": 1
+    },
+    "icon": "indonesia",
+    "name": {
+      "key": "jkse",
+      "localized": "Jakarta Composite Index"
+    },
+    "symbol": {
+      "long": "JKSE",
+      "short": "JKSE",
+      "ticker": "JKSE"
+    },
+    "type": "index"
+  },
+  "KLSE": {
+    "code": "KLSE",
+    "format": {
+      "round": 1
+    },
+    "icon": "malaysia",
+    "name": {
+      "key": "klse",
+      "localized": "Bursa Malaysia KLCI Index"
+    },
+    "symbol": {
+      "long": "KLSE",
+      "short": "KLSE",
+      "ticker": "KLSE"
+    },
+    "type": "index"
+  },
+  "KS11": {
+    "code": "KS11",
+    "format": {
+      "round": 1
+    },
+    "icon": "south_korea",
+    "name": {
+      "key": "KS11",
+      "localized": "KOSPI Composite Index"
+    },
+    "symbol": {
+      "long": "KS11",
+      "short": "KS11",
+      "ticker": "KS11"
+    },
+    "type": "index"
+  },
+  "MXX": {
+    "code": "MXX",
+    "format": {
+      "round": 1
+    },
+    "icon": "mexico",
+    "name": {
+      "key": "mxx",
+      "localized": "Mexico S&P/BMV IPC"
+    },
+    "symbol": {
+      "long": "MXX",
+      "short": "MXX",
+      "ticker": "MXX"
+    },
+    "type": "index"
+  },
+  "N100": {
+    "code": "N100",
+    "format": {
+      "round": 1
+    },
+    "icon": "euro",
+    "name": {
+      "key": "n100",
+      "localized": "Euronext 100"
+    },
+    "symbol": {
+      "long": "N100",
+      "short": "N100",
+      "ticker": "N100"
+    },
+    "type": "index"
+  },
   "N225": {
     "code": "N225",
     "format": {
@@ -1616,6 +1735,57 @@
     },
     "type": "index"
   },
+  "NZ50": {
+    "code": "NZ50",
+    "format": {
+      "round": 1
+    },
+    "icon": "new_zealand",
+    "name": {
+      "key": "nzx_50",
+      "localized": "NZX 50"
+    },
+    "symbol": {
+      "long": "NZ50",
+      "short": "NZ50",
+      "ticker": "NZ50"
+    },
+    "type": "index"
+  },
+  "RUA": {
+    "code": "RUA",
+    "format": {
+      "round": 1
+    },
+    "icon": "usa",
+    "name": {
+      "key": "russel_3000",
+      "localized": "Russell 3000"
+    },
+    "symbol": {
+      "long": "RUA",
+      "short": "RUA",
+      "ticker": "RUA"
+    },
+    "type": "index"
+  },
+  "RUI": {
+    "code": "RUI",
+    "format": {
+      "round": 1
+    },
+    "icon": "usa",
+    "name": {
+      "key": "russel_1000",
+      "localized": "Russell 1000"
+    },
+    "symbol": {
+      "long": "RUI",
+      "short": "RUI",
+      "ticker": "RUI"
+    },
+    "type": "index"
+  },
   "RUT": {
     "code": "RUT",
     "format": {
@@ -1633,6 +1803,74 @@
     },
     "type": "index"
   },
+  "SPGNRUP": {
+    "code": "SPGNRUP",
+    "format": {
+      "round": 1
+    },
+    "icon": "usa",
+    "name": {
+      "key": "spgnrup",
+      "localized": "S&P Global Natural Resources Index"
+    },
+    "symbol": {
+      "long": "SPGNRUP",
+      "short": "SPGNRUP",
+      "ticker": "SPGNRUP"
+    },
+    "type": "index"
+  },
+  "SPGSCI": {
+    "code": "SPGSCI",
+    "format": {
+      "round": 1
+    },
+    "icon": "usa",
+    "name": {
+      "key": "spgsci",
+      "localized": "S&P GSCI"
+    },
+    "symbol": {
+      "long": "SPGSCI",
+      "short": "SPGSCI",
+      "ticker": "SPGSCI"
+    },
+    "type": "index"
+  },
+  "SSMI": {
+    "code": "SSMI",
+    "format": {
+      "round": 1
+    },
+    "icon": "switzerland",
+    "name": {
+      "key": "ssmi",
+      "localized": "Swiss Market Index"
+    },
+    "symbol": {
+      "long": "SSMI",
+      "short": "SSMI",
+      "ticker": "SSMI"
+    },
+    "type": "index"
+  },
+  "STI": {
+    "code": "STI",
+    "format": {
+      "round": 1
+    },
+    "icon": "singapore",
+    "name": {
+      "key": "sti",
+      "localized": "Straits Times Index"
+    },
+    "symbol": {
+      "long": "STI",
+      "short": "STI",
+      "ticker": "STI"
+    },
+    "type": "index"
+  },
   "STOXX50E": {
     "code": "STOXX50E",
     "format": {
@@ -1647,6 +1885,91 @@
       "long": "STOXX50E",
       "short": "STOXX50E",
       "ticker": "STOXX50E"
+    },
+    "type": "index"
+  },
+  "TA125_TA": {
+    "code": "TA125_TA",
+    "format": {
+      "round": 1
+    },
+    "icon": "israel",
+    "name": {
+      "key": "TA_125",
+      "localized": "TA-125"
+    },
+    "symbol": {
+      "long": "TA125_TA",
+      "short": "TA125_TA",
+      "ticker": "TA125.TA"
+    },
+    "type": "index"
+  },
+  "TNX": {
+    "code": "TNX",
+    "format": {
+      "round": 2
+    },
+    "icon": "usa",
+    "name": {
+      "key": "us10y",
+      "localized": "Treasury Yield 10 Years"
+    },
+    "symbol": {
+      "long": "TNX",
+      "short": "TNX",
+      "ticker": "TNX"
+    },
+    "type": "index"
+  },
+  "TYX": {
+    "code": "TYX",
+    "format": {
+      "round": 2
+    },
+    "icon": "usa",
+    "name": {
+      "key": "us30y",
+      "localized": "Treasury Yield 30 Years"
+    },
+    "symbol": {
+      "long": "TYX",
+      "short": "TYX",
+      "ticker": "TYX"
+    },
+    "type": "index"
+  },
+  "VIX": {
+    "code": "VIX",
+    "format": {
+      "round": 2
+    },
+    "icon": "usa",
+    "name": {
+      "key": "vix",
+      "localized": "CBOE Volatility Index"
+    },
+    "symbol": {
+      "long": "VIX",
+      "short": "VIX",
+      "ticker": "VIX"
+    },
+    "type": "index"
+  },
+  "XU100_IS": {
+    "code": "XU100_IS",
+    "format": {
+      "round": 1
+    },
+    "icon": "turkey",
+    "name": {
+      "key": "ise_100",
+      "localized": "ISE-100"
+    },
+    "symbol": {
+      "long": "XU100_IS",
+      "short": "XU100_IS",
+      "ticker": "XU100.IS"
     },
     "type": "index"
   }
