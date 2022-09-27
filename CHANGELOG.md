@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.9.7](https://github.com/tyrcord/matex_dart/releases/tag/0.9.7) (2022-09-27)
+
+### Features
+
+- Support more indices.
+
 ## [0.9.6](https://github.com/tyrcord/matex_dart/releases/tag/0.9.6) (2022-09-23)
 
 ### Features
