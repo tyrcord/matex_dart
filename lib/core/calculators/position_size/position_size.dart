@@ -46,12 +46,12 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
       final riskRatio = computeRiskRatio(amountAtRisk, accountSize);
       final pipValue = computePipValue();
       final size = pipValue > Decimal.zero && stopLossPips > 0
-          ? computePositionSize(amountAtRisk, pipValue, stopLossPips)
+          ? computePositionSize(amountAtRisk, pipValue.toDouble(), stopLossPips)
           : 0.0;
 
       return (result = MatexPositionSizeResult(
         amountAtRisk: amountAtRisk,
-        pipValue: (pipValue * Decimal.parse(size.toString())).toDouble(),
+        pipValue: (pipValue * toDecimal(size)).toDouble(),
         positionSize: size,
         riskRatio: riskRatio,
         stopLossPips: stopLossPips,
@@ -64,12 +64,12 @@ class MatexPositionSizeCalculatorCore extends MatexBaseCalculator<
   @protected
   double computePositionSize(
     double amountAtRisk,
-    Decimal pipValue,
+    double pipValue,
     double stopLossPip,
   ) {
-    final divider = pipValue * Decimal.parse(stopLossPip.toString());
+    final divider = toDecimal(pipValue) * toDecimal(stopLossPip);
 
-    return (Decimal.parse(amountAtRisk.toString()) / divider).toDouble();
+    return (toDecimal(amountAtRisk) / divider).toDouble();
   }
 
   @protected

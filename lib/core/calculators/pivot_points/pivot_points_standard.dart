@@ -19,7 +19,7 @@ MatexPivotPointsResult pivotPointsStandard(
   final decimal2 = MatexDecimal.two;
 
   final pivotPoint =
-      (highParsed + lowParsed + closeParsed) / MatexDecimal.three;
+      toDecimal((highParsed + lowParsed + closeParsed) / MatexDecimal.three);
 
   final resistance1 = pivotPoint * decimal2 - lowParsed;
   final resistance2 = pivotPoint + (highParsed - lowParsed);

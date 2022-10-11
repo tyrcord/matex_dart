@@ -89,7 +89,7 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
       if (dFraction > Decimal.zero) {
         final dPositionSize = MatexDecimal.fromDouble(state.positionSize!);
 
-        return (dFixedCosts / dFraction * dPositionSize).ceil();
+        return (toDecimal(dFixedCosts / dFraction) * dPositionSize).ceil();
       }
     }
 
@@ -115,7 +115,8 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
         exitDiscountPercentage,
       );
 
-      final multiplicator = dExitDiscountPercentage / MatexDecimal.hundred;
+      final multiplicator =
+          toDecimal(dExitDiscountPercentage / MatexDecimal.hundred);
       dDiscountAmount = multiplicator * dExitPrice;
     } else if (exitDiscountAmount != null && exitDiscountAmount > 0) {
       dDiscountAmount = MatexDecimal.fromDouble(exitDiscountAmount);
@@ -145,7 +146,7 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
           state.entryFeePercentagePerUnit!,
         );
 
-        final multiplicator = dPercent / MatexDecimal.hundred;
+        final multiplicator = toDecimal(dPercent / MatexDecimal.hundred);
         entryFeeAmount = (dGrossBuyPrice * multiplicator).toDouble();
       }
     }
@@ -174,7 +175,7 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
           state.exitFeePercentagePerUnit!,
         );
 
-        final multiplicator = dPercent / MatexDecimal.hundred;
+        final multiplicator = toDecimal(dPercent / MatexDecimal.hundred);
         exitFeeAmount = (dGrossSellPrice * multiplicator).toDouble();
       }
     }
@@ -190,8 +191,9 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
     if (feeAmount != null && feeAmount > 0) {
       return MatexDecimal.fromDouble(feeAmount);
     } else if (feePercentage != null && feePercentage > 0) {
-      final dPercent =
-          MatexDecimal.fromDouble(feePercentage) / MatexDecimal.hundred;
+      final dPercent = toDecimal(
+        MatexDecimal.fromDouble(feePercentage) / MatexDecimal.hundred,
+      );
 
       return grossPrice * dPercent;
     }
@@ -228,11 +230,13 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
   Decimal computeReturnOnInvestment(Decimal netBuyPrice, Decimal dGrossPnl) {
     final balance = netBuyPrice + dGrossPnl;
 
-    return balance / netBuyPrice - Decimal.one;
+    return toDecimal(balance / netBuyPrice) - Decimal.one;
   }
 
   Decimal computeTaxAmount(Decimal grossPnl) {
-    if (!grossPnl.isNegative && state.taxRate != null && state.taxRate! > 0) {
+    if (grossPnl > Decimal.zero &&
+        state.taxRate != null &&
+        state.taxRate! > 0) {
       final taxPercentage = state.taxRate! / 100;
 
       return grossPnl * MatexDecimal.fromDouble(taxPercentage);

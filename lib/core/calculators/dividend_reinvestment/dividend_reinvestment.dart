@@ -49,8 +49,8 @@ class MatexDividendReinvestmentCalculatorCore extends MatexBaseCalculator<
   }
 
   Decimal _computeTotalReturn(double endingBalance) {
-    return (toDecimal(endingBalance) /
-            (dTotalContribution + dStartingPrincipal) *
+    return (toDecimal(toDecimal(endingBalance) /
+                (dTotalContribution + dStartingPrincipal)) *
             MatexDecimal.hundred) -
         MatexDecimal.hundred;
   }
@@ -98,11 +98,14 @@ class MatexDividendReinvestmentCalculatorCore extends MatexBaseCalculator<
     return const MatexDividendReinvestmentResult();
   }
 
+  // ignore: long-method
   MatexDividendReinvestementYearlyPayoutReport _makeYearlyReport(
     MatexDividendReinvestementYearlyPayoutReport? lastReport,
     Decimal dDividendAmountPerShare,
   ) {
-    var dividendAmount = dDividendAmountPerShare / dDividendPaymentFrequency;
+    var dividendAmount = toDecimal(
+      dDividendAmountPerShare / dDividendPaymentFrequency,
+    );
     var payoutReports = <MatexDividendReinvestementPayoutReport>[];
     var dCumulativeShares = toDecimal(
       lastReport?.numberOfShares ?? state.numberOfShares!,
@@ -123,11 +126,11 @@ class MatexDividendReinvestmentCalculatorCore extends MatexBaseCalculator<
     var dCurrentSharePrice = dSharePrice;
 
     if (dAnnualSharePriceIncrease > Decimal.zero) {
-      dSharePriceIncreaseAmount =
-          dSharePrice * (dAnnualSharePriceIncrease / dDividendPaymentFrequency);
+      dSharePriceIncreaseAmount = dSharePrice *
+          toDecimal(dAnnualSharePriceIncrease / dDividendPaymentFrequency);
     }
 
-    for (var i = 0; i < dDividendPaymentFrequency.toInt(); i++) {
+    for (var i = 0; i < dDividendPaymentFrequency.toBigInt().toInt(); i++) {
       final dividendPayout = _computeDividendPayout(
         MatexDividendReinvestementRecord(
           numberOfshares: dCumulativeShares.toDouble(),
@@ -162,7 +165,7 @@ class MatexDividendReinvestmentCalculatorCore extends MatexBaseCalculator<
       dCumulativeNetAmount += dNetDividendPayout;
       dCumulativeNetDividendPayout += dNetDividendPayout;
 
-      if (i + 1 == dDividendPaymentFrequency.toInt()) {
+      if (i + 1 == dDividendPaymentFrequency.toBigInt().toInt()) {
         dAdditionalShareFromAnnualContribution =
             _computeAdditionalShareFromAnnualContribution(
           dCurrentSharePrice,
@@ -243,7 +246,7 @@ class MatexDividendReinvestmentCalculatorCore extends MatexBaseCalculator<
   }
 
   Decimal _computeAdditionalShare(Decimal amount, Decimal sharePrice) {
-    return amount / sharePrice;
+    return toDecimal(amount / sharePrice);
   }
 
   int _getDividendPaymentFrequency(MatexFrequency frequency) {

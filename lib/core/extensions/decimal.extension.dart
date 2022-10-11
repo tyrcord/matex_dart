@@ -1,4 +1,5 @@
 import 'package:decimal/decimal.dart';
+import 'package:rational/rational.dart';
 
 //FIXME: https://github.com/dart-lang/language/issues/723
 
@@ -15,5 +16,9 @@ class MatexDecimal {
     }
 
     return fromDouble(value as double);
+  }
+
+  static Decimal fromRational(Rational value) {
+    return value.toDecimal(scaleOnInfinitePrecision: 32);
   }
 }

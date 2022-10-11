@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
+import 'package:rational/rational.dart';
 
 mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     on MatexBaseCalculator<C, R> {
@@ -38,25 +39,29 @@ mixin MatexPipValueCoreMixin<C extends MatexBaseCalculator<C, R>, R>
   }
 
   @protected
-  Decimal pipValue(MatexBaseCoreState state) {
+  Decimal pipValue(MatexBaseCoreState state, {bool rational = false}) {
+    return toDecimal(rationalPipValue(state));
+  }
+
+  Rational rationalPipValue(MatexBaseCoreState state) {
     final counterAccountCurrencyPairExchangeRate =
         state.counterAccountCurrencyPairExchangeRate;
     final baseListedSecond = state.baseListedSecond!;
     final pipPrecision = state.pipPrecision!;
     final positionSize = state.positionSize;
     final tradingPairExchangeRate = state.tradingPairExchangeRate;
-    final decimalMultiplicator = pow(10, pipPrecision).toString();
-    final decimalPip = Decimal.one / Decimal.parse(decimalMultiplicator);
-    final pipValue = Decimal.parse(positionSize.toString()) * decimalPip;
+    final decimalMultiplicator = pow(10, pipPrecision);
+    final decimalPip = Decimal.one / toDecimal(decimalMultiplicator);
+    final pipValue = toDecimal(positionSize).toRational() * decimalPip;
 
     if (baseListedSecond) {
       return pipValue;
     } else if (counterAccountCurrencyPairExchangeRate == 0) {
-      return pipValue / Decimal.parse(tradingPairExchangeRate.toString());
+      return (pipValue / toDecimal(tradingPairExchangeRate).toRational());
     }
 
     return pipValue *
-        MatexDecimal.fromDouble(counterAccountCurrencyPairExchangeRate!);
+        toDecimal(counterAccountCurrencyPairExchangeRate!).toRational();
   }
 
   @protected

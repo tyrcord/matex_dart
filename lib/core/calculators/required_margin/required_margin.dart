@@ -36,15 +36,15 @@ class MatexRequiredMarginCalculatorCore
 
       if (!baseListedSecond) {
         return (result = (Decimal.parse(positionSize.toString()) *
-                Decimal.parse(tradingPairExchangeRate.toString()) /
-                decimalLeverage *
+                toDecimal(Decimal.parse(tradingPairExchangeRate.toString()) /
+                    decimalLeverage) *
                 Decimal.parse(rate.toString()))
             .toDouble());
       }
 
-      return (result = (Decimal.parse(positionSize.toString()) *
-              Decimal.parse(tradingPairExchangeRate.toString()) /
-              decimalLeverage /
+      return (result = (toDecimal(Decimal.parse(positionSize.toString()) *
+                  Decimal.parse(tradingPairExchangeRate.toString()) /
+                  decimalLeverage) /
               Decimal.one)
           .toDouble());
     }

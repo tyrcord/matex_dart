@@ -163,7 +163,10 @@ void main() {
         result = calculator.value();
 
         expect(result.profitOrLoss, equals(-250));
-        expect(result.returnOnInvestement, equals(-1 / 3));
+        expect(
+          result.returnOnInvestement,
+          equals(-1 / 3),
+        );
       });
     });
 

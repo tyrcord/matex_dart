@@ -1,6 +1,7 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
+import 'package:rational/rational.dart';
 
 abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
   @protected
@@ -136,10 +137,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
   double sanitizeDouble(double value) => value.abs();
 
   @protected
-  Decimal toDecimal(num value) => MatexDecimal.fromNumber(value);
-
-  @protected
   Decimal toPercentageDecimal(num value) {
-    return toDecimal(value) / MatexDecimal.hundred;
+    return toDecimal(value / MatexDecimal.hundred.toDouble());
   }
 }

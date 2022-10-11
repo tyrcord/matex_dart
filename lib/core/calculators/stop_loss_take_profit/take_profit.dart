@@ -120,7 +120,8 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
     final entryPrice = state.entryPrice;
     final _divider = Decimal.parse(divider.toString());
 
-    final deltaPrice = Decimal.parse(takeProfitPips.toString()) / _divider;
+    final deltaPrice =
+        toDecimal(Decimal.parse(takeProfitPips.toString()) / _divider);
     final entryPriceBigNumber = Decimal.parse(entryPrice.toString());
 
     return (position == MatexPosition.long

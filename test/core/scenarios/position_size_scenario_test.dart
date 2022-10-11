@@ -152,7 +152,7 @@ void main() {
         calculator.baseListedSecond(false); // default value
       });
 
-      test('And: the exchange rate for this pair is 1.25', () {
+      test('And: the exchange rate for this pair is 1.12', () {
         calculator.tradingPairExchangeRate(1.12);
       });
 
@@ -174,7 +174,7 @@ void main() {
           equals(MatexPositionSizeResult(
             amountAtRisk: 50,
             pipValue: 0.25,
-            positionSize: 2800,
+            positionSize: 2800.0000000000005,
             riskRatio: 1,
             stopLossPips: 200,
           )),

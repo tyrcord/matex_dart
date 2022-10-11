@@ -1,5 +1,4 @@
 import 'package:decimal/decimal.dart';
-
 import 'package:matex_dart/matex_dart.dart';
 
 const kDefaultWoodiePivotPointsResult = MatexPivotPointsResult(
@@ -18,8 +17,8 @@ MatexPivotPointsResult pivotPointsWoodie(
   final closeParsed = Decimal.parse(close.toString());
   final decimal2 = MatexDecimal.two;
 
-  final pivotPoint =
-      (closeParsed * decimal2 + lowParsed + highParsed) / MatexDecimal.four;
+  final pivotPoint = toDecimal(
+      (closeParsed * decimal2 + lowParsed + highParsed) / MatexDecimal.four);
 
   final resistance1 = pivotPoint * decimal2 - lowParsed;
   final resistance2 = pivotPoint + highParsed - lowParsed;

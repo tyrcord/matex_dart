@@ -41,7 +41,9 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 
       return [...extensionLevels].reversed.map((double level) {
         final parsedValue = isValid
-            ? Decimal.parse(level.toString()) / MatexDecimal.hundred * delta +
+            ? toDecimal(Decimal.parse(level.toString()) /
+                        MatexDecimal.hundred) *
+                    delta +
                 parsedHighPrice
             : Decimal.zero;
 
@@ -53,7 +55,9 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 
     return extensionLevels.map((double level) {
       final parsedValue = isValid
-          ? -(Decimal.parse(level.toString()) / MatexDecimal.hundred * delta) +
+          ? -(toDecimal(
+                      Decimal.parse(level.toString()) / MatexDecimal.hundred) *
+                  delta) +
               parsedLowPrice
           : Decimal.zero;
 
@@ -73,7 +77,9 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 
       return [...retracementLevels].reversed.map((double level) {
         final parsedValue = isValid
-            ? Decimal.parse(level.toString()) / MatexDecimal.hundred * delta +
+            ? toDecimal(Decimal.parse(level.toString()) /
+                        MatexDecimal.hundred) *
+                    delta +
                 parsedLowPrice
             : Decimal.zero;
 
@@ -85,7 +91,9 @@ class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
 
     return retracementLevels.map((double level) {
       final parsedValue = isValid
-          ? -(Decimal.parse(level.toString()) / MatexDecimal.hundred * delta) +
+          ? -(toDecimal(
+                      Decimal.parse(level.toString()) / MatexDecimal.hundred) *
+                  delta) +
               parsedHighPrice
           : Decimal.zero;
 

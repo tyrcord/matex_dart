@@ -21,7 +21,7 @@ MatexPivotPointsResult pivotPointsFibonacci(
   final closeParsed = Decimal.parse(close.toString());
 
   final pivotPoint =
-      (highParsed + lowParsed + closeParsed) / MatexDecimal.three;
+      toDecimal((highParsed + lowParsed + closeParsed) / MatexDecimal.three);
   final delta = highParsed - lowParsed;
 
   final resistance1 = pivotPoint + (delta * _fibonacci382);

@@ -28,8 +28,8 @@ MatexPivotPointsResult pivotPointsDeMark(
     pivotPoint = closeParsed * decimal2 + highParsed + lowParsed;
   }
 
-  final pivotPointDividedBy2 = pivotPoint / decimal2;
-  final pivotPointDividedBy4 = pivotPoint / MatexDecimal.four;
+  final pivotPointDividedBy2 = toDecimal(pivotPoint / decimal2);
+  final pivotPointDividedBy4 = toDecimal(pivotPoint / MatexDecimal.four);
   final resistance = pivotPointDividedBy2 - lowParsed;
   final support = pivotPointDividedBy2 - highParsed;
 
