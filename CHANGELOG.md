@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.10.0](https://github.com/tyrcord/matex_dart/releases/tag/0.10.0) (2022-10-11)
+
+### Enhancements
+
+- Minor improvements.
+
 ## [0.9.7](https://github.com/tyrcord/matex_dart/releases/tag/0.9.7) (2022-09-27)
 
 ### Features
