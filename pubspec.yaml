@@ -1,5 +1,5 @@
 name: matex_dart
-version: 0.10.0
+version: 0.10.1
 description: Set of Forex calculators.
 homepage: https://github.com/tyrcord/matex_dart
 issue_tracker: https://github.com/tyrcord/matex_dart/issues
@@ -16,7 +16,7 @@ dependencies:
   meta: ^1.8.0
   decimal: ^2.3.0
   intl: ^0.17.0
-  tstore_dart: ^0.8.0
+  tstore_dart: ^0.8.2
   rational: ^2.2.0
 
 dev_dependencies:
