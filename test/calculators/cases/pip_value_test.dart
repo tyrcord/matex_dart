@@ -16,6 +16,7 @@ void main() {
 
     group('#pipValue()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        // ignore: unnecessary_type_check
         expect(pipValue is MatexPipValueCalculator, isTrue);
       });
     });

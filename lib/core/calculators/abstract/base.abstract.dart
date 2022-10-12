@@ -1,7 +1,6 @@
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 import 'package:meta/meta.dart';
-import 'package:rational/rational.dart';
 
 abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
   @protected

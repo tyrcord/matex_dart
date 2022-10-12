@@ -1,5 +1,5 @@
-import 'package:matex_dart/matex_dart.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:matex_dart/matex_dart.dart';
 
 import '../../core/shared/messages.dart';
 import '../samples/config.dart';
@@ -18,6 +18,7 @@ void main() {
 
     group('pipDelta()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        // ignore: unnecessary_type_check
         expect(calculator is MatexPipDeltaCalculator, isTrue);
       });
     });

@@ -1,5 +1,3 @@
-import 'package:matex_dart/calculators/core/dividend_payout_ratio.calculator.dart';
-import 'package:matex_dart/calculators/core/dividend_reinvestment.calculator.dart';
 import 'package:matex_dart/matex_dart.dart';
 
 final MatexConfig _defaultMatexConfig = MatexConfig(

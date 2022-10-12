@@ -9,11 +9,13 @@ List<MatexStateValidator> pipDeltaValidators = [
   (MatexBaseCoreState state) {
     final priceA = state.priceA!;
     final priceB = state.priceB!;
+
     return priceA >= 0 && priceB >= 0;
   },
   (MatexBaseCoreState state) {
     final priceA = state.priceA!;
     final priceB = state.priceB!;
+
     return priceA > 0 || priceB > 0;
   },
 ];

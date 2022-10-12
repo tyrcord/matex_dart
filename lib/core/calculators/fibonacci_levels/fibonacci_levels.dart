@@ -1,5 +1,5 @@
-import 'package:matex_dart/matex_dart.dart';
 import 'package:decimal/decimal.dart';
+import 'package:matex_dart/matex_dart.dart';
 
 class MatexFibonacciLevelsCalculatorCore extends MatexBaseCalculator<
         MatexFibonacciLevelsCalculatorCore, FibonacciLevelsResult>

@@ -9,8 +9,8 @@ class MatexCurrencyPairModel extends Equatable {
   bool isValid() {
     return counterCode != null &&
         baseCode != null &&
-        counterCode!.length > 0 &&
-        baseCode!.length > 0;
+        counterCode!.isNotEmpty &&
+        baseCode!.isNotEmpty;
   }
 
   @override

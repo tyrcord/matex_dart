@@ -18,6 +18,7 @@ void main() {
 
     group('#forexProfitAndLoss()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        // ignore: unnecessary_type_check
         expect(calculator is MatexForexProfitAndLossCalculator, isTrue);
       });
     });
@@ -320,6 +321,7 @@ void main() {
 
     group('#reset()', () {
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
+        // ignore: unnecessary_type_check
         expect(calculator is MatexForexProfitAndLossCalculator, isTrue);
       });
 
