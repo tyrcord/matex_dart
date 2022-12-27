@@ -1,5 +1,7 @@
 import 'package:matex_dart/matex_dart.dart';
 
+const int intMaxValue = 9007199254740991;
+
 mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     on MatexAbstractPipValueCalculatorCore<C, R> {
   MatexConfig? config;
@@ -42,6 +44,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
             kInitialMatexPipValueState.counterAccountCurrencyPairExchangeRate,
         tradingPairExchangeRate:
             kInitialMatexPipValueState.tradingPairExchangeRate,
+        pipPrecision: intMaxValue,
       ));
     }
 
@@ -104,14 +107,20 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
       counterCode,
     );
 
-    final pairMetadata = await fetchPairMetadata();
+    // FIXME: workaround,
+    // we can't properly set null values on the calculator state.
+    if (pipPrecision == null || pipPrecision == intMaxValue) {
+      final pairMetadata = await fetchPairMetadata();
 
-    if (pairMetadata != null) {
-      patchState(MatexBaseCoreState(pipPrecision: pairMetadata.pip.precision));
-    } else if (pipPrecision == null) {
-      patchState(MatexBaseCoreState(
-        pipPrecision: MatexPairPipMetadata.defaultMetatada().precision,
-      ));
+      if (pairMetadata != null) {
+        patchState(
+          MatexBaseCoreState(pipPrecision: pairMetadata.pip.precision),
+        );
+      } else {
+        patchState(MatexBaseCoreState(
+          pipPrecision: MatexPairPipMetadata.defaultMetatada().precision,
+        ));
+      }
     }
 
     if (tradingPairQuoteFuture != null) {
