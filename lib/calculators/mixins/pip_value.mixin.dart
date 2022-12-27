@@ -98,6 +98,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     final accountCode = state.accountCode!;
     final counterCode = state.counterCode!;
     final baseCode = state.baseCode!;
+    final pipPrecision = state.pipPrecision;
     final tradingPairQuoteFuture = exchangeProvider?.rates(
       baseCode,
       counterCode,
@@ -107,7 +108,7 @@ mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
 
     if (pairMetadata != null) {
       patchState(MatexBaseCoreState(pipPrecision: pairMetadata.pip.precision));
-    } else {
+    } else if (pipPrecision == null) {
       patchState(MatexBaseCoreState(
         pipPrecision: MatexPairPipMetadata.defaultMetatada().precision,
       ));
