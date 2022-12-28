@@ -10,7 +10,7 @@ mixin MatexPipDeltaCoreMixin<C extends MatexBaseCalculator<C, R>, R>
     return patchState(MatexBaseCoreState(priceB: sanitizeDouble(price)));
   }
 
-  C pipPrecision(int pipPrecision) {
+  C pipPrecision(int? pipPrecision) {
     return patchState(MatexBaseCoreState(pipPrecision: pipPrecision));
   }
 }
