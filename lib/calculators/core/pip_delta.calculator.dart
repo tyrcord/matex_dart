@@ -23,13 +23,13 @@ class MatexPipDeltaCalculator
   ) {
     if (baseCode != null && counterCode != null) {
       return patchState(MatexBaseCoreState(
+        pipPrecision: intMaxValue,
         counterCode: counterCode,
         baseCode: baseCode,
       ));
     }
 
     return resetStateProperties([
-      MatexCoreStateProperty.pipPrecision,
       MatexCoreStateProperty.counterCode,
       MatexCoreStateProperty.baseCode,
     ]);
@@ -40,12 +40,24 @@ class MatexPipDeltaCalculator
     final pairProvider = config.pairProvider;
 
     if (isValid && pairProvider != null) {
-      var metadata = await pairProvider.metadata(
-        '${state.baseCode}${state.counterCode}',
-      );
+      final pipPrecision = state.pipPrecision;
 
-      if (metadata != null) {
-        pipPrecision(metadata.pip.precision);
+      // FIXME: workaround,
+      // we can't properly set null values on the calculator state.
+      if (pipPrecision == null || pipPrecision == intMaxValue) {
+        var pairMetadata = await pairProvider.metadata(
+          '${state.baseCode}${state.counterCode}',
+        );
+
+        if (pairMetadata != null) {
+          patchState(
+            MatexBaseCoreState(pipPrecision: pairMetadata.pip.precision),
+          );
+        } else {
+          patchState(MatexBaseCoreState(
+            pipPrecision: MatexPairPipMetadata.defaultMetatada().precision,
+          ));
+        }
       }
 
       return pipDelta(defaultState: state).value().toDouble();

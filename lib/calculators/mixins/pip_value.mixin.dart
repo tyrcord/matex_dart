@@ -1,7 +1,5 @@
 import 'package:matex_dart/matex_dart.dart';
 
-const int intMaxValue = 9007199254740991;
-
 mixin MatexPipValueMixin<C extends MatexAbstractPipValueCalculatorCore<C, R>, R>
     on MatexAbstractPipValueCalculatorCore<C, R> {
   MatexConfig? config;
