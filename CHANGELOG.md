@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.10.5](https://github.com/tyrcord/matex_dart/releases/tag/0.10.5) (2023-01-06)
+
+### Features
+
+- Support custom pip precision.
+
 ## [0.10.4](https://github.com/tyrcord/matex_dart/releases/tag/0.10.4) (2022-12-28)
 
 ### Enhancements
