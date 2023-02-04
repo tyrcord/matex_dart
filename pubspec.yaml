@@ -1,12 +1,12 @@
 name: matex_dart
-version: 0.10.5
+version: 0.10.6
 description: Set of Forex calculators.
 homepage: https://github.com/tyrcord/matex_dart
 issue_tracker: https://github.com/tyrcord/matex_dart/issues
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
-  flutter: ">=3.3.0"
+  sdk: ">=2.19.0 <3.0.0"
+  flutter: ">=3.7.0"
 
 dependencies:
   flutter:
@@ -16,15 +16,14 @@ dependencies:
   meta: ^1.8.0
   decimal: ^2.3.0
   intl: ^0.17.0
-  tstore_dart: ^0.8.2
+  tstore_dart: ">=0.8.3 <1.0.0"
   rational: ^2.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  pedantic: ^1.11.1
-  test: ^1.21.4
-  dart_code_metrics: ^4.19.1
+  flutter_lints: ^2.0.1
+  dart_code_metrics: ^5.5.1
 
 flutter:
   assets:
