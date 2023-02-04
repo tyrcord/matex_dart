@@ -5,6 +5,8 @@ class MatexForexProfitAndLossCalculator
     extends MatexAbstractPipValueCalculatorCore<
         MatexForexProfitAndLossCalculator, Future<MatexProfitAndLossResult>>
     with
+        MatexLotCoreMixin<MatexForexProfitAndLossCalculator,
+            Future<MatexProfitAndLossResult>>,
         MatexProfitAndLossCoreMixin<MatexForexProfitAndLossCalculator,
             Future<MatexProfitAndLossResult>>,
         MatexPipValueCoreMixin<MatexForexProfitAndLossCalculator,

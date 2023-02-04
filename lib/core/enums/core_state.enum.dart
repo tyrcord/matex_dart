@@ -60,4 +60,7 @@ class MatexCoreStateProperty {
   static const String taxExemptAmountPerYear = 'taxExemptAmountPerYear';
   static const String totalDividend = 'totalDividend';
   static const String netIncome = 'netIncome';
+  static const String standardLot = 'standardLot';
+  static const String miniLot = 'miniLot';
+  static const String microLot = 'microLot';
 }
