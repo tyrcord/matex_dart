@@ -72,7 +72,7 @@ class MatexProfitAndLossCalculatorCore extends MatexBaseCalculator<
       );
     }
 
-    return MatexProfitAndLossResult();
+    return const MatexProfitAndLossResult();
   }
 
   Decimal _computBreakEvenUnits(

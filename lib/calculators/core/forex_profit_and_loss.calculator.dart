@@ -1,3 +1,5 @@
+// ignore_for_file: overridden_fields
+
 import 'package:decimal/decimal.dart';
 import 'package:matex_dart/matex_dart.dart';
 
@@ -57,7 +59,7 @@ class MatexForexProfitAndLossCalculator
       return convertResultWithRate(result, dInvertedRate.toDouble());
     }
 
-    return MatexProfitAndLossResult();
+    return const MatexProfitAndLossResult();
   }
 
   MatexProfitAndLossResult convertResultWithRate(

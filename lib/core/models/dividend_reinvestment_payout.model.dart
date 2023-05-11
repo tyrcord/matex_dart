@@ -4,7 +4,7 @@ class MatexDividendReinvestementPayout extends Equatable {
   final double grossDividendPayout;
   final double netDividendPayout;
 
-  MatexDividendReinvestementPayout({
+  const MatexDividendReinvestementPayout({
     this.grossDividendPayout = 0,
     this.netDividendPayout = 0,
   });

@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_type_check
+
 import 'package:matex_dart/matex_dart.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -20,7 +22,7 @@ void main() {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
         expect(calculator.isDirty, isFalse);
         final result = calculator.value();
-        expect(result, equals(MatexProfitAndLossResult()));
+        expect(result, equals(const MatexProfitAndLossResult()));
       });
 
       test('should return true when a calculator state is dirty', () {
@@ -55,7 +57,7 @@ void main() {
 
     group('#value()', () {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
-        expect(calculator.value(), equals(MatexProfitAndLossResult()));
+        expect(calculator.value(), equals(const MatexProfitAndLossResult()));
       });
 
       test(SHOULD_MEMOIZE_LAST_VALUE, () {
@@ -1068,7 +1070,7 @@ void main() {
             .exitFeeAmount(50)
             .reset()
             .value();
-        expect(value, equals(MatexProfitAndLossResult()));
+        expect(value, equals(const MatexProfitAndLossResult()));
       });
     });
   });

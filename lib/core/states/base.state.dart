@@ -820,7 +820,7 @@ class MatexBaseCoreState extends TDocument {
       ];
 
   @override
-  MatexBaseCoreState merge(covariant MatexBaseCoreState state) {
-    return copyWithState(state);
+  MatexBaseCoreState merge(covariant MatexBaseCoreState model) {
+    return copyWithState(model);
   }
 }

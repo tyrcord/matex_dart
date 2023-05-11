@@ -11,7 +11,7 @@ class MatexDividendReinvestementPayoutReport
   final double endingBalance;
   final double sharePrice;
 
-  MatexDividendReinvestementPayoutReport({
+  const MatexDividendReinvestementPayoutReport({
     this.additionalSharesFromAnnualContribution = 0,
     this.additionalSharesFromDrip = 0,
     this.cumulativeGrossAmount = 0,

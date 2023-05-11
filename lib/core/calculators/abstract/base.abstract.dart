@@ -42,7 +42,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
   C reset() {
     defaultState ??= defaultCalculatorState;
     var calculator = setState(defaultState!);
-    differenceState = MatexBaseCoreState();
+    differenceState = const MatexBaseCoreState();
 
     return calculator;
   }
@@ -94,7 +94,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
     var counterCode;
     var baseCode;
 
-    candidateMap.entries.forEach((MapEntry<String, dynamic> entry) {
+    for (var entry in candidateMap.entries) {
       var isCounterCode = entry.key == MatexCoreStateProperty.counterCode;
       var isBaseCode = entry.key == MatexCoreStateProperty.baseCode;
 
@@ -115,7 +115,7 @@ abstract class MatexBaseCalculator<C extends MatexBaseCalculator<C, R>, R> {
       } else if (!propertiesUseForDifference.contains(entry.key)) {
         candidateMap[entry.key] = null;
       }
-    });
+    }
 
     return MatexBaseCoreState.fromJson(candidateMap);
   }

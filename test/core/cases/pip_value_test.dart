@@ -252,7 +252,7 @@ void main() {
 
       test('should update the lot descriptors value', () {
         var lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: MatexLotDescriptor(
+          standard: const MatexLotDescriptor(
             multiplier: 5000,
           ),
         );
@@ -265,7 +265,7 @@ void main() {
         );
 
         lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: MatexLotDescriptor(
+          standard: const MatexLotDescriptor(
             exists: false,
             multiplier: 5000,
           ),

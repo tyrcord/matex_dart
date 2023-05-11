@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_type_check
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:matex_dart/matex_dart.dart';
 
@@ -146,7 +148,7 @@ void main() {
             () {
           expect(
             calculator.value() ==
-                MatexStopLossTakeProfitResult(
+                const MatexStopLossTakeProfitResult(
                   pipValue: 0.8,
                   riskRewardRatio: 2,
                   stopLoss: MatexStopLossResult(
@@ -209,7 +211,7 @@ void main() {
             () {
           expect(
             calculator.value() ==
-                MatexStopLossTakeProfitResult(
+                const MatexStopLossTakeProfitResult(
                   pipValue: 0.8,
                   riskRewardRatio: 2,
                   stopLoss: MatexStopLossResult(
@@ -273,7 +275,7 @@ void main() {
             () {
           expect(
             calculator.value() ==
-                MatexStopLossTakeProfitResult(
+                const MatexStopLossTakeProfitResult(
                   pipValue: 5,
                   riskRewardRatio: 2,
                   stopLoss: MatexStopLossResult(

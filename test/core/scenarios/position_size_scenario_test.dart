@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_type_check
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:matex_dart/matex_dart.dart';
 
@@ -171,7 +173,7 @@ void main() {
       test('Then: my position size should be 2,800', () {
         expect(
           calculator.value(),
-          equals(MatexPositionSizeResult(
+          equals(const MatexPositionSizeResult(
             amountAtRisk: 50,
             pipValue: 0.25,
             positionSize: 2800.0000000000005,
@@ -213,7 +215,7 @@ void main() {
       test('Then: my position size should be \$4,000', () {
         expect(
           calculator.value(),
-          equals(MatexPositionSizeResult(
+          equals(const MatexPositionSizeResult(
             amountAtRisk: 50,
             pipValue: 0.25,
             positionSize: 500,

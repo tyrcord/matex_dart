@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_type_check
+
 import 'package:matex_dart/matex_dart.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -106,7 +108,7 @@ void main() {
 
       test('should update the lot descriptors value', () {
         var lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: MatexLotDescriptor(multiplier: 5000),
+          standard: const MatexLotDescriptor(multiplier: 5000),
         );
 
         calculator.lotDescriptors(lotDescriptors);
@@ -115,7 +117,7 @@ void main() {
         expect(calculator.getState().positionSize, equals(5000));
 
         lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: MatexLotDescriptor(multiplier: 5000, exists: false),
+          standard: const MatexLotDescriptor(multiplier: 5000, exists: false),
         );
 
         calculator.lotDescriptors(lotDescriptors);

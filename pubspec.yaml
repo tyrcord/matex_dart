@@ -5,25 +5,25 @@ homepage: https://github.com/tyrcord/matex_dart
 issue_tracker: https://github.com/tyrcord/matex_dart/issues
 
 environment:
-  sdk: ">=2.19.0 <3.0.0"
-  flutter: ">=3.7.0"
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=3.10.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  async: ^2.9.0
+  async: ^2.10.0
   equatable: ^2.0.5
   meta: ^1.8.0
-  decimal: ^2.3.0
-  intl: ^0.17.0
-  tstore_dart: ">=0.8.3 <1.0.0"
-  rational: ^2.2.0
+  decimal: ^2.3.2
+  intl: ^0.18.0
+  tstore_dart: ">=0.8.4 <1.0.0"
+  rational: ^2.2.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.1
-  dart_code_metrics: ^5.5.1
+  dart_code_metrics: ^5.7.3
 
 flutter:
   assets:

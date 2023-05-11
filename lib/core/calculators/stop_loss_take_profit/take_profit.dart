@@ -72,19 +72,19 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
   ) {
     final position = state.position;
     final entryPrice = state.entryPrice!;
-    final _divider = Decimal.parse(divider.toString());
+    final divider0 = Decimal.parse(divider.toString());
     final takeProfitPriceParsed = Decimal.parse(takeProfitPrice.toString());
     final entryPriceParsed = Decimal.parse(entryPrice.toString());
     var takeProfitPips = 0.0;
 
     if (position == MatexPosition.long && takeProfitPrice > entryPrice) {
       takeProfitPips =
-          ((takeProfitPriceParsed - entryPriceParsed) * _divider).toDouble();
+          ((takeProfitPriceParsed - entryPriceParsed) * divider0).toDouble();
     }
 
     if (position == MatexPosition.short && takeProfitPrice < entryPrice) {
       takeProfitPips =
-          ((entryPriceParsed - takeProfitPriceParsed) * _divider).toDouble();
+          ((entryPriceParsed - takeProfitPriceParsed) * divider0).toDouble();
     }
 
     return _buildTakeProfitResult(
@@ -118,10 +118,10 @@ class MatexTakeProfitCalculatorCore extends MatexBaseCalculator<
   double _computeTakeProfitPrice(double takeProfitPips, double divider) {
     final position = state.position;
     final entryPrice = state.entryPrice;
-    final _divider = Decimal.parse(divider.toString());
+    final divider0 = Decimal.parse(divider.toString());
 
     final deltaPrice =
-        toDecimal(Decimal.parse(takeProfitPips.toString()) / _divider);
+        toDecimal(Decimal.parse(takeProfitPips.toString()) / divider0);
     final entryPriceBigNumber = Decimal.parse(entryPrice.toString());
 
     return (position == MatexPosition.long

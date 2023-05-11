@@ -14,12 +14,12 @@ void main() {
       test('should report a reportState to a string', () {
         expect(
           reporter.report(entries: [
-            MatexReportEntry(
+            const MatexReportEntry(
               label: 'Pip Value:',
               value: 1.45252,
               maximumFractionDigits: 5,
             ),
-            MatexReportEntry(
+            const MatexReportEntry(
               label: 'Position Size:',
               value: 100000,
             ),
@@ -30,7 +30,7 @@ void main() {
         expect(
           reporter.report(
             entries: [
-              MatexReportEntry(
+              const MatexReportEntry(
                 label: 'Pip Value:',
                 value: 1.45252,
                 maximumFractionDigits: 5,

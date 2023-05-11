@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_type_check
+
 import 'package:matex_dart/matex_dart.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -127,7 +129,7 @@ void main() {
 
     group('#setState()', () {
       test(SHOULD_UPDATE_CALCULATOR_STATE, () {
-        calculator.setState(MatexBaseCoreState(
+        calculator.setState(const MatexBaseCoreState(
           positionSize: 1000,
         ));
 
@@ -135,7 +137,7 @@ void main() {
       });
 
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        final instance = calculator.setState(MatexBaseCoreState(
+        final instance = calculator.setState(const MatexBaseCoreState(
           pipPrecision: 2,
         ));
 
@@ -404,7 +406,7 @@ void main() {
 
       test('should update the lot descriptors value', () {
         var lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: MatexLotDescriptor(
+          standard: const MatexLotDescriptor(
             exists: true,
             multiplier: 5000,
           ),
@@ -416,7 +418,7 @@ void main() {
         expect(calculator.getState().positionSize, equals(5000));
 
         lotDescriptors = kDefaultLotDescriptors.copyWith(
-          standard: MatexLotDescriptor(
+          standard: const MatexLotDescriptor(
             exists: false,
             multiplier: 5000,
           ),

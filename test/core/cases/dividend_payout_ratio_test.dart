@@ -22,7 +22,7 @@ void main() {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
         expect(calculator.isDirty, isFalse);
         final result = calculator.value();
-        expect(result, equals(MatexDividendPayoutRatioResult()));
+        expect(result, equals(const MatexDividendPayoutRatioResult()));
       });
 
       test('should return true when a calculator state is dirty', () {
@@ -41,7 +41,8 @@ void main() {
 
     group('#value()', () {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
-        expect(calculator.value(), equals(MatexDividendPayoutRatioResult()));
+        expect(
+            calculator.value(), equals(const MatexDividendPayoutRatioResult()));
       });
 
       test(SHOULD_MEMOIZE_LAST_VALUE, () {
@@ -94,7 +95,7 @@ void main() {
 
       test('should reset the calculator', () {
         var value = calculator.netIncome(1000000).reset().value();
-        expect(value, equals(MatexDividendPayoutRatioResult()));
+        expect(value, equals(const MatexDividendPayoutRatioResult()));
       });
     });
   });

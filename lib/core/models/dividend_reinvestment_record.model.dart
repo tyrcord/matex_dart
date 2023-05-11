@@ -4,7 +4,7 @@ class MatexDividendReinvestementRecord extends Equatable {
   final double dividendAmount;
   final double numberOfshares;
 
-  MatexDividendReinvestementRecord({
+  const MatexDividendReinvestementRecord({
     this.dividendAmount = 0,
     this.numberOfshares = 0,
   });

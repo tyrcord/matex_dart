@@ -1,3 +1,5 @@
+// ignore_for_file: overridden_fields
+
 import 'package:matex_dart/matex_dart.dart';
 
 class MatexPositionSizeCalculator extends MatexAbstractPipValueCalculatorCore<

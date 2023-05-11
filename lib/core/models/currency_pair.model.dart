@@ -4,7 +4,7 @@ class MatexCurrencyPairModel extends Equatable {
   final String? counterCode;
   final String? baseCode;
 
-  MatexCurrencyPairModel({this.counterCode, this.baseCode});
+  const MatexCurrencyPairModel({this.counterCode, this.baseCode});
 
   bool isValid() {
     return counterCode != null &&

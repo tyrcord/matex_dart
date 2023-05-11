@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_type_check
+
 import 'package:matex_dart/matex_dart.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -221,7 +223,7 @@ void main() {
 
     group('#setState()', () {
       test(SHOULD_UPDATE_CALCULATOR_STATE, () {
-        calculator.setState(MatexBaseCoreState(
+        calculator.setState(const MatexBaseCoreState(
           positionSize: 1000,
         ));
 
@@ -229,7 +231,7 @@ void main() {
       });
 
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
-        final instance = calculator.setState(MatexBaseCoreState(
+        final instance = calculator.setState(const MatexBaseCoreState(
           pipPrecision: 2,
         ));
 
@@ -279,7 +281,7 @@ void main() {
 
         expect(
           results.stopLoss ==
-              MatexStopLossResult(
+              const MatexStopLossResult(
                 amount: 200,
                 pips: 220,
                 price: 1.078,
@@ -301,7 +303,7 @@ void main() {
         expect(
           results.stopLoss,
           equals(
-            MatexStopLossResult(
+            const MatexStopLossResult(
               amount: 200,
               pips: 220,
               price: 1.078,
@@ -322,7 +324,7 @@ void main() {
 
         expect(
           results.stopLoss ==
-              MatexStopLossResult(
+              const MatexStopLossResult(
                 amount: 200,
                 pips: 220,
                 price: 1.078,
@@ -343,7 +345,7 @@ void main() {
 
         expect(
           results.takeProfit ==
-              MatexTakeProfitResult(
+              const MatexTakeProfitResult(
                 amount: 200,
                 pips: 220,
                 price: 1.122,
@@ -365,7 +367,7 @@ void main() {
         expect(
           results.takeProfit,
           equals(
-            MatexTakeProfitResult(
+            const MatexTakeProfitResult(
               amount: 200,
               pips: 220,
               price: 1.122,
@@ -386,7 +388,7 @@ void main() {
 
         expect(
           results.takeProfit ==
-              MatexTakeProfitResult(
+              const MatexTakeProfitResult(
                 amount: 200,
                 pips: 220,
                 price: 1.122,
@@ -408,7 +410,7 @@ void main() {
 
         expect(
           results.stopLoss ==
-              MatexStopLossResult(
+              const MatexStopLossResult(
                 amount: 200,
                 pips: 220,
                 price: 1.122,
@@ -431,7 +433,7 @@ void main() {
         expect(
           results.stopLoss,
           equals(
-            MatexStopLossResult(
+            const MatexStopLossResult(
               amount: 200,
               pips: 220,
               price: 1.122,
@@ -454,7 +456,7 @@ void main() {
         expect(
           results.stopLoss,
           equals(
-            MatexStopLossResult(
+            const MatexStopLossResult(
               amount: 200,
               pips: 220,
               price: 1.122,
@@ -476,7 +478,7 @@ void main() {
 
         expect(
           results.takeProfit ==
-              MatexTakeProfitResult(
+              const MatexTakeProfitResult(
                 amount: 200,
                 pips: 220,
                 price: 1.078,
@@ -499,7 +501,7 @@ void main() {
         expect(
           results.takeProfit,
           equals(
-            MatexTakeProfitResult(
+            const MatexTakeProfitResult(
               amount: 200,
               pips: 220,
               price: 1.078,
@@ -522,7 +524,7 @@ void main() {
         expect(
           results.takeProfit,
           equals(
-            MatexTakeProfitResult(
+            const MatexTakeProfitResult(
               amount: 200,
               pips: 220,
               price: 1.078,

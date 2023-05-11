@@ -66,19 +66,19 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
   ) {
     final position = state.position;
     final entryPrice = state.entryPrice!;
-    final _divider = Decimal.parse(divider.toString());
+    final divider0 = Decimal.parse(divider.toString());
     final stopLossPriceParsed = Decimal.parse(stopLossPrice.toString());
     final entryPriceParsed = Decimal.parse(entryPrice.toString());
     var stopLossPips = 0.0;
 
     if (position == MatexPosition.long && stopLossPrice < entryPrice) {
       stopLossPips =
-          ((entryPriceParsed - stopLossPriceParsed) * _divider).toDouble();
+          ((entryPriceParsed - stopLossPriceParsed) * divider0).toDouble();
     }
 
     if (position == MatexPosition.short && stopLossPrice > entryPrice) {
       stopLossPips =
-          ((stopLossPriceParsed - entryPriceParsed) * _divider).toDouble();
+          ((stopLossPriceParsed - entryPriceParsed) * divider0).toDouble();
     }
 
     return _buildStopLossResult(
@@ -109,10 +109,10 @@ class MatexStopLossCalculatorCore extends MatexBaseCalculator<
   double _computeStopLossPrice(double stopLossPips, double divider) {
     final position = state.position;
     final entryPrice = state.entryPrice;
-    final _divider = Decimal.parse(divider.toString());
+    final divider0 = Decimal.parse(divider.toString());
 
     final deltaPrice =
-        toDecimal(Decimal.parse(stopLossPips.toString()) / _divider);
+        toDecimal(Decimal.parse(stopLossPips.toString()) / divider0);
     final entryPriceBigNumber = Decimal.parse(entryPrice.toString());
 
     return (position == MatexPosition.long

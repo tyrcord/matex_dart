@@ -27,7 +27,7 @@ void main() {
       test(SHOULD_RETURN_DEFAULT_RESULT, () async {
         expect(calculator.isDirty, isFalse);
         final result = await calculator.value();
-        expect(result, equals(MatexProfitAndLossResult()));
+        expect(result, equals(const MatexProfitAndLossResult()));
       });
 
       test('should return true when a calculator state is dirty', () {
@@ -62,7 +62,8 @@ void main() {
 
     group('#value()', () {
       test(SHOULD_RETURN_DEFAULT_RESULT, () async {
-        expect(await calculator.value(), equals(MatexProfitAndLossResult()));
+        expect(
+            await calculator.value(), equals(const MatexProfitAndLossResult()));
       });
 
       test(SHOULD_MEMOIZE_LAST_VALUE, () async {
@@ -334,7 +335,7 @@ void main() {
             .currencyPairCode('USD', 'CAD')
             .reset()
             .value();
-        expect(value, equals(MatexProfitAndLossResult()));
+        expect(value, equals(const MatexProfitAndLossResult()));
       });
     });
   });

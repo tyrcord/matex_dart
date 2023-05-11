@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_type_check
+
 import 'package:matex_dart/matex_dart.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -20,7 +22,7 @@ void main() {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
         expect(calculator.isDirty, isFalse);
         final result = calculator.value();
-        expect(result, equals(MatexDividendReinvestmentResult()));
+        expect(result, equals(const MatexDividendReinvestmentResult()));
       });
 
       test('should return true when a calculator state is dirty', () {
@@ -53,7 +55,8 @@ void main() {
 
     group('#value()', () {
       test(SHOULD_RETURN_DEFAULT_RESULT, () {
-        expect(calculator.value(), equals(MatexDividendReinvestmentResult()));
+        expect(calculator.value(),
+            equals(const MatexDividendReinvestmentResult()));
       });
 
       test(SHOULD_MEMOIZE_LAST_VALUE, () {
@@ -1539,7 +1542,7 @@ void main() {
             .dividendPaymentFrequency(MatexFrequency.quarterly)
             .reset()
             .value();
-        expect(value, equals(MatexDividendReinvestmentResult()));
+        expect(value, equals(const MatexDividendReinvestmentResult()));
       });
     });
   });

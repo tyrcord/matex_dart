@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_type_check
+
 import 'package:matex_dart/matex_dart.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -189,7 +191,7 @@ void main() {
 
     group('#setState()', () {
       test(SHOULD_UPDATE_CALCULATOR_STATE, () {
-        calculator.setState(MatexBaseCoreState(
+        calculator.setState(const MatexBaseCoreState(
           closePrice: 1,
         ));
 
@@ -198,7 +200,7 @@ void main() {
 
       test(SHOULD_RETURN_REFERENCE_CALCULATOR, () {
         final instance = calculator.setState(
-          MatexBaseCoreState(closePrice: 1),
+          const MatexBaseCoreState(closePrice: 1),
         );
 
         expect(instance == calculator, equals(true));
