@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.11.0](https://github.com/tyrcord/matex_dart/releases/tag/0.11.0) (2023-05-11)
+
+### Features
+
+- Support dart 3 & flutter 3.10.0
+
 ## [0.10.6](https://github.com/tyrcord/matex_dart/releases/tag/0.10.6) (2023-02-04)
 
 ### Enhancements
