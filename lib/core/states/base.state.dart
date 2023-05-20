@@ -2,7 +2,7 @@
 // ignore_for_file: code-metrics
 
 import 'package:matex_dart/matex_dart.dart';
-import 'package:tstore_dart/tstore_dart.dart';
+import 'package:tstore/tstore.dart';
 
 class MatexBaseCoreState extends TDocument {
   final double? customPrice;
